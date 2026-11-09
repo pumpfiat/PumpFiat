@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How Generative AI Is Transforming Consumer Goods and Customer Excellence | Pumpfiat Resources</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --color-primary: #1A1A1A;
+      --color-secondary: #F7F7F7;
+      --color-accent: #00778C;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fffef8; }
+    .hero-card { transition: .3s ease; }
+    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,.08); }
+    .resource-img { height: 480px; background-size: cover; background-position: center; }
+    .sticky-nav { position: sticky; top: 5rem; z-index: 30; }
+    .toc-link.active { color: var(--color-accent); font-weight: 600; }
+    .btn-primary { background: var(--color-accent); color: white; }
+    .btn-primary:hover { background: #00606f; }
+    .logo-bridge { width: 44px; height: 44px; }
+    .table-auto th { background: #f9fafb; }
+    .inline-img { @apply rounded-xl shadow-md border; }
+  </style>
+</head>
+
+<body class="antialiased text-[color:var(--color-primary)]">
+
+<!-- NAVBAR (from index.html) -->
+<header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+      <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
+      <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <a href="index.html#solutions" class="hover:text-[color:var(--color-primary)] transition">Solutions</a>
+      <a href="index.html#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
+      <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
+      <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
+      <a href="resources.html" class="text-[color:var(--color-accent)] font-bold">Resources</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+    </div>
+
+    <button id="mobileMenuBtn" class="md:hidden p-2 text-2xl text-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO IMAGE + TITLE -->
+<section class="pt-16 pb-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="resource-img rounded-2xl mb-10" style="background-image:url('images/placeholders/resourdes4.png')"></div>
+    
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-xs text-gray-500 uppercase font-semibold tracking-widest mb-4">Apr 2, 2025 · Data & AI</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        How Generative AI Is Transforming Consumer Goods and Customer Excellence
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        And Why Data Quality — Not Algorithms — Will Determine the Industry’s Winners
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 text-sm text-gray-600">
+        <span>By <strong>Daniel Dalen</strong></span>
+        <span>•</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT + TOC -->
+<section class="pb-20">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
+    
+    <!-- TOC (Sticky on Desktop) -->
+    <aside class="hidden lg:block sticky-nav">
+      <div class="bg-white p-6 rounded-xl border">
+        <h3 class="font-bold text-lg mb-4">On this page</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#intro" class="toc-link block hover:text-[color:var(--color-accent)] transition">Introduction</a></li>
+          <li><a href="#1" class="toc-link block hover:text-[color:var(--color-accent)] transition">#1 Product Development</a></li>
+          <li><a href="#2" class="toc-link block hover:text-[color:var(--color-accent)] transition">#2 Customer Excellence</a></li>
+          <li><a href="#3" class="toc-link block hover:text-[color:var(--color-accent)] transition">#3 Hyper-Personalization</a></li>
+          <li><a href="#4" class="toc-link block hover:text-[color:var(--color-accent)] transition">#4 Consumer Intelligence</a></li>
+          <li><a href="#5" class="toc-link block hover:text-[color:var(--color-accent)] transition">#5 Communications</a></li>
+          <li><a href="#6" class="toc-link block hover:text-[color:var(--color-accent)] transition">#6 Hybrid Future</a></li>
+          <li><a href="#7" class="toc-link block hover:text-[color:var(--color-accent)] transition">#7 Pumpfiat’s Role</a></li>
+          <li><a href="#8" class="toc-link block hover:text-[color:var(--color-accent)] transition">#8 The Bottom Line</a></li>
+          <li><a href="#related" class="toc-link block hover:text-[color:var(--color-accent)] transition">Related Articles</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="lg:col-span-3 prose prose-lg max-w-none">
+      
+      <div id="intro" class="mb-16">
+        <p class="lead text-xl text-gray-700">
+          Consumer goods is one of the fastest-evolving industries in 2025.
+        </p>
+        <p class="mt-4">
+          <strong>Margins are tighter. Acquisition costs are rising. Customer expectations are exponential.</strong>
+        </p>
+        <p class="mt-4">
+          And in the center of that pressure is <strong>generative AI</strong> — rewriting how brands create products, deliver experiences, automate operations, and build loyalty at scale.
+        </p>
+        <p class="mt-4">
+          But here’s the truth the industry doesn’t like to say out loud:
+        </p>
+        <p class="mt-4 font-bold text-lg">
+          <em>Generative AI doesn’t create excellence by itself —<br>
+          It amplifies the quality of your data, compliance, segmentation, and identity foundation.</em>
+        </p>
+        <p class="mt-6">
+          This is where Pumpfiat operates.<br>
+          <strong>Not in building chatbots — but in building the data layer that makes AI worth anything.</strong>
+        </p>
+        <p class="mt-6 font-semibold">
+          Let’s break down how generative AI is transforming consumer goods when paired with <strong>permission-based, enriched, compliant data ecosystems</strong>.
+        </p>
+      </div>
+
+      <!-- 1. PRODUCT DEVELOPMENT -->
+      <div id="1" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">1</span>
+          Generative AI Is Reshaping Product Development — But Only With High-Fidelity Data
+        </h2>
+        <p>
+          Consumer brands used to rely on:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>slow surveys</li>
+          <li>lagging indicators</li>
+          <li>manual trend reports</li>
+          <li>guesswork, intuition, and best practices</li>
+        </ul>
+        <p class="mt-6">
+          Now generative AI can compress:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>market analysis</li>
+          <li>competitor scanning</li>
+          <li>trend prediction</li>
+          <li>aesthetic exploration</li>
+          <li>consumer sentiment mapping</li>
+        </ul>
+        <p class="mt-6 italic">
+          <strong>into a few seconds.</strong>
+        </p>
+        <p class="mt-6">
+          But the accuracy depends on the <strong>input signals</strong>.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="p-6 bg-red-50 rounded-xl border border-red-200">
+            <h3 class="font-bold text-red-800 mb-2">When brands feed AI:</h3>
+            <ul class="text-sm space-y-1">
+              <li>❌ Unverified demographic data</li>
+              <li>❌ Noisy behavioral signals</li>
+              <li>❌ Scraped datasets with no consent trail</li>
+              <li>❌ Incomplete or inconsistent buyer profiles</li>
+            </ul>
+            <p class="mt-3 text-sm font-semibold text-red-700">Result: generic insights, wrong interpretations, false positives, products for “imaginary customers”</p>
+          </div>
+          <div class="p-6 bg-teal-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-teal-800 mb-2">When brands feed AI Pumpfiat-grade data:</h3>
+            <ul class="text-sm space-y-1">
+              <li>Verified identity</li>
+              <li>Permission-based profiles</li>
+              <li>Enrichment attributes tied to real intent</li>
+              <li>Behavioral clarity</li>
+              <li>Clean demographic + firmographic signals</li>
+            </ul>
+            <p class="mt-3 text-sm font-semibold text-teal-700">AI becomes a product co-designer, not a guessing machine.</p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <img src="images/placeholders/mll,m.png" alt="Generative AI in Product Development – From Guesswork to Precision" class="inline-img w-full max-w-3xl mx-auto">
+          <p class="text-xs text-gray-500 text-center mt-2">AI-powered product ideation grounded in real, permissioned consumer signals</p>
+        </div>
+      </div>
+
+      <!-- 2. CUSTOMER EXCELLENCE -->
+      <div id="2" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">2</span>
+          Generative AI Is Rewriting Customer Excellence
+        </h2>
+        <p>
+          The consumer goods industry is shifting from <strong>transactional experience</strong> to <strong>predictive experience</strong>.
+        </p>
+        <p class="mt-4">
+          Generative AI can now:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>anticipate customer questions before they’re asked</li>
+          <li>auto-personalize support responses</li>
+          <li>predict dissatisfaction early</li>
+          <li>detect churn signals</li>
+          <li>design proactive retention flows</li>
+          <li>create personalized instructions, recommendations, and education</li>
+        </ul>
+        <p class="mt-6 font-semibold">
+          But once again — accuracy depends entirely on your dataset.
+        </p>
+        <p class="mt-4">
+          AI cannot anticipate anything if it doesn’t know <strong>who the customer is, what they care about, or what’s happening in their lifecycle</strong>.
+        </p>
+        <p class="mt-6">
+          This is why consumer goods companies are investing in <strong>permission-first, identity-resolved datasets</strong> more than ever.
+        </p>
+        <p class="mt-4 font-bold">
+          Pumpfiat provides this backbone.
+        </p>
+      </div>
+
+      <!-- 3. HYPER-PERSONALIZATION -->
+      <div id="3" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">3</span>
+          Hyper-Personalization Is No Longer a “Nice to Have” — It’s Expected
+        </h2>
+        <p>
+          Generative AI allows brands to deliver:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>dynamic product bundles</li>
+          <li>individualized upsells</li>
+          <li>personalized care guides</li>
+          <li>behavior-based promotions</li>
+          <li>adaptive post-purchase flows</li>
+          <li>custom content based on lifestyle, region, and demographic</li>
+        </ul>
+        <p class="mt-6">
+          But <strong>personalization is only legal if it’s permissioned</strong>.
+        </p>
+        <p class="mt-4">
+          Today’s regulatory frameworks (GDPR, CCPA, CPRA, DMA, LGPD) treat:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>pseudonymization,</li>
+          <li>identity tracing,</li>
+          <li>and enrichment workflows</li>
+        </ul>
+        <p class="mt-4 italic">
+          as <strong>high-risk activities without proper consent trails</strong>.
+        </p>
+        <p class="mt-6">
+          This is where <strong>Pumpfiat becomes a safety net</strong>.
+        </p>
+        <p class="mt-4">
+          We don’t generate synthetic identities.<br>
+          We don’t scrape.<br>
+          We don’t “infer” demographics behind a user’s back.
+        </p>
+        <p class="mt-6 font-semibold">
+          We build personalization on a foundation of:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>explicit consent,</li>
+          <li>auditable logs,</li>
+          <li>identity verification,</li>
+          <li>transparent enrichment,</li>
+          <li>and compliant usage rights.</li>
+        </ul>
+        <p class="mt-6">
+          This lets brands use generative AI <strong>without risking fines, deliverability penalties, or trust erosion</strong>.
+        </p>
+      </div>
+
+      <!-- 4. CONSUMER INTELLIGENCE -->
+      <div id="4" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">4</span>
+          AI-Powered Consumer Intelligence Is Becoming a Growth Engine
+        </h2>
+        <p>
+          Generative AI can map:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>regional preferences</li>
+          <li>seasonality behavior</li>
+          <li>consumption cycles</li>
+          <li>product affinity</li>
+          <li>retention cohorts</li>
+          <li>micro-trends at the SKU level</li>
+        </ul>
+        <p class="mt-6">
+          But the machine only understands patterns when fed <strong>structured, high-quality signals</strong>.
+        </p>
+        <p class="mt-4">
+          Pumpfiat’s enrichment layer adds attributes that help AI models identify:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>RFM segments</li>
+          <li>price sensitivity</li>
+          <li>product-category match</li>
+          <li>subscription intent</li>
+          <li>buying friction indicators</li>
+          <li>sentiment clusters</li>
+          <li>predictive LTV</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          This gives consumer goods companies a competitive edge:<br>
+          <em>You know what the customer wants before they know they want it.</em>
+        </p>
+      </div>
+
+      <!-- 5. COMMUNICATIONS -->
+      <div id="5" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">5</span>
+          Generative AI Is Transforming Communications, But Deliverability Still Rules
+        </h2>
+        <p>
+          Most brands assume AI-generated emails, SMS, and push notifications will automatically increase conversions.
+        </p>
+        <p class="mt-4">
+          But generative AI can also:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>over-send</li>
+          <li>create repetitive tones</li>
+          <li>trigger spam filters</li>
+          <li>violate compliance frameworks</li>
+          <li>generate risky language</li>
+          <li>degrade sender reputation</li>
+        </ul>
+        <p class="mt-6 font-semibold">
+          This is why <strong>deliverability-first infrastructure is essential</strong>.
+        </p>
+        <p class="mt-4">
+          Pumpfiat prevents AI from accidentally doing harm:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>AI-safe language patterns</li>
+          <li>Spam-trigger detection</li>
+          <li>Message throttling</li>
+          <li>Domain/IP protection</li>
+          <li>Consent-based targeting</li>
+          <li>Verified recipient datasets</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          Generative AI improves communication —<br>
+          <strong>Pumpfiat ensures it lands.</strong>
+        </p>
+      </div>
+
+      <!-- 6. HYBRID FUTURE -->
+      <div id="6" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">6</span>
+          The Hybrid Future: AI + Human Teams Supported by Permission-Based Data
+        </h2>
+        <p>
+          Across the consumer goods landscape, the winning model isn’t AI replacing teams.
+        </p>
+        <p class="mt-4 font-bold">
+          It’s <strong>AI augmenting human capabilities, powered by clean, auditable data</strong>.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border border-teal-100">
+            <h3 class="font-bold text-lg mb-3 text-[color:var(--color-accent)]">AI Handles</h3>
+            <ul class="text-sm space-y-1">
+              <li>drafting</li>
+              <li>analysis</li>
+              <li>dynamic personalization</li>
+              <li>recommendation logic</li>
+              <li>content generation</li>
+              <li>predictive modeling</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-100">
+            <h3 class="font-bold text-lg mb-3 text-orange-700">Humans Handle</h3>
+            <ul class="text-sm space-y-1">
+              <li>strategy</li>
+              <li>creativity at the edges</li>
+              <li>brand tone refinement</li>
+              <li>high-stakes communication</li>
+              <li>compliance decisions</li>
+              <li>final QA</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8">
+          The result is customer excellence that feels:
+        </p>
+        <ul class="mt-2 space-y-1 text-lg">
+          <li>fast,</li>
+          <li>accurate,</li>
+          <li>deeply personalized,</li>
+          <li>and <strong>human-safe</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- 7. PUMPFIAT ROLE -->
+      <div id="7" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">7</span>
+          Where Pumpfiat Fits Into This Transformation
+        </h2>
+        <p>
+          <strong>Pumpfiat isn’t an AI tool.</strong><br>
+          It is the <strong>data engine</strong> that makes AI useful, accurate, compliant, and safe.
+        </p>
+        <p class="mt-6">
+          Pumpfiat provides consumer goods brands with:
+        </p>
+        <ul class="mt-4 space-y-3">
+          <li><strong>Permission-based prospect data</strong></li>
+          <li><strong>Multi-layer enrichment</strong></li>
+          <li><strong>Identity resolution</strong></li>
+          <li><strong>Segmentation engineered for AI</strong></li>
+          <li><strong>Compliance frameworks (SOC, ISO, GDPR-ready)</strong></li>
+          <li><strong>Deliverability-optimized communication workflows</strong></li>
+          <li><strong>Predictive data signals for hyper-personalization</strong></li>
+          <li><strong>Secure, audit-ready consent logs</strong></li>
+        </ul>
+        <p class="mt-6 font-bold">
+          We don’t sell “leads.”<br>
+          We build the <strong>data infrastructure</strong> that powers the next generation of AI-driven consumer experiences.
+        </p>
+      </div>
+
+      <!-- 8. BOTTOM LINE -->
+      <div id="8" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">8</span>
+          The Bottom Line: AI Will Not Replace Brands — But It Will Replace Brands Without Data Discipline
+        </h2>
+        <p>
+          Consumer goods leaders are waking up to a simple truth:
+        </p>
+        <p class="mt-6 font-bold text-xl">
+          <em>AI is not the competitive advantage.<br>
+          The competitive advantage is the <strong>quality of the data feeding the AI</strong>.</em>
+        </p>
+        <p class="mt-6">
+          Brands that combine:
+        </p>
+        <ul class="mt-4 space-y-2 text-lg">
+          <li>permissioned identity</li>
+          <li>structured enrichment</li>
+          <li>predictive segmentation</li>
+          <li>deliverability excellence</li>
+          <li>and compliant communication</li>
+        </ul>
+        <p class="mt-6 font-bold text-2xl">
+          …will dominate the next era of consumer goods.
+        </p>
+        <p class="mt-6">
+          And <strong>Pumpfiat exists to make that transformation possible</strong>.
+        </p>
+      </div>
+
+      <!-- RELATED ARTICLES -->
+      <div id="related" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-6">Keep Learning</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="resources003.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Data & AI</div>
+            <h3 class="font-bold text-lg">Optimizing E-Commerce Support with AI-Human Expertise</h3>
+            <p class="text-sm mt-2 text-white/80">Scale personalization and revenue without losing trust.</p>
+          </a>
+          <a href="resource001.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Compliance</div>
+            <h3 class="font-bold text-lg">The 5 Non-Negotiables for Audit-Ready B2B Prospecting</h3>
+            <p class="text-sm mt-2 text-white/80">Stay compliant while scaling outbound.</p>
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur p-5 rounded-xl hover:bg-white/30 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Trust Center</div>
+            <h3 class="font-bold text-lg">Pumpfiat Compliance Center</h3>
+            <p class="text-sm mt-2 text-white/80">Full transparency on data, security, and ethics.</p>
+          </a>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="onboarding.html" class="btn-primary px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition inline-block">
+            Build Your AI-Ready Data Layer
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="py-16 bg-white border-t">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-extrabold mb-4">Win with AI. Win with Data.</h3>
+    <p class="text-lg text-gray-600 mb-8">
+      Get weekly insights on generative AI, data quality, and consumer goods growth — straight to your inbox.
+    </p>
+    <form action="https://formsubmit.co/your-email@pumpfiat.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="email" name="email" placeholder="Work email" required class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-[color:var(--color-accent)] outline-none">
+      <button type="submit" class="bg-[color:var(--color-accent)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00606f] transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+          <div>
+            <div class="text-xl font-extrabold">PUMPFIAT</div>
+            <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Quick Links</h4>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li><a href="index.html" class="hover:text-white">Homepage</a></li>
+          <li><a href="index.html#results" class="hover:text-white">Client Results</a></li>
+          <li><a href="index.html#faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="resources.html" class="hover:text-white">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Request a Free Audit</h4>
+        <form action="https://formsubmit.co/pumpfiat@gmail.com" method="POST" class="space-y-3">
+          <input type="hidden" name="_subject" value="Pumpfiat Audit Request" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <input type="email" name="email" placeholder="Work email" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <button type="submit" class="w-full bg-[#00778C] px-4 py-3 rounded font-semibold hover:bg-[#00606f] transition">Request Audit</button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-12 w-full flex justify-center">
+      <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+        <img src="assets/certs/iso27001.svg" alt="ISO 27001" class="h-16 w-auto">
+        <img src="assets/certs/mbe cert.svg" alt="MBE Certified" class="h-16 w-auto">
+        <img src="assets/certs/HIPAA_1@0.5x.png" alt="HIPAA" class="h-16 w-auto">
+        <img src="assets/certs/SOC_1@0.5x.png" alt="SOC 2" class="h-16 w-auto">
+      </div>
+    </div>
+    <div class="mt-10 text-sm text-gray-500 text-center">
+      &copy; 2026 Pumpfiat — All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">X</button>
+    <nav class="space-y-5">
+      <a href="index.html#solutions" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Solutions</a>
+      <a href="index.html#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
+      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+      <a href="resources.html" class="block text-lg font-semibold text-[color:var(--color-accent)]">Resources</a>
+    </nav>
+    <div class="mt-10">
+      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
+        Lock In 45% Off
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+  menu?.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
+
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = [...tocLinks].map(link => document.querySelector(link.getAttribute('href')));
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

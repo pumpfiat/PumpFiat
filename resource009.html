@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Data Sourcing: How Modern Brands Build Permission-First Prospect Pipelines | Pumpfiat Resources</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --color-primary: #1A1A1A;
+      --color-secondary: #F7F7F7;
+      --color-accent: #00778C;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fffef8; }
+    .hero-card { transition: .3s ease; }
+    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,.08); }
+    .resource-img { height: 480px; background-size: cover; background-position: center; }
+    .sticky-nav { position: sticky; top: 5rem; z-index: 30; }
+    .toc-link.active { color: var(--color-accent); font-weight: 600; }
+    .btn-primary { background: var(--color-accent); color: white; }
+    .btn-primary:hover { background: #00606f; }
+    .logo-bridge { width: 44px; height: 44px; }
+    .table-auto th { background: #f9fafb; }
+    .inline-img { @apply rounded-xl shadow-md border; }
+    .checklist li::before { content: "Check"; color: #10b981; font-weight: 600; margin-right: 0.5rem; }
+    .cross li::before { content: "Cross"; color: #ef4444; font-weight: 600; margin-right: 0.5rem; }
+  </style>
+</head>
+
+<body class="antialiased text-[color:var(--color-primary)]">
+
+<!-- NAVBAR (from index.html) -->
+<header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+      <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
+      <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <a href="index.html#solutions" class="hover:text-[color:var(--color-primary)] transition">Solutions</a>
+      <a href="index.html#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
+      <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
+      <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
+      <a href="resources.html" class="text-[color:var(--color-accent)] font-bold">Resources</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+    </div>
+
+    <button id="mobileMenuBtn" class="md:hidden p-2 text-2xl text-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO IMAGE + TITLE -->
+<section class="pt-16 pb-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="resource-img rounded-2xl mb-10" style="background-image:url('images/placeholders/thumbnail_9.jpg')"></div>
+    
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-xs text-gray-500 uppercase font-semibold tracking-widest mb-4">Aug 5, 2025 · Sourcing</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        Smart Data Sourcing: How Modern Brands Build Permission-First Prospect Pipelines
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        The most successful brands today don’t win by sending more outbound messages—they win by building smarter, cleaner, <strong>permission-first prospect pipelines</strong> that compound in value over time.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 text-sm text-gray-600">
+        <span>By <strong>Marion Azoulai</strong></span>
+        <span>•</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT + TOC -->
+<section class="pb-20">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
+    
+    <!-- TOC (Sticky on Desktop) -->
+    <aside class="hidden lg:block sticky-nav">
+      <div class="bg-white p-6 rounded-xl border">
+        <h3 class="font-bold text-lg mb-4">On this page</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#intro" class="toc-link block hover:text-[color:var(--color-accent)] transition">Introduction</a></li>
+          <li><a href="#1" class="toc-link block hover:text-[color:var(--color-accent)] transition">#1 Permission-First Advantage</a></li>
+          <li><a href="#2" class="toc-link block hover:text-[color:var(--color-accent)] transition">#2 The New Rules</a></li>
+          <li><a href="#3" class="toc-link block hover:text-[color:var(--color-accent)] transition">#3 Pumpfiat Framework</a></li>
+          <li><a href="#4" class="toc-link block hover:text-[color:var(--color-accent)] transition">#4 How Brands Win</a></li>
+          <li><a href="#5" class="toc-link block hover:text-[color:var(--color-accent)] transition">#5 Legacy vs. Smart</a></li>
+          <li><a href="#6" class="toc-link block hover:text-[color:var(--color-accent)] transition">#6 The Future</a></li>
+          <li><a href="#conclusion" class="toc-link block hover:text-[color:var(--color-accent)] transition">Final Thoughts</a></li>
+          <li><a href="#related" class="toc-link block hover:text-[color:var(--color-accent)] transition">Related Articles</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="lg:col-span-3 prose prose-lg max-w-none">
+      
+      <div id="intro" class="mb-16">
+        <p class="lead text-xl text-gray-700">
+          The most successful brands today don’t win by sending more outbound messages—they win by building <strong>smarter, cleaner, permission-first prospect pipelines</strong> that compound in value over time.
+        </p>
+        <p class="mt-4">
+          In the era of escalating privacy regulation, advanced spam filters, and increasingly data-aware buyers, organizations can no longer rely on <strong>purchased lists, scraped email databases, or “bulk enrichment hacks.”</strong>
+        </p>
+        <p class="mt-4">
+          These methods don’t just risk penalties—they <strong>destroy sender reputation and undermine long-term growth</strong>.
+        </p>
+        <p class="mt-6">
+          Modern growth teams, GTM operators, and ecommerce brands are instead investing in <strong>high-integrity data sourcing frameworks</strong> designed around <strong>explicit consent, transparent provenance, and verifiable compliance</strong>.
+        </p>
+        <p class="mt-6 font-semibold">
+          At Pumpfiat, <strong>permission-first sourcing is the foundation of our entire ecosystem</strong>.
+        </p>
+        <p class="mt-4">
+          This article breaks down how top-performing companies are building pipelines that are not only <strong>ethical and compliant</strong>—but <strong>dramatically more effective</strong>.
+        </p>
+      </div>
+
+      <!-- 1. PERMISSION-FIRST ADVANTAGE -->
+      <div id="1" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">1</span>
+          Why Permission-First Data Is Now a Competitive Advantage
+        </h2>
+        <p>
+          The outbound market has tilted. What used to be a numbers game is now dominated by:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>Deliverability filters trained on sender behavior</li>
+          <li>Regulators enforcing opt-in standards with real consequences</li>
+          <li>Buyers who expect control over their own data</li>
+        </ul>
+        <p class="mt-6">
+          Brands that don’t adapt end up with:
+        </p>
+        <ul class="cross mt-2 space-y-1">
+          <li>declining open rates</li>
+          <li>rising spam folder placement</li>
+          <li>unexplained domain blocks</li>
+          <li>poor ROI from outbound efforts</li>
+          <li>elevated legal exposure</li>
+        </ul>
+        <p class="mt-6">
+          Meanwhile, <strong>permission-first brands consistently outperform</strong> because:
+        </p>
+        <ul class="checklist mt-2 space-y-1">
+          <li>Their emails reach the inbox</li>
+          <li>Their contacts already expect business communication</li>
+          <li>Their compliance logs reduce risk</li>
+          <li>Their data quality amplifies accuracy and conversion</li>
+          <li>Their lists improve—not degrade—over time</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          The difference is profound.<br>
+          <em>Permission-first pipelines are the new growth engine.</em>
+        </p>
+      </div>
+
+      <!-- 2. NEW RULES -->
+      <div id="2" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">2</span>
+          The New Rules of Smart Data Sourcing
+        </h2>
+        <p>
+          Modern prospect sourcing must follow <strong>three principles</strong>:
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <div class="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-lg mb-3 text-teal-800">Rule #1 — Data must be intentionally collected, not extracted.</h3>
+            <p class="text-sm">Outbound data must be the result of intentional user action:</p>
+            <ul class="text-xs mt-2 space-y-1">
+              <li>Form submissions</li>
+              <li>Newsletter opt-ins</li>
+              <li>Account creation</li>
+              <li>Event registrations</li>
+              <li>Surveys</li>
+              <li>First-party content interactions</li>
+            </ul>
+            <p class="mt-3 text-xs italic">Anything passive or scraped is no longer acceptable.</p>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-200">
+            <h3 class="font-bold text-lg mb-3 text-orange-700">Rule #2 — Consent must be explicit, traceable, and purpose-bound.</h3>
+            <p class="text-sm">Every contact should include:</p>
+            <ul class="text-xs mt-2 space-y-1">
+              <li>The source of consent</li>
+              <li>The exact wording the user agreed to</li>
+              <li>The timestamp of the opt-in</li>
+              <li>The data partner or platform involved</li>
+              <li>The intended usage</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200">
+            <h3 class="font-bold text-lg mb-3 text-purple-800">Rule #3 — Data quality must improve with scale, not deteriorate.</h3>
+            <p class="text-sm">A permission-first system improves because:</p>
+            <ul class="text-xs mt-2 space-y-1">
+              <li>Consent logs accumulate</li>
+              <li>Verification pipelines get smarter</li>
+              <li>Deliverability scores become predictive</li>
+              <li>Revocation data prevents compliance issues</li>
+              <li>Validation models prune risky emails</li>
+            </ul>
+            <p class="mt-3 text-xs italic">Smart sourcing is self-correcting, not a one-time event.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PUMPFIAT FRAMEWORK -->
+      <div id="3" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">3</span>
+          The Pumpfiat Data Sourcing Framework
+        </h2>
+        <p>
+          Pumpfiat’s permission-first ecosystem is built on a <strong>5-layer infrastructure</strong> that ensures every prospect is <strong>ethical, actionable, and verifiable</strong>.
+        </p>
+
+        <div class="mt-8 space-y-6">
+          <div class="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-xl mb-3 text-teal-800">Layer 1 — First-Party & Permission-Based Partnerships</h3>
+            <p class="text-sm">Pumpfiat aggregates data only through partners who provide explicit opt-in, full consent logs, and transparent sourcing agreements.</p>
+            <p class="mt-3 text-xs">Our partners include:</p>
+            <ul class="text-xs mt-1 space-y-1">
+              <li>Industry-specific publishers</li>
+              <li>Professional registries</li>
+              <li>B2B commerce platforms</li>
+              <li>Business communities</li>
+              <li>Event organizers</li>
+              <li>Learning platforms</li>
+            </ul>
+            <p class="mt-3 text-xs font-semibold text-teal-700">Each partner undergoes a compliance audit before joining.</p>
+          </div>
+
+          <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+            <h3 class="font-bold text-xl mb-3 text-blue-800">Layer 2 — Consent Documentation and Audit Trails</h3>
+            <p class="text-sm">Every contact entering the Pipeline includes:</p>
+            <ul class="text-xs mt-1 space-y-1">
+              <li>Consent timestamp</li>
+              <li>Original opt-in text</li>
+              <li>Source URL or platform</li>
+              <li>Verification events</li>
+              <li>Deliverability checks</li>
+              <li>Data lineage</li>
+            </ul>
+            <p class="mt-3 text-xs font-semibold text-blue-700">This allows clients to run campaigns with the confidence that every contact is audit-ready.</p>
+          </div>
+
+          <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200">
+            <h3 class="font-bold text-xl mb-3 text-purple-800">Layer 3 — Multi-Step Verification & Validation</h3>
+            <p class="text-sm">Pumpfiat employs a multi-layer verification process:</p>
+            <ul class="checklist text-xs mt-1 space-y-1">
+              <li>Syntax validation</li>
+              <li>SMTP verification</li>
+              <li>Activity and deliverability scoring</li>
+              <li>Domain health evaluation</li>
+              <li>Partner record matching</li>
+            </ul>
+            <p class="mt-3 text-xs font-semibold text-purple-700">The result: A dataset that performs up to 4× better than typical outbound lists.</p>
+          </div>
+
+          <div class="p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-200">
+            <h3 class="font-bold text-xl mb-3 text-orange-700">Layer 4 — Segmenting for Relevance, Not Volume</h3>
+            <p class="text-sm">Smart data sourcing isn’t about having more prospects—it’s about having precise, intent-aligned prospects.</p>
+            <p class="mt-3 text-xs">Pumpfiat segments data based on:</p>
+            <ul class="text-xs mt-1 space-y-1">
+              <li>Industry</li>
+              <li>Geography</li>
+              <li>Buying role</li>
+              <li>Revenue tier</li>
+              <li>Company lifecycle</li>
+              <li>Tech adoption level</li>
+              <li>Prior expressed interest</li>
+            </ul>
+            <p class="mt-3 text-xs italic">Relevance drives performance. Irrelevance destroys deliverability.</p>
+          </div>
+
+          <div class="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
+            <h3 class="font-bold text-xl mb-3 text-green-800">Layer 5 — Continuous Monitoring and Compliance Governance</h3>
+            <p class="text-sm">Pumpfiat continuously monitors:</p>
+            <ul class="text-xs mt-1 space-y-1">
+              <li>Bounce patterns</li>
+              <li>Spam feedback loops</li>
+              <li>Consent revocations</li>
+              <li>Regulatory updates</li>
+              <li>Domain trust metrics</li>
+              <li>Verification refresh cycles</li>
+            </ul>
+            <p class="mt-3 text-xs font-semibold text-green-700">This turns data sourcing into a living process, not a static database.</p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- 4. HOW BRANDS WIN -->
+      <div id="4" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">4</span>
+          How Modern Brands Use Permission-First Pipelines to Grow Faster
+        </h2>
+        <p>
+          Brands that adopt permission-first sourcing experience:
+        </p>
+        <ul class="checklist mt-4 space-y-3 text-lg">
+          <li><strong>Better Deliverability</strong><br>Inbox placement becomes predictable, not luck.</li>
+          <li><strong>Higher Conversion Rates</strong><br>Prospects expect and accept communication.</li>
+          <li><strong>Lower CAC</strong><br>Cleaner data = fewer wasted touches.</li>
+          <li><strong>Reduced Legal Risk</strong><br>Audit logs protect the organization.</li>
+          <li><strong>More Sustainable Outbound</strong><br>No domain burn, no blacklists, no guesswork.</li>
+        </ul>
+      </div>
+
+      <!-- 5. LEGACY VS SMART -->
+      <div id="5" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">5</span>
+          What Legacy Data Sourcing Gets Wrong
+        </h2>
+        <p>
+          Many companies still rely on:
+        </p>
+        <ul class="cross mt-4 space-y-1">
+          <li>Scraping tools</li>
+          <li>Purchased lists</li>
+          <li>Enrichment without consent</li>
+          <li>“Apollo exports”</li>
+          <li>Guessing emails</li>
+          <li>Bulk third-party datasets</li>
+        </ul>
+        <p class="mt-6">
+          These methods <strong>guarantee</strong>:
+        </p>
+        <ul class="cross mt-2 space-y-1">
+          <li>declining deliverability</li>
+          <li>brand erosion</li>
+          <li>spam placement</li>
+          <li>compliance violations</li>
+          <li>wasted outbound effort</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          Modern brands simply cannot afford these risks.
+        </p>
+      </div>
+
+      <!-- 6. THE FUTURE -->
+      <div id="6" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">6</span>
+          The Future of Sourcing Is Permission-Driven Intelligence
+        </h2>
+        <p>
+          Regulators, platforms, and buyers are aligning around a single vision:
+        </p>
+        <p class="mt-4 italic text-lg">
+          <em>Only permissioned data should be used for outbound communication.</em>
+        </p>
+        <p class="mt-6">
+          We are approaching a world where:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>ESPs require consent logs before warming new domains</li>
+          <li>B2B platforms enforce purpose limitation</li>
+          <li>AI filters detect consent-risk patterns</li>
+          <li>Data vendors without compliance frameworks disappear</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          This shift will reshape outbound entirely.<br>
+          And brands with <strong>permission-first pipelines</strong> will be the ones that rise to the top.
+        </p>
+      </div>
+
+      <!-- FINAL THOUGHTS -->
+      <div id="conclusion" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-4">Final Thoughts</h2>
+        <p class="text-lg mb-6">
+          Smart data sourcing is no longer a “nice-to-have”—it is the <strong>foundation of scalable, compliant, high-performing outbound systems</strong>.
+        </p>
+        <p class="mb-6">
+          The organizations winning today are those who:
+        </p>
+        <ul class="checklist mb-6 space-y-1 text-lg">
+          <li>Respect user privacy</li>
+          <li>Prioritize transparency</li>
+          <li>Maintain audit-ready logs</li>
+          <li>Validate every contact</li>
+          <li>Monitor deliverability continuously</li>
+          <li>Build long-term trust with their audiences</li>
+        </ul>
+        <p class="mb-6">
+          At Pumpfiat, we help brands build and operate this infrastructure—so they can <strong>scale ethically, predictably, and confidently</strong>.
+        </p>
+        <p class="mb-6 font-bold text-xl">
+          Outbound is changing.<br>
+          The companies who adapt early will <strong>own the future</strong>.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="onboarding.html" class="btn-primary px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition">
+            Build Your Permission-First Pipeline
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition">
+            View Sourcing Compliance Standards →
+          </a>
+        </div>
+      </div>
+
+      <!-- RELATED ARTICLES -->
+      <div id="related" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-6">Keep Learning</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="resource008.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Compliance</div>
+            <h3 class="font-bold text-lg">The Compliance Blueprint for Ethical Outreach</h3>
+            <p class="text-sm mt-2 text-white/80">Consent, logging, and verification at scale.</p>
+          </a>
+          <a href="resource006.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Deliverability</div>
+            <h3 class="font-bold text-lg">Maximizing Deliverability: Technical Setup</h3>
+            <p class="text-sm mt-2 text-white/80">Authentication, warm-up, and reputation engineering.</p>
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur p-5 rounded-xl hover:bg-white/30 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Trust Center</div>
+            <h3 class="font-bold text-lg">Pumpfiat Compliance Center</h3>
+            <p class="text-sm mt-2 text-white/80">Full transparency on data, security, and ethics.</p>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="py-16 bg-white border-t">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-extrabold mb-4">Build Pipelines That Compound</h3>
+    <p class="text-lg text-gray-600 mb-8">
+      Get weekly insights on smart sourcing, compliance, and outbound growth — straight to your inbox.
+    </p>
+    <form action="https://formsubmit.co/your-email@pumpfiat.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="email" name="email" placeholder="Work email" required class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-[color:var(--color-accent)] outline-none">
+      <button type="submit" class="bg-[color:var(--color-accent)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00606f] transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+          <div>
+            <div class="text-xl font-extrabold">PUMPFIAT</div>
+            <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Quick Links</h4>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li><a href="index.html" class="hover:text-white">Homepage</a></li>
+          <li><a href="index.html#results" class="hover:text-white">Client Results</a></li>
+          <li><a href="index.html#faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="resources.html" class="hover:text-white">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Request a Free Audit</h4>
+        <form action="https://formsubmit.co/pumpfiat@gmail.com" method="POST" class="space-y-3">
+          <input type="hidden" name="_subject" value="Pumpfiat Audit Request" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <input type="email" name="email" placeholder="Work email" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <button type="submit" class="w-full bg-[#00778C] px-4 py-3 rounded font-semibold hover:bg-[#00606f] transition">Request Audit</button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-12 w-full flex justify-center">
+      <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+        <img src="assets/certs/iso27001.svg" alt="ISO 27001" class="h-16 w-auto">
+        <img src="assets/certs/mbe cert.svg" alt="MBE Certified" class="h-16 w-auto">
+        <img src="assets/certs/HIPAA_1@0.5x.png" alt="HIPAA" class="h-16 w-auto">
+        <img src="assets/certs/SOC_1@0.5x.png" alt="SOC 2" class="h-16 w-auto">
+      </div>
+    </div>
+    <div class="mt-10 text-sm text-gray-500 text-center">
+      &copy; 2026 Pumpfiat — All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">X</button>
+    <nav class="space-y-5">
+      <a href="index.html#solutions" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Solutions</a>
+      <a href="index.html#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
+      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+      <a href="resources.html" class="block text-lg font-semibold text-[color:var(--color-accent)]">Resources</a>
+    </nav>
+    <div class="mt-10">
+      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
+        Lock In 45% Off
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+  menu?.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
+
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = [...tocLinks].map(link => document.querySelector(link.getAttribute('href')));
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

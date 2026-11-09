@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pumpfiat — Data Compliance & Security</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary:#1A1A1A;
+      --color-accent:#00778C;
+      --color-secondary:#F7F7F7;
+    }
+    body { font-family:Inter, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-[color:var(--color-secondary)] text-[color:var(--color-primary)]">
+
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.png" class="h-10">
+        <span class="font-extrabold text-xl">PUMPFIAT</span>
+      </a>
+      <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold text-white bg-[color:var(--color-accent)]">
+        Lock In 45% Off
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-16">
+
+    <h1 class="text-4xl font-extrabold mb-6">Data Compliance & Security</h1>
+
+    <p class="text-lg text-gray-700 max-w-3xl mb-10">
+      Pumpfiat provides only first-party, permission-based data. Every prospect in our dataset has
+      explicitly opted-in via one of our verified partner networks. This page summarizes our sourcing,
+      consent standards, and security controls.
+    </p>
+
+    <section class="space-y-10">
+
+      <!-- SOURCING -->
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h2 class="text-2xl font-bold mb-4">1. First-Party Data Sourcing</h2>
+        <p class="text-gray-700">
+          All records originate from fully permissioned first-party partners, including:
+        </p>
+        <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-1">
+          <li><strong>Premium B2B publishers</strong> with explicit third-party consent options</li>
+          <li><strong>Industry exchanges & membership networks</strong> with authenticated user accounts</li>
+          <li><strong>Opt-in comparison platforms</strong> across finance, software, HR and more</li>
+          <li><strong>Verified product review ecosystems</strong> where users select “Yes — I agree to be contacted”</li>
+        </ul>
+        <p class="mt-4 text-gray-700">
+          No scraped, harvested, or inferred email data is ever used. All partners undergo a
+          quarterly compliance review.
+        </p>
+      </div>
+
+      <!-- CONSENT -->
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h2 class="text-2xl font-bold mb-4">2. Consent & Legal Framework</h2>
+        <p class="text-gray-700">Each record includes:</p>
+        <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-1">
+          <li>Timestamp of opt-in</li>
+          <li>Consent method (checkbox, policy acceptance, or authenticated portal)</li>
+          <li>Allowed contact categories</li>
+          <li>Partner source + compliance reference ID</li>
+        </ul>
+        <p class="mt-4 text-gray-700">
+          Our data complies with GDPR, CCPA, and CAN-SPAM requirements. Consent metadata is available
+          in audit exports.
+        </p>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h2 class="text-2xl font-bold mb-4">3. Security & Certifications</h2>
+        <div class="flex items-center gap-4 mb-4">
+          <img src="assets/security/soc2.png" class="h-12">
+          <div class="text-sm text-gray-600">
+            <strong>SOC 2 Type II Certification</strong><br>
+            Certification target completed — Q3 2025.
+          </div>
+        </div>
+
+        <p class="text-gray-700">
+          Our systems follow SOC-aligned best practices including access controls, encryption at rest
+          and in transit, intrusion monitoring, and data retention minimization.
+        </p>
+      </div>
+
+      <!-- TRANSPARENCY -->
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h2 class="text-2xl font-bold mb-4">4. Transparency & Auditability</h2>
+        <p class="text-gray-700">
+          Every customer receives a full audit export containing:
+        </p>
+        <ul class="list-disc ml-6 mt-3 text-gray-700 space-y-1">
+          <li>Consent metadata</li>
+          <li>Partner source information</li>
+          <li>Segmentation logic used</li>
+          <li>Deliverability readiness diagnostics</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <div class="mt-12 text-center">
+      <a href="onboarding.html" class="btn-primary bg-[color:var(--color-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg shadow">
+        Begin Onboarding
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    © 2026 Pumpfiat — All Rights Reserved.
+  </footer>
+
+</body>
+</html>

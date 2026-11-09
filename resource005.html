@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beyond GDPR: A Global Playbook for Outsourcing Compliance | Pumpfiat Resources</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --color-primary: #1A1A1A;
+      --color-secondary: #F7F7F7;
+      --color-accent: #00778C;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fffef8; }
+    .hero-card { transition: .3s ease; }
+    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,.08); }
+    .resource-img { height: 480px; background-size: cover; background-position: center; }
+    .sticky-nav { position: sticky; top: 5rem; z-index: 30; }
+    .toc-link.active { color: var(--color-accent); font-weight: 600; }
+    .btn-primary { background: var(--color-accent); color: white; }
+    .btn-primary:hover { background: #00606f; }
+    .logo-bridge { width: 44px; height: 44px; }
+    .table-auto th { background: #f9fafb; }
+    .inline-img { @apply rounded-xl shadow-md border; }
+    .checklist li::before { content: "Check"; color: #10b981; font-weight: 600; margin-right: 0.5rem; }
+  </style>
+</head>
+
+<body class="antialiased text-[color:var(--color-primary)]">
+
+<!-- NAVBAR (from index.html) -->
+<header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+      <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
+      <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <a href="index.html#solutions" class="hover:text-[color:var(--color-primary)] transition">Solutions</a>
+      <a href="index.html#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
+      <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
+      <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
+      <a href="resources.html" class="text-[color:var(--color-accent)] font-bold">Resources</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+    </div>
+
+    <button id="mobileMenuBtn" class="md:hidden p-2 text-2xl text-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO IMAGE + TITLE -->
+<section class="pt-16 pb-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="resource-img rounded-2xl mb-10" style="background-image:url('images/placeholders/resources5.jpg')"></div>
+    
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-xs text-gray-500 uppercase font-semibold tracking-widest mb-4">May 8, 2025 · Compliance</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        Beyond GDPR: A Global Playbook for Outsourcing Compliance
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        How high-growth teams can scale responsibly in a world where every jurisdiction plays by different rules.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 text-sm text-gray-600">
+        <span>By <strong>Niel Harper</strong></span>
+        <span>•</span>
+        <span>7 min read</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT + TOC -->
+<section class="pb-20">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
+    
+    <!-- TOC (Sticky on Desktop) -->
+    <aside class="hidden lg:block sticky-nav">
+      <div class="bg-white p-6 rounded-xl border">
+        <h3 class="font-bold text-lg mb-4">On this page</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#intro" class="toc-link block hover:text-[color:var(--color-accent)] transition">Introduction</a></li>
+          <li><a href="#1" class="toc-link block hover:text-[color:var(--color-accent)] transition">#1 GDPR Is Just the Start</a></li>
+          <li><a href="#2" class="toc-link block hover:text-[color:var(--color-accent)] transition">#2 Outsourcing Risks</a></li>
+          <li><a href="#3" class="toc-link block hover:text-[color:var(--color-accent)] transition">#3 Global Playbook</a></li>
+          <li><a href="#4" class="toc-link block hover:text-[color:var(--color-accent)] transition">#4 Global by Default</a></li>
+          <li><a href="#5" class="toc-link block hover:text-[color:var(--color-accent)] transition">#5 The Bottom Line</a></li>
+          <li><a href="#related" class="toc-link block hover:text-[color:var(--color-accent)] transition">Related Articles</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="lg:col-span-3 prose prose-lg max-w-none">
+      
+      <div id="intro" class="mb-16">
+        <p class="lead text-xl text-gray-700">
+          When most companies think “data compliance,” they think <strong>GDPR</strong>.
+        </p>
+        <p class="mt-4">
+          It’s the landmark regulation that redefined digital privacy and shaped how modern organizations collect, process, and store customer data.
+        </p>
+        <p class="mt-4 font-bold">
+          But here’s the shift many teams still haven’t internalized:
+        </p>
+        <p class="mt-4 italic text-lg">
+          <em>GDPR is no longer the standard — it’s just the starting point.</em>
+        </p>
+        <p class="mt-6">
+          Compliance today is <strong>global, multi-layered, sector-specific, and increasingly enforced</strong>.
+        </p>
+        <p class="mt-4">
+          For companies outsourcing data operations, enrichment, support, or outreach, this complexity is amplified.<br>
+          <strong>One misalignment between your vendor’s practices and your regional obligations can trigger fines, deliverability issues, legal exposure, and loss of customer trust.</strong>
+        </p>
+        <p class="mt-6 font-semibold">
+          This article breaks down the new global compliance landscape, explains the risks for outsourced teams, and provides a <strong>playbook for evaluating vendors in 2025 and beyond</strong> — aligned with how <strong>Pumpfiat operates as a permission-first, audit-grade data provider</strong>.
+        </p>
+      </div>
+
+      <!-- 1. GDPR IS JUST THE START -->
+      <div id="1" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">1</span>
+          GDPR Was Phase One — Now the World Has Its Own Rules
+        </h2>
+        <p>
+          GDPR created global ripple effects, but it’s only one piece of the regulatory puzzle.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-8">
+          <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+            <h3 class="font-bold text-lg mb-3 text-blue-800">North America</h3>
+            <ul class="space-y-1 text-sm">
+              <li>CCPA / CPRA (California)</li>
+              <li>Colorado Privacy Act</li>
+              <li>Virginia Consumer Data Protection Act</li>
+              <li>FTC Section 5 rules</li>
+              <li><strong>Email deliverability enforcement by Google & Yahoo (2024 update)</strong></li>
+            </ul>
+            <p class="mt-3 text-xs italic">Most brands are more at risk of violating CPRA or deliverability standards than GDPR.</p>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200">
+            <h3 class="font-bold text-lg mb-3 text-purple-800">Europe (Beyond GDPR)</h3>
+            <ul class="space-y-1 text-sm">
+              <li>Digital Markets Act (DMA)</li>
+              <li>Digital Services Act (DSA)</li>
+              <li>ePrivacy Directive updates</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
+            <h3 class="font-bold text-lg mb-3 text-green-800">Latin America</h3>
+            <ul class="space-y-1 text-sm">
+              <li>LGPD (Brazil)</li>
+              <li>Habeas Data (Colombia)</li>
+              <li>Ley de Protección de Datos Personales (Argentina)</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl border border-orange-200">
+            <h3 class="font-bold text-lg mb-3 text-orange-800">Asia-Pacific & Beyond</h3>
+            <ul class="space-y-1 text-sm">
+              <li>PDPA (Singapore)</li>
+              <li>PIPA (South Korea)</li>
+              <li>Privacy Act (Australia)</li>
+              <li><strong>China PIPL — extremely strict data-export controls</strong></li>
+              <li>POPIA (South Africa)</li>
+              <li>Nigeria NDPR</li>
+              <li>Saudi Data Protection Law (PDPL)</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8 font-bold">
+          In short:<br>
+          <em>Global compliance is no longer harmonized. It is <strong>fragmented</strong> — and vendors must operate with <strong>geographic intelligence</strong>.</em>
+        </p>
+      </div>
+
+      <!-- 2. OUTSOURCING RISKS -->
+      <div id="2" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">2</span>
+          Why Outsourcing Makes Compliance Risk Multiply
+        </h2>
+        <p>
+          Outsourcing creates operational leverage — but it also creates <strong>blind spots</strong>.
+        </p>
+        <p class="mt-4">
+          Without a strong compliance framework, outsourcing becomes a liability in <strong>five ways</strong>:
+        </p>
+
+        <div class="mt-8 space-y-6">
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 font-bold text-xl">1</div>
+            <div>
+              <h3 class="font-bold text-lg">Data Origin Becomes Untraceable</h3>
+              <p class="mt-1">If your vendor cannot prove where data came from, how consent was obtained, and what rights were granted — <strong>you are exposed</strong>.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 font-bold text-xl">2</div>
+            <div>
+              <h3 class="font-bold text-lg">Consent Standards Differ by Region</h3>
+              <p class="mt-1">A “valid” opt-in in Europe may be invalid in the US or APAC.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 font-bold text-xl">3</div>
+            <div>
+              <h3 class="font-bold text-lg">Data Transfers Cross Jurisdictions</h3>
+              <p class="mt-1">Your vendor may be processing EU data on US infrastructure — <strong>without model clauses</strong>.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 font-bold text-xl">4</div>
+            <div>
+              <h3 class="font-bold text-lg">Deliverability Regulations Count as Compliance</h3>
+              <p class="mt-1">Google and Yahoo now enforce authentication, complaint rates, opt-out placement, and domain trust.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 font-bold text-xl">5</div>
+            <div>
+              <h3 class="font-bold text-lg">Accountability Flows Upward</h3>
+              <p class="mt-1"><strong>Regulators hold the brand responsible, not the vendor.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-8 font-semibold">
+          This is why the next generation of compliant vendors — including <strong>Pumpfiat</strong> — operate with <strong>global-first compliance architecture</strong>, not GDPR-only checkboxes.
+        </p>
+      </div>
+
+      <!-- 3. GLOBAL PLAYBOOK -->
+      <div id="3" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">3</span>
+          The Global Compliance Playbook for Outsourcing (The Pumpfiat Model)
+        </h2>
+        <p>
+          Below is a practical framework based on how <strong>Pumpfiat executes compliance across markets</strong>.
+        </p>
+        <p class="mt-4">
+          This is the checklist high-growth teams use when assessing outsourced data partners.
+        </p>
+
+        <div class="mt-8 space-y-8">
+          <div class="p-6 bg-teal-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-xl mb-3 text-teal-800">A. Data Sourcing Transparency</h3>
+            <p>Every vendor must disclose:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>Data origin categories (publisher, partner, first-party source, API, opt-in form)</li>
+              <li>Consent mechanism (double opt-in, express, contextual, contractual)</li>
+              <li>Timestamped logs tied to each profile</li>
+              <li>Jurisdiction of acquisition (EU, US, APAC)</li>
+              <li>Purpose limitation (what the user agreed to receive)</li>
+            </ul>
+            <p class="mt-4 italic text-sm">Why it matters: A dataset is only as compliant as the rights attached to it.</p>
+            <p class="mt-2 font-semibold text-teal-700">Pumpfiat’s approach: Every record is tied to a permission event. No scraped data. No inferred identities.</p>
+          </div>
+
+          <div class="p-6 bg-blue-50 rounded-xl border border-blue-200">
+            <h3 class="font-bold text-xl mb-3 text-blue-800">B. Cross-Border Data Transfer Controls</h3>
+            <p>Ask every vendor:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>Where is data stored?</li>
+              <li>Where is it processed?</li>
+              <li>Are Standard Contractual Clauses (SCCs) in place?</li>
+              <li>Are regional routing rules applied?</li>
+              <li>Is the vendor compliant with PIPL export requirements (China)?</li>
+            </ul>
+            <p class="mt-2 font-semibold text-blue-700">Pumpfiat’s approach: We operate a geo-aligned processing model, routing sensitive data to infrastructure in its legal region.</p>
+          </div>
+
+          <div class="p-6 bg-purple-50 rounded-xl border border-purple-200">
+            <h3 class="font-bold text-xl mb-3 text-purple-800">C. Deliverability & Messaging Compliance</h3>
+            <p>Outsourced outreach often fails because the vendor violates:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>Google/Yahoo 2024 authentication rules</li>
+              <li>complaint threshold limits</li>
+              <li>opt-out visibility requirements</li>
+              <li>sending-domain reputation minimums</li>
+            </ul>
+            <p class="mt-2 font-semibold text-purple-700">Pumpfiat’s approach: warm-up orchestration, volume throttling, domain aging, AI spam-model checks, compliant permission segmentation.</p>
+          </div>
+
+          <div class="p-6 bg-amber-50 rounded-xl border border-amber-200">
+            <h3 class="font-bold text-xl mb-3 text-amber-800">D. Vendor Security Certifications</h3>
+            <p>A compliant vendor must maintain:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>SOC 2 or SOC readiness</li>
+              <li>ISO 27001 alignment</li>
+              <li>HIPAA-level storage if healthcare signals exist</li>
+              <li>MFA/SSO access control</li>
+              <li>Encryption in transit + at rest</li>
+              <li>Zero-trust segmentation</li>
+            </ul>
+            <p class="mt-2 font-semibold text-amber-700">Pumpfiat’s approach: Security badges are guarantees — not decorative.</p>
+          </div>
+
+          <div class="p-6 bg-green-50 rounded-xl border border-green-200">
+            <h3 class="font-bold text-xl mb-3 text-green-800">E. Data Subject Rights Handling</h3>
+            <p>Any vendor handling private data must support:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>DSAR processing</li>
+              <li>erasure requests</li>
+              <li>correction workflows</li>
+              <li>export rights</li>
+              <li>opt-out enforcement</li>
+              <li>retention limits</li>
+            </ul>
+            <p class="mt-2 font-semibold text-green-700">Pumpfiat’s approach: Rights requests propagate across every pipeline and historical record.</p>
+          </div>
+
+          <div class="p-6 bg-pink-50 rounded-xl border border-pink-200">
+            <h3 class="font-bold text-xl mb-3 text-pink-800">F. Usage Controls & Ethical Enforcement</h3>
+            <p>That means:</p>
+            <ul class="checklist mt-3 space-y-2">
+              <li>ethical-use policies,</li>
+              <li>anti-spam agreements,</li>
+              <li>purpose-driven use rights,</li>
+              <li>data minimization clauses.</li>
+            </ul>
+            <p class="mt-2 font-semibold text-pink-700">Pumpfiat’s approach: We require clients to agree to an Anti-Abuse & Ethical Use Policy.</p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <img src="images/placeholders/guji.png" alt="Global Compliance Map – Data Flows, Regulations, and Risk Zones" class="inline-img w-full max-w-3xl mx-auto">
+          <p class="text-xs text-gray-500 text-center mt-2">Visualizing global data flows and compliance zones — Pumpfiat’s geo-intelligent architecture</p>
+        </div>
+      </div>
+
+      <!-- 4. GLOBAL BY DEFAULT -->
+      <div id="4" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">4</span>
+          A New Compliance Reality: "Global by Default"
+        </h2>
+        <p>
+          Compliance used to be <strong>reactive</strong>.<br>
+          Now it must be <strong>designed into your data supply chain</strong>.
+        </p>
+        <p class="mt-6">
+          In 2025 and beyond, the winning organizations will operate with:
+        </p>
+        <ul class="mt-4 space-y-2 text-lg">
+          <li>jurisdiction-aware data routing</li>
+          <li>permission-first enrichment</li>
+          <li>transparent sourcing</li>
+          <li>end-to-end audit trails</li>
+          <li>AI-powered deliverability protection</li>
+          <li>security certification as a baseline</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          This is exactly the architecture <strong>Pumpfiat delivers to clients</strong>.
+        </p>
+        <p class="mt-4">
+          Outsourcing isn’t risky when the vendor treats compliance as an <strong>engineering discipline</strong> — not a checkbox exercise.
+        </p>
+      </div>
+
+      <!-- 5. BOTTOM LINE -->
+      <div id="5" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">5</span>
+          The Bottom Line
+        </h2>
+        <p>
+          GDPR was the wake-up call.<br>
+          The world that followed is the real challenge.
+        </p>
+        <p class="mt-6 font-bold text-xl">
+          Brands can’t afford to work with vendors who operate in a <em>single-regulation mindset</em>.
+        </p>
+        <p class="mt-6">
+          They need partners built for:
+        </p>
+        <ul class="mt-4 space-y-2 text-lg">
+          <li>global data routes,</li>
+          <li>multi-jurisdiction compliance,</li>
+          <li>strict procurement standards,</li>
+          <li>and audit-ready transparency.</li>
+        </ul>
+        <p class="mt-6 font-bold text-2xl">
+          This is the standard <strong>Pumpfiat was built on</strong>.
+        </p>
+        <p class="mt-6">
+          If you want data, enrichment, or outreach infrastructure that <strong>scales without regulatory risk</strong>, you need a <strong>global compliance approach</strong> — not a local one.
+        </p>
+        <p class="mt-6 font-bold">
+          And <strong>Pumpfiat brings exactly that</strong>.
+        </p>
+      </div>
+
+      <!-- RELATED ARTICLES -->
+      <div id="related" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-6">Keep Learning</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="resource001.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Compliance</div>
+            <h3 class="font-bold text-lg">The 5 Non-Negotiables for Audit-Ready B2B Prospecting</h3>
+            <p class="text-sm mt-2 text-white/80">Stay compliant while scaling outbound.</p>
+          </a>
+          <a href="resources002.html" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Sourcing</div>
+            <h3 class="font-bold text-lg">A Framework for Evaluating Outsourcing Companies</h3>
+            <p class="text-sm mt-2 text-white/80">Protect your data, brand, and revenue.</p>
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur p-5 rounded-xl hover:bg-white/30 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Trust Center</div>
+            <h3 class="font-bold text-lg">Pumpfiat Compliance Center</h3>
+            <p class="text-sm mt-2 text-white/80">Full transparency on data, security, and ethics.</p>
+          </a>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="onboarding.html" class="btn-primary px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition inline-block">
+            Start Your Global Compliance Audit
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="py-16 bg-white border-t">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-extrabold mb-4">Scale Globally. Stay Compliant.</h3>
+    <p class="text-lg text-gray-600 mb-8">
+      Get weekly insights on global compliance, data ethics, and outsourcing — straight to your inbox.
+    </p>
+    <form action="https://formsubmit.co/your-email@pumpfiat.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="email" name="email" placeholder="Work email" required class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-[color:var(--color-accent)] outline-none">
+      <button type="submit" class="bg-[color:var(--color-accent)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00606f] transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+          <div>
+            <div class="text-xl font-extrabold">PUMPFIAT</div>
+            <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Quick Links</h4>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li><a href="index.html" class="hover:text-white">Homepage</a></li>
+          <li><a href="index.html#results" class="hover:text-white">Client Results</a></li>
+          <li><a href="index.html#faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="resources.html" class="hover:text-white">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4 text-gray-200">Request a Free Audit</h4>
+        <form action="https://formsubmit.co/pumpfiat@gmail.com" method="POST" class="space-y-3">
+          <input type="hidden" name="_subject" value="Pumpfiat Audit Request" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <input type="email" name="email" placeholder="Work email" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+          <button type="submit" class="w-full bg-[#00778C] px-4 py-3 rounded font-semibold hover:bg-[#00606f] transition">Request Audit</button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-12 w-full flex justify-center">
+      <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+        <img src="assets/certs/iso27001.svg" alt="ISO 27001" class="h-16 w-auto">
+        <img src="assets/certs/mbe cert.svg" alt="MBE Certified" class="h-16 w-auto">
+        <img src="assets/certs/HIPAA_1@0.5x.png" alt="HIPAA" class="h-16 w-auto">
+        <img src="assets/certs/SOC_1@0.5x.png" alt="SOC 2" class="h-16 w-auto">
+      </div>
+    </div>
+    <div class="mt-10 text-sm text-gray-500 text-center">
+      &copy; 2026 Pumpfiat — All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">X</button>
+    <nav class="space-y-5">
+      <a href="index.html#solutions" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Solutions</a>
+      <a href="index.html#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
+      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+      <a href="resources.html" class="block text-lg font-semibold text-[color:var(--color-accent)]">Resources</a>
+    </nav>
+    <div class="mt-10">
+      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
+        Lock In 45% Off
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+  menu?.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
+
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = [...tocLinks].map(link => document.querySelector(link.getAttribute('href')));
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

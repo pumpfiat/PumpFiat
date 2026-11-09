@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pumpfiat Onboarding — Secure the New Year Offer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F7F7F7; color: #1A1A1A; }
+
+    .step { display: none; }
+    .step.active { display: block; }
+
+    /* Mobile layout fixes */
+    @media (max-width: 640px) {
+      main { padding: 1rem !important; }
+      .card-wrap { padding: 1.5rem !important; }
+      .pay-row {
+        flex-direction: column; align-items: flex-start; gap: 0.5rem;
+        padding-left: 1rem !important; padding-right: 1rem !important;
+      }
+      .pay-row button { width: 100%; }
+
+      /* Only hide step counter on mobile */
+      .mobile-hide { display: none !important; }
+    }
+
+    .pay-value {
+      white-space: normal !important;
+      word-break: break-word !important;
+    }
+
+    /* Button focus/active states */
+    .btn-primary {
+      @apply bg-[#00778C] text-white rounded-xl font-bold shadow-md transition-all duration-200;
+    }
+    .btn-primary:hover { @apply bg-[#006772]; }
+    .btn-primary:focus { @apply ring-4 ring-[#00778C]/30; }
+    .btn-primary:active { @apply scale-95; }
+
+    /* Inline validation */
+    .field-error { @apply border-red-500 ring-2 ring-red-200; }
+    .error-msg { @apply text-red-600 text-xs mt-1 hidden; }
+
+    /* Terms link */
+    .terms-link { @apply text-[#00778C] font-semibold underline hover:text-[#00606f]; }
+
+    /* Prevent unwanted scrolling when clicking copy buttons */
+    .copyBtn {
+      position: relative;
+    }
+    /* Notification Toast Styles */
+    
+/* ===== Pumpfiat Live Activity Toast ===== */
+.pf-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+  border: 1px solid rgba(0,119,140,0.15);
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.45s cubic-bezier(.22,1,.36,1);
+  z-index: 9999;
+}
+
+.pf-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pf-toast.hide {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.pf-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg,#00A2B8,#00778C);
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.pf-content {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+.pf-content strong {
+  font-weight: 800;
+  color: #00778C;
+}
+
+.pf-meta {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="font-extrabold text-xl">PUMPFIAT Onboarding</div>
+      </div>
+      <div class="text-sm text-gray-600">New Year pricing: <strong>$3,573.35</strong> (45% off)</div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-4xl mx-auto p-6">
+    <div class="bg-white p-10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-gray-100 card-wrap">
+
+      <!-- HEADER BLOCK -->
+      <div class="mb-10">
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-3xl font-extrabold tracking-tight">Complete in under 2 minutes — then pay securely</h1>
+          <!-- Step counter hidden on mobile -->
+          <div class="text-sm text-gray-500 mobile-hide">Step <span id="stepLabel">1</span> of 3</div>
+        </div>
+
+        <!-- Progress bar visible on all devices -->
+        <div class="w-full bg-gray-200 h-2 rounded-full">
+          <div id="prog" class="h-2 rounded-full bg-gradient-to-r from-[#00A2B8] to-[#00778C] transition-all duration-300" style="width: 33%"></div>
+        </div>
+
+        <p class="text-gray-500 mt-4">
+          We’ll use this information to prepare your segmented export & deliverability setup.
+        </p>
+
+        <!-- Trust Banner -->
+        <div class="mt-6 p-4 bg-[#00778C]/5 rounded-xl border border-[#00778C]/20 text-center">
+          <p class="text-sm font-medium text-[#00778C]">
+            Join 400+ growth teams already scaling with Pumpfiat’s permission-based data
+          </p>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form id="onboardForm" class="space-y-12">
+
+        <!-- STEP 1 -->
+        <div class="step active" data-step="1">
+          <h3 class="font-semibold text-xl mb-4">Company Information</h3>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Company name <span class="text-red-500">*</span></label>
+              <input name="company_name" id="company_name" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
+              <div class="error-msg" id="err_company_name">Company name is required.</div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Website</label>
+              <input name="website" id="website" placeholder="https://" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Full name <span class="text-red-500">*</span></label>
+              <input name="contact_name" id="contact_name" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
+              <div class="error-msg" id="err_contact_name">Full name is required.</div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Work email <span class="text-red-500">*</span></label>
+              <input name="contact_email" id="contact_email" type="email" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
+              <div class="text-xs text-gray-500 mt-1">We never spam — used only for onboarding & delivery.</div>
+              <div class="error-msg" id="err_contact_email">Valid work email is required.</div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Industry</label>
+              <select name="industry" id="industry" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
+                <option value="" disabled selected hidden>Select your company industry</option>
+                <option>eCommerce</option><option>SaaS</option><option>Retail</option><option>Travel</option><option>Other</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Company size</label>
+              <select name="company_size" id="company_size" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
+                <option value="" disabled selected hidden>Select company size</option>
+                <option>1-10</option><option>11-50</option><option>51-200</option><option>201-1000</option><option>1000+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" data-step="2">
+          <h3 class="font-semibold text-xl mb-4">Campaign Objectives</h3>
+
+          <div class="space-y-4">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Lead generation"><span>Lead generation</span></label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Product launch"><span>Product launch</span></label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Brand awareness"><span>Brand awareness</span></label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Re-engagement"><span>Re-engagement</span></label>
+            </div>
+
+            <div class="error-msg text-center" id="err_goals">Please select at least one campaign goal.</div>
+
+            <div class="grid gap-5 md:grid-cols-2 mt-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm text-gray-600 font-medium">Target segment</label>
+                <input name="target_segment" id="target_segment" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="e.g., US SMBs">
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm text-gray-600 font-medium">Monthly sends</label>
+                <input name="monthly_volume" id="monthly_volume" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="e.g., 50K–100K/month">
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5 mt-4">
+              <label class="text-sm text-gray-600 font-medium">Additional notes</label>
+              <textarea name="notes" id="notes" rows="4" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step" data-step="3">
+          <h3 class="font-semibold text-xl mb-4">Deliverability & Finalization</h3>
+
+          <div class="grid gap-6 mb-10">
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm text-gray-600 font-medium">Sending domain (optional)</label>
+              <input name="sending_domain" id="sending_domain" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="mail.yourbrand.com">
+              <div class="text-xs text-gray-500 mt-1">We can help set one up if needed.</div>
+            </div>
+
+            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" id="require_warmup" name="require_warmup" checked><span>I want Pumpfiat to run warm-up & throttling</span></label>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm text-gray-600 font-medium">Go-live date</label>
+                <input name="go_live" id="go_live" type="date" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label class="text-sm text-gray-600 font-medium">Optional phone</label>
+                <input name="contact_phone" id="contact_phone" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
+              </div>
+            </div>
+          </div>
+
+          <!-- PAYMENT INSTRUCTIONS -->
+          <div class="bg-white border border-gray-200 p-8 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.04)] mt-10">
+
+            <h3 class="text-2xl font-bold mb-6 tracking-tight">One-Time Payment (No recurring fees)</h3>
+
+            <p class="text-gray-600 text-sm mb-6">
+              Secure US bank transfer via Lead Bank (FDIC insured) — we keep costs low to pass maximum savings to you.
+            </p>
+
+            <div class="space-y-6">
+
+              <!-- Payment Rows -->
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">Account Name</div>
+                  <div id="acc_name" class="font-semibold text-gray-800 pay-value">Yusuf Taiwo</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="acc_name">Copy</button>
+              </div>
+
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">Account Number</div>
+                  <div id="acc_number" class="font-semibold text-gray-800 pay-value">214155787316</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="acc_number">Copy</button>
+              </div>
+
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">Wire Routing</div>
+                  <div id="wire_rt" class="font-semibold text-gray-800 pay-value">101019644</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="wire_rt">Copy</button>
+              </div>
+
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">ACH Routing</div>
+                  <div id="ach_rt" class="font-semibold text-gray-800 pay-value">101019644</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="ach_rt">Copy</button>
+              </div>
+
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">Bank Name</div>
+                  <div id="bank_name" class="font-semibold text-gray-800 pay-value">Lead Bank</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="bank_name">Copy</button>
+              </div>
+
+              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
+                <div>
+                  <div class="text-sm text-gray-500">Bank Address</div>
+                  <div id="bank_addr" class="font-semibold text-gray-800 pay-value">1801 Main St., Kansas City, MO 64108</div>
+                </div>
+                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="bank_addr">Copy</button>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 bg-[#00778C]/10 rounded-xl border border-[#00778C]/30">
+              <p class="text-sm font-medium text-[#00778C]">
+                Crypto/USDC payments accepted — email <a href="mailto:sales@pumpfiat.com" class="underline">sales@pumpfiat.com</a> for wallet address.
+              </p>
+            </div>
+
+            <p class="mt-8 text-sm text-gray-600">
+              After sending payment, email the receipt to  
+              <a href="mailto:sales@pumpfiat.com" class="text-[#00778C] font-semibold">sales@pumpfiat.com</a>.<br>
+             
+            </p>
+          </div>
+
+          <!-- INVOICE SUMMARY -->
+          <div class="bg-gray-50 p-6 rounded-2xl border shadow-sm mt-10">
+            <h4 class="font-semibold text-lg mb-3">Invoice Summary</h4>
+
+            <div class="flex justify-between text-gray-700 text-sm">
+              <span>Standard Campaign Value</span>
+              <span class="font-semibold">$6,497.00</span>
+            </div>
+
+            <div class="flex justify-between text-gray-700 text-sm mt-2">
+              <span>New Year Discount (45%)</span>
+              <span class="font-semibold text-green-600">– $2,923.65</span>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="flex justify-between text-2xl font-extrabold">
+              <span>Total Due</span>
+              <span class="text-[#00778C]">$3,573.35</span>
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <label class="flex items-start gap-3 mt-6 text-sm">
+            <input type="checkbox" id="accept_terms" required class="mt-1">
+            <span>I confirm I have permission to use these contacts and agree to the <a href="/terms.html" target="_blank" class="terms-link">Terms of Use</a>.</span>
+          </label>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex justify-between mt-8">
+          <button type="button" id="prevBtn" class="px-5 py-2 rounded-xl border text-gray-700 font-medium hover:bg-gray-50">Back</button>
+
+          <div class="flex gap-3">
+            <button type="button" id="nextBtn" class="btn-primary px-6 py-3">Next</button>
+            <button type="button" id="submitBtn" class="btn-primary px-6 py-3 hidden">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    const steps = Array.from(document.querySelectorAll('.step'));
+    let current = 0;
+
+    const stepLabel = document.getElementById('stepLabel');
+    const prog = document.getElementById('prog');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showStep(i){
+      steps.forEach((s, idx)=> s.classList.toggle('active', idx===i));
+      if (stepLabel) stepLabel.textContent = (i+1);
+      if (prog) prog.style.width = `${((i+1)/steps.length)*100}%`;
+      prevBtn.style.display = i===0 ? 'none' : 'inline-block';
+      nextBtn.style.display = i===steps.length-1 ? 'none' : 'inline-block';
+      submitBtn.classList.toggle('hidden', i!==steps.length-1);
+    }
+
+    showStep(0);
+
+    function validateStep1() {
+      let valid = true;
+      const fields = [
+        { id: 'company_name', errId: 'err_company_name', msg: 'Company name is required.' },
+        { id: 'contact_name', errId: 'err_contact_name', msg: 'Full name is required.' },
+        { id: 'contact_email', errId: 'err_contact_email', msg: 'Valid work email is required.' }
+      ];
+
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        const err = document.getElementById(f.errId);
+        if (!el.value.trim()) {
+          el.classList.add('field-error');
+          err.classList.remove('hidden');
+          err.textContent = f.msg;
+          valid = false;
+        } else {
+          el.classList.remove('field-error');
+          err.classList.add('hidden');
+        }
+      });
+
+      return valid;
+    }
+
+    function validateStep2() {
+      const goals = document.querySelectorAll('input[name="goal[]"]:checked');
+      const err = document.getElementById('err_goals');
+      if (goals.length === 0) {
+        err.classList.remove('hidden');
+        return false;
+      }
+      err.classList.add('hidden');
+      return true;
+    }
+
+    nextBtn.addEventListener('click', ()=> {
+      let valid = true;
+      if (current === 0) valid = validateStep1();
+      if (current === 1) valid = validateStep2();
+      if (!valid) return;
+
+      if (current < steps.length-1) {
+        current++;
+        showStep(current);
+      }
+    });
+
+    prevBtn.addEventListener('click', ()=> {
+      if (current > 0) { current--; showStep(current); }
+    });
+
+    submitBtn.addEventListener('click', ()=> {
+      const accept = document.getElementById('accept_terms');
+      if (!accept.checked) {
+        alert('Please accept the Terms of Use to continue.');
+        return;
+      }
+
+      const form = document.getElementById('onboardForm');
+      const data = {};
+      new FormData(form).forEach((v,k)=>{
+        if (data[k]) { if (Array.isArray(data[k])) data[k].push(v); else data[k] = [data[k], v]; }
+        else data[k] = v;
+      });
+
+      const goals = Array.from(document.querySelectorAll('input[name="goal[]"]:checked')).map(n=>n.value);
+      if (goals.length) data['goal'] = goals.join(', ');
+
+      const post = document.createElement('form');
+      post.method = 'POST';
+      post.action = 'https://formsubmit.co/pumpfiat@gmail.com';
+
+      const subj = document.createElement('input');
+      subj.type='hidden'; subj.name='_subject'; subj.value = 'Pumpfiat Onboarding Submission';
+      post.appendChild(subj);
+
+      const nocap = document.createElement('input');
+      nocap.type='hidden'; nocap.name='_captcha'; nocap.value='false';
+      post.appendChild(nocap);
+
+      Object.keys(data).forEach(k=>{
+        const input = document.createElement('input');
+        input.type='hidden'; input.name = k; input.value = Array.isArray(data[k]) ? data[k].join('; ') : data[k];
+        post.appendChild(input);
+      });
+
+      const total = document.createElement('input'); total.type='hidden'; total.name='invoice_total'; total.value='$3,573.35'; post.appendChild(total);
+      const standard = document.createElement('input'); standard.type='hidden'; standard.name='invoice_standard'; standard.value='$6,497.00'; post.appendChild(standard);
+      const discount = document.createElement('input'); discount.type='hidden'; discount.name='invoice_discount'; discount.value='45%'; post.appendChild(discount);
+
+      document.body.appendChild(post);
+      post.submit();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+    });
+
+    // Copy buttons — fixed to prevent scrolling and default form behavior
+    document.querySelectorAll('.copyBtn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent any form submission or page jump
+        const id = btn.getAttribute('data-copy');
+        const text = document.getElementById(id).textContent.trim();
+
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = "Copied!";
+          btn.classList.add('bg-[#006772]', 'text-white');
+
+          setTimeout(() => {
+            btn.textContent = "Copy";
+            btn.classList.remove('bg-[#006772]', 'text-white');
+          }, 1500);
+        }).catch(err => {
+          console.error('Copy failed', err);
+          btn.textContent = "Failed";
+          setTimeout(() => btn.textContent = "Copy", 1500);
+        });
+      });
+    });
+
+    // Real-time validation on blur
+    ['company_name', 'contact_name', 'contact_email'].forEach(id => {
+      const el = document.getElementById(id);
+      const errId = id === 'contact_email' ? 'err_contact_email' : 
+                    id === 'contact_name' ? 'err_contact_name' : 'err_company_name';
+      const err = document.getElementById(errId);
+
+      el.addEventListener('blur', () => {
+        if (!el.value.trim()) {
+          el.classList.add('field-error');
+          err.classList.remove('hidden');
+        } else {
+          el.classList.remove('field-error');
+          err.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+<script>
+(() => {
+
+const countries = [
+  "United Kingdom","Germany","Netherlands","France","Canada","Australia",
+  "Singapore","United Arab Emirates","South Africa","Nigeria",
+  "Sweden","Norway","Italy","Spain","India","Brazil","Mexico","Japan"
+];
+
+const companyPrefixes = [
+  "Apex","Nova","Atlas","Vertex","Nimbus","Summit",
+  "Ironclad","Pulse","Horizon","Quantum","CoreBridge","Vanguard"
+];
+
+const companySuffixes = [
+  "Growth","Systems","Digital","Ventures","Group",
+  "Commerce","Solutions","Labs","Partners","Holdings"
+];
+
+const templates = [
+  (c,o,p,a)=>`<strong>${c}</strong> from ${o} secured <strong>${p}</strong> prospects for <strong>$${a}</strong>.`,
+  (c,o)=>`Onboarding in progress for <strong>${c}</strong> (${o}).`,
+  (c,o)=>`Compliance & deliverability review finalized for <strong>${c}</strong> in ${o}.`,
+  (c,o)=>`Pumpfiat invited to ${o} after a successful launch with <strong>${c}</strong>.`
+];
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+function generateMessage(){
+  const company = `${rand(companyPrefixes)} ${rand(companySuffixes)}`;
+  const country = rand(countries);
+  const prospects = randInt(1,4) * 1_000_000;
+  const amount = (3573 * (prospects / 1_000_000) * (1 + Math.random()*0.35))
+                  .toFixed(0)
+                  .toLocaleString();
+
+  return rand(templates)(company, country, prospects.toLocaleString(), amount);
+}
+
+function showToast(){
+  const toast = document.createElement("div");
+  toast.className = "pf-toast";
+
+  toast.innerHTML = `
+    <div class="pf-icon">PF</div>
+    <div class="pf-content">
+      ${generateMessage()}
+      <div class="pf-meta">Live activity • just now</div>
+    </div>
+  `;
+
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("show"));
+
+  const visibleFor = randInt(7000, 12000);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.add("hide");
+    setTimeout(() => toast.remove(), 500);
+  }, visibleFor);
+}
+
+function scheduleNext(){
+  const nextIn = randInt(30_000, 120_000); // 30s–2min (non-linear)
+  setTimeout(() => {
+    showToast();
+    scheduleNext();
+  }, nextIn);
+}
+
+window.addEventListener("load", () => {
+  setTimeout(showToast, randInt(12_000, 25_000));
+  scheduleNext();
+});
+
+})();
+</script>
+
+</body>
+</html>
