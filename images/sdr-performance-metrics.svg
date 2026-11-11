@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Connect SDR activity to business outcomes</title>
+  <desc id="description">A three-stage framework links outreach activity to conversion rates and then to qualified meetings, opportunities, pipeline, and quota attainment.</desc>
+  <rect width="1200" height="360" fill="#effafb"/>
+  <text x="600" y="52" text-anchor="middle" fill="#15343a" font-family="Inter,Arial,sans-serif" font-size="26" font-weight="700">Measure the path from effort to value</text>
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <rect x="76" y="117" width="300" height="150" rx="22" fill="#fff" stroke="#b8dfe3" stroke-width="2"/>
+    <rect x="450" y="117" width="300" height="150" rx="22" fill="#fff" stroke="#b8dfe3" stroke-width="2"/>
+    <rect x="824" y="117" width="300" height="150" rx="22" fill="#00778c"/>
+    <text x="226" y="155" fill="#075b68" font-size="22" font-weight="700">Activity</text>
+    <text x="226" y="191" fill="#52666a" font-size="15">Calls · emails · research</text>
+    <text x="226" y="218" fill="#52666a" font-size="15">Follow-ups · CRM hygiene</text>
+    <text x="600" y="155" fill="#075b68" font-size="22" font-weight="700">Conversion</text>
+    <text x="600" y="191" fill="#52666a" font-size="15">Replies · conversations</text>
+    <text x="600" y="218" fill="#52666a" font-size="15">Show rate · acceptance</text>
+    <text x="974" y="155" fill="#fff" font-size="22" font-weight="700">Outcomes</text>
+    <text x="974" y="191" fill="#e4f7f8" font-size="15">Qualified meetings</text>
+    <text x="974" y="218" fill="#e4f7f8" font-size="15">Pipeline · quota progress</text>
+    <path d="M386 192h49m-12-12 12 12-12 12M760 192h49m-12-12 12 12-12 12" fill="none" stroke="#00778c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="600" y="321" text-anchor="middle" fill="#52666a" font-family="Inter,Arial,sans-serif" font-size="15">Track all three; use context and coaching to interpret the numbers</text>
+</svg>

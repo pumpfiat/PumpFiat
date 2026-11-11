@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">A practical global SDR hiring process</title>
+  <desc id="description">Five connected stages: define the role, select a market, assess candidates, verify local requirements, and onboard with clear goals.</desc>
+  <rect width="1200" height="360" fill="#f0fbfc"/>
+  <text x="600" y="52" text-anchor="middle" fill="#15343a" font-family="Inter,Arial,sans-serif" font-size="26" font-weight="700">A better process for hiring global SDRs</text>
+  <path d="M170 178H1030" stroke="#8acbd3" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <g transform="translate(165 178)">
+      <circle r="54" fill="#00778c"/>
+      <text y="10" fill="#fff" font-size="30" font-weight="700">1</text>
+      <text y="88" fill="#15343a" font-size="18" font-weight="700">Define the role</text>
+      <text y="116" fill="#52666a" font-size="14">Buyer · motion · outcomes</text>
+    </g>
+    <g transform="translate(382 178)">
+      <circle r="54" fill="#00778c"/>
+      <text y="10" fill="#fff" font-size="30" font-weight="700">2</text>
+      <text y="88" fill="#15343a" font-size="18" font-weight="700">Select a market</text>
+      <text y="116" fill="#52666a" font-size="14">Coverage · overlap · fit</text>
+    </g>
+    <g transform="translate(600 178)">
+      <circle r="54" fill="#00778c"/>
+      <text y="10" fill="#fff" font-size="30" font-weight="700">3</text>
+      <text y="88" fill="#15343a" font-size="18" font-weight="700">Assess consistently</text>
+      <text y="116" fill="#52666a" font-size="14">Scorecard · interview · sample</text>
+    </g>
+    <g transform="translate(818 178)">
+      <circle r="54" fill="#00778c"/>
+      <text y="10" fill="#fff" font-size="30" font-weight="700">4</text>
+      <text y="88" fill="#15343a" font-size="18" font-weight="700">Check requirements</text>
+      <text y="116" fill="#52666a" font-size="14">Local employment · privacy</text>
+    </g>
+    <g transform="translate(1035 178)">
+      <circle r="54" fill="#00778c"/>
+      <text y="10" fill="#fff" font-size="30" font-weight="700">5</text>
+      <text y="88" fill="#15343a" font-size="18" font-weight="700">Onboard and coach</text>
+      <text y="116" fill="#52666a" font-size="14">Learning · quality · outcomes</text>
+    </g>
+  </g>
+</svg>
