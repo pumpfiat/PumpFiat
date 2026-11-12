@@ -2,647 +2,787 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PumpFiat Onboarding | Secure Your New Year Growth Offer</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Inter', sans-serif; background: #F7F7F7; color: #1A1A1A; }
-
-    .step { display: none; }
-    .step.active { display: block; }
-
-    /* Mobile layout fixes */
-    @media (max-width: 640px) {
-      main { padding: 1rem !important; }
-      .card-wrap { padding: 1.5rem !important; }
-      .pay-row {
-        flex-direction: column; align-items: flex-start; gap: 0.5rem;
-        padding-left: 1rem !important; padding-right: 1rem !important;
-      }
-      .pay-row button { width: 100%; }
-
-      /* Only hide step counter on mobile */
-      .mobile-hide { display: none !important; }
-    }
-
-    .pay-value {
-      white-space: normal !important;
-      word-break: break-word !important;
-    }
-
-    /* Button focus/active states */
-    .btn-primary {
-      @apply bg-[#00778C] text-white rounded-xl font-bold shadow-md transition-all duration-200;
-    }
-    .btn-primary:hover { @apply bg-[#006772]; }
-    .btn-primary:focus { @apply ring-4 ring-[#00778C]/30; }
-    .btn-primary:active { @apply scale-95; }
-
-    /* Inline validation */
-    .field-error { @apply border-red-500 ring-2 ring-red-200; }
-    .error-msg { @apply text-red-600 text-xs mt-1 hidden; }
-
-    /* Terms link */
-    .terms-link { @apply text-[#00778C] font-semibold underline hover:text-[#00606f]; }
-
-    /* Prevent unwanted scrolling when clicking copy buttons */
-    .copyBtn {
-      position: relative;
-    }
-    /* Notification Toast Styles */
-    
-/* ===== Pumpfiat Live Activity Toast ===== */
-.pf-toast {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  max-width: 360px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
-  border: 1px solid rgba(0,119,140,0.15);
-  display: flex;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.45s cubic-bezier(.22,1,.36,1);
-  z-index: 9999;
-}
-
-.pf-toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.pf-toast.hide {
-  opacity: 0;
-  transform: translateY(12px);
-}
-
-.pf-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg,#00A2B8,#00778C);
-  color: #fff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.pf-content {
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: #1f2937;
-}
-
-.pf-content strong {
-  font-weight: 800;
-  color: #00778C;
-}
-
-.pf-meta {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #6b7280;
-}
-
-
-  </style>
-  <meta name="description" content="Complete the PumpFiat onboarding form to unlock the current offer, prepare your dataset, and start your outreach setup." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talk to PumpFiat | Business Growth Support</title>
+  <meta name="description" content="Tell PumpFiat about your business development goals and receive a proposal shaped around your needs." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://pumpfiat.com/onboarding.html" />
-  <meta property="og:title" content="PumpFiat Onboarding | Secure Your New Year Growth Offer" />
-  <meta property="og:description" content="Complete the PumpFiat onboarding form to unlock the current offer, prepare your dataset, and start your outreach setup." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <meta property="og:title" content="Talk to PumpFiat | Business Growth Support" />
+  <meta property="og:description" content="Share your growth goals with PumpFiat and get a proposal tailored to your business development needs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pumpfiat.com/onboarding.html" />
   <meta property="og:image" content="https://pumpfiat.com/assets/logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PumpFiat Onboarding | Secure Your New Year Growth Offer" />
-  <meta name="twitter:description" content="Complete the PumpFiat onboarding form to unlock the current offer, prepare your dataset, and start your outreach setup." />
+  <meta name="twitter:title" content="Talk to PumpFiat | Business Growth Support" />
+  <meta name="twitter:description" content="Share your growth goals with PumpFiat and get a proposal tailored to your business development needs." />
   <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png" />
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172326;
+      --ink-soft: #425256;
+      --muted: #69797d;
+      --paper: #f6f8f7;
+      --white: #fff;
+      --line: #e2e9e7;
+      --teal: #00778c;
+      --teal-dark: #005b6a;
+      --teal-light: #e4f3f3;
+      --navy: #102d34;
+      --danger: #b42318;
+      --shadow: 0 22px 70px rgba(13, 45, 51, .10);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+    [hidden] { display: none !important; }
+    .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid rgba(226,233,231,.9); background: rgba(255,255,255,.94); backdrop-filter: blur(14px); }
+    .topbar-inner { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 19px; font-weight: 900; letter-spacing: -.05em; }
+    .brand img { width: 40px; height: 40px; object-fit: contain; }
+    .back-link { color: var(--teal-dark); font-size: 14px; font-weight: 700; }
+    .back-link:hover { text-decoration: underline; }
+    .hero { padding: 58px 0 42px; background: radial-gradient(circle at 86% 20%, rgba(185,229,220,.45), transparent 28%), #f7faf8; border-bottom: 1px solid var(--line); }
+    .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: end; gap: 44px; }
+    .eyebrow { color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 12px 0 14px; font-size: clamp(36px, 5vw, 58px); letter-spacing: -.065em; line-height: 1.02; }
+    .hero-copy { max-width: 680px; margin: 0; color: var(--ink-soft); font-size: 17px; line-height: 1.7; }
+    .journey-summary { padding: 20px; border: 1px solid #d5e6e1; border-radius: 16px; background: rgba(255,255,255,.8); }
+    .journey-summary strong { display: block; margin-bottom: 7px; font-size: 13px; }
+    .journey-summary p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .main { padding: 38px 0 76px; }
+    .form-card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--white); box-shadow: var(--shadow); }
+    .form-heading { padding: 26px 34px 22px; border-bottom: 1px solid var(--line); }
+    .form-heading-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .form-heading h2 { margin: 0; font-size: 20px; letter-spacing: -.035em; }
+    .draft-note { color: var(--muted); font-size: 12px; }
+    .clear-button { padding: 6px 0; border: 0; background: transparent; color: var(--teal-dark); cursor: pointer; font-size: 12px; font-weight: 700; }
+    .stepper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+    .step-item { display: flex; align-items: center; gap: 9px; color: #829194; font-size: 12px; font-weight: 700; }
+    .step-number { display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border: 1px solid #d6e0dd; border-radius: 50%; background: #fff; font-size: 12px; }
+    .step-item[aria-current="step"] { color: var(--teal-dark); }
+    .step-item[aria-current="step"] .step-number, .step-item.is-complete .step-number { border-color: var(--teal); background: var(--teal); color: #fff; }
+    .progress-track { height: 4px; margin-top: 14px; overflow: hidden; border-radius: 99px; background: #edf1ef; }
+    .progress-value { width: 25%; height: 100%; border-radius: inherit; background: var(--teal); transition: width .2s ease; }
+    .form-body { padding: 32px 34px 30px; }
+    .step-panel h3 { margin: 0 0 7px; font-size: 23px; letter-spacing: -.045em; }
+    .step-intro { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    .field label, .field-label { display: block; margin-bottom: 7px; color: var(--ink-soft); font-size: 13px; font-weight: 700; }
+    .required { color: var(--teal-dark); }
+    .field input, .field select, .field textarea {
+      width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #cfd9d6; border-radius: 10px; outline: none; background: #fff; color: var(--ink); transition: border-color .15s, box-shadow .15s;
+    }
+    .field textarea { min-height: 100px; resize: vertical; }
+    .field input::placeholder, .field textarea::placeholder { color: #99a5a6; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(0,119,140,.13); }
+    .field [aria-invalid="true"] { border-color: var(--danger); }
+    .hint { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .field-error { margin: 6px 0 0; color: var(--danger); font-size: 12px; }
+    .choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .choice-card { display: flex; align-items: flex-start; gap: 11px; min-height: 64px; padding: 14px; border: 1px solid #d6e0dd; border-radius: 12px; background: #fff; cursor: pointer; }
+    .choice-card:hover { border-color: #9dcac2; background: #fbfefd; }
+    .choice-card:has(input:checked) { border-color: var(--teal); background: #f1f8f7; box-shadow: inset 0 0 0 1px var(--teal); }
+    .choice-card input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--teal); }
+    .choice-card strong { display: block; font-size: 13px; }
+    .choice-card span { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .conditional-group { margin-top: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #f8faf9; }
+    .conditional-group h4 { margin: 0 0 14px; font-size: 14px; }
+    .conditional-group .field-grid { gap: 14px; }
+    .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 24px; margin-top: 28px; border-top: 1px solid var(--line); }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border: 1px solid transparent; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 750; transition: background .15s, transform .15s, border-color .15s; }
+    .button:focus-visible, .clear-button:focus-visible, .back-link:focus-visible { outline: 3px solid #a4dce0; outline-offset: 3px; }
+    .button:active { transform: translateY(1px); }
+    .button-primary { background: var(--teal); color: #fff; }
+    .button-primary:hover { background: var(--teal-dark); }
+    .button-secondary { border-color: #d3ddda; background: #fff; color: var(--ink-soft); }
+    .button-secondary:hover { border-color: #9aaead; background: #f9fbfa; }
+    .button[disabled] { opacity: .65; cursor: wait; }
+    .review-list { display: grid; gap: 0; margin: 18px 0 24px; border-top: 1px solid var(--line); }
+    .review-row { display: grid; grid-template-columns: 180px minmax(0,1fr); gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .review-row dt { color: var(--muted); font-weight: 650; }
+    .review-row dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+    .consent { display: flex; align-items: flex-start; gap: 11px; margin-top: 22px; color: var(--ink-soft); font-size: 13px; line-height: 1.6; }
+    .consent input { flex: 0 0 auto; width: 17px; height: 17px; margin-top: 2px; accent-color: var(--teal); }
+    .privacy-note { margin: 14px 0 0 28px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .form-status { min-height: 22px; margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+    .form-status.error { color: var(--danger); }
+    .success-card { padding: 52px 34px; text-align: center; }
+    .success-mark { display: grid; place-items: center; width: 52px; height: 52px; margin: 0 auto 18px; border-radius: 50%; background: var(--teal-light); color: var(--teal-dark); font-size: 24px; font-weight: 800; }
+    .success-card h2 { margin: 0 0 12px; font-size: 28px; letter-spacing: -.05em; }
+    .success-card p { max-width: 620px; margin: 0 auto 12px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .success-card .button { margin-top: 14px; }
+    .trust-row { display: flex; justify-content: center; gap: 28px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+    .trust-row span { display: inline-flex; align-items: center; gap: 7px; }
+    .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+    .footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; }
+    .footer a { color: var(--teal-dark); font-weight: 700; }
+    .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 22px; }
+      .journey-summary { max-width: 560px; }
+      .stepper { gap: 6px; }
+      .step-item { flex-direction: column; align-items: flex-start; gap: 5px; font-size: 10px; }
+    }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 32px, 1120px); }
+      .topbar-inner { min-height: 66px; }
+      .brand { font-size: 16px; gap: 8px; }
+      .brand img { width: 34px; height: 34px; }
+      .back-link { font-size: 12px; }
+      .hero { padding: 38px 0 28px; }
+      h1 { font-size: clamp(34px, 10vw, 46px); }
+      .hero-copy { font-size: 15px; }
+      .main { padding: 22px 0 50px; }
+      .form-card { border-radius: 16px; }
+      .form-heading { padding: 20px 18px 18px; }
+      .form-heading-row { align-items: flex-start; flex-direction: column; gap: 5px; }
+      .stepper { margin-top: 18px; }
+      .step-item { font-size: 9px; }
+      .step-number { flex-basis: 25px; width: 25px; height: 25px; }
+      .form-body { padding: 22px 18px; }
+      .field-grid, .choice-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .conditional-group { padding: 14px; }
+      .nav-row { align-items: stretch; }
+      .nav-row .button { padding-inline: 15px; }
+      .review-row { grid-template-columns: 1fr; gap: 2px; }
+      .success-card { padding: 36px 20px; }
+      .trust-row { flex-direction: column; align-items: center; gap: 8px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
-<body class="antialiased">
-
-  <!-- HEADER -->
-  <header class="bg-white border-b">
-    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <div class="font-extrabold text-xl">PUMPFIAT Onboarding</div>
-      </div>
-      <div class="text-sm text-gray-600">New Year pricing: <strong>$3,573.35</strong> (45% off)</div>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="PumpFiat home">
+        <img src="assets/logo.png" alt="" />
+        <span>PUMPFIAT</span>
+      </a>
+      <a class="back-link" href="/">← Back to PumpFiat</a>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="max-w-4xl mx-auto p-6">
-    <div class="bg-white p-10 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-gray-100 card-wrap">
+  <section class="hero">
+    <div class="shell hero-inner">
+      <div>
+        <div class="eyebrow">Business development · Sales growth</div>
+        <h1>Tell us what growth looks like for your business.</h1>
+        <p class="hero-copy">PumpFiat supports prospect research, lead generation, sales development and business growth. Share a little about your goals and we’ll review the fit before discussing scope or pricing.</p>
+      </div>
+      <aside class="journey-summary" aria-label="What happens next">
+        <strong>What happens next</strong>
+        <p>Submit your requirements. PumpFiat reviews them and follows up with a proposal outlining scope, deliverables, timing and pricing. No payment is requested on this form.</p>
+      </aside>
+    </div>
+  </section>
 
-      <!-- HEADER BLOCK -->
-      <div class="mb-10">
-        <div class="flex items-center justify-between mb-4">
-          <h1 class="text-3xl font-extrabold tracking-tight">Complete in under 2 minutes — then pay securely</h1>
-          <!-- Step counter hidden on mobile -->
-          <div class="text-sm text-gray-500 mobile-hide">Step <span id="stepLabel">1</span> of 3</div>
+  <main class="shell main">
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="form-heading">
+        <div class="form-heading-row">
+          <div>
+            <h2 id="form-title">Project inquiry</h2>
+            <span class="draft-note" id="draftNotice">Your progress is saved in this browser tab.</span>
+          </div>
+          <button type="button" class="clear-button" id="clearDraft">Clear form</button>
         </div>
-
-        <!-- Progress bar visible on all devices -->
-        <div class="w-full bg-gray-200 h-2 rounded-full">
-          <div id="prog" class="h-2 rounded-full bg-gradient-to-r from-[#00A2B8] to-[#00778C] transition-all duration-300" style="width: 33%"></div>
-        </div>
-
-        <p class="text-gray-500 mt-4">
-          We’ll use this information to prepare your segmented export & deliverability setup.
-        </p>
-
-        <!-- Trust Banner -->
-        <div class="mt-6 p-4 bg-[#00778C]/5 rounded-xl border border-[#00778C]/20 text-center">
-          <p class="text-sm font-medium text-[#00778C]">
-            Join 400+ growth teams already scaling with Pumpfiat’s permission-based data
-          </p>
+        <nav class="stepper" aria-label="Form progress">
+          <div class="step-item" data-step-indicator="0" aria-current="step"><span class="step-number">1</span><span>Business</span></div>
+          <div class="step-item" data-step-indicator="1"><span class="step-number">2</span><span>Services</span></div>
+          <div class="step-item" data-step-indicator="2"><span class="step-number">3</span><span>Project</span></div>
+          <div class="step-item" data-step-indicator="3"><span class="step-number">4</span><span>Review</span></div>
+        </nav>
+        <div class="progress-track" role="progressbar" aria-label="Form completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" id="progressBar">
+          <div class="progress-value" id="progressValue"></div>
         </div>
       </div>
 
-      <!-- FORM -->
-      <form id="onboardForm" class="space-y-12">
-
-        <!-- STEP 1 -->
-        <div class="step active" data-step="1">
-          <h3 class="font-semibold text-xl mb-4">Company Information</h3>
-
-          <div class="grid gap-5 md:grid-cols-2">
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Company name <span class="text-red-500">*</span></label>
-              <input name="company_name" id="company_name" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
-              <div class="error-msg" id="err_company_name">Company name is required.</div>
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Website</label>
-              <input name="website" id="website" placeholder="https://" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Full name <span class="text-red-500">*</span></label>
-              <input name="contact_name" id="contact_name" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
-              <div class="error-msg" id="err_contact_name">Full name is required.</div>
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Work email <span class="text-red-500">*</span></label>
-              <input name="contact_email" id="contact_email" type="email" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" required>
-              <div class="text-xs text-gray-500 mt-1">We never spam — used only for onboarding & delivery.</div>
-              <div class="error-msg" id="err_contact_email">Valid work email is required.</div>
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Industry</label>
-              <select name="industry" id="industry" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
-                <option value="" disabled selected hidden>Select your company industry</option>
-                <option>eCommerce</option><option>SaaS</option><option>Retail</option><option>Travel</option><option>Other</option>
-              </select>
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Company size</label>
-              <select name="company_size" id="company_size" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
-                <option value="" disabled selected hidden>Select company size</option>
-                <option>1-10</option><option>11-50</option><option>51-200</option><option>201-1000</option><option>1000+</option>
-              </select>
-            </div>
-          </div>
+      <form id="onboardForm" class="form-body" novalidate>
+        <div class="honeypot" aria-hidden="true">
+          <label for="company_fax">Fax</label>
+          <input id="company_fax" name="_honey" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
-        <!-- STEP 2 -->
-        <div class="step" data-step="2">
-          <h3 class="font-semibold text-xl mb-4">Campaign Objectives</h3>
-
-          <div class="space-y-4">
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Lead generation"><span>Lead generation</span></label>
-              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Product launch"><span>Product launch</span></label>
-              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Brand awareness"><span>Brand awareness</span></label>
-              <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" name="goal[]" value="Re-engagement"><span>Re-engagement</span></label>
+        <section class="step-panel" data-step="0" aria-labelledby="step-title-0">
+          <h3 id="step-title-0" tabindex="-1">About your business</h3>
+          <p class="step-intro">Start with the business and contact details we need to understand your inquiry.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="company_name">Company name <span class="required">*</span></label>
+              <input id="company_name" name="company_name" autocomplete="organization" required />
+              <p class="field-error" id="company_name-error" hidden></p>
             </div>
-
-            <div class="error-msg text-center" id="err_goals">Please select at least one campaign goal.</div>
-
-            <div class="grid gap-5 md:grid-cols-2 mt-4">
-              <div class="flex flex-col gap-1.5">
-                <label class="text-sm text-gray-600 font-medium">Target segment</label>
-                <input name="target_segment" id="target_segment" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="e.g., US SMBs">
-              </div>
-
-              <div class="flex flex-col gap-1.5">
-                <label class="text-sm text-gray-600 font-medium">Monthly sends</label>
-                <input name="monthly_volume" id="monthly_volume" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="e.g., 50K–100K/month">
-              </div>
+            <div class="field">
+              <label for="website">Company website</label>
+              <input id="website" name="website" type="url" inputmode="url" placeholder="https://example.com" autocomplete="url" />
+              <p class="hint">Optional. Include https:// if you have a website.</p>
+              <p class="field-error" id="website-error" hidden></p>
             </div>
-
-            <div class="flex flex-col gap-1.5 mt-4">
-              <label class="text-sm text-gray-600 font-medium">Additional notes</label>
-              <textarea name="notes" id="notes" rows="4" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition"></textarea>
+            <div class="field">
+              <label for="contact_name">Your full name <span class="required">*</span></label>
+              <input id="contact_name" name="contact_name" autocomplete="name" required />
+              <p class="field-error" id="contact_name-error" hidden></p>
             </div>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="step" data-step="3">
-          <h3 class="font-semibold text-xl mb-4">Deliverability & Finalization</h3>
-
-          <div class="grid gap-6 mb-10">
-
-            <div class="flex flex-col gap-1.5">
-              <label class="text-sm text-gray-600 font-medium">Sending domain (optional)</label>
-              <input name="sending_domain" id="sending_domain" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition" placeholder="mail.yourbrand.com">
-              <div class="text-xs text-gray-500 mt-1">We can help set one up if needed.</div>
+            <div class="field">
+              <label for="contact_email">Business email <span class="required">*</span></label>
+              <input id="contact_email" name="contact_email" type="email" autocomplete="email" required />
+              <p class="hint">We’ll use this to respond about your inquiry.</p>
+              <p class="field-error" id="contact_email-error" hidden></p>
             </div>
-
-            <label class="flex items-center gap-3 p-3 rounded-xl border hover:bg-gray-50 cursor-pointer"><input type="checkbox" id="require_warmup" name="require_warmup" checked><span>I want Pumpfiat to run warm-up & throttling</span></label>
-
-            <div class="grid md:grid-cols-2 gap-4">
-              <div class="flex flex-col gap-1.5">
-                <label class="text-sm text-gray-600 font-medium">Go-live date</label>
-                <input name="go_live" id="go_live" type="date" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
-              </div>
-
-              <div class="flex flex-col gap-1.5">
-                <label class="text-sm text-gray-600 font-medium">Optional phone</label>
-                <input name="contact_phone" id="contact_phone" class="p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00A2B8] outline-none transition">
-              </div>
+            <div class="field">
+              <label for="country">Country <span class="required">*</span></label>
+              <input id="country" name="country" autocomplete="country-name" required />
+              <p class="field-error" id="country-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="industry">Industry <span class="muted">(optional)</span></label>
+              <input id="industry" name="industry" />
+            </div>
+            <div class="field">
+              <label for="company_size">Company size <span class="muted">(optional)</span></label>
+              <select id="company_size" name="company_size">
+                <option value="">Select a range</option>
+                <option>1–10</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>201–1,000</option>
+                <option>1,001+</option>
+              </select>
             </div>
           </div>
+        </section>
 
-          <!-- PAYMENT INSTRUCTIONS -->
-          <div class="bg-white border border-gray-200 p-8 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.04)] mt-10">
-
-            <h3 class="text-2xl font-bold mb-6 tracking-tight">One-Time Payment (No recurring fees)</h3>
-
-            <p class="text-gray-600 text-sm mb-6">
-              Secure US bank transfer via Lead Bank (FDIC insured) — we keep costs low to pass maximum savings to you.
-            </p>
-
-            <div class="space-y-6">
-
-              <!-- Payment Rows -->
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">Account Name</div>
-                  <div id="acc_name" class="font-semibold text-gray-800 pay-value">Yusuf Taiwo</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="acc_name">Copy</button>
-              </div>
-
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">Account Number</div>
-                  <div id="acc_number" class="font-semibold text-gray-800 pay-value">214155787316</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="acc_number">Copy</button>
-              </div>
-
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">Wire Routing</div>
-                  <div id="wire_rt" class="font-semibold text-gray-800 pay-value">101019644</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="wire_rt">Copy</button>
-              </div>
-
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">ACH Routing</div>
-                  <div id="ach_rt" class="font-semibold text-gray-800 pay-value">101019644</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="ach_rt">Copy</button>
-              </div>
-
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">Bank Name</div>
-                  <div id="bank_name" class="font-semibold text-gray-800 pay-value">Lead Bank</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="bank_name">Copy</button>
-              </div>
-
-              <div class="flex justify-between items-center bg-gray-50 p-4 rounded-xl border pay-row">
-                <div>
-                  <div class="text-sm text-gray-500">Bank Address</div>
-                  <div id="bank_addr" class="font-semibold text-gray-800 pay-value">1801 Main St., Kansas City, MO 64108</div>
-                </div>
-                <button type="button" class="copyBtn px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition" data-copy="bank_addr">Copy</button>
-              </div>
+        <section class="step-panel" data-step="1" aria-labelledby="step-title-1" hidden>
+          <h3 id="step-title-1" tabindex="-1">What support are you looking for?</h3>
+          <p class="step-intro">Select all that apply. We’ll show only the follow-up questions relevant to your selection.</p>
+          <fieldset style="border:0; padding:0; margin:0;">
+            <legend class="field-label">Services <span class="required">*</span></legend>
+            <div class="choice-grid" id="serviceChoices">
+              <label class="choice-card"><input type="checkbox" name="services" value="Lead generation" /><span><strong>Lead generation</strong><span>Find and qualify potential customers.</span></span></label>
+              <label class="choice-card"><input type="checkbox" name="services" value="Prospect research" /><span><strong>Prospect research</strong><span>Research target accounts, people and buying context.</span></span></label>
+              <label class="choice-card"><input type="checkbox" name="services" value="Sales development" /><span><strong>Sales development</strong><span>Support conversations, qualification and follow-up.</span></span></label>
+              <label class="choice-card"><input type="checkbox" name="services" value="Outbound prospecting" /><span><strong>Outbound prospecting</strong><span>Build a structured outbound approach for your team.</span></span></label>
+              <label class="choice-card"><input type="checkbox" name="services" value="Business growth support" /><span><strong>Business growth support</strong><span>Get support with a broader growth challenge.</span></span></label>
+              <label class="choice-card"><input type="checkbox" name="services" value="Other" /><span><strong>Other</strong><span>Describe the support you have in mind.</span></span></label>
             </div>
+            <p class="field-error" id="services-error" hidden></p>
+          </fieldset>
 
-            <div class="mt-8 p-4 bg-[#00778C]/10 rounded-xl border border-[#00778C]/30">
-              <p class="text-sm font-medium text-[#00778C]">
-                Crypto/USDC payments accepted — email <a href="mailto:sales@pumpfiat.com" class="underline">sales@pumpfiat.com</a> for wallet address.
-              </p>
-            </div>
-
-            <p class="mt-8 text-sm text-gray-600">
-              After sending payment, email the receipt to  
-              <a href="mailto:sales@pumpfiat.com" class="text-[#00778C] font-semibold">sales@pumpfiat.com</a>.<br>
-             
-            </p>
-          </div>
-
-          <!-- INVOICE SUMMARY -->
-          <div class="bg-gray-50 p-6 rounded-2xl border shadow-sm mt-10">
-            <h4 class="font-semibold text-lg mb-3">Invoice Summary</h4>
-
-            <div class="flex justify-between text-gray-700 text-sm">
-              <span>Standard Campaign Value</span>
-              <span class="font-semibold">$6,497.00</span>
-            </div>
-
-            <div class="flex justify-between text-gray-700 text-sm mt-2">
-              <span>New Year Discount (45%)</span>
-              <span class="font-semibold text-green-600">– $2,923.65</span>
-            </div>
-
-            <hr class="my-4">
-
-            <div class="flex justify-between text-2xl font-extrabold">
-              <span>Total Due</span>
-              <span class="text-[#00778C]">$3,573.35</span>
+          <div class="conditional-group" id="leadDetails" hidden>
+            <h4>Lead generation details</h4>
+            <div class="field-grid">
+              <div class="field">
+                <label for="lead_volume">Approximate number of leads or opportunities</label>
+                <input id="lead_volume" name="lead_volume" placeholder="If known" />
+              </div>
+              <div class="field">
+                <label for="lead_criteria">What makes a lead a good fit?</label>
+                <input id="lead_criteria" name="lead_criteria" placeholder="Key qualification criteria" />
+              </div>
             </div>
           </div>
 
-          <!-- TERMS -->
-          <label class="flex items-start gap-3 mt-6 text-sm">
-            <input type="checkbox" id="accept_terms" required class="mt-1">
-            <span>I confirm I have permission to use these contacts and agree to the <a href="/terms.html" target="_blank" class="terms-link">Terms of Use</a>.</span>
+          <div class="conditional-group" id="researchDetails" hidden>
+            <h4>Prospect research details</h4>
+            <div class="field-grid">
+              <div class="field full">
+                <label for="research_needs">What information should the research uncover?</label>
+                <textarea id="research_needs" name="research_needs" placeholder="For example, target accounts, roles or relevant business context"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="conditional-group" id="salesDetails" hidden>
+            <h4>Sales development and outbound details</h4>
+            <div class="field-grid">
+              <div class="field full">
+                <label for="product_service">What product or service are you selling? <span class="required" id="productRequired" hidden>*</span></label>
+                <textarea id="product_service" name="product_service" placeholder="Briefly describe your offer"></textarea>
+                <p class="field-error" id="product_service-error" hidden></p>
+              </div>
+              <div class="field full">
+                <label for="sales_process">How does your current sales process work?</label>
+                <textarea id="sales_process" name="sales_process" placeholder="Optional context about your current approach"></textarea>
+              </div>
+              <div class="field">
+                <label for="outreach_channels">Outreach channels you use or are considering</label>
+                <input id="outreach_channels" name="outreach_channels" placeholder="Optional" />
+              </div>
+            </div>
+          </div>
+
+          <div class="conditional-group" id="growthDetails" hidden>
+            <h4>Business growth support</h4>
+            <div class="field-grid">
+              <div class="field full">
+                <label for="growth_challenge">What growth challenge would you like help with?</label>
+                <textarea id="growth_challenge" name="growth_challenge" placeholder="Share the main challenge or opportunity"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="conditional-group" id="otherDetails" hidden>
+            <h4>Other support</h4>
+            <div class="field">
+              <label for="other_service">What kind of support do you need? <span class="required">*</span></label>
+              <textarea id="other_service" name="other_service" placeholder="Please describe the service or support you’re looking for"></textarea>
+              <p class="field-error" id="other_service-error" hidden></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="step-panel" data-step="2" aria-labelledby="step-title-2" hidden>
+          <h3 id="step-title-2" tabindex="-1">Your market and project</h3>
+          <p class="step-intro">Add the details that will help us assess the request. Fields are optional unless marked otherwise.</p>
+
+          <div class="conditional-group" id="marketDetails" hidden>
+            <h4>Target market</h4>
+            <div class="field-grid">
+              <div class="field">
+                <label for="target_industries">Target industries</label>
+                <input id="target_industries" name="target_industries" placeholder="One or more industries" />
+              </div>
+              <div class="field">
+                <label for="target_regions">Target countries or regions</label>
+                <input id="target_regions" name="target_regions" placeholder="Where you want to reach customers" />
+              </div>
+              <div class="field">
+                <label for="target_company_size">Target company size</label>
+                <input id="target_company_size" name="target_company_size" placeholder="Optional range or description" />
+              </div>
+              <div class="field">
+                <label for="decision_makers">Decision-maker roles</label>
+                <input id="decision_makers" name="decision_makers" placeholder="Roles or seniority, if known" />
+              </div>
+              <div class="field full">
+                <label for="ideal_customer">Describe your ideal customer</label>
+                <textarea id="ideal_customer" name="ideal_customer" placeholder="Include relevant company or customer characteristics"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-grid" style="margin-top:20px;">
+            <div class="field full">
+              <label for="objective">What is your primary business objective?</label>
+              <textarea id="objective" name="objective" placeholder="For example, enter a market, build qualified pipeline or improve follow-up"></textarea>
+            </div>
+            <div class="field">
+              <label for="success_definition">What would success look like?</label>
+              <input id="success_definition" name="success_definition" placeholder="Optional" />
+            </div>
+            <div class="field">
+              <label for="preferred_start">When would you like to start?</label>
+              <input id="preferred_start" name="preferred_start" type="date" />
+            </div>
+            <div class="field" id="toolsField" hidden>
+              <label for="existing_tools">CRM or sales tools you use</label>
+              <input id="existing_tools" name="existing_tools" placeholder="Optional" />
+            </div>
+            <div class="field full">
+              <label for="additional_context">Anything else we should know?</label>
+              <textarea id="additional_context" name="additional_context" placeholder="Optional project context"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="step-panel" data-step="3" aria-labelledby="step-title-3" hidden>
+          <h3 id="step-title-3" tabindex="-1">Review your request</h3>
+          <p class="step-intro">Check your details before sending. You can go back to make changes.</p>
+          <dl class="review-list" id="reviewList"></dl>
+          <label class="consent" for="contact_consent">
+            <input id="contact_consent" name="contact_consent" type="checkbox" value="yes" required />
+            <span>I agree that PumpFiat may use the details in this request to review my requirements and contact me about next steps.</span>
           </label>
-        </div>
+          <p class="field-error" id="contact_consent-error" hidden></p>
+          <p class="privacy-note">Your submission will be sent to PumpFiat through its configured email form service. Please don’t include passwords, payment information or other sensitive personal data.</p>
+        </section>
 
-        <!-- BUTTONS -->
-        <div class="flex justify-between mt-8">
-          <button type="button" id="prevBtn" class="px-5 py-2 rounded-xl border text-gray-700 font-medium hover:bg-gray-50">Back</button>
-
-          <div class="flex gap-3">
-            <button type="button" id="nextBtn" class="btn-primary px-6 py-3">Next</button>
-            <button type="button" id="submitBtn" class="btn-primary px-6 py-3 hidden">Submit</button>
+        <div class="nav-row">
+          <button type="button" class="button button-secondary" id="prevBtn">Back</button>
+          <div>
+            <button type="button" class="button button-primary" id="nextBtn">Continue</button>
+            <button type="submit" class="button button-primary" id="submitBtn" hidden>Send project request</button>
           </div>
         </div>
-
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
       </form>
+
+      <section class="success-card" id="successView" aria-live="polite" tabindex="-1" hidden>
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <h2>Request received</h2>
+        <p>Thank you for sharing your project requirements. PumpFiat will review your request and follow up with a proposal covering scope, deliverables, timing and pricing.</p>
+        <p>No payment has been taken or requested. If you have a question in the meantime, email <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a>.</p>
+        <a class="button button-secondary" href="/">Return to PumpFiat</a>
+      </section>
+    </section>
+
+    <div class="trust-row" aria-label="Company information">
+      <span><i class="trust-dot"></i> Operating since 2021</span>
+      <span><i class="trust-dot"></i> Sales and business growth support</span>
     </div>
   </main>
 
-  <!-- SCRIPT -->
-  <script>
-    const steps = Array.from(document.querySelectorAll('.step'));
-    let current = 0;
-
-    const stepLabel = document.getElementById('stepLabel');
-    const prog = document.getElementById('prog');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const submitBtn = document.getElementById('submitBtn');
-
-    function showStep(i){
-      steps.forEach((s, idx)=> s.classList.toggle('active', idx===i));
-      if (stepLabel) stepLabel.textContent = (i+1);
-      if (prog) prog.style.width = `${((i+1)/steps.length)*100}%`;
-      prevBtn.style.display = i===0 ? 'none' : 'inline-block';
-      nextBtn.style.display = i===steps.length-1 ? 'none' : 'inline-block';
-      submitBtn.classList.toggle('hidden', i!==steps.length-1);
-    }
-
-    showStep(0);
-
-    function validateStep1() {
-      let valid = true;
-      const fields = [
-        { id: 'company_name', errId: 'err_company_name', msg: 'Company name is required.' },
-        { id: 'contact_name', errId: 'err_contact_name', msg: 'Full name is required.' },
-        { id: 'contact_email', errId: 'err_contact_email', msg: 'Valid work email is required.' }
-      ];
-
-      fields.forEach(f => {
-        const el = document.getElementById(f.id);
-        const err = document.getElementById(f.errId);
-        if (!el.value.trim()) {
-          el.classList.add('field-error');
-          err.classList.remove('hidden');
-          err.textContent = f.msg;
-          valid = false;
-        } else {
-          el.classList.remove('field-error');
-          err.classList.add('hidden');
-        }
-      });
-
-      return valid;
-    }
-
-    function validateStep2() {
-      const goals = document.querySelectorAll('input[name="goal[]"]:checked');
-      const err = document.getElementById('err_goals');
-      if (goals.length === 0) {
-        err.classList.remove('hidden');
-        return false;
-      }
-      err.classList.add('hidden');
-      return true;
-    }
-
-    nextBtn.addEventListener('click', ()=> {
-      let valid = true;
-      if (current === 0) valid = validateStep1();
-      if (current === 1) valid = validateStep2();
-      if (!valid) return;
-
-      if (current < steps.length-1) {
-        current++;
-        showStep(current);
-      }
-    });
-
-    prevBtn.addEventListener('click', ()=> {
-      if (current > 0) { current--; showStep(current); }
-    });
-
-    submitBtn.addEventListener('click', ()=> {
-      const accept = document.getElementById('accept_terms');
-      if (!accept.checked) {
-        alert('Please accept the Terms of Use to continue.');
-        return;
-      }
-
-      const form = document.getElementById('onboardForm');
-      const data = {};
-      new FormData(form).forEach((v,k)=>{
-        if (data[k]) { if (Array.isArray(data[k])) data[k].push(v); else data[k] = [data[k], v]; }
-        else data[k] = v;
-      });
-
-      const goals = Array.from(document.querySelectorAll('input[name="goal[]"]:checked')).map(n=>n.value);
-      if (goals.length) data['goal'] = goals.join(', ');
-
-      const post = document.createElement('form');
-      post.method = 'POST';
-      post.action = 'https://formsubmit.co/pumpfiat@gmail.com';
-
-      const subj = document.createElement('input');
-      subj.type='hidden'; subj.name='_subject'; subj.value = 'Pumpfiat Onboarding Submission';
-      post.appendChild(subj);
-
-      const nocap = document.createElement('input');
-      nocap.type='hidden'; nocap.name='_captcha'; nocap.value='false';
-      post.appendChild(nocap);
-
-      Object.keys(data).forEach(k=>{
-        const input = document.createElement('input');
-        input.type='hidden'; input.name = k; input.value = Array.isArray(data[k]) ? data[k].join('; ') : data[k];
-        post.appendChild(input);
-      });
-
-      const total = document.createElement('input'); total.type='hidden'; total.name='invoice_total'; total.value='$3,573.35'; post.appendChild(total);
-      const standard = document.createElement('input'); standard.type='hidden'; standard.name='invoice_standard'; standard.value='$6,497.00'; post.appendChild(standard);
-      const discount = document.createElement('input'); discount.type='hidden'; discount.name='invoice_discount'; discount.value='45%'; post.appendChild(discount);
-
-      document.body.appendChild(post);
-      post.submit();
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-    });
-
-    // Copy buttons — fixed to prevent scrolling and default form behavior
-    document.querySelectorAll('.copyBtn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent any form submission or page jump
-        const id = btn.getAttribute('data-copy');
-        const text = document.getElementById(id).textContent.trim();
-
-        navigator.clipboard.writeText(text).then(() => {
-          btn.textContent = "Copied!";
-          btn.classList.add('bg-[#006772]', 'text-white');
-
-          setTimeout(() => {
-            btn.textContent = "Copy";
-            btn.classList.remove('bg-[#006772]', 'text-white');
-          }, 1500);
-        }).catch(err => {
-          console.error('Copy failed', err);
-          btn.textContent = "Failed";
-          setTimeout(() => btn.textContent = "Copy", 1500);
-        });
-      });
-    });
-
-    // Real-time validation on blur
-    ['company_name', 'contact_name', 'contact_email'].forEach(id => {
-      const el = document.getElementById(id);
-      const errId = id === 'contact_email' ? 'err_contact_email' : 
-                    id === 'contact_name' ? 'err_contact_name' : 'err_company_name';
-      const err = document.getElementById(errId);
-
-      el.addEventListener('blur', () => {
-        if (!el.value.trim()) {
-          el.classList.add('field-error');
-          err.classList.remove('hidden');
-        } else {
-          el.classList.remove('field-error');
-          err.classList.add('hidden');
-        }
-      });
-    });
-  </script>
-<script>
-(() => {
-
-const countries = [
-  "United Kingdom","Germany","Netherlands","France","Canada","Australia",
-  "Singapore","United Arab Emirates","South Africa","Nigeria",
-  "Sweden","Norway","Italy","Spain","India","Brazil","Mexico","Japan"
-];
-
-const companyPrefixes = [
-  "Apex","Nova","Atlas","Vertex","Nimbus","Summit",
-  "Ironclad","Pulse","Horizon","Quantum","CoreBridge","Vanguard"
-];
-
-const companySuffixes = [
-  "Growth","Systems","Digital","Ventures","Group",
-  "Commerce","Solutions","Labs","Partners","Holdings"
-];
-
-const templates = [
-  (c,o,p,a)=>`<strong>${c}</strong> from ${o} secured <strong>${p}</strong> prospects for <strong>$${a}</strong>.`,
-  (c,o)=>`Onboarding in progress for <strong>${c}</strong> (${o}).`,
-  (c,o)=>`Compliance & deliverability review finalized for <strong>${c}</strong> in ${o}.`,
-  (c,o)=>`Pumpfiat invited to ${o} after a successful launch with <strong>${c}</strong>.`
-];
-
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
-
-function generateMessage(){
-  const company = `${rand(companyPrefixes)} ${rand(companySuffixes)}`;
-  const country = rand(countries);
-  const prospects = randInt(1,4) * 1_000_000;
-  const amount = (3573 * (prospects / 1_000_000) * (1 + Math.random()*0.35))
-                  .toFixed(0)
-                  .toLocaleString();
-
-  return rand(templates)(company, country, prospects.toLocaleString(), amount);
-}
-
-function showToast(){
-  const toast = document.createElement("div");
-  toast.className = "pf-toast";
-
-  toast.innerHTML = `
-    <div class="pf-icon">PF</div>
-    <div class="pf-content">
-      ${generateMessage()}
-      <div class="pf-meta">Live activity • just now</div>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <span>© 2026 PumpFiat</span>
+      <span>Questions? <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a></span>
     </div>
-  `;
+  </footer>
 
-  document.body.appendChild(toast);
+  <script>
+    (() => {
+      const FORM_ENDPOINT = 'https://formsubmit.co/ajax/sales@pumpfiat.com';
+      const DRAFT_KEY = 'pumpfiat_onboarding_draft_v2';
+      const form = document.getElementById('onboardForm');
+      const panels = Array.from(document.querySelectorAll('.step-panel'));
+      const indicators = Array.from(document.querySelectorAll('[data-step-indicator]'));
+      const progressBar = document.getElementById('progressBar');
+      const progressValue = document.getElementById('progressValue');
+      const previousButton = document.getElementById('prevBtn');
+      const nextButton = document.getElementById('nextBtn');
+      const submitButton = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+      const draftNotice = document.getElementById('draftNotice');
+      const successView = document.getElementById('successView');
+      const servicesError = document.getElementById('services-error');
+      let currentStep = 0;
+      let storageAvailable = true;
 
-  requestAnimationFrame(() => toast.classList.add("show"));
+      function selectedServices() {
+        return Array.from(form.querySelectorAll('input[name="services"]:checked')).map((input) => input.value);
+      }
 
-  const visibleFor = randInt(7000, 12000);
-  setTimeout(() => {
-    toast.classList.remove("show");
-    toast.classList.add("hide");
-    setTimeout(() => toast.remove(), 500);
-  }, visibleFor);
-}
+      function hasAny(services, values) {
+        return values.some((value) => services.includes(value));
+      }
 
-function scheduleNext(){
-  const nextIn = randInt(30_000, 120_000); // 30s–2min (non-linear)
-  setTimeout(() => {
-    showToast();
-    scheduleNext();
-  }, nextIn);
-}
+      function setGroupVisible(id, visible) {
+        document.getElementById(id).hidden = !visible;
+      }
 
-window.addEventListener("load", () => {
-  setTimeout(showToast, randInt(12_000, 25_000));
-  scheduleNext();
-});
+      function updateConditionalFields() {
+        const services = selectedServices();
+        const hasLeads = hasAny(services, ['Lead generation']);
+        const hasResearch = hasAny(services, ['Prospect research']);
+        const hasSales = hasAny(services, ['Sales development', 'Outbound prospecting']);
+        const hasGrowth = hasAny(services, ['Business growth support']);
+        const hasOther = services.includes('Other');
+        const hasMarket = hasAny(services, ['Lead generation', 'Prospect research', 'Sales development', 'Outbound prospecting']);
 
-})();
-</script>
+        setGroupVisible('leadDetails', hasLeads);
+        setGroupVisible('researchDetails', hasResearch);
+        setGroupVisible('salesDetails', hasSales);
+        setGroupVisible('growthDetails', hasGrowth);
+        setGroupVisible('otherDetails', hasOther);
+        setGroupVisible('marketDetails', hasMarket);
+        document.getElementById('toolsField').hidden = !hasSales;
 
+        const product = document.getElementById('product_service');
+        product.required = hasSales;
+        document.getElementById('productRequired').hidden = !hasSales;
+        if (!hasSales) clearFieldError(product);
+
+        updateReview();
+      }
+
+      function setStatus(message, isError = false) {
+        status.textContent = message;
+        status.classList.toggle('error', isError);
+      }
+
+      function clearFieldError(field) {
+        field.removeAttribute('aria-invalid');
+        const message = document.getElementById(`${field.id}-error`);
+        if (message) {
+          message.hidden = true;
+          message.textContent = '';
+        }
+      }
+
+      function showFieldError(field, message) {
+        field.setAttribute('aria-invalid', 'true');
+        const error = document.getElementById(`${field.id}-error`);
+        if (error) {
+          error.textContent = message;
+          error.hidden = false;
+        }
+      }
+
+      function validatePanel(panel) {
+        const fields = Array.from(panel.querySelectorAll('input, select, textarea'))
+          .filter((field) => !field.disabled && field.type !== 'hidden' && !field.closest('[hidden]') && field.type !== 'checkbox');
+        let firstInvalid = null;
+        fields.forEach((field) => {
+          clearFieldError(field);
+          if (!field.checkValidity()) {
+            const message = field.validity.valueMissing
+              ? 'Please complete this field.'
+              : field.validity.typeMismatch
+                ? (field.type === 'email' ? 'Enter a valid email address.' : 'Enter a valid URL, including https://.')
+                : 'Please check this value.';
+            showFieldError(field, message);
+            firstInvalid ||= field;
+          }
+        });
+
+        if (panel.dataset.step === '1') {
+          const checked = panel.querySelectorAll('input[name="services"]:checked');
+          servicesError.hidden = checked.length > 0;
+          servicesError.textContent = checked.length ? '' : 'Select at least one service to continue.';
+          if (!checked.length) firstInvalid ||= panel.querySelector('input[name="services"]');
+
+          const otherService = document.getElementById('other_service');
+          if (!document.getElementById('otherDetails').hidden) {
+            clearFieldError(otherService);
+            if (!otherService.value.trim()) {
+              showFieldError(otherService, 'Please describe the support you need.');
+              firstInvalid ||= otherService;
+            }
+          }
+        }
+
+        if (panel.dataset.step === '3') {
+          const consent = document.getElementById('contact_consent');
+          const error = document.getElementById('contact_consent-error');
+          error.hidden = consent.checked;
+          error.textContent = consent.checked ? '' : 'Please confirm how PumpFiat may use this request.';
+          if (!consent.checked) firstInvalid ||= consent;
+        }
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          if (firstInvalid.type !== 'checkbox') firstInvalid.reportValidity();
+          return false;
+        }
+        return true;
+      }
+
+      function showStep(index, shouldFocus = true) {
+        currentStep = index;
+        panels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== index; });
+        indicators.forEach((indicator, indicatorIndex) => {
+          if (indicatorIndex === index) indicator.setAttribute('aria-current', 'step');
+          else indicator.removeAttribute('aria-current');
+          indicator.classList.toggle('is-complete', indicatorIndex < index);
+        });
+        const percent = Math.round(((index + 1) / panels.length) * 100);
+        progressValue.style.width = `${percent}%`;
+        progressBar.setAttribute('aria-valuenow', String(percent));
+        previousButton.hidden = index === 0;
+        nextButton.hidden = index === panels.length - 1;
+        submitButton.hidden = index !== panels.length - 1;
+        setStatus(`Step ${index + 1} of ${panels.length}.`);
+        saveDraft();
+        updateReview();
+        if (shouldFocus) {
+          const heading = panels[index].querySelector('h3');
+          heading.focus();
+        }
+      }
+
+      function saveDraft() {
+        const values = {};
+        Array.from(form.elements).forEach((field) => {
+          if (!field.name || field.name === '_honey' || field.type === 'submit' || field.type === 'button') return;
+          if (field.type === 'checkbox') {
+            if (!values[field.name]) values[field.name] = [];
+            if (field.checked) values[field.name].push(field.value);
+          } else {
+            values[field.name] = field.value;
+          }
+        });
+        try {
+          sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ values, currentStep }));
+          if (storageAvailable) draftNotice.textContent = 'Your progress is saved in this browser tab.';
+        } catch (error) {
+          storageAvailable = false;
+          draftNotice.textContent = 'Draft saving is unavailable. Keep this tab open while you complete the form.';
+          console.error('Unable to save onboarding draft.', error);
+        }
+      }
+
+      function restoreDraft() {
+        try {
+          const saved = sessionStorage.getItem(DRAFT_KEY);
+          if (!saved) return;
+          const draft = JSON.parse(saved);
+          if (!draft || typeof draft.values !== 'object') return;
+          Array.from(form.elements).forEach((field) => {
+            if (!field.name || field.name === '_honey') return;
+            const value = draft.values[field.name];
+            if (field.type === 'checkbox') field.checked = Array.isArray(value) && value.includes(field.value);
+            else if (typeof value === 'string') field.value = value;
+          });
+          updateConditionalFields();
+          currentStep = Number.isInteger(draft.currentStep) ? Math.min(Math.max(draft.currentStep, 0), panels.length - 1) : 0;
+        } catch (error) {
+          draftNotice.textContent = 'We could not restore the saved draft. You can continue with a new request.';
+          console.error('Unable to restore onboarding draft.', error);
+        }
+      }
+
+      function fieldValue(id) {
+        const field = document.getElementById(id);
+        const conditionalGroup = field?.closest('.conditional-group, #toolsField');
+        return field && !conditionalGroup?.hidden ? field.value.trim() : '';
+      }
+
+      function updateReview() {
+        const review = document.getElementById('reviewList');
+        if (!review) return;
+        const services = selectedServices();
+        const rows = [
+          ['Company', fieldValue('company_name')],
+          ['Website', fieldValue('website')],
+          ['Contact', fieldValue('contact_name')],
+          ['Business email', fieldValue('contact_email')],
+          ['Country', fieldValue('country')],
+          ['Industry', fieldValue('industry')],
+          ['Company size', fieldValue('company_size')],
+          ['Services', services.join(', ')],
+          ['Lead generation details', [fieldValue('lead_volume'), fieldValue('lead_criteria')].filter(Boolean).join(' · ')],
+          ['Research details', fieldValue('research_needs')],
+          ['Product or service', fieldValue('product_service')],
+          ['Current sales process', fieldValue('sales_process')],
+          ['Outreach channels', fieldValue('outreach_channels')],
+          ['Growth challenge', fieldValue('growth_challenge')],
+          ['Other support', fieldValue('other_service')],
+          ['Target industries', fieldValue('target_industries')],
+          ['Target regions', fieldValue('target_regions')],
+          ['Target company size', fieldValue('target_company_size')],
+          ['Decision-maker roles', fieldValue('decision_makers')],
+          ['Ideal customer', fieldValue('ideal_customer')],
+          ['Primary objective', fieldValue('objective')],
+          ['Success definition', fieldValue('success_definition')],
+          ['Preferred start date', fieldValue('preferred_start')],
+          ['CRM or sales tools', fieldValue('existing_tools')],
+          ['Additional context', fieldValue('additional_context')]
+        ].filter(([, value]) => value);
+
+        review.replaceChildren();
+        rows.forEach(([label, value]) => {
+          const term = document.createElement('dt');
+          term.textContent = label;
+          const description = document.createElement('dd');
+          description.textContent = value;
+          const row = document.createElement('div');
+          row.className = 'review-row';
+          row.append(term, description);
+          review.append(row);
+        });
+        if (!rows.length) {
+          const empty = document.createElement('p');
+          empty.textContent = 'Complete the earlier steps to review your request.';
+          review.append(empty);
+        }
+      }
+
+      function buildPayload() {
+        const payload = {};
+        const data = new FormData(form);
+        data.forEach((value, key) => {
+          if (key === '_honey') return;
+          const element = Array.from(form.elements).find((field) => field.name === key);
+          if (element && element.closest('.conditional-group, #toolsField')?.hidden) return;
+          if (key in payload) {
+            payload[key] = Array.isArray(payload[key]) ? payload[key] : [payload[key]];
+            payload[key].push(value);
+          } else {
+            payload[key] = value;
+          }
+        });
+        payload._subject = 'PumpFiat business growth project inquiry';
+        return payload;
+      }
+
+      function showSuccess() {
+        form.hidden = true;
+        document.getElementById('successView').hidden = false;
+        successView.focus();
+        try {
+          sessionStorage.removeItem(DRAFT_KEY);
+        } catch (error) {
+          console.error('Unable to clear submitted onboarding draft.', error);
+        }
+      }
+
+      nextButton.addEventListener('click', () => {
+        if (!validatePanel(panels[currentStep])) return;
+        showStep(Math.min(currentStep + 1, panels.length - 1));
+      });
+
+      previousButton.addEventListener('click', () => showStep(Math.max(currentStep - 1, 0)));
+      form.addEventListener('input', () => { updateReview(); saveDraft(); });
+      form.addEventListener('change', (event) => {
+        if (event.target.name === 'services') updateConditionalFields();
+        updateReview();
+        saveDraft();
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!validatePanel(panels[currentStep])) return;
+        if (form.elements.namedItem('_honey').value) return;
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending request…';
+        setStatus('Sending your request securely to PumpFiat…');
+        try {
+          const response = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(buildPayload())
+          });
+          const result = await response.json();
+          if (!response.ok || !result || !result.success) {
+            throw new Error(result?.message || `Submission failed with status ${response.status}.`);
+          }
+          showSuccess();
+        } catch (error) {
+          console.error('Onboarding request submission failed.', error);
+          setStatus('We could not send your request. Your details are still saved in this tab; please try again or email sales@pumpfiat.com.', true);
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send project request';
+        }
+      });
+
+      document.getElementById('clearDraft').addEventListener('click', () => {
+        form.reset();
+        try {
+          sessionStorage.removeItem(DRAFT_KEY);
+        } catch (error) {
+          console.error('Unable to clear onboarding draft.', error);
+        }
+        document.querySelectorAll('.field-error').forEach((element) => { element.hidden = true; element.textContent = ''; });
+        document.querySelectorAll('[aria-invalid="true"]').forEach((element) => element.removeAttribute('aria-invalid'));
+        servicesError.hidden = true;
+        updateConditionalFields();
+        showStep(0);
+      });
+
+      restoreDraft();
+      updateConditionalFields();
+      showStep(currentStep, false);
+    })();
+  </script>
 </body>
 </html>

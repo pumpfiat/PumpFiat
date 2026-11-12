@@ -15,19 +15,166 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --color-primary: #1A1A1A;
-      --color-secondary: #F7F7F7;
-      --color-accent: #00778C;
+    :root {
+      --ink: #172326;
+      --ink-soft: #425256;
+      --muted: #69797d;
+      --paper: #f6f8f7;
+      --white: #fff;
+      --line: #e2e9e7;
+      --teal: #00778c;
+      --teal-dark: #005b6a;
+      --teal-light: #e4f3f3;
+      --mint: #b9e5dc;
+      --lime: #d9ef8b;
+      --navy: #102d34;
+      --shadow: 0 22px 70px rgba(13, 45, 51, .12);
+      --max: 1180px;
+      --color-primary: var(--ink);
+      --color-secondary: var(--paper);
+      --color-accent: var(--teal);
+      --color-accent-soft: var(--teal-light);
+      --color-border: var(--line);
+      --color-text: var(--ink-soft);
+      --color-heading: var(--ink);
     }
-    html,body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.04; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    h1,h2,h3,h4 { letter-spacing: -0.04em; line-height: 1.08; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .brand-accent { background-color: var(--color-accent); color: white; }
-    .btn-primary { background-color: var(--color-accent); color: white; }
-    .btn-primary:hover { background-color:#006772; }
-    .muted { color: #6B7280; }
-    .logo-bridge { width: 44px; height: 44px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: white; border: 1px solid rgba(0,119,140,.18); border-radius: 12px; font-weight: 700; padding: 0.95rem 1.3rem; box-shadow: 0 12px 24px rgba(0,119,140,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 30px rgba(0,119,140,.24); }
+    .muted { color: var(--muted); }
+    .logo-bridge { width: 42px; height: 42px; }
     .icon-circle { width: 64px; height: 64px; }
+    .site-shell { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226,233,231,.85);
+    }
+    .topbar-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-wordmark { font-size: 19px; font-weight: 900; letter-spacing: -0.055em; }
+    .pill-badge {
+      margin-left: 4px; padding: 6px 9px; border-radius: 99px; background: var(--teal-light); color: var(--teal-dark); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: #536367; font-size: 13px; font-weight: 650; }
+    .nav-links a:hover { color: var(--teal); }
+    .desktop-actions { display: flex; align-items: center; gap: 14px; }
+    .mobile-menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: #fff; border-radius: 10px; color: var(--ink); cursor: pointer; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+    .hero {
+      position: relative; overflow: hidden; padding: 82px 0 92px; background:
+        radial-gradient(circle at 82% 14%, rgba(185,229,220,.65), transparent 28%),
+        radial-gradient(circle at 4% 90%, rgba(217,239,139,.28), transparent 24%),
+        #f7faf8;
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 440px; height: 440px; border: 1px solid rgba(0,119,140,.10); border-radius: 50%; right: -170px; bottom: -270px; box-shadow: 0 0 0 42px rgba(0,119,140,.025), 0 0 0 84px rgba(0,119,140,.02); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 62px; align-items: center; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid #cce4df; border-radius: 99px; background: rgba(255,255,255,.72); color: var(--teal-dark); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .hero-kicker span { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,119,140,.12); }
+    .hero-title { margin: 25px 0 18px; font-size: clamp(42px, 6vw, 72px); line-height: .99; letter-spacing: -.07em; font-weight: 850; max-width: 12ch; }
+    .hero-copy { max-width: 610px; color: var(--ink-soft); font-size: 18px; line-height: 1.75; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; }
+    .cta-ghost-link {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.95rem 1.2rem; border-radius: 12px; background: rgba(255,255,255,.7); border: 1px solid rgba(16,24,40,.08); font-weight: 700;
+    }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 28px; color: #6c7b7e; font-size: 12px; }
+    .hero-note strong { color: var(--ink); }
+    .hero-note-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-weight: 900; }
+
+    .stats-band { background: var(--navy); color: #fff; padding: 28px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .stats-item { padding-left: 20px; border-left: 1px solid rgba(255,255,255,.2); }
+    .stats-item:first-child { padding-left: 0; border-left: 0; }
+    .stats-item strong { display: block; color: var(--lime); font-size: 25px; letter-spacing: -.05em; }
+    .stats-item span { display: block; margin-top: 5px; color: #c1d0d0; font-size: 11px; line-height: 1.5; }
+    .section { padding: 96px 0; }
+    .section-heading { margin-bottom: 40px; }
+    .section-title { font-size: clamp(32px, 4vw, 52px); letter-spacing: -.06em; margin: 0 0 16px; }
+    .section-copy { max-width: 660px; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+    .feature-card {
+      background: rgba(255,255,255,.9); border: 1px solid rgba(16,24,40,.08); border-radius: 18px; padding: 26px 22px; box-shadow: 0 18px 40px rgba(15,23,42,.06);
+    }
+    .feature-icon {
+      width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--teal-light); color: var(--teal); margin-bottom: 18px;
+    }
+    .feature-card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.04em; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .recommend-grid, .story-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .quote-card, .story-card { background: rgba(255,255,255,.9); border: 1px solid rgba(16,24,40,.08); border-radius: 20px; padding: 24px; box-shadow: 0 16px 38px rgba(16,24,40,.06); }
+    .quote-card p { margin: 0 0 18px; color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
+    .person { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(135deg, var(--teal-light), rgba(185,229,220,.9)); color: var(--teal-dark); font-weight: 900; font-size: 14px;
+    }
+    .person strong { display: block; font-size: 14px; }
+    .person span { color: var(--muted); font-size: 12px; }
+    .story-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 18px; }
+    .story-card h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -.04em; }
+    .story-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .jobs-wrap { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .job-card {
+      position: relative; display: flex; flex-direction: column; min-height: 220px; background: rgba(255,255,255,.9); border: 1px solid rgba(16,24,40,.08); border-radius: 18px; padding: 24px; box-shadow: 0 18px 40px rgba(15,23,42,.06); transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .job-card:hover { transform: translateY(-3px); box-shadow: 0 22px 46px rgba(15,23,42,.1); }
+    .job-card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.04em; }
+    .job-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .job-card a { margin-top: auto; padding-top: 18px; color: var(--teal); font-weight: 700; }
+    .cta-panel {
+      margin: 32px 0 0; padding: 34px; border-radius: 24px; background: linear-gradient(135deg, #0d1a26 0%, #101828 100%); color: #fff; box-shadow: var(--shadow);
+    }
+    .cta-panel-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cta-panel h2 { font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.06em; max-width: 600px; margin: 0 0 12px; }
+    .cta-panel p { margin: 0; max-width: 540px; color: rgba(255,255,255,.78); font-size: 15px; line-height: 1.75; }
+    .brand-strip { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; padding: 18px 22px; border-radius: 16px; background: rgba(255,255,255,.8); border: 1px solid rgba(16,24,40,.08); }
+    .brand-strip img { max-height: 38px; filter: grayscale(1) opacity(.8); }
+    .footer-wrap { background: #0f172a; color: #fff; margin-top: 76px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr 1.2fr; gap: 50px; padding: 54px 0 32px; }
+    .footer-text { color: rgba(255,255,255,.72); font-size: 13px; line-height: 1.8; }
+    .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,.72); }
+    .footer-links a:hover { color: #fff; }
+    .footer-form input, .footer-form textarea { width: 100%; padding: 12px 14px; border-radius: 10px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.12); color: #fff; }
+    .footer-form textarea { min-height: 90px; resize: vertical; }
+    .footer-legal { padding: 20px 0 28px; border-top: 1px solid rgba(255,255,255,.12); text-align: center; color: rgba(255,255,255,.55); font-size: 11px; }
+    @media (max-width: 980px) {
+      .nav-links, .desktop-actions { display: none; }
+      .mobile-menu-toggle { display: inline-flex; }
+      .hero-grid, .feature-grid, .recommend-grid, .story-grid, .jobs-wrap, .footer-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hero-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .site-shell { width: min(var(--max), calc(100% - 32px)); }
+      .hero { padding-top: 62px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .stats-grid, .feature-grid, .recommend-grid, .story-grid, .jobs-wrap, .footer-grid { grid-template-columns: 1fr; }
+      .brand-strip { justify-content: flex-start; }
+      .cta-panel { padding: 24px 20px; }
+    }
   </style>
   <meta name="description" content="Explore remote career opportunities at PumpFiat. Discover open positions across Africa, Europe, Asia, and the Americas and apply to join our team." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -43,29 +190,27 @@
   <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png" />
 
 </head>
-<body class="antialiased bg-[color:var(--color-secondary)] text-[color:var(--color-primary)]">
-
-  <!-- NAV -->
-  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <img src="/assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
-        <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
-        <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+<body>
+  <header class="topbar">
+    <div class="site-shell topbar-inner">
+      <div class="brand-lockup">
+        <img src="/assets/logo.png" alt="Pumpfiat logo" class="logo-bridge" />
+        <div class="brand-wordmark">PUMPFIAT</div>
+        <span class="pill-badge">1M Reach</span>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="/" class="hover:text-[color:var(--color-primary)] transition">Home</a>
-        <a href="/dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
-        <a href="/about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
-        <a href="/career" class="text-[color:var(--color-accent)] font-bold">Careers</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/dataanalysis.html">Data</a>
+        <a href="/about.html">About</a>
+        <a href="/career/" aria-current="page">Careers</a>
       </nav>
 
-      <div class="hidden md:flex items-center gap-3">
-        <a href="/onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+      <div class="desktop-actions">
+        <a href="/onboarding.html" class="btn-primary">Lock In 45% Off</a>
       </div>
 
-      <button id="mobileMenuBtn" class="md:hidden p-2 text-2xl text-gray-700" title="Open menu">
+      <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-expanded="false" title="Open menu" aria-label="Open navigation menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -73,269 +218,161 @@
     </div>
   </header>
 
-  <!-- Breadcrumbs -->
-  <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 text-sm text-gray-600">
-    <a href="/" class="hover:text-[color:var(--color-accent)]">Home</a> 
-    <span class="mx-2">›</span> 
-    <span class="text-[color:var(--color-primary)]">Careers</span>
+  <div class="site-shell" style="padding-top:18px; color:var(--muted); font-size:13px;">
+    <a href="/">Home</a><span style="padding:0 10px;">›</span><span style="color:var(--ink);">Careers</span>
   </div>
 
-  <!-- HERO SECTION -->
-  <section class="pt-16 pb-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 text-center">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Join Pumpfiat</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        PumpFiat Careers brings together remote jobs in sales, engineering, operations, marketing, and compliance. We are building the future of compliant, high-performance outreach for startups and enterprises across Africa, Europe, Asia, and the Americas.
-      </p>
-      <div class="mt-6 text-sm text-gray-600 max-w-3xl mx-auto">
-        <strong>Search terms:</strong> PumpFiat Careers, Remote Jobs at PumpFiat, Remote Sales Development Representative Jobs, SDR Jobs in Africa, SDR Jobs in Europe, Remote Sales Jobs, and Business Development Jobs.
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="site-shell hero-grid">
+        <div>
+          <h1 class="hero-title">Join Pumpfiat</h1>
+          <p class="hero-copy">PumpFiat Careers brings together remote jobs in sales, engineering, operations, marketing, and compliance. We are building the future of compliant, high-performance outreach for startups and enterprises across Africa, Europe, Asia, and the Americas.</p>
+          <p class="section-copy" style="margin-top:18px; font-size:13px;"><strong>Search terms:</strong> PumpFiat Careers, Remote Jobs at PumpFiat, Remote Sales Development Representative Jobs, SDR Jobs in Africa, SDR Jobs in Europe, Remote Sales Jobs, and Business Development Jobs.</p>
+        </div>
 
-  <!-- WHY PUMPFIAT? -->
-  <section class="py-16 bg-[color:var(--color-secondary)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">Why Pumpfiat?</h2>
-      <div class="grid md:grid-cols-4 gap-8 text-center">
         <div>
-          <div class="icon-circle mx-auto mb-4 bg-[color:var(--color-accent)]/10 rounded-full flex items-center justify-center">
-            <svg class="w-10 h-10 text-[color:var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <h3 class="font-bold mb-2">Ethics in Data</h3>
-          <p class="text-gray-600 text-sm">We only work with permission-based prospects and put compliance first — every record, every campaign.</p>
-        </div>
-        <div>
-          <div class="icon-circle mx-auto mb-4 bg-[color:var(--color-accent)]/10 rounded-full flex items-center justify-center">
-            <svg class="w-10 h-10 text-[color:var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <h3 class="font-bold mb-2">Speed & Ownership</h3>
-          <p class="text-gray-600 text-sm">Small teams, big impact. You’ll own projects end-to-end and ship fast.</p>
-        </div>
-        <div>
-          <div class="icon-circle mx-auto mb-4 bg-[color:var(--color-accent)]/10 rounded-full flex items-center justify-center">
-            <svg class="w-10 h-10 text-[color:var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 class="font-bold mb-2">Remote-First Culture</h3>
-          <p class="text-gray-600 text-sm">Work from anywhere with flexible hours and async collaboration.</p>
-        </div>
-        <div>
-          <div class="icon-circle mx-auto mb-4 bg-[color:var(--color-accent)]/10 rounded-full flex items-center justify-center">
-            <svg class="w-10 h-10 text-[color:var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-          </div>
-          <h3 class="font-bold mb-2">Health & Growth</h3>
-          <p class="text-gray-600 text-sm">Competitive compensation, learning budget, and wellness support.</p>
+          <figure style="margin:0;">
+            <img src="/assets/tema photo.png" alt="Pumpfiat team" style="border-radius: 22px; box-shadow: var(--shadow); border: 1px solid rgba(16,24,40,0.08); min-height: 420px; object-fit: cover;" />
+            <figcaption style="margin-top:14px; color:var(--muted); font-size:13px;">The Pumpfiat team — distributed across Kansas City, New York, San Francisco, Hong Kong, and Africa.</figcaption>
+          </figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TEAM HUMANIZATION -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Real People, Real Impact</h2>
-      <div class="max-w-4xl mx-auto mb-10">
-        <!-- Replace with your actual team photo -->
-        <img src="/assets/tema photo.png" alt="Pumpfiat team" class="rounded-2xl shadow-xl w-full object-cover h-96">
-        <p class="text-sm text-gray-500 mt-4">The Pumpfiat team — distributed across Kansas City, New York, San Francisco, Hong Kong, and Africa.</p>
-      </div>
-      <blockquote class="max-w-3xl mx-auto text-xl italic text-gray-700">
-        “Working at Pumpfiat feels like building something that actually matters. We’re not just moving data, we’re helping founders grow ethically and at scale.”
-        <footer class="mt-4 text-base not-italic font-semibold">— Daniel Dalen, Ecommerce</footer>
-      </blockquote>
-    </div>
-  </section>
+    <section class="section">
+      <div class="site-shell">
+        <div class="section-heading">
+          <h2 class="section-title">Why Pumpfiat?</h2>
+        </div>
 
-  <!-- JOB LISTINGS -->
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">Open Positions</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <a href="frontend-developer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Frontend Developer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Senior</p>
-          <p class="text-gray-700">Build high-converting landing pages and dashboards used by thousands of growth teams.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="backend-developer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Backend Developer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Senior</p>
-          <p class="text-gray-700">Power the systems that securely process millions of permissioned prospects.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="full-stack-engineer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Full-Stack Engineer</h3>
-          <p class="text-gray-600 mb-4">San Francisco, CA · Remote · Full-Time · Senior</p>
-          <p class="text-gray-700">Lead end-to-end features that drive measurable growth for our clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="data-engineer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Data Engineer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Senior</p>
-          <p class="text-gray-700">Build the infrastructure that powers outreach to over 1 million verified prospects.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="compliance-specialist/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Compliance & Legal Specialist</h3>
-          <p class="text-gray-600 mb-4">EMEA Region · Remote · Full-Time · Mid-Senior</p>
-          <p class="text-gray-700">Protect our clients and maintain the highest standards of data ethics worldwide.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="deliverability-engineer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Deliverability Engineer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Senior</p>
-          <p class="text-gray-700">Ensure every message lands in the inbox — protecting reputation at scale.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="growth-marketer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Growth Marketer</h3>
-          <p class="text-gray-600 mb-4">New York, NY · Remote · Full-Time · Mid-Level</p>
-          <p class="text-gray-700">Acquire the next wave of high-growth startups using our own tools.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="customer-success-manager/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Customer Success Manager</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Level</p>
-          <p class="text-gray-700">Help clients launch campaigns that dramatically lower CAC and scale revenue.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative (SDR)</h3>
-          <p class="text-gray-600 mb-4">South Africa, Kenya, Rwanda, or Nigeria preferred · Remote · Full-Time · Entry-Mid</p>
-          <p class="text-gray-700">Bring compliant outreach to emerging markets and book demos for high-value clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep-africa/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative – Africa</h3>
-          <p class="text-gray-600 mb-4">African countries · Remote · Full-Time · Entry-Mid</p>
-          <p class="text-gray-700">Bring compliant outreach to African markets and book demos for high-value clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep-europe/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative – Europe</h3>
-          <p class="text-gray-600 mb-4">European countries · Remote · Full-Time · Entry-Mid</p>
-          <p class="text-gray-700">Bring compliant outreach to European markets and book demos for high-value clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep-asia/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative – Asia</h3>
-          <p class="text-gray-600 mb-4">Singapore, Malaysia & Thailand · Remote · Full-Time · Entry-Mid</p>
-          <p class="text-gray-700">Bring compliant outreach to target markets and book demos for high-value clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep-americas/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative – Americas</h3>
-          <p class="text-gray-600 mb-4">North America, Central America, South America, and the Caribbean · Remote · Full-Time · Entry-Mid</p>
-          <p class="text-gray-700">Bring compliant outreach to markets across the Americas and book demos for high-value clients.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="sales-development-rep-usa/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Sales Development Representative – United States</h3>
-          <p class="text-gray-600 mb-4">United States · Fully Remote · Full-Time · $75,000–$90,000/year</p>
-          <p class="text-gray-700">Drive online sales, lead generation, and customer acquisition from anywhere in the US.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">Remote Sales Development Representative – United States →</span>
-        </a>
-
-        <a href="content-marketer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Content Marketer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Level</p>
-          <p class="text-gray-700">Educate the market on ethical outreach and build authority through case studies and playbooks.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="product-manager/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">Product Manager</h3>
-          <p class="text-gray-600 mb-4">Hong Kong · Remote · Full-Time · Senior</p>
-          <p class="text-gray-700">Shape the roadmap for tools that redefine compliant growth marketing.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-        <a href="devops-engineer/" class="block p-8 bg-white rounded-2xl border border-gray-200 hover:border-[color:var(--color-accent)] hover:shadow-lg transition">
-          <h3 class="text-2xl font-bold mb-2">DevOps Engineer</h3>
-          <p class="text-gray-600 mb-4">Kansas City, MO · Remote · Full-Time · Mid-Senior</p>
-          <p class="text-gray-700">Keep our high-volume systems secure, fast, and always available.</p>
-          <span class="mt-6 inline-block text-[color:var(--color-accent)] font-semibold">View details →</span>
-        </a>
-
-      </div>
-
-      <div class="mt-12 text-center">
-        <p class="text-gray-600">
-          Don’t see your role? We’re always open to exceptional talent. 
-          <a href="mailto:careers@pumpfiat.com" class="text-[color:var(--color-accent)] font-semibold underline">Send us your resume</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-12 bg-gray-900 text-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <div class="flex items-center gap-3 mb-3">
-            <img src="/assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
-            <div>
-              <div class="text-xl font-extrabold">PUMPFIAT</div>
-              <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.75a8.25 8.25 0 0 1 7.97 10.39l-1.08-1.08a6.75 6.75 0 0 0-12.78 0l-1.08 1.08A8.25 8.25 0 0 1 12 3.75Zm-5.25 9.75 4.71 4.7c.38.37.98.37 1.36 0l4.7-4.7a1.5 1.5 0 0 0 0-2.12l-1.06-1.06a1.5 1.5 0 0 0-2.12 0l-.52.52-.53-.53a1.5 1.5 0 0 0-2.12 0L7.9 11.38a1.5 1.5 0 0 0 0 2.12l-1.15 1.15Zm2.22-1.02 1.24 1.24 1.45-1.45a1.5 1.5 0 0 1 2.12 0l1.45 1.45 1.24-1.24v2.9H8.97v-2.9Z" fill="currentColor"/></svg>
             </div>
+            <h3>Ethics in Data</h3>
+            <p>We only work with permission-based prospects and put compliance first — every record, every campaign.</p>
           </div>
-          <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
-        </div>
-
-        <div>
-          <h4 class="font-semibold mb-4 text-gray-200">Quick links</h4>
-          <ul class="text-sm text-gray-400 space-y-2">
-            <li><a href="/" class="hover:text-white">Home</a></li>
-            <li><a href="/#offer" class="hover:text-white">Offer</a></li>
-            <li><a href="/#faq" class="hover:text-white">FAQ</a></li>
-            <li><a href="/compliance.html" class="hover:text-white">Data Compliance</a></li>
-            <li><a href="/pricecomparison.html" class="hover:text-white">Price Comparison</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-semibold mb-4 text-gray-200">Questions about a role?</h4>
-          <form action="https://formsubmit.co/careers@pumpfiat.com" method="POST" class="space-y-3">
-            <input type="hidden" name="_subject" value="Pumpfiat Careers Inquiry" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
-            <input type="email" name="email" placeholder="Work email" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
-            <textarea name="message" rows="3" placeholder="Which role interests you?" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700"></textarea>
-            <button type="submit" class="w-full btn-primary px-4 py-3 rounded font-semibold">Get in Touch</button>
-          </form>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Speed & Ownership</h3>
+            <p>Small teams, big impact. You’ll own projects end-to-end and ship fast.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 9.5A2.5 2.5 0 1 0 12 6a2.5 2.5 0 0 0 0 5.5Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Remote-First Culture</h3>
+            <p>Work from anywhere with flexible hours and async collaboration.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21.35 10.55 20C5.4 15.36 2 12.28 2 8.5A4.5 4.5 0 0 1 6.5 4c1.74 0 3.41.81 4.5 2.09A6.08 6.08 0 0 1 15.5 4 4.5 4.5 0 0 1 20 8.5c0 3.78-3.4 6.86-8.55 11.5L12 21.35Z" fill="currentColor"/></svg>
+            </div>
+            <h3>Health & Growth</h3>
+            <p>Competitive compensation, learning budget, and wellness support.</p>
+          </div>
         </div>
       </div>
-      <div class="mt-10 mb-6 w-full flex justify-center">
-  <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
-    <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" class="h-16 w-auto">
-    <img src="/assets/certs/mbe cert.svg" alt="Minority Business Enterprise Certified" class="h-16 w-auto">
-    <img src="/assets/certs/HIPAA_1@0.5x.png" alt="HIPAA Compliant" class="h-16 w-auto">
-    <img src="/assets/certs/SOC_1@0.5x.png" alt="SOC 2 Certification" class="h-16 w-auto">
-  </div>
-  </div>
+    </section>
 
-      <div class="mt-10 text-sm text-gray-500 text-center">
-        © 2026 Pumpfiat — All Rights Reserved.
+    <section class="section" style="background:#fff;">
+      <div class="site-shell" style="text-align:center;">
+        <div class="section-heading" style="margin-inline:auto;">
+          <h2 class="section-title">Real People, Real Impact</h2>
+        </div>
+        <blockquote style="max-width:768px; margin:auto; color:var(--ink-soft); font-size:20px; font-style:italic; line-height:1.75;">
+          “Working at Pumpfiat feels like building something that actually matters. We’re not just moving data, we’re helping founders grow ethically and at scale.”
+          <footer style="margin-top:16px; color:var(--ink); font-size:16px; font-style:normal; font-weight:700;">— Daniel Dalen, Ecommerce</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="roles" class="section">
+      <div class="site-shell">
+        <div class="section-heading" style="text-align:center;">
+          <h2 class="section-title">Open Positions</h2>
+        </div>
+
+        <div class="jobs-wrap">
+          <a href="frontend-developer/" class="job-card"><h3>Frontend Developer</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Senior</p><p>Build high-converting landing pages and dashboards used by thousands of growth teams.</p><span>View details →</span></a>
+          <a href="backend-developer/" class="job-card"><h3>Backend Developer</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Senior</p><p>Power the systems that securely process millions of permissioned prospects.</p><span>View details →</span></a>
+          <a href="full-stack-engineer/" class="job-card"><h3>Full-Stack Engineer</h3><p>San Francisco, CA · Remote · Full-Time · Senior</p><p>Lead end-to-end features that drive measurable growth for our clients.</p><span>View details →</span></a>
+          <a href="data-engineer/" class="job-card"><h3>Data Engineer</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Senior</p><p>Build the infrastructure that powers outreach to over 1 million verified prospects.</p><span>View details →</span></a>
+          <a href="compliance-specialist/" class="job-card"><h3>Compliance & Legal Specialist</h3><p>EMEA Region · Remote · Full-Time · Mid-Senior</p><p>Protect our clients and maintain the highest standards of data ethics worldwide.</p><span>View details →</span></a>
+          <a href="deliverability-engineer/" class="job-card"><h3>Deliverability Engineer</h3><p>Kansas City, MO · Remote · Full-Time · Senior</p><p>Ensure every message lands in the inbox — protecting reputation at scale.</p><span>View details →</span></a>
+          <a href="growth-marketer/" class="job-card"><h3>Growth Marketer</h3><p>New York, NY · Remote · Full-Time · Mid-Level</p><p>Acquire the next wave of high-growth startups using our own tools.</p><span>View details →</span></a>
+          <a href="customer-success-manager/" class="job-card"><h3>Customer Success Manager</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Level</p><p>Help clients launch campaigns that dramatically lower CAC and scale revenue.</p><span>View details →</span></a>
+          <a href="sales-development-rep/" class="job-card"><h3>Sales Development Representative (SDR)</h3><p>South Africa, Kenya, Rwanda, or Nigeria preferred · Remote · Full-Time · Entry-Mid</p><p>Bring compliant outreach to emerging markets and book demos for high-value clients.</p><span>View details →</span></a>
+          <a href="sales-development-rep-africa/" class="job-card"><h3>Sales Development Representative – Africa</h3><p>African countries · Remote · Full-Time · Entry-Mid</p><p>Bring compliant outreach to African markets and book demos for high-value clients.</p><span>View details →</span></a>
+          <a href="sales-development-rep-europe/" class="job-card"><h3>Sales Development Representative – Europe</h3><p>European countries · Remote · Full-Time · Entry-Mid</p><p>Bring compliant outreach to European markets and book demos for high-value clients.</p><span>View details →</span></a>
+          <a href="sales-development-rep-asia/" class="job-card"><h3>Sales Development Representative – Asia</h3><p>Singapore, Malaysia & Thailand · Remote · Full-Time · Entry-Mid</p><p>Bring compliant outreach to target markets and book demos for high-value clients.</p><span>View details →</span></a>
+          <a href="sales-development-rep-americas/" class="job-card"><h3>Sales Development Representative – Americas</h3><p>North America, Central America, South America, and the Caribbean · Remote · Full-Time · Entry-Mid</p><p>Bring compliant outreach to markets across the Americas and book demos for high-value clients.</p><span>View details →</span></a>
+          <a href="sales-development-rep-usa/" class="job-card"><h3>Sales Development Representative – United States</h3><p>United States · Fully Remote · Full-Time · $75,000–$90,000/year</p><p>Drive online sales, lead generation, and customer acquisition from anywhere in the US.</p><span>Remote Sales Development Representative – United States →</span></a>
+          <a href="content-marketer/" class="job-card"><h3>Content Marketer</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Level</p><p>Educate the market on ethical outreach and build authority through case studies and playbooks.</p><span>View details →</span></a>
+          <a href="product-manager/" class="job-card"><h3>Product Manager</h3><p>Hong Kong · Remote · Full-Time · Senior</p><p>Shape the roadmap for tools that redefine compliant growth marketing.</p><span>View details →</span></a>
+          <a href="devops-engineer/" class="job-card"><h3>DevOps Engineer</h3><p>Kansas City, MO · Remote · Full-Time · Mid-Senior</p><p>Keep our high-volume systems secure, fast, and always available.</p><span>View details →</span></a>
+        </div>
+
+        <div style="margin-top:48px; text-align:center; color:var(--muted);">
+          <p>Don’t see your role? We’re always open to exceptional talent. <a href="mailto:careers@pumpfiat.com" style="color:var(--teal); font-weight:700; text-decoration:underline;">Send us your resume</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-wrap">
+    <div class="site-shell footer-grid">
+      <div>
+        <div class="brand-lockup" style="margin-bottom: 14px;">
+          <img src="/assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge" />
+          <div>
+            <div class="brand-wordmark" style="color:#fff;">PUMPFIAT</div>
+            <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+          </div>
+        </div>
+        <p class="footer-text">For inquiries, onboarding, or partnerships — contact our team.</p>
+      </div>
+
+      <div>
+        <h4 style="margin:0 0 18px; font-size: 16px;">Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#offer">Offer</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/compliance.html">Data Compliance</a></li>
+          <li><a href="/pricecomparison.html">Price Comparison</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin:0 0 18px; font-size: 16px;">Questions about a role?</h4>
+        <form action="https://formsubmit.co/careers@pumpfiat.com" method="POST" class="footer-form">
+          <input type="hidden" name="_subject" value="Pumpfiat Careers Inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Work email" style="margin-top:12px;" required>
+          <textarea name="message" rows="3" placeholder="Which role interests you?" style="margin-top:12px;"></textarea>
+          <button type="submit" class="btn-primary" style="margin-top:12px; width:100%;">Get in Touch</button>
+        </form>
       </div>
     </div>
+
+    <div class="mt-10 mb-6 w-full flex justify-center">
+      <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+        <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" style="height:64px; width:auto;">
+        <img src="/assets/certs/mbe cert.svg" alt="Minority Business Enterprise Certified" style="height:64px; width:auto;">
+        <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" style="height:64px; width:auto;">
+        <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" style="height:64px; width:auto;">
+      </div>
+    </div>
+
+    <div class="site-shell footer-legal">© 2026 Pumpfiat — All Rights Reserved.</div>
   </footer>
 
-  <!-- Mobile Menu -->
   <div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
     <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
       <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
@@ -346,9 +383,7 @@
         <a href="/pricecomparison.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Price Comparison</a>
       </nav>
       <div class="mt-10">
-        <a href="/onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
-          Lock In 45% Off
-        </a>
+        <a href="/onboarding.html" class="btn-primary" style="width:100%;">Lock In 45% Off</a>
       </div>
     </div>
   </div>
@@ -362,13 +397,13 @@
     btn?.addEventListener('click', () => {
       menu.classList.remove('hidden');
       setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     });
 
     function closeMenu() {
       panel.classList.add('-translate-x-full');
       setTimeout(() => menu.classList.add('hidden'), 250);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     close?.addEventListener('click', closeMenu);

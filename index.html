@@ -15,90 +15,392 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --color-primary: #1A1A1A;   /* deep charcoal / black (invoice) */
-      --color-secondary: #F7F7F7; /* light gray / paper (invoice) */
-      --color-accent: #00778C;    /* teal / blue-green (invoice) */
+    :root {
+      --ink: #172326;
+      --ink-soft: #425256;
+      --muted: #69797d;
+      --paper: #f6f8f7;
+      --white: #fff;
+      --line: #e2e9e7;
+      --teal: #00778c;
+      --teal-dark: #005b6a;
+      --teal-light: #e4f3f3;
+      --mint: #b9e5dc;
+      --lime: #d9ef8b;
+      --navy: #102d34;
+      --radius: 22px;
+      --shadow: 0 22px 70px rgba(13, 45, 51, .12);
+      --max: 1180px;
+      --color-primary: var(--ink);
+      --color-secondary: var(--paper);
+      --color-accent: var(--teal);
+      --color-accent-soft: var(--teal-light);
+      --color-surface: var(--white);
+      --color-surface-alt: #edf7f8;
+      --color-border: var(--line);
+      --color-heading: var(--ink);
+      --color-text: var(--ink-soft);
+      --color-inverse: var(--white);
+      --shadow-soft: var(--shadow);
+      --shadow-card: 0 14px 34px rgba(16, 24, 40, 0.08);
     }
 
-    html,body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.04; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 { letter-spacing: -0.04em; line-height: 1.08; }
+    p { margin: 0; }
     .brand-accent { background-color: var(--color-accent); color: white; }
-    .btn-primary { background-color: var(--color-accent); color: white; }
-    .btn-primary:hover { background-color:#006772; }
-    .muted { color: #6B7280; } /* gray-500 */
-    .invoice-box { border-radius: 1rem; box-shadow: 0 12px 30px rgba(15,23,42,0.08); }
-    .logo-bridge { width: 44px; height: 44px; }
-    @media (min-width:1024px){ .hero-title { font-size: 4.25rem; } }
-
-    /* small utility for logos */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      min-height: 52px; padding: 0 22px; border-radius: 10px;
+      background: var(--color-accent); color: #fff; font-weight: 750; font-size: 14px;
+      border: 1px solid var(--color-accent); transition: transform .2s, background .2s, box-shadow .2s;
+      box-shadow: 0 8px 20px rgba(0,119,140,.16);
+    }
+    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.8);
+      color: var(--color-primary);
+      border: 1px solid rgba(16,24,40,0.12);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn-secondary:hover { background: #fff; border-color: rgba(16,24,40,0.18); }
+    .muted { color: var(--color-text); }
+    .invoice-box { border-radius: 1.2rem; box-shadow: var(--shadow-soft); }
+    .logo-bridge { width: 42px; height: 42px; }
     .client-logo { max-height: 36px; object-fit: contain; display:inline-block; }
-    
-/* ===== Pumpfiat Live Activity Toast ===== */
 
-/* ===== Pumpfiat Live Activity Toast ===== */
-.pf-toast {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  max-width: 360px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
-  border: 1px solid rgba(0,119,140,0.15);
-  display: flex;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.45s cubic-bezier(.22,1,.36,1);
-  z-index: 9999;
-}
+    .site-shell { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226,233,231,.85);
+    }
+    .topbar-inner {
+      min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-wordmark { font-size: 19px; font-weight: 900; letter-spacing: -0.055em; }
+    .pill-badge {
+      margin-left: 4px; padding: 6px 9px; border-radius: 99px; background: var(--teal-light); color: var(--teal-dark); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: #536367; font-size: 13px; font-weight: 650; }
+    .nav-links a:hover { color: var(--teal); }
+    .desktop-actions { display: flex; align-items: center; gap: 14px; }
+    .mobile-menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: #fff; border-radius: 10px; color: var(--ink); cursor: pointer; }
+    .hero-section {
+      position: relative; overflow: hidden; padding: 82px 0 92px; background: radial-gradient(circle at 82% 14%, rgba(185,229,220,.65), transparent 28%), radial-gradient(circle at 4% 90%, rgba(217,239,139,.28), transparent 24%), #f7faf8;
+    }
+    .hero-section::after {
+      content: ""; position: absolute; width: 440px; height: 440px; border: 1px solid rgba(0,119,140,.10); border-radius: 50%; right: -170px; bottom: -270px; box-shadow: 0 0 0 42px rgba(0,119,140,.025), 0 0 0 84px rgba(0,119,140,.02); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.03fr .97fr; gap: 62px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid #cce4df; border-radius: 99px; background: rgba(255,255,255,.72); color: var(--teal-dark); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .hero-kicker span { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,119,140,.12); }
+    .hero-title {
+      margin: 25px 0 22px; font-size: clamp(44px, 6.2vw, 72px); line-height: .99; letter-spacing: -.07em; font-weight: 850; max-width: 13ch; color: var(--ink);
+    }
+    .hero-title em { color: var(--teal); font-style: normal; }
+    .hero-copy { max-width: 560px; color: #596b6f; font-size: 18px; line-height: 1.75; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 32px; }
+    .text-link {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-weight: 750; font-size: 14px;
+    }
+    .text-link:hover { color: var(--teal-dark); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 30px; color: #6c7b7e; font-size: 12px; }
+    .hero-note strong { color: var(--ink); }
+    .hero-note-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-weight: 900; }
+    .hero-security { display: flex; align-items: center; gap: 12px; margin-top: 18px; color: #596b6f; font-size: 12px; line-height: 1.45; }
+    .hero-security img { width: 38px; height: 38px; object-fit: contain; }
+    .visual-stage { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .visual-orbit { position: absolute; width: 410px; height: 410px; border: 1px solid rgba(0,119,140,.15); border-radius: 50%; }
+    .visual-orbit::before, .visual-orbit::after { content: ""; position: absolute; border: 1px solid rgba(0,119,140,.11); border-radius: 50%; inset: 34px; }
+    .visual-orbit::after { inset: 76px; }
+    .visual-stage .pipeline-card {
+      position: relative; z-index: 2; width: min(100%, 430px); padding: 25px; background: rgba(255,255,255,.94); border: 1px solid rgba(211,226,222,.95); border-radius: 22px; box-shadow: var(--shadow); transform: rotate(-1.5deg);
+    }
+    .pipeline-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+    .pipeline-label { color: #829194; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .pipeline-title { margin-top: 5px; font-size: 19px; font-weight: 850; letter-spacing: -.04em; }
+    .status-pill { padding: 7px 10px; border-radius: 99px; background: #e7f5ef; color: #26765c; font-size: 10px; font-weight: 800; }
+    .pipeline-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px 0; }
+    .mini-stat { padding: 13px; background: #f5f8f7; border-radius: 12px; }
+    .mini-stat small { display: block; color: #7a898b; font-size: 10px; font-weight: 700; }
+    .mini-stat strong { display: block; margin-top: 6px; font-size: 22px; letter-spacing: -.05em; }
+    .pipeline-list { display: grid; gap: 10px; }
+    .pipeline-row { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid #edf1ef; border-radius: 12px; }
+    .avatar { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; background: #dcefeb; color: var(--teal-dark); font-size: 11px; font-weight: 900; }
+    .pipeline-row:nth-child(2) .avatar { background: #edf0d8; color: #66752c; }
+    .pipeline-row:nth-child(3) .avatar { background: #e8e8f5; color: #555b91; }
+    .row-main { flex: 1; min-width: 0; }
+    .row-main strong { display: block; font-size: 12px; }
+    .row-main small { display: block; margin-top: 3px; color: #829093; font-size: 10px; }
+    .row-tag { color: var(--teal); font-size: 10px; font-weight: 800; }
+    .floating-note { position: absolute; z-index: 3; display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: var(--navy); color: #fff; border-radius: 13px; box-shadow: 0 15px 35px rgba(16,45,52,.2); font-size: 11px; font-weight: 700; }
+    .floating-note span { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; background: var(--lime); color: var(--navy); }
+    .note-one { top: 48px; right: -4px; }
+    .note-two { bottom: 44px; left: -18px; background: #fff; color: var(--ink); border: 1px solid var(--line); }
+    .proof-strip {
+      background: var(--navy); color: #fff; padding: 28px 0;
+    }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .proof-item { padding-left: 20px; border-left: 1px solid rgba(255,255,255,.2); }
+    .proof-item:first-child { border-left: 0; padding-left: 0; }
+    .proof-item strong { display: block; color: var(--lime); font-size: 25px; letter-spacing: -.05em; }
+    .proof-item span { display: block; margin-top: 5px; color: #c1d0d0; font-size: 11px; line-height: 1.5; }
+    .btn-arrow { font-size: 18px; line-height: 1; }
+    .client-recommendations { padding: 72px 0; background: #fff; border-block: 1px solid var(--line); }
+    .client-recommendations h2, .professional-stories h2 { margin: 0 0 34px; text-align: center; font-size: clamp(30px, 4vw, 46px); letter-spacing: -.06em; }
+    .client-review-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+    .client-review { grid-column: span 2; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .client-review:nth-child(4) { grid-column: 2 / span 2; }
+    .client-review:nth-child(5) { grid-column: 4 / span 2; }
+    .client-review-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .client-review-head img { width: auto; height: 36px; max-width: 90px; object-fit: contain; }
+    .client-review-head strong { display: block; font-size: 14px; }
+    .client-review-head span { color: var(--muted); font-size: 12px; }
+    .client-review p { color: var(--ink-soft); font-size: 14px; line-height: 1.75; }
+    .professional-stories { padding: 72px 0; background: #f7faf8; }
+    .professional-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .professional-story { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 12px 30px rgba(13,45,51,.06); }
+    .professional-story p { color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
+    .professional-story strong { display: block; margin-top: 16px; color: var(--ink); font-size: 13px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--color-text); font-size: 0.95rem; font-weight: 600; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--color-primary); }
 
-.pf-toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .hero-section { padding-top: 4.4rem; padding-bottom: 3.4rem; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 3rem; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.55rem 0.9rem; border-radius: 999px; background: rgba(11,122,138,0.08);
+      color: var(--color-accent); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid rgba(11,122,138,0.08);
+    }
+    .eyebrow-dot {
+      width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--color-accent); box-shadow: 0 0 0 6px rgba(11,122,138,0.12);
+    }
+    .hero-title {
+      font-size: clamp(2.7rem, 4vw, 5rem);
+      font-weight: 900; letter-spacing: -0.07em; margin-top: 1.2rem; margin-bottom: 1.1rem; color: var(--color-heading);
+      max-width: 13ch;
+    }
+    .hero-copy {
+      font-size: 1.1rem; line-height: 1.7; color: var(--color-text); max-width: 40rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
+    .cta-ghost-link {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      border: 1px solid rgba(16,24,40,0.12); background: rgba(255,255,255,0.7); color: var(--color-primary);
+      border-radius: 0.9rem; padding: 0.95rem 1.2rem; font-weight: 700;
+    }
+    .button-primary, .button-secondary {
+      display: inline-flex; align-items: center; justify-content: center; border-radius: 0.95rem; font-weight: 700; padding: 1rem 1.4rem; font-size: 0.98rem;
+    }
+    .button-primary { min-width: 180px; }
+    .button-secondary { min-width: 180px; }
+    .hero-note {
+      display: flex; align-items: center; gap: 0.8rem; margin-top: 1.8rem; color: #6c7b7e; font-size: 0.82rem; line-height: 1.5;
+    }
+    .hero-note strong { color: var(--ink); }
+    .hero-note-mark {
+      display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-weight: 900;
+    }
+    .hero-proof {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; border-top: 1px solid var(--color-border); padding-top: 1.35rem;
+    }
+    .hero-proof .proof-item { flex: 1 1 150px; min-width: 0; }
+    .hero-proof .proof-item strong { display: block; font-size: 1.65rem; letter-spacing: -0.05em; margin-bottom: 0.25rem; }
+    .hero-proof .proof-item span { color: var(--color-text); font-size: 0.9rem; }
 
-.pf-toast.hide {
-  opacity: 0;
-  transform: translateY(12px);
-}
+    .visual-wrap {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .visual-frame {
+      width: min(100%, 560px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.74));
+      border: 1px solid rgba(16,24,40,0.06);
+      border-radius: 1.7rem;
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+      position: relative; overflow: hidden;
+    }
+    .visual-frame::before {
+      content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(11,122,138,0.10), transparent 30%);
+      pointer-events: none;
+    }
+    .mini-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; position: relative; z-index: 1;
+    }
+    .mini-header .tag {
+      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(11,122,138,0.08); color: var(--color-accent); font-weight: 700; border-radius: 999px; padding: 0.46rem 0.8rem; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .mini-header .live { color: var(--color-text); font-size: 0.8rem; font-weight: 600; }
+    .pipeline-board {
+      position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem;
+    }
+    .pipeline-board .pipeline-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.1rem; padding: 1rem; min-height: 140px;
+      box-shadow: var(--shadow-card);
+    }
+    .pipeline-board .pipeline-card.small { min-height: 116px; }
+    .pipeline-board .pipeline-label {
+      display: inline-flex; padding: 0.35rem 0.55rem; border-radius: 999px; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(11,122,138,0.08); color: var(--color-accent);
+    }
+    .pipeline-board .pipeline-card h3 {
+      margin-top: 0.9rem; margin-bottom: 0.35rem; color: var(--color-primary); font-size: 1.25rem; letter-spacing: -0.05em;
+    }
+    .pipeline-board .pipeline-card p {
+      color: var(--color-text); font-size: 0.84rem; line-height: 1.55;
+    }
+    .signal-row {
+      display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 1rem; background: rgba(11,122,138,0.05); border: 1px solid rgba(11,122,138,0.06);
+    }
+    .signal-row strong { font-size: 1.35rem; letter-spacing: -0.06em; }
+    .signal-row span { color: var(--color-text); font-size: 0.8rem; }
 
-.pf-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg,#00A2B8,#00778C);
-  color: #fff;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 14px;
-  flex-shrink: 0;
-}
+    .section-block { padding: 1.25rem 0 4rem; }
+    .section-title {
+      font-size: clamp(2rem, 2.5vw, 3rem); margin-bottom: 0.7rem; letter-spacing: -0.06em; color: var(--color-heading);
+    }
+    .section-copy { color: var(--color-text); font-size: 1.02rem; max-width: 38rem; }
+    .section-header { margin-bottom: 2rem; }
 
-.pf-content {
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: #1f2937;
-}
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.84); border: 1px solid var(--color-border); border-radius: 1.2rem; padding: 1.4rem 1.2rem; box-shadow: var(--shadow-card);
+    }
+    .stat-card.emphasis {
+      background: linear-gradient(135deg, rgba(11,122,138,0.10), rgba(255,255,255,0.9) 35%);
+    }
+    .stat-card .value { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 900; letter-spacing: -0.07em; }
+    .stat-card .label { margin-top: 0.75rem; color: var(--color-text); font-size: 0.9rem; line-height: 1.5; }
 
-.pf-content strong {
-  font-weight: 800;
-  color: #00778C;
-}
+    .service-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.15rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.35rem; padding: 1.35rem; box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(15,23,42,0.12); }
+    .service-card::before {
+      content: ""; position: absolute; inset: 0 auto auto 0; width: 100%; height: 4px; background: linear-gradient(90deg, rgba(11,122,138,0.85), rgba(11,122,138,0.1));
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--color-accent-soft); color: var(--color-accent); font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 { font-size: 1.4rem; letter-spacing: -0.05em; margin-bottom: 0.7rem; }
+    .service-card p { color: var(--color-text); font-size: 0.95rem; line-height: 1.7; }
+    .service-card a { margin-top: auto; padding-top: 1rem; color: var(--color-accent); font-weight: 700; }
 
-.pf-meta {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #6b7280;
-}
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem;
+    }
+    .step-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.1); border-radius: 1.2rem; padding: 1.2rem; position: relative; box-shadow: var(--shadow-card);
+    }
+    .step-number {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--color-accent-soft); color: var(--color-accent); font-size: 1rem; font-weight: 900; margin-bottom: 1rem;
+    }
+    .step-card h3 { font-size: 1.25rem; margin-bottom: 0.65rem; }
+    .step-card p { color: var(--color-text); font-size: 0.92rem; line-height: 1.7; }
 
+    .industry-card-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem;
+    }
+    .industry-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.2rem; padding: 1.2rem; box-shadow: var(--shadow-card);
+    }
+    .industry-card .chip {
+      display: inline-flex; background: rgba(11,122,138,0.08); color: var(--color-accent); padding: 0.42rem 0.7rem; border-radius: 999px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .industry-card h3 { font-size: 1.3rem; margin-top: 0.85rem; margin-bottom: 0.55rem; }
+    .industry-card p { color: var(--color-text); font-size: 0.92rem; line-height: 1.7; }
 
+    .cta-panel {
+      margin-top: 0.5rem; margin-bottom: 3.5rem; padding: 1.8rem; border-radius: 1.8rem; background: linear-gradient(135deg, #0d1a26 0%, #101828 100%);
+      color: #fff; box-shadow: var(--shadow-soft);
+    }
+    .cta-panel-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .cta-title { font-size: clamp(2rem, 3vw, 2.7rem); letter-spacing: -0.06em; }
+    .cta-copy { max-width: 36rem; color: rgba(255,255,255,0.76); }
 
+    .mini-brand-strip {
+      margin-top: 1.1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem 1.2rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border: 1px solid rgba(16,24,40,0.08);
+    }
+    .mini-brand-strip img { max-height: 40px; filter: grayscale(1) opacity(0.8); }
 
+    .footer-wrap { background: #0f172a; color: #fff; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.3fr 0.8fr 1.3fr; gap: 2.5rem; padding: 3.25rem 0;
+    }
+    .footer-text { color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+    .footer-links a { color: rgba(255,255,255,0.72); }
+    .footer-links a:hover { color: #fff; }
+    .footer-legal {
+      border-top: 1px solid rgba(255,255,255,0.08); padding: 1.2rem 0 2.25rem; text-align: center; color: rgba(255,255,255,0.54); font-size: 0.78rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .service-grid, .process-grid, .stats-grid, .industry-card-grid, .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .industry-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { display: none; }
+      .desktop-actions { display: none; }
+      .mobile-menu-toggle { display: inline-flex; }
+    }
+
+    @media (max-width: 640px) {
+      .site-shell { padding-left: 1rem; padding-right: 1rem; }
+      .hero-section { padding-top: 3rem; }
+      .service-grid, .process-grid, .stats-grid, .industry-card-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button-primary, .button-secondary { width: 100%; }
+      .cta-panel-inner { align-items: flex-start; }
+      .mini-header { flex-direction: column; align-items: flex-start; }
+      .pipeline-board { grid-template-columns: 1fr; }
+      .client-review-grid, .professional-story-grid { grid-template-columns: 1fr; }
+      .client-review, .client-review:nth-child(4), .client-review:nth-child(5) { grid-column: auto; }
+    }
+
+    .pf-toast { position: fixed; bottom: 28px; right: 28px; max-width: 360px; background: #ffffff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 25px 60px rgba(0,0,0,0.18); border: 1px solid rgba(0,119,140,0.15); display: flex; gap: 12px; opacity: 0; transform: translateY(20px); transition: all 0.45s cubic-bezier(.22,1,.36,1); z-index: 9999; }
+    .pf-toast.show { opacity: 1; transform: translateY(0); }
+    .pf-toast.hide { opacity: 0; transform: translateY(12px); }
+    .pf-icon { width: 36px; height: 36px; background: linear-gradient(135deg,#00A2B8,#00778C); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; flex-shrink: 0; }
+    .pf-content { font-size: 13.5px; line-height: 1.45; color: #1f2937; }
+    .pf-content strong { font-weight: 800; color: #00778C; }
+    .pf-meta { margin-top: 6px; font-size: 11px; color: #6b7280; }
   </style>
   <meta name="description" content="PumpFiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -114,35 +416,28 @@
   <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png" />
 
 </head>
-<body class="antialiased bg-[color:var(--color-secondary)] text-[color:var(--color-primary)]">
-
-  <!-- NAV -->
-  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <!-- subtle bridge logo -->
-         <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
-
-
-
-        <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
-        <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+<body>
+  <header class="topbar">
+    <div class="site-shell topbar-inner">
+      <div class="brand-lockup">
+        <img src="assets/logo.png" alt="Pumpfiat logo" class="logo-bridge">
+        <div class="brand-wordmark">PUMPFIAT</div>
+        <span class="pill-badge">Growth, in motion</span>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
-        <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
-        <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
-        <a href="career/index.html" class="hover:text-[color:var(--color-primary)] transition">Careers</a>
-
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#industries">About</a>
+        <a href="dataanalysis.html">Data</a>
+        <a href="career/index.html">Careers</a>
       </nav>
 
-      <div class="hidden md:flex items-center gap-3">
-        <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+      <div class="desktop-actions">
+        <a href="onboarding.html" class="button-primary btn-primary">Get Started <span class="btn-arrow">↗</span></a>
       </div>
 
-      <button id="mobileMenuBtn" aria-expanded="false" class="md:hidden p-2 text-2xl text-gray-700" title="Open menu">
-        <!-- Hamburger Icon -->
+      <button id="mobileMenuBtn" aria-expanded="false" class="mobile-menu-toggle md:hidden p-2 text-2xl text-gray-700" title="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -150,699 +445,349 @@
     </div>
   </header>
 
-  <!-- HERO (conversion-first) -->
   <main>
-    <section class="pt-16 pb-12">
-      <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Left: headline & CTAs -->
-        <div class="">
-          <p class="text-sm font-semibold uppercase text-[color:var(--color-accent)] tracking-widest mb-3">Reach. Convert. Scale.</p>
-
-          <h1 class="hero-title text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-            One Million Permission-Based Prospects to Supercharge Your Growth
-          </h1>
-
-          <p class="text-lg text-gray-700 mb-8 max-w-2xl">
-            Pumpfiat delivers a verified, compliance-first dataset of opt-in customers, plus workflow tools to launch targeted campaigns quickly. Shorten the funnel. Lower acquisition cost. Scale with confidence.
+    <section class="hero-section">
+      <div class="site-shell hero-grid">
+        <div>
+          <div class="hero-kicker"><span></span> Prospecting · Sales Development · Growth</div>
+          <h1 class="hero-title">Find the right customers. <em>Build what comes next.</em></h1>
+          <p class="hero-copy">
+            PumpFiat helps businesses identify the right prospects, open relevant conversations, and develop stronger sales pipelines through research-led prospecting and sales development.
           </p>
 
-          <div class="flex flex-wrap gap-4 items-center">
-            <a href="onboarding.html" class="btn-primary px-6 py-4 rounded-lg text-lg font-bold shadow-lg">Lock In 45% New Year Bonus</a>
-            <a href="#contact" class="inline-flex items-center gap-3 border border-gray-200 px-5 py-3 rounded-lg text-sm font-semibold hover:bg-gray-50">
-              Contact Sales
-            </a>
-            <span class="text-sm text-gray-500 ml-2">or <strong>try a free 7-day trial</strong></span>
+          <div class="hero-actions">
+            <a href="onboarding.html" class="button-primary btn-primary">Get Started <span class="btn-arrow">↗</span></a>
+            <a href="#services" class="cta-ghost-link">Explore services</a>
           </div>
-          <!-- SECURITY BADGE -->
-<div class="mt-6 flex items-center gap-3">
-  <img src="assets/security/soc2.png" class="h-10 w-auto" alt="SOC 2 Shield">
-  <div class="text-sm text-gray-600 leading-tight">
-    <strong class="text-[color:var(--color-primary)]">Security First.</strong><br>
-    Certification target completed — Q3 2025.
-  </div>
-</div>
 
-
-          <!-- micro-trust -->
-          <div class="mt-8 flex items-center gap-6">
-            <div class="flex gap-3 items-center">
-              <strong class="text-2xl">47%</strong>
-              <div class="text-sm text-gray-600">Avg. reduction in CAC reported by early customers</div>
-            </div>
-
-            <div class="border-l border-gray-200 h-8"></div>
-
-            <div class="text-sm text-gray-600 flex flex-wrap items-center gap-2">
-  Fully documented consent logs · CCPA & GDPR readiness · SOC-ready audits 
-  <a href="compliance.html" class="text-[color:var(--color-accent)] font-semibold ml-2 underline decoration-[color:var(--color-accent)]/40 hover:opacity-80">
-    View Compliance →
-  </a>
-</div>
-
+          <div class="hero-note">
+            <div class="hero-note-mark">✓</div>
+            <div><strong>Verified data. Better conversations.</strong> Research-led prospecting for teams that want cleaner pipelines and stronger conversions.</div>
+          </div>
+          <div class="hero-security">
+            <img src="assets/security/soc2.png" alt="SOC 2 Shield" />
+            <div><strong>Security First.</strong><br />Certification target completed — Q3 2025.</div>
           </div>
         </div>
 
-        <!-- Right: pricing/invoice box (conversion focal) -->
-        <div class="space-y-6">
-          <div class="invoice-box p-8 bg-white invoice-box">
-            <div class="flex justify-between items-start">
+        <div class="visual-stage">
+          <div class="visual-orbit"></div>
+          <div class="floating-note note-one"><span>↗</span> 4.8x faster pipeline motion</div>
+          <div class="floating-note note-two"><span>✓</span> Consent-first outreach</div>
+
+          <div class="pipeline-card">
+            <div class="pipeline-top">
               <div>
-                <div class="text-xs text-gray-500 uppercase">Standard Campaign Value</div>
-                <div class="text-2xl font-bold line-through text-red-600 mt-2">$6,497.00</div>
+                <div class="pipeline-label">Campaign value</div>
+                <div class="pipeline-title">Opportunity engine</div>
               </div>
-              <div class="text-right text-sm text-gray-500">
-                <div>Invoice</div>
-                <div class="font-semibold mt-1">INV-2026-001</div>
-                <div class="mt-1 text-xs text-gray-400">Due: Jan 30, 2026</div>
+              <span class="status-pill">Live</span>
+            </div>
+
+            <div class="pipeline-stats">
+              <div class="mini-stat">
+                <small>Qualified</small>
+                <strong>1.2M</strong>
+              </div>
+              <div class="mini-stat">
+                <small>Avg. ROI</small>
+                <strong>47%</strong>
               </div>
             </div>
 
-            <hr class="my-6 border-gray-100"/>
-
-            <div class="text-sm text-gray-600 mb-3">
-              <strong>What you get</strong>
-              <ul class="list-disc ml-5 mt-2 space-y-1">
-                <li>1,000,000 verified, permissioned prospects segmented by intent & category</li>
-                <li>Deliverability best-practices + campaign send templates</li>
-                <li>Compliance logs, audit export, and sandbox testing</li>
-              </ul>
+            <div class="pipeline-list">
+              <div class="pipeline-row">
+                <div class="avatar">A</div>
+                <div class="row-main">
+                  <strong>Account mapping</strong>
+                  <small>ICP fit + buying signals</small>
+                </div>
+                <div class="row-tag">High</div>
+              </div>
+              <div class="pipeline-row">
+                <div class="avatar">R</div>
+                <div class="row-main">
+                  <strong>Research layer</strong>
+                  <small>Intent + decision maker data</small>
+                </div>
+                <div class="row-tag">Ready</div>
+              </div>
+              <div class="pipeline-row">
+                <div class="avatar">S</div>
+                <div class="row-main">
+                  <strong>Sales motion</strong>
+                  <small>Qualified outreach support</small>
+                </div>
+                <div class="row-tag">Active</div>
+              </div>
             </div>
-
-            <!-- Big total box -->
-            <div class="mt-6 p-6 rounded-lg text-white text-center" style="background: linear-gradient(90deg,var(--color-accent), #00606b)">
-              <div class="text-sm uppercase">New Year — Limited Offer</div>
-              <div class="text-4xl font-extrabold mt-2 tracking-tight">$3,573.<span class="text-xl">35</span></div>
-              <div class="text-xs text-white/80 mt-1">You save $2,923.65 (45%) — Sales Tax Free Promo</div>
-              <a href="onboarding.html" class="mt-4 inline-block bg-white text-[color:var(--color-accent)] px-6 py-3 rounded-full font-semibold shadow">Lock This Price</a>
-            </div>
-
-            <div class="mt-6 text-xs text-gray-500">
-              <strong>Note:</strong> This offer applies to the initial setup + first 3 months. All records are opt-in and may only be used for the agreed campaign purposes.
-            </div>
-          </div>
-
-          <!-- small social proof (logos loaded from assets) -->
-          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
-            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              <img src="assets/logos/asha.png" alt="Asha Health" class="client-logo" />
-              <img src="assets/logos/fresco.png" alt="Fresco" class="client-logo" />
-              <img src="assets/logos/triply.png" alt="Triply" class="client-logo" />
-              <img src="assets/logos/beerme.png" alt="BeerMe" class="client-logo" />
-              <img src="assets/logos/paidhr.png" alt="PaidHR" class="client-logo" />
-              <img src="assets/logos/galini.png" alt="Galini" class="client-logo" />
-            </div>
-            <div class="mt-4 text-sm text-gray-600">Trusted by YC founders and growth teams</div>
           </div>
         </div>
       </div>
     </section>
 
+    <div class="proof-strip">
+      <div class="site-shell proof-grid">
+        <div class="proof-item"><strong>2021</strong><span>PumpFiat began building a smarter prospecting partner model.</span></div>
+        <div class="proof-item"><strong>5+</strong><span>Years of experience helping teams improve sales development.</span></div>
+        <div class="proof-item"><strong>100+</strong><span>People and projects supported across research, outreach, and growth.</span></div>
+        <div class="proof-item"><strong>Global</strong><span>Operations built for international businesses and regional expansion.</span></div>
+      </div>
+    </div>
 
-
-    <!-- TRUST BAR / RECOMMENDATION -->
-    <section class="py-12 bg-white border-t border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 text-center">
-        <p class="text-gray-500 font-semibold mb-6 uppercase tracking-wider text-sm">Recommendations from growth leads</p>
-
-        <!-- Heavy testimonial / recommendation grid using your companies -->
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="assets/logos/asha.png" alt="Asha Health" class="h-10 object-contain" />
-              <div>
-                <div class="font-semibold">Akkshay Khoslaa</div>
-                <div class="text-sm text-gray-500">Asha Health</div>
-              </div>
+    <section class="client-recommendations">
+      <div class="site-shell">
+        <h2>Recommendations from growth leads</h2>
+        <div class="client-review-grid">
+          <article class="client-review">
+            <div class="client-review-head">
+              <img src="assets/logos/asha.png" alt="Asha Health" />
+              <div><strong>Akkshay Khoslaa</strong><span>Asha Health</span></div>
             </div>
-            <p class="text-gray-700">“Pumpfiat helped us model intent segments quickly. The playbook for warm-up prevented any deliverability shock — we saw better trial sign-ups after week one.”</p>
-          </div>
-
-          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="assets/logos/fresco.png" alt="Fresco" class="h-10 object-contain" />
-              <div>
-                <div class="font-semibold">Akhil Gupta</div>
-                <div class="text-sm text-gray-500">Fresco</div>
-              </div>
+            <p>“Pumpfiat helped us model intent segments quickly. The playbook for warm-up prevented any deliverability shock — we saw better trial sign-ups after week one.”</p>
+          </article>
+          <article class="client-review">
+            <div class="client-review-head">
+              <img src="assets/logos/fresco.png" alt="Fresco" />
+              <div><strong>Akhil Gupta</strong><span>Fresco</span></div>
             </div>
-            <p class="text-gray-700">“Segmented datasets + automated throttles reduced our CPL and pushed more activated users into the funnel. Highly recommended for launches.”</p>
-          </div>
-
-          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="assets/logos/paidhr.png" alt="PaidHR" class="h-10 object-contain" />
-              <div>
-                <div class="font-semibold">Lekan Omotosho</div>
-                <div class="text-sm text-gray-500">PaidHR</div>
-              </div>
+            <p>“Segmented datasets + automated throttles reduced our CPL and pushed more activated users into the funnel. Highly recommended for launches.”</p>
+          </article>
+          <article class="client-review">
+            <div class="client-review-head">
+              <img src="assets/logos/paidhr.png" alt="PaidHR" />
+              <div><strong>Lekan Omotosho</strong><span>PaidHR</span></div>
             </div>
-            <p class="text-gray-700">“Pumpfiat drove over 80% of our cross-border customers. We scaled far beyond what we believed was possible at the start.”</p>
-          </div>
+            <p>“Pumpfiat drove over 80% of our cross-border customers. We scaled far beyond what we believed was possible at the start.”</p>
+          </article>
+          <article class="client-review">
+            <div class="client-review-head">
+              <img src="assets/logos/triply.png" alt="Triply" />
+              <div><strong>Peter wachira</strong><span>Triply</span></div>
+            </div>
+            <p>“We ran a regional test targeting travel intent clusters — CTR and conversion spiked after a two-step warm-up.”</p>
+          </article>
+          <article class="client-review">
+            <div class="client-review-head">
+              <img src="assets/logos/beerme.png" alt="BeerMe" />
+              <div><strong>Tyler Neal</strong><span>BeerMe</span></div>
+            </div>
+            <p>“We were skeptical, but the staged warm-up and segment filters produced real foot traffic to our events. Great for localized campaigns.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="professional-stories">
+      <div class="site-shell">
+        <h2>Stories From Professionals We've Helped</h2>
+        <div class="professional-story-grid">
+          <article class="professional-story"><p>“Our biggest challenge was the rising CAC from generic channels. Pumpfiat’s permission-based dataset lowered CAC by 47% and boosted trial-to-paid conversions by 15 points.”</p><strong>— David Chen, Head of Growth (B2B SaaS)</strong></article>
+          <article class="professional-story"><p>“I used Pumpfiat for my Capstone project — it was the only ethical, GDPR-ready dataset with real reach. It completely reshaped my understanding of compliant outreach.”</p><strong>— Olivia Miller, Marketing Student</strong></article>
+          <article class="professional-story"><p>“Pumpfiat helped me launch my tele-therapy service ethically. The intent segments gave me verified prospects actively researching mental wellness. Completely trustworthy.”</p><strong>— Dr. Eleanor Vance, Licensed Therapist</strong></article>
+          <article class="professional-story"><p>“My students needed real decision-makers. Pumpfiat’s verified contacts delivered a 95% deliverability rate. It transformed our research workflow.”</p><strong>— Prof. Michael J. Hayes</strong></article>
+          <article class="professional-story"><p>“Pumpfiat subscribers converted at 3× the rate of my social media funnel. It’s a true funnel shortener.”</p><strong>— Jordan Scott, B2B Finance Creator</strong></article>
+          <article class="professional-story"><p>“Their warm-up playbook protected my domain and helped us build a six-figure pipeline with excellent deliverability.”</p><strong>— Lexi Reed, HR Tech Founder</strong></article>
+          <article class="professional-story"><p>“I'm not a marketer. Pumpfiat gave me the data and templates to launch a full B2B campaign in one afternoon. No agency needed.”</p><strong>— Rob Gentry, Small Business Owner</strong></article>
+          <article class="professional-story"><p>“We used Pumpfiat to reach corporate directors for matching programs. It secured our largest partnership yet.”</p><strong>— Sophia Ndiaye, Non-Profit Campaign Director</strong></article>
+          <article class="professional-story"><p>“The clean consent metadata saved hours of data cleaning. Better integrity = better predictive accuracy.”</p><strong>— Jacob Stone, Senior Data Analyst</strong></article>
+          <article class="professional-story"><p>“Pumpfiat helped me target niche 'Researching Solutions' segments. My consulting pipeline is full.”</p><strong>— Maria Sanchez, Freelance Consultant</strong></article>
+          <article class="professional-story"><p>“Pumpfiat’s job-title filters ensured our product reached decision-makers with budget authority — huge reduction in churn risk.”</p><strong>— Aaron Dubois, Customer Success Manager</strong></article>
+          <article class="professional-story"><p>“We targeted training/L&amp;D leaders specifically. Demo requests from major organizations exploded.”</p><strong>— Jessica Lee, E-Learning Founder</strong></article>
+          <article class="professional-story"><p>“Pumpfiat shortens our sales cycle dramatically. Prospects come warmed and pre-segmented.”</p><strong>— Marcus Thompson, Senior Sales Executive</strong></article>
+          <article class="professional-story"><p>“We needed CEOs researching expansion. Pumpfiat delivered exactly that. High-impact outreach.”</p><strong>— Laura Vasquez, City Council Member</strong></article>
+          <article class="professional-story"><p>“Firmographic accuracy helped us run targeted commercial real estate campaigns — resulting in two major acquisitions.”</p><strong>— Christopher Allen, CRE Investor</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> Experience & credibility</div>
+          <h2 class="section-title">Built for teams that need real momentum.</h2>
+          <p class="section-copy">PumpFiat has operated since 2021, bringing together more than five years of sales development experience and a global talent model designed to support ambitious businesses.</p>
         </div>
 
-        <div class="mt-8 grid md:grid-cols-2 gap-6">
-          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="assets/logos/triply.png" alt="Triply" class="h-10 object-contain" />
-              <div>
-                <div class="font-semibold">Peter wachira</div>
-                <div class="text-sm text-gray-500">Triply</div>
-              </div>
-            </div>
-            <p class="text-gray-700">“We ran a regional test targeting travel intent clusters — CTR and conversion spiked after a two-step warm-up.”</p>
+        <div class="stats-grid">
+          <div class="stat-card emphasis">
+            <div class="value">2021</div>
+            <div class="label">PumpFiat began operating and building a prospecting partner model for growth-focused teams.</div>
           </div>
-
-          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
-            <div class="flex items-center gap-4 mb-4">
-              <img src="assets/logos/beerme.png" alt="BeerMe" class="h-10 object-contain" />
-              <div>
-                <div class="font-semibold">Tyler Neal</div>
-                <div class="text-sm text-gray-500">BeerMe</div>
-              </div>
-            </div>
-            <p class="text-gray-700">“We were skeptical, but the staged warm-up and segment filters produced real foot traffic to our events. Great for localized campaigns.”</p>
+          <div class="stat-card">
+            <div class="value">5+</div>
+            <div class="label">Years of experience helping companies identify and engage the right customers.</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">100+</div>
+            <div class="label">People have worked with the business across sales, research, and growth projects.</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">Global</div>
+            <div class="label">An international approach to operations, talent, and market coverage.</div>
           </div>
         </div>
       </div>
     </section>
-        <section id="leak-check" class="py-20 bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-[color:var(--color-primary)]">
-      Was Your Email Part of a Major Data Leak?
-    </h2>
-    <p class="text-lg text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-      Recent breaches exposed millions of email addresses. Check instantly if yours was affected — and discover how Pumpfiat protects your campaigns with verified, permission-based data only.
-    </p>
 
-    <form id="leak-form" action="https://formsubmit.co/pumpfiat@gmail.com" method="POST" class="max-w-lg mx-auto space-y-6">
-      <input type="hidden" name="_subject" value="Leak Check Submission + Onboarding Interest" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://pumpfiat.com/onboarding.html?from=leak-check" />
-      <input type="hidden" name="_next" value="javascript:void(0)">
+    <section id="services" class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> What we do</div>
+          <h2 class="section-title">Sales development support built around pipeline growth.</h2>
+        </div>
 
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">◎</div>
+            <h3>Prospect Research</h3>
+            <p>Identify the right accounts, decision-makers, and buying signals with a sharper view of your ideal customer profile.</p>
+            <a href="dataanalysis.html">Learn more →</a>
+          </article>
 
-      <div class="flex flex-col sm:flex-row gap-4">
-        <input 
-          type="email" 
-          name="email" 
-          id="leak-email" 
-          placeholder="Enter your work email" 
-          class="flex-1 px-6 py-4 rounded-xl bg-white border border-gray-300 text-gray-900 focus:border-[color:var(--color-accent)] focus:outline-none text-base" 
-          required 
-        />
-        <button 
-          type="submit" 
-          class="btn-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition"
-        >
-          Check Now
-        </button>
-      </div>
-    </form>
+          <article class="service-card">
+            <div class="service-icon">↗</div>
+            <h3>Lead Generation</h3>
+            <p>Build cleaner lead pipelines with relevant market research and outreach-ready opportunities for your team.</p>
+            <a href="dataanalysis.html">Learn more →</a>
+          </article>
 
-    <div id="leak-result" class="mt-10 hidden">
-      <div class="p-8 bg-amber-50 rounded-2xl border border-amber-200 max-w-2xl mx-auto">
-        <p id="result-text" class="text-lg text-gray-800 mb-6"></p>
-        <p class="text-base text-gray-700 mb-8">
-          Regardless of the result, using non-permissioned data carries ongoing risk. Pumpfiat provides only opt-in, compliant prospects — protecting your domain reputation and deliverability long-term.
-        </p>
-        <a href="onboarding.html" class="inline-block btn-primary px-8 py-4 rounded-xl text-lg font-bold shadow-lg">
-          Onboard to Pumpfiat — Start with Compliant Data
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+          <article class="service-card">
+            <div class="service-icon">◌</div>
+            <h3>Sales Development</h3>
+            <p>Support conversations, qualification, and follow-through with structured prospecting motions and reporting.</p>
+            <a href="about.html">Learn more →</a>
+          </article>
 
-    <!-- EXTENDED RECOMMENDATIONS CAROUSEL -->
-<section class="py-16 bg-white border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
-
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">
-      Stories From Professionals We've Helped
-    </h2>
-
-    <div class="relative">
-
-      <!-- Carousel Wrapper -->
-      <div id="pfCarousel" class="overflow-hidden relative rounded-2xl">
-        <div id="pfSlides" class="flex transition-transform duration-700 ease-out">
-
-          <!-- SLIDE 1 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <!-- Item -->
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Our biggest challenge was the rising CAC from generic channels. Pumpfiat’s permission-based dataset lowered CAC by 47% and boosted trial-to-paid conversions by 15 points.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— David Chen, Head of Growth (B2B SaaS)</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “I used Pumpfiat for my Capstone project — it was the only ethical, GDPR-ready dataset with real reach. It completely reshaped my understanding of compliant outreach.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Olivia Miller, Marketing Student</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 2 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Pumpfiat helped me launch my tele-therapy service ethically. The intent segments gave me verified prospects actively researching mental wellness. Completely trustworthy.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Dr. Eleanor Vance, Licensed Therapist</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “My students needed real decision-makers. Pumpfiat’s verified contacts delivered a 95% deliverability rate. It transformed our research workflow.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Prof. Michael J. Hayes</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 3 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Pumpfiat subscribers converted at 3× the rate of my social media funnel. It’s a true funnel shortener.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Jordan Scott, B2B Finance Creator</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Their warm-up playbook protected my domain and helped us build a six-figure pipeline with excellent deliverability.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Lexi Reed, HR Tech Founder</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 4 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “I'm not a marketer. Pumpfiat gave me the data and templates to launch a full B2B campaign in one afternoon. No agency needed.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Rob Gentry, Small Business Owner</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “We used Pumpfiat to reach corporate directors for matching programs. It secured our largest partnership yet.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Sophia Ndiaye, Non-Profit Campaign Director</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 5 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “The clean consent metadata saved hours of data cleaning. Better integrity = better predictive accuracy.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Jacob Stone, Senior Data Analyst</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Pumpfiat helped me target niche 'Researching Solutions' segments. My consulting pipeline is full.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Maria Sanchez, Freelance Consultant</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 6 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Pumpfiat’s job-title filters ensured our product reached decision-makers with budget authority — huge reduction in churn risk.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Aaron Dubois, Customer Success Manager</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “We targeted training/L&D leaders specifically. Demo requests from major organizations exploded.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Jessica Lee, E-Learning Founder</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 7 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Pumpfiat shortens our sales cycle dramatically. Prospects come warmed and pre-segmented.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Marcus Thompson, Senior Sales Executive</div>
-            </div>
-
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “We needed CEOs researching expansion. Pumpfiat delivered exactly that. High-impact outreach.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Laura Vasquez, City Council Member</div>
-            </div>
-          </div>
-
-          <!-- SLIDE 8 -->
-          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
-            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
-              <p class="text-gray-800 text-lg italic">
-                “Firmographic accuracy helped us run targeted commercial real estate campaigns — resulting in two major acquisitions.”
-              </p>
-              <div class="mt-4 text-sm font-semibold">— Christopher Allen, CRE Investor</div>
-            </div>
-          </div>
-
+          <article class="service-card">
+            <div class="service-icon">▣</div>
+            <h3>Business Growth Support</h3>
+            <p>Help teams improve outreach efficiency, strengthen market fit, and create more repeatable demand-generation systems.</p>
+            <a href="about.html">Learn more →</a>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- NAVIGATION ARROWS -->
-      <button id="pfPrev" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 shadow rounded-full hover:bg-gray-100">
-        &#10094;
-      </button>
-      <button id="pfNext" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white p-3 shadow rounded-full hover:bg-gray-100">
-        &#10095;
-      </button>
+    <section id="process" class="section-block" style="background: rgba(255,255,255,0.42); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> How it works</div>
+          <h2 class="section-title">A practical process for growth-minded teams.</h2>
+        </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- CAROUSEL SCRIPT -->
-<script>
-  const pfSlides = document.getElementById("pfSlides");
-  const totalSlides = pfSlides.children.length;
-  let pfIndex = 0;
-
-  function moveCarousel() {
-    pfIndex = (pfIndex + 1) % totalSlides;
-    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
-  }
-
-  let pfTimer = setInterval(moveCarousel, 6000);
-
-  document.getElementById("pfNext").onclick = () => {
-    pfIndex = (pfIndex + 1) % totalSlides;
-    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
-    resetTimer();
-  };
-
-  document.getElementById("pfPrev").onclick = () => {
-    pfIndex = (pfIndex - 1 + totalSlides) % totalSlides;
-    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
-    resetTimer();
-  };
-
-  function resetTimer() {
-    clearInterval(pfTimer);
-    pfTimer = setInterval(moveCarousel, 6000);
-  }
-</script>
-
-
-    <!-- OFFER / CTA -->
-    <section id="offer" class="py-16 bg-[color:var(--color-primary)] text-white">
-      <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold">Ready to run a compliant, measurable campaign?</h2>
-        <p class="mt-3 text-gray-200 max-w-2xl mx-auto">Lock the New Year price for first movers. Limited quantity availability per industry.</p>
-
-        <div class="mt-8 grid md:grid-cols-2 gap-8 items-center">
-          <div class="md:col-span-1">
-            <div class="bg-[color:var(--color-secondary)] p-8 rounded-xl invoice-box text-[color:var(--color-primary)]">
-              <div class="text-sm text-gray-600">Offer — 45% New Year</div>
-              <div class="text-3xl font-extrabold mt-2">$3,573.<span class="text-lg">35</span></div>
-              <div class="text-xs mt-1 text-gray-500">Standard value: <s>$6,497.00</s> · Sales Tax: $0 (Tax-Free Promo)</div>
-
-              <ul class="mt-4 text-sm text-gray-600 space-y-2">
-                <li>✔ 1,000,000 opt-in prospects (segmented export)</li>
-                <li>✔ Deliverability & warm-up playbook</li>
-                <li>✔ 1:1 onboarding and audit export</li>
-              </ul>
-
-              <a href="onboarding.html" class="mt-6 inline-block btn-primary px-6 py-3 rounded-full font-semibold">Lock My Discount</a>
-            </div>
+        <div class="process-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Understand the business</h3>
+            <p>Learn your offer, audience, positioning, and the types of customers that matter most.</p>
           </div>
 
-          <div class="md:col-span-1 text-left">
-            <h4 class="font-semibold">How it works</h4>
-            <ol class="mt-3 text-sm text-gray-200 list-decimal ml-6 space-y-2">
-              <li>Choose your industry segment and campaign objective.</li>
-              <li>We prepare a segmented, compliant export and sample test pool.</li>
-              <li>Run a 3-step warm-up + test campaign with dedicated deliverability monitoring.</li>
-              <li>Scale to full volume after performance validation.</li>
-            </ol>
-            <p class="mt-4 text-xs text-gray-300">*90% of data comes from the United States of America and EU 🇺🇸 🇪🇺</p>
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Identify & research</h3>
+            <p>Map the target market, uncover the strongest prospects, and collect the context needed for relevant outreach.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Execute prospecting</h3>
+            <p>Develop a structured outreach workflow with message testing, follow-up patterns, and pipeline visibility.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Support pipeline growth</h3>
+            <p>Turn conversations into opportunities with disciplined follow-up and continued optimization.</p>
           </div>
         </div>
       </div>
     </section>
-    <!-- ETHICAL USE POLICY NOTICE -->
-<section class="py-10 bg-white border-t border-gray-200">
-  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
 
-    <h3 class="text-xl font-bold text-[color:var(--color-primary)] mb-3">
-      Ethical Use & Compliance Agreement
-    </h3>
+    <section id="industries" class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> Who we help</div>
+          <h2 class="section-title">Built for teams with growth goals and limited bandwidth.</h2>
+          <p class="section-copy">PumpFiat supports businesses that need stronger prospecting systems, better market coverage, and a more efficient path to sales conversations.</p>
+        </div>
 
-    <p class="text-gray-600 text-sm max-w-2xl mx-auto">
-      By purchasing or accessing Pumpfiat data, clients agree to follow our 
-      <a href="ethical-use.html" class="text-[color:var(--color-accent)] font-semibold underline hover:opacity-80">
-        Anti-Spam & Ethical Use Policy
-      </a>.
-      This ensures compliant outreach, protects sender reputation, and maintains the integrity of the dataset for all customers.
-    </p>
+        <div class="industry-card-grid">
+          <article class="industry-card">
+            <span class="chip">B2B</span>
+            <h3>B2B companies</h3>
+            <p>Reach prospects with relevant messaging and better targeting for sales and demand generation.</p>
+          </article>
 
-  </div>
-</section>
+          <article class="industry-card">
+            <span class="chip">SaaS</span>
+            <h3>SaaS businesses</h3>
+            <p>Uncover new accounts and strengthen outreach around product-market fit and acquisition motion.</p>
+          </article>
 
+          <article class="industry-card">
+            <span class="chip">Agencies</span>
+            <h3>Agencies</h3>
+            <p>Expand prospecting capacity and identify growth opportunities without overloading internal teams.</p>
+          </article>
 
-   <!-- FORM ABOVE FAQ -->
-<!-- FORM ABOVE FAQ -->
-<section class="py-24 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100 relative overflow-hidden">
-  <!-- Animated Stars Background – Light Teal Version -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="stars3"></div>
-  </div>
+          <article class="industry-card">
+            <span class="chip">Startups</span>
+            <h3>Startups</h3>
+            <p>Build early traction with sharper customer discovery and a more focused path to pipeline creation.</p>
+          </article>
 
-  <div class="relative max-w-5xl mx-auto px-6 text-center z-10">
-    
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 mb-8">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-      </span>
-      <span class="text-sm font-bold text-teal-700 uppercase tracking-wide">Verified 2026 Compliant Database</span>
-    </div>
+          <article class="industry-card">
+            <span class="chip">Consultants</span>
+            <h3>Consultants</h3>
+            <p>Help service businesses find the right decision-makers and improve inbound and outbound conversion quality.</p>
+          </article>
 
-    <h3 class="text-4xl md:text-6xl font-black mb-6 tracking-tight text-gray-900">
-      Scale your Q1 outreach with <span class="text-[#00778C]">zero risk.</span>
-    </h3>
-    
-    <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-      Join 400+ businesses using our 1,000,000+ permissioned prospect database. Start building high-deliverability campaigns while the New Year pricing is still active.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-8 mb-12 text-gray-500">
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-        <span class="text-sm font-medium">CAN-SPAM & GDPR Vetted</span>
+          <article class="industry-card">
+            <span class="chip">Expansion</span>
+            <h3>New markets</h3>
+            <p>Support teams entering new regions or categories with strategic research and structured prospecting.</p>
+          </article>
+        </div>
       </div>
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-        <span class="text-sm font-medium">98% Email Deliverability</span>
+    </section>
+
+    <section id="offer" class="site-shell">
+      <div class="cta-panel">
+        <div class="cta-panel-inner">
+          <div>
+            <div class="eyebrow" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.1); margin-bottom: 1rem;">Ready to start?</div>
+            <h2 class="cta-title">Let’s build your next growth channel.</h2>
+          </div>
+          <div class="cta-copy">PumpFiat helps businesses identify and engage the right prospects with a stronger process, sharper targeting, and more consistent outreach.</div>
+          <a href="onboarding.html" class="button-primary btn-primary" style="min-width: 220px;">Get Started</a>
+        </div>
       </div>
-      <div class="flex items-center gap-2">
-        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
-        <span class="text-sm font-medium">Daily Data Refresh</span>
+    </section>
+
+    <section class="site-shell" style="padding-bottom: 3rem;">
+      <div class="mini-brand-strip">
+        <img src="assets/logos/asha.png" alt="Asha Health" />
+        <img src="assets/logos/fresco.png" alt="Fresco" />
+        <img src="assets/logos/triply.png" alt="Triply" />
+        <img src="assets/logos/paidhr.png" alt="PaidHR" />
+        <img src="assets/logos/galini.png" alt="Galini" />
+        <img src="assets/logos/beerme.png" alt="BeerMe" />
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="flex flex-col items-center gap-6">
-      <a href="onboarding.html" class="group relative inline-block text-white px-12 py-6 rounded-2xl text-2xl font-bold shadow-2xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
-         style="background: linear-gradient(135deg, #00778C 0%, #00606b 100%);">
-        Lock In New Year Pricing — $3,573
-        <div class="absolute -top-3 -right-3 bg-red-500 text-white text-xs py-1 px-3 rounded-full animate-bounce font-bold">
-          Save $2,500+
-        </div>
-      </a>
-      
-      <div class="flex flex-col sm:flex-row items-center gap-4 mt-2">
-        <a href="#faq" class="text-lg font-semibold text-gray-500 hover:text-[#00778C] transition flex items-center gap-1">
-          Review FAQs <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </a>
-        <span class="hidden sm:block text-gray-300">|</span>
-        <span class="text-sm text-gray-500">Secure 256-bit encrypted checkout</span>
-      </div>
-    </div>
-
-    <p class="mt-12 text-xs text-gray-400 max-w-lg mx-auto uppercase tracking-widest leading-loose">
-      Limited availability per industry to prevent data fatigue. <br> 
-      Current slots available: <span class="text-gray-900 font-bold">12 / 50</span>
-    </p>
-  </div>
-</section>
-
-<style>
-  /* Light Teal Stars – subtle and on-brand */
-  .stars, .stars2, .stars3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-  }
-
-  .stars {
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, #b5e6e6, transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(180, 230, 230, 0.9), transparent),
-      radial-gradient(1px 1px at 90px 40px, #c0e8e8, transparent),
-      radial-gradient(1px 1px at 130px 80px, rgba(180, 230, 230, 0.8), transparent),
-      radial-gradient(2px 2px at 160px 30px, #b5e6e6, transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: starMove 120s linear infinite;
-  }
-
-  .stars2 {
-    background-image: 
-      radial-gradient(1px 1px at 50px 100px, #c0e8e8, transparent),
-      radial-gradient(2px 2px at 100px 20px, rgba(180, 230, 230, 0.9), transparent),
-      radial-gradient(1px 1px at 10px 50px, #b5e6e6, transparent),
-      radial-gradient(2px 2px at 180px 100px, rgba(180, 230, 230, 0.8), transparent);
-    background-repeat: repeat;
-    background-size: 300px 150px;
-    animation: starMove 180s linear infinite reverse;
-  }
-
-  .stars3 {
-    background-image: 
-      radial-gradient(1px 1px at 70px 10px, #c0e8e8, transparent),
-      radial-gradient(1px 1px at 120px 60px, rgba(180, 230, 230, 0.7), transparent),
-      radial-gradient(2px 2px at 150px 120px, #b5e6e6, transparent);
-    background-repeat: repeat;
-    background-size: 400px 200px;
-    animation: starMove 240s linear infinite;
-  }
-
-  @keyframes starMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(-200px); }
-  }
-</style>
-
-<!-- FAQ BELOW FORM -->
-<section id="faq" class="py-16 bg-white">
-  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10">
-    <h3 class="text-3xl font-extrabold text-center mb-10">Frequently Asked Questions</h3>
-    <p class="text-center text-sm text-gray-500 mb-8">
-  For a full breakdown of our sourcing, consent logs, and verification standards, visit our 
-  <a href="compliance.html" class="font-semibold text-[color:var(--color-accent)] hover:opacity-80">Data Compliance Page</a>.
-</p>
-
-
-    <div class="space-y-4">
-
-      <!-- Q1 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          Where do the 1,000,000 prospects come from?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          The prospects come from verified first-party data partners where users have explicitly opted in to receive
-          third-party promotions. No scraped or harvested data is ever used.
-        </div>
-      </details>
-
-      <!-- Q2 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          How often is the data validated and updated?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          We run monthly cleansing cycles, removing inactive or bouncing emails to maintain a 92%+ deliverability rate.
-        </div>
-      </details>
-
-      <!-- Q3 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          What segmentation options are available?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          You can segment by industry, region, job title, company size, and intent clusters to target your exact ICP.
-        </div>
-      </details>
-
-      <!-- Q4 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          Is this GDPR and CCPA compliant?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          Yes. Each record includes consent metadata and can be exported for compliance audits.
-        </div>
-      </details>
-
-      <!-- Q5 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          Are these cold leads? Will this damage my sender reputation?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          These are permission-based prospects. With proper warm-up (provided in our playbook), they behave warmer than
-          typical cold leads and protect your sender reputation.
-        </div>
-      </details>
-
-      <!-- Q6 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          What performance should I expect?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          After warm-up, clients typically see 5–18% CTR, stable inbox placement, and reduced acquisition costs.
-        </div>
-      </details>
-
-      <!-- Q7 -->
-      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
-        <summary class="font-bold text-lg cursor-pointer">
-          What does onboarding include?
-        </summary>
-        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
-          Onboarding includes segmentation setup, validation tests, warm-up guidance, and hands-on support to launch your
-          campaign smoothly.
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-    <!-- CONTACT / FOOTER -->
     <footer id="contact" class="py-12 bg-gray-900 text-white">
       <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
         <div class="grid md:grid-cols-3 gap-8">
           <div>
             <div class="flex items-center gap-3 mb-3">
-              <!-- small bridge logo -->
                <img src="./assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
-
-
               <div>
                 <div class="text-xl font-extrabold">PUMPFIAT</div>
                 <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
               </div>
             </div>
-
             <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
           </div>
 
@@ -853,84 +798,56 @@
               <li><a href="#offer" class="hover:text-white">Offer</a></li>
               <li><a href="#faq" class="hover:text-white">FAQ</a></li>
               <li><a href="compliance.html" class="hover:text-white">Data Compliance</a></li>
-
             </ul>
           </div>
 
           <div>
             <h4 class="font-semibold mb-4 text-gray-200">Request a Free Audit</h4>
             <form id="auditForm" class="space-y-3">
-
-  <div id="formFields" class="space-y-3">
-  <input type="text" name="name" placeholder="Your name"
-    class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
-
-  <input type="email" name="email" placeholder="Work email"
-    class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
-
-  <button
-    id="submitBtn"
-    type="submit"
-    class="w-full btn-primary px-4 py-3 rounded font-semibold transition">
-    Request Audit
-  </button>
-</div>
-<p id="formSuccess"
-   class="hidden mt-4 text-sm text-gray-400 font-medium">
-
-  Thanks for filling out the form. Our team will review it and get back to you.
-</p>
-
-
+              <div id="formFields" class="space-y-3">
+                <input type="text" name="name" placeholder="Your name" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+                <input type="email" name="email" placeholder="Work email" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+                <button id="submitBtn" type="submit" class="w-full btn-primary px-4 py-3 rounded font-semibold transition">Request Audit</button>
+              </div>
+              <p id="formSuccess" class="hidden mt-4 text-sm text-gray-400 font-medium">
+                Thanks for filling out the form. Our team will review it and get back to you.
+              </p>
             </form>
           </div>
         </div>
-        <!-- CERTIFICATION BADGE BAR -->
-<div class="mt-10 mb-6 w-full flex justify-center">
-  <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
-    <img src="assets/certs/iso27001.svg" alt="ISO 27001 Certified" class="h-16 w-auto">
-    <img src="assets/certs/mbe cert.svg" alt="Minority Business Enterprise Certified" class="h-16 w-auto">
-    <img src="assets/certs/HIPAA_1@0.5x.png" alt="HIPAA Compliant" class="h-16 w-auto">
-    <img src="assets/certs/SOC_1@0.5x.png" alt="SOC 2 Certification" class="h-16 w-auto">
-  </div>
-</div>
 
+        <!-- CERTIFICATION BADGE BAR -->
+        <div class="mt-10 mb-6 w-full flex justify-center">
+          <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+            <img src="assets/certs/iso27001.svg" alt="ISO 27001 Certified" class="h-16 w-auto">
+            <img src="assets/certs/mbe cert.svg" alt="Minority Business Enterprise Certified" class="h-16 w-auto">
+            <img src="assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" class="h-16 w-auto">
+            <img src="assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" class="h-16 w-auto">
+          </div>
+        </div>
 
         <div class="mt-10 text-sm text-gray-500 text-center">
           &copy; 2026 Pumpfiat — All Rights Reserved.
         </div>
       </div>
     </footer>
-  </main>
 
-  <!-- Mobile menu overlay -->
-<!-- Mobile Menu (Updated Premium Version) -->
-<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
-  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
-    
-    <!-- Close Button -->
-    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
-
-    <!-- Premium Nav Links -->
-    <nav class="space-y-5">
-      <a href="pricecomparison.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Price Comparison</a>
-      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
-      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
-      <a href="career/index.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Careers</a>
-
-    </nav>
-
-    <!-- CTA button -->
-    <div class="mt-10">
-      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
-        Lock In 45% Off
-      </a>
+  <div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+    <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+      <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
+      <nav class="space-y-5">
+        <a href="#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+        <a href="#services" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Services</a>
+        <a href="#process" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Process</a>
+        <a href="#industries" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Industries</a>
+        <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+        <a href="career/index.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Careers</a>
+      </nav>
+      <div class="mt-10">
+        <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">Get Started</a>
+      </div>
     </div>
-
   </div>
-</div>
-
-
 <script>
   const btn = document.getElementById('mobileMenuBtn');
   const menu = document.getElementById('mobileMenu');

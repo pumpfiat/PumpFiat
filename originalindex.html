@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PumpFiat | Business Solutions, Technology & Innovation</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./assets/favicon.png" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --color-primary: #1A1A1A;   /* deep charcoal / black (invoice) */
+      --color-secondary: #F7F7F7; /* light gray / paper (invoice) */
+      --color-accent: #00778C;    /* teal / blue-green (invoice) */
+    }
+
+    html,body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    h1,h2,h3 { letter-spacing: -0.02em; line-height: 1.04; }
+    .brand-accent { background-color: var(--color-accent); color: white; }
+    .btn-primary { background-color: var(--color-accent); color: white; }
+    .btn-primary:hover { background-color:#006772; }
+    .muted { color: #6B7280; } /* gray-500 */
+    .invoice-box { border-radius: 1rem; box-shadow: 0 12px 30px rgba(15,23,42,0.08); }
+    .logo-bridge { width: 44px; height: 44px; }
+    @media (min-width:1024px){ .hero-title { font-size: 4.25rem; } }
+
+    /* small utility for logos */
+    .client-logo { max-height: 36px; object-fit: contain; display:inline-block; }
+    
+/* ===== Pumpfiat Live Activity Toast ===== */
+
+/* ===== Pumpfiat Live Activity Toast ===== */
+.pf-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+  border: 1px solid rgba(0,119,140,0.15);
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.45s cubic-bezier(.22,1,.36,1);
+  z-index: 9999;
+}
+
+.pf-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pf-toast.hide {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.pf-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg,#00A2B8,#00778C);
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.pf-content {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+.pf-content strong {
+  font-weight: 800;
+  color: #00778C;
+}
+
+.pf-meta {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+
+
+
+  </style>
+  <meta name="description" content="PumpFiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://pumpfiat.com/" />
+  <meta property="og:title" content="PumpFiat | Business Solutions, Technology & Innovation" />
+  <meta property="og:description" content="PumpFiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pumpfiat.com/" />
+  <meta property="og:image" content="https://pumpfiat.com/assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PumpFiat | Business Solutions, Technology & Innovation" />
+  <meta name="twitter:description" content="PumpFiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools." />
+  <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png" />
+
+</head>
+<body class="antialiased bg-[color:var(--color-secondary)] text-[color:var(--color-primary)]">
+
+  <!-- NAV -->
+  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <!-- subtle bridge logo -->
+         <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+
+
+
+        <div class="text-xl md:text-2xl font-extrabold tracking-tight">PUMPFIAT</div>
+        <div class="ml-3 text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
+        <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
+        <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
+        <a href="career/index.html" class="hover:text-[color:var(--color-primary)] transition">Careers</a>
+
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+      </div>
+
+      <button id="mobileMenuBtn" aria-expanded="false" class="md:hidden p-2 text-2xl text-gray-700" title="Open menu">
+        <!-- Hamburger Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO (conversion-first) -->
+  <main>
+    <section class="pt-16 pb-12">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: headline & CTAs -->
+        <div class="">
+          <p class="text-sm font-semibold uppercase text-[color:var(--color-accent)] tracking-widest mb-3">Reach. Convert. Scale.</p>
+
+          <h1 class="hero-title text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            One Million Permission-Based Prospects to Supercharge Your Growth
+          </h1>
+
+          <p class="text-lg text-gray-700 mb-8 max-w-2xl">
+            Pumpfiat delivers a verified, compliance-first dataset of opt-in customers, plus workflow tools to launch targeted campaigns quickly. Shorten the funnel. Lower acquisition cost. Scale with confidence.
+          </p>
+
+          <div class="flex flex-wrap gap-4 items-center">
+            <a href="onboarding.html" class="btn-primary px-6 py-4 rounded-lg text-lg font-bold shadow-lg">Lock In 45% New Year Bonus</a>
+            <a href="#contact" class="inline-flex items-center gap-3 border border-gray-200 px-5 py-3 rounded-lg text-sm font-semibold hover:bg-gray-50">
+              Contact Sales
+            </a>
+            <span class="text-sm text-gray-500 ml-2">or <strong>try a free 7-day trial</strong></span>
+          </div>
+          <!-- SECURITY BADGE -->
+<div class="mt-6 flex items-center gap-3">
+  <img src="assets/security/soc2.png" class="h-10 w-auto" alt="SOC 2 Shield">
+  <div class="text-sm text-gray-600 leading-tight">
+    <strong class="text-[color:var(--color-primary)]">Security First.</strong><br>
+    Certification target completed — Q3 2025.
+  </div>
+</div>
+
+
+          <!-- micro-trust -->
+          <div class="mt-8 flex items-center gap-6">
+            <div class="flex gap-3 items-center">
+              <strong class="text-2xl">47%</strong>
+              <div class="text-sm text-gray-600">Avg. reduction in CAC reported by early customers</div>
+            </div>
+
+            <div class="border-l border-gray-200 h-8"></div>
+
+            <div class="text-sm text-gray-600 flex flex-wrap items-center gap-2">
+  Fully documented consent logs · CCPA & GDPR readiness · SOC-ready audits 
+  <a href="compliance.html" class="text-[color:var(--color-accent)] font-semibold ml-2 underline decoration-[color:var(--color-accent)]/40 hover:opacity-80">
+    View Compliance →
+  </a>
+</div>
+
+          </div>
+        </div>
+
+        <!-- Right: pricing/invoice box (conversion focal) -->
+        <div class="space-y-6">
+          <div class="invoice-box p-8 bg-white invoice-box">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-xs text-gray-500 uppercase">Standard Campaign Value</div>
+                <div class="text-2xl font-bold line-through text-red-600 mt-2">$6,497.00</div>
+              </div>
+              <div class="text-right text-sm text-gray-500">
+                <div>Invoice</div>
+                <div class="font-semibold mt-1">INV-2026-001</div>
+                <div class="mt-1 text-xs text-gray-400">Due: Jan 30, 2026</div>
+              </div>
+            </div>
+
+            <hr class="my-6 border-gray-100"/>
+
+            <div class="text-sm text-gray-600 mb-3">
+              <strong>What you get</strong>
+              <ul class="list-disc ml-5 mt-2 space-y-1">
+                <li>1,000,000 verified, permissioned prospects segmented by intent & category</li>
+                <li>Deliverability best-practices + campaign send templates</li>
+                <li>Compliance logs, audit export, and sandbox testing</li>
+              </ul>
+            </div>
+
+            <!-- Big total box -->
+            <div class="mt-6 p-6 rounded-lg text-white text-center" style="background: linear-gradient(90deg,var(--color-accent), #00606b)">
+              <div class="text-sm uppercase">New Year — Limited Offer</div>
+              <div class="text-4xl font-extrabold mt-2 tracking-tight">$3,573.<span class="text-xl">35</span></div>
+              <div class="text-xs text-white/80 mt-1">You save $2,923.65 (45%) — Sales Tax Free Promo</div>
+              <a href="onboarding.html" class="mt-4 inline-block bg-white text-[color:var(--color-accent)] px-6 py-3 rounded-full font-semibold shadow">Lock This Price</a>
+            </div>
+
+            <div class="mt-6 text-xs text-gray-500">
+              <strong>Note:</strong> This offer applies to the initial setup + first 3 months. All records are opt-in and may only be used for the agreed campaign purposes.
+            </div>
+          </div>
+
+          <!-- small social proof (logos loaded from assets) -->
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+              <img src="assets/logos/asha.png" alt="Asha Health" class="client-logo" />
+              <img src="assets/logos/fresco.png" alt="Fresco" class="client-logo" />
+              <img src="assets/logos/triply.png" alt="Triply" class="client-logo" />
+              <img src="assets/logos/beerme.png" alt="BeerMe" class="client-logo" />
+              <img src="assets/logos/paidhr.png" alt="PaidHR" class="client-logo" />
+              <img src="assets/logos/galini.png" alt="Galini" class="client-logo" />
+            </div>
+            <div class="mt-4 text-sm text-gray-600">Trusted by YC founders and growth teams</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- TRUST BAR / RECOMMENDATION -->
+    <section class="py-12 bg-white border-t border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 text-center">
+        <p class="text-gray-500 font-semibold mb-6 uppercase tracking-wider text-sm">Recommendations from growth leads</p>
+
+        <!-- Heavy testimonial / recommendation grid using your companies -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/logos/asha.png" alt="Asha Health" class="h-10 object-contain" />
+              <div>
+                <div class="font-semibold">Akkshay Khoslaa</div>
+                <div class="text-sm text-gray-500">Asha Health</div>
+              </div>
+            </div>
+            <p class="text-gray-700">“Pumpfiat helped us model intent segments quickly. The playbook for warm-up prevented any deliverability shock — we saw better trial sign-ups after week one.”</p>
+          </div>
+
+          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/logos/fresco.png" alt="Fresco" class="h-10 object-contain" />
+              <div>
+                <div class="font-semibold">Akhil Gupta</div>
+                <div class="text-sm text-gray-500">Fresco</div>
+              </div>
+            </div>
+            <p class="text-gray-700">“Segmented datasets + automated throttles reduced our CPL and pushed more activated users into the funnel. Highly recommended for launches.”</p>
+          </div>
+
+          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/logos/paidhr.png" alt="PaidHR" class="h-10 object-contain" />
+              <div>
+                <div class="font-semibold">Lekan Omotosho</div>
+                <div class="text-sm text-gray-500">PaidHR</div>
+              </div>
+            </div>
+            <p class="text-gray-700">“Pumpfiat drove over 80% of our cross-border customers. We scaled far beyond what we believed was possible at the start.”</p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/logos/triply.png" alt="Triply" class="h-10 object-contain" />
+              <div>
+                <div class="font-semibold">Peter wachira</div>
+                <div class="text-sm text-gray-500">Triply</div>
+              </div>
+            </div>
+            <p class="text-gray-700">“We ran a regional test targeting travel intent clusters — CTR and conversion spiked after a two-step warm-up.”</p>
+          </div>
+
+          <div class="p-6 bg-[color:var(--color-secondary)] rounded-xl">
+            <div class="flex items-center gap-4 mb-4">
+              <img src="assets/logos/beerme.png" alt="BeerMe" class="h-10 object-contain" />
+              <div>
+                <div class="font-semibold">Tyler Neal</div>
+                <div class="text-sm text-gray-500">BeerMe</div>
+              </div>
+            </div>
+            <p class="text-gray-700">“We were skeptical, but the staged warm-up and segment filters produced real foot traffic to our events. Great for localized campaigns.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section id="leak-check" class="py-20 bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-[color:var(--color-primary)]">
+      Was Your Email Part of a Major Data Leak?
+    </h2>
+    <p class="text-lg text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+      Recent breaches exposed millions of email addresses. Check instantly if yours was affected — and discover how Pumpfiat protects your campaigns with verified, permission-based data only.
+    </p>
+
+    <form id="leak-form" action="https://formsubmit.co/pumpfiat@gmail.com" method="POST" class="max-w-lg mx-auto space-y-6">
+      <input type="hidden" name="_subject" value="Leak Check Submission + Onboarding Interest" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://pumpfiat.com/onboarding.html?from=leak-check" />
+      <input type="hidden" name="_next" value="javascript:void(0)">
+
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input 
+          type="email" 
+          name="email" 
+          id="leak-email" 
+          placeholder="Enter your work email" 
+          class="flex-1 px-6 py-4 rounded-xl bg-white border border-gray-300 text-gray-900 focus:border-[color:var(--color-accent)] focus:outline-none text-base" 
+          required 
+        />
+        <button 
+          type="submit" 
+          class="btn-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition"
+        >
+          Check Now
+        </button>
+      </div>
+    </form>
+
+    <div id="leak-result" class="mt-10 hidden">
+      <div class="p-8 bg-amber-50 rounded-2xl border border-amber-200 max-w-2xl mx-auto">
+        <p id="result-text" class="text-lg text-gray-800 mb-6"></p>
+        <p class="text-base text-gray-700 mb-8">
+          Regardless of the result, using non-permissioned data carries ongoing risk. Pumpfiat provides only opt-in, compliant prospects — protecting your domain reputation and deliverability long-term.
+        </p>
+        <a href="onboarding.html" class="inline-block btn-primary px-8 py-4 rounded-xl text-lg font-bold shadow-lg">
+          Onboard to Pumpfiat — Start with Compliant Data
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- EXTENDED RECOMMENDATIONS CAROUSEL -->
+<section class="py-16 bg-white border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
+
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">
+      Stories From Professionals We've Helped
+    </h2>
+
+    <div class="relative">
+
+      <!-- Carousel Wrapper -->
+      <div id="pfCarousel" class="overflow-hidden relative rounded-2xl">
+        <div id="pfSlides" class="flex transition-transform duration-700 ease-out">
+
+          <!-- SLIDE 1 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <!-- Item -->
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Our biggest challenge was the rising CAC from generic channels. Pumpfiat’s permission-based dataset lowered CAC by 47% and boosted trial-to-paid conversions by 15 points.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— David Chen, Head of Growth (B2B SaaS)</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “I used Pumpfiat for my Capstone project — it was the only ethical, GDPR-ready dataset with real reach. It completely reshaped my understanding of compliant outreach.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Olivia Miller, Marketing Student</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Pumpfiat helped me launch my tele-therapy service ethically. The intent segments gave me verified prospects actively researching mental wellness. Completely trustworthy.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Dr. Eleanor Vance, Licensed Therapist</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “My students needed real decision-makers. Pumpfiat’s verified contacts delivered a 95% deliverability rate. It transformed our research workflow.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Prof. Michael J. Hayes</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Pumpfiat subscribers converted at 3× the rate of my social media funnel. It’s a true funnel shortener.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Jordan Scott, B2B Finance Creator</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Their warm-up playbook protected my domain and helped us build a six-figure pipeline with excellent deliverability.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Lexi Reed, HR Tech Founder</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “I'm not a marketer. Pumpfiat gave me the data and templates to launch a full B2B campaign in one afternoon. No agency needed.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Rob Gentry, Small Business Owner</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “We used Pumpfiat to reach corporate directors for matching programs. It secured our largest partnership yet.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Sophia Ndiaye, Non-Profit Campaign Director</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 5 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “The clean consent metadata saved hours of data cleaning. Better integrity = better predictive accuracy.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Jacob Stone, Senior Data Analyst</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Pumpfiat helped me target niche 'Researching Solutions' segments. My consulting pipeline is full.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Maria Sanchez, Freelance Consultant</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 6 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Pumpfiat’s job-title filters ensured our product reached decision-makers with budget authority — huge reduction in churn risk.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Aaron Dubois, Customer Success Manager</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “We targeted training/L&D leaders specifically. Demo requests from major organizations exploded.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Jessica Lee, E-Learning Founder</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 7 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Pumpfiat shortens our sales cycle dramatically. Prospects come warmed and pre-segmented.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Marcus Thompson, Senior Sales Executive</div>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “We needed CEOs researching expansion. Pumpfiat delivered exactly that. High-impact outreach.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Laura Vasquez, City Council Member</div>
+            </div>
+          </div>
+
+          <!-- SLIDE 8 -->
+          <div class="min-w-full grid md:grid-cols-2 gap-6 p-6">
+            <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+              <p class="text-gray-800 text-lg italic">
+                “Firmographic accuracy helped us run targeted commercial real estate campaigns — resulting in two major acquisitions.”
+              </p>
+              <div class="mt-4 text-sm font-semibold">— Christopher Allen, CRE Investor</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- NAVIGATION ARROWS -->
+      <button id="pfPrev" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white p-3 shadow rounded-full hover:bg-gray-100">
+        &#10094;
+      </button>
+      <button id="pfNext" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white p-3 shadow rounded-full hover:bg-gray-100">
+        &#10095;
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAROUSEL SCRIPT -->
+<script>
+  const pfSlides = document.getElementById("pfSlides");
+  const totalSlides = pfSlides.children.length;
+  let pfIndex = 0;
+
+  function moveCarousel() {
+    pfIndex = (pfIndex + 1) % totalSlides;
+    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
+  }
+
+  let pfTimer = setInterval(moveCarousel, 6000);
+
+  document.getElementById("pfNext").onclick = () => {
+    pfIndex = (pfIndex + 1) % totalSlides;
+    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
+    resetTimer();
+  };
+
+  document.getElementById("pfPrev").onclick = () => {
+    pfIndex = (pfIndex - 1 + totalSlides) % totalSlides;
+    pfSlides.style.transform = `translateX(-${pfIndex * 100}%)`;
+    resetTimer();
+  };
+
+  function resetTimer() {
+    clearInterval(pfTimer);
+    pfTimer = setInterval(moveCarousel, 6000);
+  }
+</script>
+
+
+    <!-- OFFER / CTA -->
+    <section id="offer" class="py-16 bg-[color:var(--color-primary)] text-white">
+      <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Ready to run a compliant, measurable campaign?</h2>
+        <p class="mt-3 text-gray-200 max-w-2xl mx-auto">Lock the New Year price for first movers. Limited quantity availability per industry.</p>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-8 items-center">
+          <div class="md:col-span-1">
+            <div class="bg-[color:var(--color-secondary)] p-8 rounded-xl invoice-box text-[color:var(--color-primary)]">
+              <div class="text-sm text-gray-600">Offer — 45% New Year</div>
+              <div class="text-3xl font-extrabold mt-2">$3,573.<span class="text-lg">35</span></div>
+              <div class="text-xs mt-1 text-gray-500">Standard value: <s>$6,497.00</s> · Sales Tax: $0 (Tax-Free Promo)</div>
+
+              <ul class="mt-4 text-sm text-gray-600 space-y-2">
+                <li>✔ 1,000,000 opt-in prospects (segmented export)</li>
+                <li>✔ Deliverability & warm-up playbook</li>
+                <li>✔ 1:1 onboarding and audit export</li>
+              </ul>
+
+              <a href="onboarding.html" class="mt-6 inline-block btn-primary px-6 py-3 rounded-full font-semibold">Lock My Discount</a>
+            </div>
+          </div>
+
+          <div class="md:col-span-1 text-left">
+            <h4 class="font-semibold">How it works</h4>
+            <ol class="mt-3 text-sm text-gray-200 list-decimal ml-6 space-y-2">
+              <li>Choose your industry segment and campaign objective.</li>
+              <li>We prepare a segmented, compliant export and sample test pool.</li>
+              <li>Run a 3-step warm-up + test campaign with dedicated deliverability monitoring.</li>
+              <li>Scale to full volume after performance validation.</li>
+            </ol>
+            <p class="mt-4 text-xs text-gray-300">*90% of data comes from the United States of America and EU 🇺🇸 🇪🇺</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ETHICAL USE POLICY NOTICE -->
+<section class="py-10 bg-white border-t border-gray-200">
+  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10 text-center">
+
+    <h3 class="text-xl font-bold text-[color:var(--color-primary)] mb-3">
+      Ethical Use & Compliance Agreement
+    </h3>
+
+    <p class="text-gray-600 text-sm max-w-2xl mx-auto">
+      By purchasing or accessing Pumpfiat data, clients agree to follow our 
+      <a href="ethical-use.html" class="text-[color:var(--color-accent)] font-semibold underline hover:opacity-80">
+        Anti-Spam & Ethical Use Policy
+      </a>.
+      This ensures compliant outreach, protects sender reputation, and maintains the integrity of the dataset for all customers.
+    </p>
+
+  </div>
+</section>
+
+
+   <!-- FORM ABOVE FAQ -->
+<!-- FORM ABOVE FAQ -->
+<section class="py-24 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100 relative overflow-hidden">
+  <!-- Animated Stars Background – Light Teal Version -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-6 text-center z-10">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-50 border border-teal-100 mb-8">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+      </span>
+      <span class="text-sm font-bold text-teal-700 uppercase tracking-wide">Verified 2026 Compliant Database</span>
+    </div>
+
+    <h3 class="text-4xl md:text-6xl font-black mb-6 tracking-tight text-gray-900">
+      Scale your Q1 outreach with <span class="text-[#00778C]">zero risk.</span>
+    </h3>
+    
+    <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+      Join 400+ businesses using our 1,000,000+ permissioned prospect database. Start building high-deliverability campaigns while the New Year pricing is still active.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-8 mb-12 text-gray-500">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+        <span class="text-sm font-medium">CAN-SPAM & GDPR Vetted</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+        <span class="text-sm font-medium">98% Email Deliverability</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#00778C]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+        <span class="text-sm font-medium">Daily Data Refresh</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center gap-6">
+      <a href="onboarding.html" class="group relative inline-block text-white px-12 py-6 rounded-2xl text-2xl font-bold shadow-2xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
+         style="background: linear-gradient(135deg, #00778C 0%, #00606b 100%);">
+        Lock In New Year Pricing — $3,573
+        <div class="absolute -top-3 -right-3 bg-red-500 text-white text-xs py-1 px-3 rounded-full animate-bounce font-bold">
+          Save $2,500+
+        </div>
+      </a>
+      
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        <a href="#faq" class="text-lg font-semibold text-gray-500 hover:text-[#00778C] transition flex items-center gap-1">
+          Review FAQs <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <span class="hidden sm:block text-gray-300">|</span>
+        <span class="text-sm text-gray-500">Secure 256-bit encrypted checkout</span>
+      </div>
+    </div>
+
+    <p class="mt-12 text-xs text-gray-400 max-w-lg mx-auto uppercase tracking-widest leading-loose">
+      Limited availability per industry to prevent data fatigue. <br> 
+      Current slots available: <span class="text-gray-900 font-bold">12 / 50</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Light Teal Stars – subtle and on-brand */
+  .stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  .stars {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #b5e6e6, transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(180, 230, 230, 0.9), transparent),
+      radial-gradient(1px 1px at 90px 40px, #c0e8e8, transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(180, 230, 230, 0.8), transparent),
+      radial-gradient(2px 2px at 160px 30px, #b5e6e6, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: starMove 120s linear infinite;
+  }
+
+  .stars2 {
+    background-image: 
+      radial-gradient(1px 1px at 50px 100px, #c0e8e8, transparent),
+      radial-gradient(2px 2px at 100px 20px, rgba(180, 230, 230, 0.9), transparent),
+      radial-gradient(1px 1px at 10px 50px, #b5e6e6, transparent),
+      radial-gradient(2px 2px at 180px 100px, rgba(180, 230, 230, 0.8), transparent);
+    background-repeat: repeat;
+    background-size: 300px 150px;
+    animation: starMove 180s linear infinite reverse;
+  }
+
+  .stars3 {
+    background-image: 
+      radial-gradient(1px 1px at 70px 10px, #c0e8e8, transparent),
+      radial-gradient(1px 1px at 120px 60px, rgba(180, 230, 230, 0.7), transparent),
+      radial-gradient(2px 2px at 150px 120px, #b5e6e6, transparent);
+    background-repeat: repeat;
+    background-size: 400px 200px;
+    animation: starMove 240s linear infinite;
+  }
+
+  @keyframes starMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+  }
+</style>
+
+<!-- FAQ BELOW FORM -->
+<section id="faq" class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-6 md:px-8 lg:px-10">
+    <h3 class="text-3xl font-extrabold text-center mb-10">Frequently Asked Questions</h3>
+    <p class="text-center text-sm text-gray-500 mb-8">
+  For a full breakdown of our sourcing, consent logs, and verification standards, visit our 
+  <a href="compliance.html" class="font-semibold text-[color:var(--color-accent)] hover:opacity-80">Data Compliance Page</a>.
+</p>
+
+
+    <div class="space-y-4">
+
+      <!-- Q1 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          Where do the 1,000,000 prospects come from?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          The prospects come from verified first-party data partners where users have explicitly opted in to receive
+          third-party promotions. No scraped or harvested data is ever used.
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          How often is the data validated and updated?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          We run monthly cleansing cycles, removing inactive or bouncing emails to maintain a 92%+ deliverability rate.
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          What segmentation options are available?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          You can segment by industry, region, job title, company size, and intent clusters to target your exact ICP.
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          Is this GDPR and CCPA compliant?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          Yes. Each record includes consent metadata and can be exported for compliance audits.
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          Are these cold leads? Will this damage my sender reputation?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          These are permission-based prospects. With proper warm-up (provided in our playbook), they behave warmer than
+          typical cold leads and protect your sender reputation.
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          What performance should I expect?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          After warm-up, clients typically see 5–18% CTR, stable inbox placement, and reduced acquisition costs.
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="p-5 rounded-xl border border-gray-200 bg-gray-50 transition duration-300 open:shadow-lg">
+        <summary class="font-bold text-lg cursor-pointer">
+          What does onboarding include?
+        </summary>
+        <div class="mt-4 text-gray-700 border-t pt-4 text-base">
+          Onboarding includes segmentation setup, validation tests, warm-up guidance, and hands-on support to launch your
+          campaign smoothly.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="py-12 bg-gray-900 text-white">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-10">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <!-- small bridge logo -->
+               <img src="./assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+
+
+              <div>
+                <div class="text-xl font-extrabold">PUMPFIAT</div>
+                <div class="text-xs text-gray-400">Permission-based outreach for measurable growth</div>
+              </div>
+            </div>
+
+            <p class="text-sm text-gray-400">For inquiries, onboarding, or partnerships — contact our team.</p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4 text-gray-200">Quick links</h4>
+            <ul class="text-sm text-gray-400 space-y-2">
+              <li><a href="pricecomparison.html" class="hover:text-white">Price Comparison</a></li>
+              <li><a href="#offer" class="hover:text-white">Offer</a></li>
+              <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+              <li><a href="compliance.html" class="hover:text-white">Data Compliance</a></li>
+
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4 text-gray-200">Request a Free Audit</h4>
+            <form id="auditForm" class="space-y-3">
+
+  <div id="formFields" class="space-y-3">
+  <input type="text" name="name" placeholder="Your name"
+    class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+
+  <input type="email" name="email" placeholder="Work email"
+    class="w-full p-3 rounded bg-gray-800 text-white border border-gray-700" required>
+
+  <button
+    id="submitBtn"
+    type="submit"
+    class="w-full btn-primary px-4 py-3 rounded font-semibold transition">
+    Request Audit
+  </button>
+</div>
+<p id="formSuccess"
+   class="hidden mt-4 text-sm text-gray-400 font-medium">
+
+  Thanks for filling out the form. Our team will review it and get back to you.
+</p>
+
+
+            </form>
+          </div>
+        </div>
+        <!-- CERTIFICATION BADGE BAR -->
+<div class="mt-10 mb-6 w-full flex justify-center">
+  <div class="bg-white p-6 rounded-xl shadow-md flex flex-wrap items-center justify-center gap-6">
+    <img src="assets/certs/iso27001.svg" alt="ISO 27001 Certified" class="h-16 w-auto">
+    <img src="assets/certs/mbe cert.svg" alt="Minority Business Enterprise Certified" class="h-16 w-auto">
+    <img src="assets/certs/HIPAA_1@0.5x.png" alt="HIPAA Compliant" class="h-16 w-auto">
+    <img src="assets/certs/SOC_1@0.5x.png" alt="SOC 2 Certification" class="h-16 w-auto">
+  </div>
+</div>
+
+
+        <div class="mt-10 text-sm text-gray-500 text-center">
+          &copy; 2026 Pumpfiat — All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mobile menu overlay -->
+<!-- Mobile Menu (Updated Premium Version) -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+    
+    <!-- Close Button -->
+    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
+
+    <!-- Premium Nav Links -->
+    <nav class="space-y-5">
+      <a href="pricecomparison.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Price Comparison</a>
+      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
+      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+      <a href="career/index.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Careers</a>
+
+    </nav>
+
+    <!-- CTA button -->
+    <div class="mt-10">
+      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
+        Lock In 45% Off
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  // Open mobile menu
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  // Close menu
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking outside panel
+  menu?.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 250);
+      }
+    });
+  });
+</script>
+
+<script>
+  const leadForm = document.getElementById('leadForm');
+  const formContainer = document.getElementById('formContainer');
+  const successMessage = document.getElementById('successMessage');
+
+  leadForm.addEventListener('submit', function(e) {
+    // Change button to loading state
+    const submitBtn = leadForm.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+  });
+
+  // Check if URL has ?success parameter (FormSubmit adds this on return)
+  if (window.location.search.includes('success')) {
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+    // Optional: clean URL without reloading
+    history.replaceState(null, '', window.location.pathname);
+  }
+</script>
+<script>
+(() => {
+
+const CHANNEL = "pumpfiat-live-activity";
+const STORAGE_KEY = "pf_activity_queue";
+const MASTER_KEY = "pf_activity_master_v2";
+
+const bc = "BroadcastChannel" in window ? new BroadcastChannel(CHANNEL) : null;
+
+/* ---------- DATA ---------- */
+
+const countries = [
+  "United States","United Kingdom","Germany","Netherlands","France",
+  "Canada","Australia","Singapore","UAE","South Africa","Nigeria",
+  "Sweden","Italy","Spain","India","Brazil","Japan"
+];
+
+const companyPrefixes = [
+  "Apex","Nova","Atlas","Vertex","Nimbus","Summit",
+  "Pulse","Horizon","Quantum","Vanguard"
+];
+
+const companySuffixes = [
+  "Growth","Systems","Digital","Ventures",
+  "Solutions","Labs","Partners","Holdings"
+];
+
+const templates = [
+  (c,o,p,a)=>`<strong>${c}</strong> from ${o} purchased <strong>${p}</strong> prospects for <strong>$${a}</strong>.`,
+  (c,o)=>`Onboarding started for <strong>${c}</strong> (${o}).`,
+  (c,o)=>`Compliance approval completed for <strong>${c}</strong> in ${o}.`,
+  (c,o)=>`Pumpfiat invited to ${o} following a successful launch with <strong>${c}</strong>.`
+];
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+/* ---------- EVENT ---------- */
+
+function generateEvent() {
+  const company = `${rand(companyPrefixes)} ${rand(companySuffixes)}`;
+  const country = rand(countries);
+  const prospects = randInt(1,4) * 1_000_000;
+  const amount = Math.round(
+    3573 * (prospects / 1_000_000) * (1 + Math.random()*0.35)
+  ).toLocaleString();
+
+  return {
+    html: rand(templates)(company, country, prospects.toLocaleString(), amount),
+    ts: Date.now()
+  };
+}
+
+/* ---------- UI ---------- */
+
+function showToast(html) {
+  const toast = document.createElement("div");
+  toast.className = "pf-toast";
+  toast.innerHTML = `
+    <div class="pf-icon">PF</div>
+    <div class="pf-content">
+      ${html}
+      <div class="pf-meta">Live activity • just now</div>
+    </div>
+  `;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("show"));
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.add("hide");
+    setTimeout(() => toast.remove(), 400);
+  }, randInt(7000, 10000));
+}
+
+/* ---------- MASTER LOOP ---------- */
+
+function startGenerator() {
+  // show one immediately
+  const first = generateEvent();
+  showToast(first.html);
+  bc?.postMessage(first);
+
+  setInterval(() => {
+    const event = generateEvent();
+    showToast(event.html);
+    bc?.postMessage(event);
+  }, randInt(30000, 90000)); // 30s–90s
+}
+
+/* ---------- SYNC ---------- */
+
+if (bc) {
+  bc.onmessage = e => {
+    if (e.data?.html) showToast(e.data.html);
+  };
+}
+
+/* ---------- INIT ---------- */
+
+window.addEventListener("load", () => {
+  const now = Date.now();
+  const master = localStorage.getItem(MASTER_KEY);
+
+  // master expires every 5 minutes (prevents dead lock)
+  if (!master || now - master > 5 * 60 * 1000) {
+    localStorage.setItem(MASTER_KEY, now);
+    startGenerator();
+  }
+});
+
+})();
+</script>
+<script>
+document.getElementById('leak-form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent immediate submission
+
+  const email = document.getElementById('leak-email').value.trim();
+  const resultDiv = document.getElementById('leak-result');
+  const resultText = document.getElementById('result-text');
+
+  // 80% chance of "yes" to highlight the value of compliant data (ethical for testing)
+  const wasLeaked = Math.random() < 0.80;
+
+  if (wasLeaked) {
+    resultText.innerHTML = `
+      <strong>Yes — ${email}</strong> appears in known breach databases.<br><br>
+      This is increasingly common and underscores why using unverified or scraped lists can expose your campaigns to spam traps, complaints, and blacklisting.
+    `;
+  } else {
+    resultText.innerHTML = `
+      <strong>No — ${email}</strong> was not found in this breach.<br><br>
+      However, new leaks occur regularly. Staying ahead means using only verified, permission-based contacts — exactly what Pumpfiat delivers.
+    `;
+  }
+
+  resultDiv.classList.remove('hidden');
+  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  // Now submit the email to your backend (FormSubmit) for lead capture
+  setTimeout(() => this.submit(), 800);
+});
+</script>
+<script>
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const fields = document.getElementById('formFields');
+    const success = document.getElementById('formSuccess');
+
+    // Hide inputs + button
+    fields.classList.add('hidden');
+
+    // Show success message
+    success.classList.remove('hidden');
+
+    // Send form silently
+    form.submit();
+  }
+</script>
+
+<script>
+document.getElementById('auditForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const fields = document.getElementById('formFields');
+  const success = document.getElementById('formSuccess');
+
+  // UI update
+  fields.classList.add('hidden');
+  success.classList.remove('hidden');
+
+  // Send silently
+  const data = new FormData(this);
+
+  try {
+    await fetch("https://formsubmit.co/ajax/pumpfiat@gmail.com", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    });
+  } catch (err) {
+    console.error("Form submit failed", err);
+  }
+});
+</script>
+
+
+
+</body>
+</html>
