@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">The complete cost of hiring an SDR</title>
+  <desc id="description">A salary foundation plus commission, recruitment, sales tools, onboarding, management, and local employment costs make up an SDR hiring budget.</desc>
+  <rect width="1200" height="360" fill="#effafb"/>
+  <text x="600" y="52" text-anchor="middle" fill="#15343a" font-family="Inter,Arial,sans-serif" font-size="26" font-weight="700">Budget for the whole SDR role—not salary alone</text>
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <rect x="440" y="101" width="320" height="74" rx="18" fill="#00778c"/>
+    <text x="600" y="146" fill="#fff" font-size="22" font-weight="700">Base salary</text>
+    <text x="600" y="201" fill="#52666a" font-size="16">+</text>
+    <g fill="#fff" stroke="#b8dfe3" stroke-width="2">
+      <rect x="87" y="228" width="208" height="68" rx="14"/><rect x="314" y="228" width="208" height="68" rx="14"/>
+      <rect x="541" y="228" width="208" height="68" rx="14"/><rect x="768" y="228" width="208" height="68" rx="14"/>
+      <rect x="995" y="228" width="150" height="68" rx="14"/>
+    </g>
+    <g fill="#075b68" font-size="16" font-weight="700">
+      <text x="191" y="269">Commission</text><text x="418" y="269">Recruitment</text>
+      <text x="645" y="269">Tools &amp; data</text><text x="872" y="269">Training &amp; management</text>
+      <text x="1070" y="259"><tspan x="1070">Local</tspan><tspan x="1070" dy="20">employment</tspan></text>
+    </g>
+  </g>
+  <text x="600" y="333" text-anchor="middle" fill="#52666a" font-family="Inter,Arial,sans-serif" font-size="15">Illustrative categories—actual costs depend on role, market, and employment arrangement</text>
+</svg>

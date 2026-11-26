@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Sales development and business development roles</title>
+  <desc id="desc">Sales development generally qualifies customer opportunities; business development often develops broader markets, partnerships, and commercial relationships. Responsibilities vary by company.</desc>
+  <rect width="1200" height="430" rx="28" fill="#f3faf9"/>
+  <text x="60" y="68" fill="#17212b" font-family="Arial,sans-serif" font-size="30" font-weight="700">Two functions, related but not always identical</text>
+  <rect x="70" y="115" width="480" height="245" rx="20" fill="#fff" stroke="#b9dfe1" stroke-width="2"/>
+  <rect x="650" y="115" width="480" height="245" rx="20" fill="#fff" stroke="#b9dfe1" stroke-width="2"/>
+  <g font-family="Arial,sans-serif">
+    <text x="310" y="165" text-anchor="middle" fill="#00778c" font-size="25" font-weight="700">Sales Development</text>
+    <text x="890" y="165" text-anchor="middle" fill="#00778c" font-size="25" font-weight="700">Business Development</text>
+    <text x="110" y="220" fill="#263642" font-size="19">• Prospect and qualify buyers</text>
+    <text x="110" y="260" fill="#263642" font-size="19">• Create sales conversations</text>
+    <text x="110" y="300" fill="#263642" font-size="19">• Hand qualified opportunities to sales</text>
+    <text x="690" y="220" fill="#263642" font-size="19">• Explore markets and channels</text>
+    <text x="690" y="260" fill="#263642" font-size="19">• Develop partnerships and relationships</text>
+    <text x="690" y="300" fill="#263642" font-size="19">• Create broader growth opportunities</text>
+  </g>
+  <text x="600" y="400" fill="#40515c" font-family="Arial,sans-serif" font-size="17" text-anchor="middle">Titles vary by organization: define ownership, outcomes, and handoffs in the job itself.</text>
+</svg>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pumpfiat Affiliate Administration</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <style>
+    :root{--teal:#00778C;--ink:#1A1A1A;--paper:#F7F7F7;--line:#dce3e3}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+    button,input,select,textarea{font:inherit}button,a,input,select,textarea:focus-visible{outline:3px solid #78CDD5;outline-offset:2px}
+    .login{min-height:100vh;display:grid;place-items:center;padding:20px}.login-card{width:min(420px,100%);padding:32px;background:white;border:1px solid var(--line)}
+    .login input{width:100%;padding:12px;border:1px solid #bac6c7;margin-top:8px}.login button,.primary{border:0;background:var(--teal);color:white;padding:12px 16px;font-weight:800;cursor:pointer}
+    .shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.sidebar{background:var(--ink);color:white;padding:24px}.sidebar a,.sidebar button{display:block;width:100%;border:0;background:transparent;color:#cbd6d7;text-decoration:none;text-align:left;padding:10px 0;font-size:14px;cursor:pointer}.sidebar a:hover,.sidebar button:hover{color:white}.main{min-height:100vh;padding:28px}.hidden{display:none!important}.top{display:flex;justify-content:space-between;align-items:center}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.card{background:white;border:1px solid var(--line);padding:16px}.card strong{display:block;font-size:28px;margin-top:7px}
+    .toolbar{display:flex;gap:10px;margin:16px 0}.toolbar input,.toolbar select,.field input,.field select,.field textarea{padding:10px;border:1px solid #bdc9ca;background:white}.toolbar input{width:260px}
+    table{width:100%;border-collapse:collapse;background:white;font-size:13px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{background:#edf2f2}.table-wrap{overflow:auto}
+    .panel{background:white;border:1px solid var(--line);padding:18px}.mapping{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.mapping label,.field{display:grid;gap:5px;font-size:12px;font-weight:700}.mapping select{padding:8px;border:1px solid var(--line)}
+    @media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{display:flex;gap:18px}.cards{grid-template-columns:repeat(2,1fr)}.mapping{grid-template-columns:1fr}.main{padding:16px}}
+  </style>
+  <meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+  <section id="login" class="login">
+    <form id="loginForm" class="login-card">
+      <p style="color:#00778C;font-size:12px;font-weight:800;text-transform:uppercase">Restricted area</p>
+      <h1>Pumpfiat administration</h1>
+      <label for="password">Administrator password</label>
+      <input id="password" type="password" required autocomplete="current-password">
+      <button class="primary" type="submit" style="width:100%;margin-top:14px">Sign in</button>
+      <p id="loginError" style="color:#b42318"></p>
+    </form>
+  </section>
+
+  <div id="shell" class="shell hidden">
+    <aside class="sidebar"><strong>Pumpfiat</strong><nav><a href="#view-overview" data-view="overview">Overview</a><a href="#view-participants" data-view="participants">Participants</a><a href="#view-import" data-view="import">Gumroad import</a><a href="#view-rewards" data-view="rewards">Rewards ledger</a><a href="#view-audit" data-view="audit">Audit log</a><button type="button" id="logout">Sign out</button></nav></aside>
+    <main class="main">
+      <section id="view-overview" class="view">
+        <div class="top"><h1>Overview</h1></div><div id="summary" class="cards"></div>
+      </section>
+      <section id="view-participants" class="view hidden">
+        <div class="top"><h1>Participants</h1></div>
+        <div class="toolbar"><input id="participantSearch" placeholder="Search name, email or referral code"><button class="primary" id="participantSearchButton">Search</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Name</th><th>Registration email</th><th>Referral code</th><th>Direct referrer</th><th>Gumroad email</th><th>Verified status</th><th>Direct referrals</th><th>Qualifying sales</th></tr></thead><tbody id="participantsRows"></tbody></table></div>
+      </section>
+      <section id="view-import" class="view hidden">
+        <div class="top"><h1>Gumroad sales import</h1></div>
+        <div class="panel">
+          <div class="field"><label for="csvFile">Gumroad CSV</label><input id="csvFile" type="file" accept=".csv,text/csv"></div>
+          <div id="mappingPanel" class="mapping hidden" style="margin-top:16px"></div>
+          <div id="previewPanel" class="hidden" style="margin-top:16px"></div>
+          <button id="previewImport" class="primary hidden" type="button">Preview import</button>
+          <button id="confirmImport" class="primary hidden" type="button" style="margin-left:8px">Confirm import</button>
+          <p id="importStatus"></p>
+        </div>
+      </section>
+      <section id="view-rewards" class="view hidden">
+        <div class="top"><h1>Referral reward ledger</h1></div>
+        <div class="toolbar"><select id="rewardFilter"><option value="">All statuses</option><option>Pending review</option><option>Approved</option><option>Paid</option><option>Reversed</option><option>Rejected</option></select><button class="primary" id="rewardFilterButton">Filter</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Referrer</th><th>Referred affiliate</th><th>Purchase</th><th>Sale date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="rewardRows"></tbody></table></div>
+      </section>
+      <section id="view-audit" class="view hidden">
+        <div class="top"><h1>Audit log</h1></div>
+        <div class="table-wrap"><table><thead><tr><th>Time</th><th>Administrator</th><th>Action</th><th>Affected record</th><th>Reason</th></tr></thead><tbody id="auditRows"></tbody></table></div>
+      </section>
+    </main>
+  </div>
+  <script>
+    const $=(id)=>document.getElementById(id);
+    async function api(path,options={}){const r=await fetch(path,{...options,headers:{...(options.headers||{}),"Content-Type":"application/json"}});const d=await r.json();if(!r.ok)throw new Error(d.error||"Request failed");return d;}
+    $("loginForm").addEventListener("submit",async e=>{e.preventDefault();try{await api("/api/admin/login",{method:"POST",body:JSON.stringify({password:$("password").value})});showShell();}catch(err){$("loginError").textContent=err.message;}});
+    $("logout").addEventListener("click",async e=>{e.preventDefault();await api("/api/admin/logout",{method:"POST",body:"{}"});location.reload();});
+    function showView(name){document.querySelectorAll(".view").forEach(v=>v.classList.add("hidden"));$("view-"+name).classList.remove("hidden");if(name==="overview")loadSummary();if(name==="participants")loadParticipants();if(name==="rewards")loadRewards();if(name==="audit")loadAudit();}
+    document.querySelectorAll("[data-view]").forEach(a=>a.addEventListener("click",()=>showView(a.dataset.view)));
+    function showShell(){ $("login").classList.add("hidden");$("shell").classList.remove("hidden");showView(location.hash.slice(1)||"overview");}
+    fetch("/api/admin/me").then(r=>{if(r.ok)showShell();}).catch(()=>{});
+    async function loadSummary(){const d=await api("/api/admin/summary");const labels={participants:"Registered participants",referralRegistrations:"Referral registrations",gumroadApproved:"Gumroad-approved affiliates",awaitingApproval:"Awaiting approval",sales:"Imported sales",matchedSales:"Matched sales",unmatchedSales:"Unmatched sales",qualifyingSales:"Qualifying sales",pendingRewards:"Pending rewards",approvedRewards:"Approved rewards",paidRewards:"Paid rewards"};$("summary").innerHTML=Object.entries(d).map(([k,v])=>`<div class="card">${labels[k]||k}<strong>${v}</strong></div>`).join("");}
+    async function loadParticipants(){const search=$("participantSearch").value||"";const d=await api("/api/admin/participants?search="+encodeURIComponent(search));$("participantsRows").innerHTML=d.participants.map(p=>`<tr><td>${escape(p.first_name+" "+p.last_name)}</td><td>${escape(p.registration_email)}</td><td>${escape(p.referral_code)}</td><td>${escape(p.referrer_name||"Independent")}</td><td>${escape(p.normalized_gumroad_affiliate_email||"")}</td><td>${escape(p.gumroad_verified_status)}</td><td>${p.direct_referrals}</td><td>${p.qualifying_sales}</td></tr>`).join("");}
+    $("participantSearchButton").addEventListener("click",loadParticipants);
+    function escape(s){const d=document.createElement("div");d.textContent=s??"";return d.innerHTML;}
+    async function loadRewards(){const status=$("rewardFilter").value;const d=await api("/api/admin/rewards"+(status?"?status="+encodeURIComponent(status):""));$("rewardRows").innerHTML=d.rewards.map(r=>`<tr><td>${escape(r.referrer_name||"")}</td><td>${escape(r.referred_name||"")}</td><td>${escape(r.gumroad_purchase_id||"")}</td><td>${escape(r.gumroad_sale_date||"")}</td><td>$${Number(r.reward_amount).toFixed(2)}</td><td>${escape(r.reward_status)}</td><td><select onchange="updateReward(${r.id},this.value)"><option value="">Change status</option><option>Approved</option><option>Paid</option><option>Reversed</option><option>Rejected</option></select></td></tr>`).join("");}
+    $("rewardFilterButton").addEventListener("click",loadRewards);
+    async function updateReward(id,status){const reference=status==="Paid"?prompt("Payment reference"):null;const reason=status==="Reversed"||status==="Rejected"?prompt("Reason"):"";await api(`/api/admin/reward/${id}`,{method:"PATCH",body:JSON.stringify({status,paymentReference:reference,reason})});loadRewards();}
+    async function loadAudit(){const d=await api("/api/admin/audit");$("auditRows").innerHTML=d.events.map(e=>`<tr><td>${escape(e.created_at)}</td><td>${escape(e.administrator_identity||"")}</td><td>${escape(e.action)}</td><td>${escape(e.affected_record||"")}</td><td>${escape(e.reason||"")}</td></tr>`).join("");}
+
+    let csvText="",csvFilename="",detectedMapping={},previewData=null;
+    $("csvFile").addEventListener("change",async e=>{const file=e.target.files[0];if(!file)return;csvFilename=file.name;csvText=await file.text();if(!/\.(csv)$/i.test(file.name)||file.size>5_000_000){$("importStatus").textContent="Select a CSV file smaller than 5 MB.";return;}try{const d=await api("/api/admin/import/preview",{method:"POST",body:JSON.stringify({csv:csvText})});detectedMapping=d.mapping;renderMapping(d.headers,d.mapping);$("mappingPanel").classList.remove("hidden");$("previewImport").classList.remove("hidden");}catch(err){$("importStatus").textContent=err.message;}});
+    function renderMapping(headers,mapping){const fields=[["purchaseId","Purchase ID"],["saleDate","Sale date"],["product","Product"],["affiliateEmail","Affiliate email"],["saleAmount","Sale amount"],["currency","Currency"],["refundStatus","Refund status"],["disputeStatus","Dispute status"],["affiliateCommission","Affiliate commission"]];$("mappingPanel").innerHTML=fields.map(([key,label])=>`<label>${label}<select data-mapping="${key}"><option value="">Not mapped</option>${headers.map(h=>`<option${h===mapping[key]?" selected":""}>${escape(h)}</option>`).join("")}</select></label>`).join("");}
+    $("previewImport").addEventListener("click",async()=>{const mapping={};document.querySelectorAll("[data-mapping]").forEach(s=>mapping[s.dataset.mapping]=s.value);try{const d=await api("/api/admin/import/preview",{method:"POST",body:JSON.stringify({csv:csvText,mapping})});previewData=d.preview;const p=d.preview;$("previewPanel").classList.remove("hidden");$("previewPanel").innerHTML=`<strong>Preview:</strong> ${p.total} rows · ${p.duplicate} duplicates · ${p.matched} matched · ${p.unmatched} unmatched · ${p.qualifying} qualifying · ${p.excluded} excluded<div class="table-wrap" style="max-height:260px;margin-top:10px"><table><thead><tr><th>Purchase</th><th>Affiliate email</th><th>Status</th><th>Reason</th></tr></thead><tbody>${p.preview.map(r=>`<tr><td>${escape(r.purchaseId)}</td><td>${escape(r.affiliateEmail)}</td><td>${escape(r.status)}</td><td>${escape(r.reason)}</td></tr>`).join("")}</tbody></table></div>`;$("confirmImport").classList.remove("hidden");}catch(err){$("importStatus").textContent=err.message;}});
+    $("confirmImport").addEventListener("click",async()=>{const mapping={};document.querySelectorAll("[data-mapping]").forEach(s=>mapping[s.dataset.mapping]=s.value);try{$("importStatus").textContent="Importing...";const d=await api("/api/admin/import/confirm",{method:"POST",body:JSON.stringify({csv:csvText,filename:csvFilename,mapping})});$("importStatus").textContent=`Import complete: ${d.qualifying} qualifying sales; ${d.duplicates} duplicate rows.`;loadSummary();}catch(err){$("importStatus").textContent=err.message;}});
+  </script>
+</body>
+</html>

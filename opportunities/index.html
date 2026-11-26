@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore content, referral and affiliate opportunities. Osof No Code's referral campaign offers $50 for each unique direct referral approved as an affiliate, plus competition entries.">
+  <meta name="theme-color" content="#F7F7F7">
+  <title>Opportunities — PumpFiat</title>
+  <meta property="og:title" content="PumpFiat Global Opportunities">
+  <meta property="og:description" content="Explore content, referral and affiliate opportunities, including a $50 reward and competition entry for each eligible approved direct affiliate referral.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../assets/logo.png">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F7F7F7;
+      --ink: #1A1A1A;
+      --muted: #647276;
+      --line: #dce3e3;
+      --teal: #00778C;
+      --teal-light: #d9eff1;
+      --dark: #172326;
+      --sans: Manrope, Arial, sans-serif;
+      --mono: "DM Mono", monospace;
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { display: block; max-width: 100%; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #00778C; outline-offset: 3px; }
+    .wrap { width: min(var(--max), calc(100% - 44px)); margin: auto; }
+    .mono { font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .site-header { height: 72px; position: sticky; top: 0; z-index: 20; background: #f7f7f7ee; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; letter-spacing: -.08em; }
+    .brand img { width: 34px; height: 34px; object-fit: contain; }
+    .navlinks { display: flex; align-items: center; gap: 24px; color: #536367; font-size: 12px; font-weight: 700; }
+    .navlinks a:hover, .footer a:hover { color: var(--teal); }
+    .navcta { background: var(--ink); color: white; padding: 13px 17px; font-size: 11px; font-weight: 800; }
+    .toggle { display: none; border: 1px solid var(--line); background: transparent; padding: 8px 12px; color: var(--ink); font-size: 20px; cursor: pointer; }
+    .mobile { display: none; }
+    .hero { position: relative; overflow: hidden; background: var(--dark); color: white; }
+    .hero:before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#ffffff09 1px, transparent 1px), linear-gradient(90deg, #ffffff09 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(90deg, #000, transparent); }
+    .hero:after { content: ""; position: absolute; width: 500px; height: 500px; border: 1px solid #00778c35; border-radius: 50%; right: -130px; top: -180px; box-shadow: 0 0 0 55px #00778c10, 0 0 0 110px #00778c08; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; padding: 78px 0 82px; }
+    .eyebrow { color: #78CDD5; margin: 0 0 24px; }
+    h1 { max-width: 12ch; margin: 0; font-size: clamp(46px, 6.5vw, 78px); line-height: .98; letter-spacing: -.085em; }
+    h1 em { color: #78CDD5; font-family: Georgia, serif; font-weight: 400; }
+    .hero-copy { max-width: 570px; margin: 23px 0 0; color: #c4d0d1; font-size: 14px; line-height: 1.9; }
+    .actions { display: flex; gap: 11px; flex-wrap: wrap; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 22px; padding: 15px 19px; font-size: 11px; font-weight: 800; }
+    .primary { background: var(--teal); color: white; }
+    .primary:hover { background: #006271; }
+    .secondary { border: 1px solid #ffffff55; color: white; }
+    .secondary:hover { background: #ffffff10; }
+    .proof { display: flex; align-items: center; gap: 14px; margin-top: 32px; padding-top: 17px; border-top: 1px solid #ffffff2b; color: #aeb9b0; font-size: 10px; line-height: 1.6; }
+    .proof strong { color: white; font-size: 18px; white-space: nowrap; }
+    .feature-shell { position: relative; overflow: hidden; padding: 10px; border: 1px solid #ffffff2b; background: #26373b; box-shadow: 18px 24px 70px #0004; transform: rotate(1deg); }
+    .feature-image { width: 100%; height: 145px; object-fit: cover; object-position: center 42%; background: #173b3e; }
+    .feature { min-height: 300px; padding: 22px; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); }
+    .feature-head { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+    .feature-brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 800; }
+    .feature-brand img { width: 35px; height: 35px; object-fit: contain; }
+    .open { height: max-content; padding: 7px 9px; color: #006275; background: #dceff0; font: 10px var(--mono); text-transform: uppercase; }
+    .feature h2 { margin: 9px 0; font-size: 25px; line-height: 1.12; letter-spacing: -.07em; }
+    .feature-desc { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .feature-bottom { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 17px; border-top: 1px solid var(--line); }
+    .feature-amount { max-width: 290px; font-size: clamp(20px, 2.4vw, 29px); line-height: 1.15; font-weight: 800; letter-spacing: -.06em; overflow-wrap: anywhere; }
+    .feature-amount small { color: #006275; font: 11px var(--mono); }
+    .feature-link { padding-bottom: 5px; border-bottom: 1px solid; font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .ticker { overflow: hidden; padding: 13px 0; background: var(--teal); color: white; }
+    .ticker-inner { display: flex; justify-content: space-between; gap: 18px; }
+    .ticker span { font: 10px var(--mono); text-transform: uppercase; white-space: nowrap; }
+    section.pad { padding: 76px 0; }
+    .head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 32px; }
+    .label { margin: 0 0 12px; color: #006275; }
+    h2.title { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.04; letter-spacing: -.075em; }
+    .note { max-width: 350px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .steps { display: grid; grid-template-columns: repeat(6, 1fr); border-block: 1px solid var(--line); }
+    .step { min-height: 165px; margin-right: 20px; padding: 24px 20px 25px 0; border-right: 1px solid var(--line); }
+    .step:nth-child(6) { margin: 0; border: 0; }
+    .step b { color: #006275; font: 11px var(--mono); }
+    .step h3 { margin: 25px 0 8px; font-size: 15px; }
+    .step p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+    .board { background: #e9eeee; }
+    .toolbar { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 18px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter { padding: 10px 13px; border: 1px solid #cbd5d6; background: transparent; font-size: 10px; font-weight: 800; cursor: pointer; }
+    .filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: white; }
+    .search { position: relative; }
+    .search:before { position: absolute; top: 4px; left: 12px; color: var(--muted); content: "⌕"; font-size: 20px; }
+    .search input { width: 220px; padding: 11px 12px 11px 34px; border: 1px solid #cbd5d6; background: transparent; font-size: 11px; }
+    .count { margin: 0 0 12px; color: var(--muted); font: 10px var(--mono); }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .campaign { display: flex; min-height: 330px; flex-direction: column; padding: 23px; border: 1px solid #dfe4e4; border-top: 3px solid var(--accent); background: var(--paper); transition: transform .2s, box-shadow .2s; }
+    .campaign:hover { transform: translateY(-3px); box-shadow: 0 14px 32px #17232612; }
+    .ctop { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+    .client { min-height: 32px; display: flex; align-items: center; font-size: 14px; font-weight: 800; }
+    .client img { max-width: 130px; max-height: 34px; object-fit: contain; object-position: left center; }
+    .location { margin-top: 5px; color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+    .status { height: max-content; padding: 7px 9px; background: #dceff0; color: #006275; font: 9px var(--mono); text-transform: uppercase; }
+    .status.paused, .status.closed, .status.fully-funded { background: #e9e9e9; color: #555; }
+    .category { margin: 18px 0 8px; color: #006275; font: 9px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .campaign h3 { margin: 0; font-size: 22px; line-height: 1.16; letter-spacing: -.06em; }
+    .desc { margin: 10px 0 18px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; margin-top: auto; border: 1px solid var(--line); }
+    .metric { min-width: 0; padding: 12px; }
+    .metric + .metric { border-left: 1px solid var(--line); }
+    .mlabel { color: var(--muted); font: 9px var(--mono); text-transform: uppercase; }
+    .mvalue { margin-top: 5px; font-size: 21px; font-weight: 800; letter-spacing: -.06em; overflow-wrap: anywhere; }
+    .mvalue small { color: #006275; font: 10px var(--mono); }
+    .sub { margin-top: 3px; color: var(--muted); font-size: 9px; line-height: 1.5; }
+    .cfoot { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .eligibility { color: var(--muted); font-size: 9px; }
+    .details { font-size: 10px; font-weight: 800; white-space: nowrap; }
+    .empty { grid-column: 1/-1; padding: 40px; border: 1px dashed #b6c4c6; color: var(--muted); font-size: 12px; text-align: center; }
+    .earn { padding: 70px 0; background: var(--teal-light); }
+    .earn-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 45px; }
+    .earn h2 { margin: 0; font-size: clamp(38px, 5vw, 62px); line-height: .98; letter-spacing: -.08em; }
+    .earn h2 em { color: #006275; font-family: Georgia, serif; font-weight: 400; }
+    .earn-copy { color: #35484b; font-size: 13px; line-height: 1.9; }
+    .earn-copy strong { color: var(--ink); }
+    .earn-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .earn-options div { padding-top: 10px; border-top: 1px solid #9dc9ce; font-size: 11px; font-weight: 800; }
+    .earn-options small { display: block; margin-top: 4px; color: #53676a; font-size: 10px; font-weight: 500; }
+    .partners { padding: 60px 0; border-top: 1px solid var(--line); background: white; }
+    .partner-grid { display: grid; grid-template-columns: repeat(6, 1fr); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+    .partner { min-height: 105px; display: grid; align-content: center; justify-items: center; gap: 8px; padding: 18px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+    .partner img { width: min(100%, 138px); height: 40px; object-fit: contain; }
+    .partner small { color: var(--muted); font: 9px var(--mono); }
+    .partner-wordmark { font-size: 14px; font-weight: 800; letter-spacing: -.04em; }
+    .partner-wordmark.osof { color: var(--teal); }
+    .partner-wordmark.eucalyptus { color: #00a84f; }
+    .footer { padding: 30px 0; background: var(--dark); color: white; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .foot p, .foot nav { color: #bac3c4; font-size: 10px; }
+    .foot nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    @media(max-width:850px) {
+      .hero-inner { gap: 30px; }
+      .navlinks { gap: 13px; }
+      .steps { grid-template-columns: repeat(3, 1fr); }
+      .step:nth-child(3), .step:nth-child(6) { margin: 0; border-right: 0; }
+      .step:nth-child(4) { border-top: 1px solid var(--line); }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .partner-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width:680px) {
+      .wrap { width: calc(100% - 34px); }
+      .site-header { height: 64px; }
+      .navlinks, .navcta { display: none; }
+      .toggle { display: block; }
+      .mobile { position: absolute; top: 64px; left: 0; right: 0; padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .mobile.open { display: grid; gap: 15px; }
+      .mobile a { font-size: 13px; font-weight: 800; }
+      .hero-inner { grid-template-columns: 1fr; gap: 34px; padding: 54px 0 48px; }
+      .hero:after { right: -320px; }
+      h1 { font-size: clamp(46px, 13vw, 66px); }
+      .hero-copy { font-size: 13px; }
+      .feature-shell { max-width: 480px; width: 100%; margin: auto; transform: none; }
+      .feature-image { height: 125px; }
+      .ticker-inner { justify-content: flex-start; overflow: hidden; }
+      .ticker span { font-size: 9px; }
+      section.pad { padding: 58px 0; }
+      .head { display: block; }
+      .note { margin-top: 14px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step { min-height: 145px; margin-right: 12px; padding: 18px 12px 18px 0; }
+      .step:nth-child(even) { margin: 0; border-right: 0; }
+      .step:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .step:nth-child(6) { margin: 0; border: 0; border-top: 1px solid var(--line); }
+      .cards { grid-template-columns: 1fr; }
+      .search, .search input { width: 100%; }
+      .earn-inner { grid-template-columns: 1fr; gap: 18px; }
+      .partner-grid { grid-template-columns: repeat(2, 1fr); }
+      .foot { display: block; }
+      .foot nav { margin-top: 14px; }
+    }
+    @media(prefers-reduced-motion:reduce) { * { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+
+
+
+<style id="pf-standard-footer-styles">
+.pf-standard-footer{background:#1A1A1A;color:#fff;font-family:Inter,Manrope,Arial,sans-serif;padding:56px 20px 24px}.pf-standard-footer a{color:inherit;text-decoration:none}.pf-standard-footer a:focus-visible{outline:3px solid #78CDD5;outline-offset:3px}.pf-footer-wrap{width:min(1120px,100%);margin:auto}.pf-footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;align-items:start}.pf-footer-brand{display:flex;align-items:center;gap:12px}.pf-footer-brand img{display:block!important;width:42px!important;height:42px!important;max-width:none!important;object-fit:contain!important}.pf-footer-brand strong{display:block;font-size:20px;letter-spacing:-.04em}.pf-footer-brand span{display:block;margin-top:5px;color:#AFC1C4;font-size:12px;line-height:1.5}.pf-footer-heading{margin:0 0 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}.pf-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:0;padding:0;list-style:none}.pf-footer-links a{color:#D1D9DA;font-size:13px;font-weight:700}.pf-footer-links a:hover{color:#78CDD5}.pf-footer-contact p{max-width:290px;margin:0 0 16px;color:#AFC1C4;font-size:13px;line-height:1.7}.pf-footer-contact a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #78CDD5;color:#78CDD5;font-size:13px;font-weight:800}.pf-footer-contact a:hover{background:#78CDD5;color:#1A1A1A}.pf-footer-badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 18px;width:fit-content;max-width:100%;margin:32px auto 0;padding:8px 12px;border-radius:10px;background:#fff}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}.pf-footer-legal{margin-top:22px;padding-top:18px;border-top:1px solid #FFFFFF20;color:#98A7A9;font-size:12px;text-align:center}@media(max-width:760px){.pf-standard-footer{padding:42px 18px 22px}.pf-footer-grid{grid-template-columns:1fr;gap:32px}.pf-footer-badges{gap:14px}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html" aria-label="PumpFiat home"><img src="../assets/logo.png" alt="">PUMPFIAT</a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="../index.html#services">Services</a><a href="../about.html">About</a><a href="./" aria-current="page">Opportunities</a><a href="../dataanalysis.html">Data</a><a href="../career/index.html">Careers</a>
+      </nav>
+      <a class="navcta" href="../onboarding.html">Work with PumpFiat ↗</a>
+      <button class="toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation" type="button">☰</button>
+    </div>
+    <nav class="mobile" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="../index.html#services">Services</a><a href="../about.html">About</a><a href="./" aria-current="page">Opportunities</a><a href="../dataanalysis.html">Data</a><a href="../career/index.html">Careers</a><a href="../onboarding.html">Work with PumpFiat ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow mono">The PumpFiat opportunity network</p>
+          <h1>EARN AS MUCH<br>AS YOU WANT.</h1>
+          <p class="hero-copy">Create content, generate qualified views, refer approved affiliates, and explore other opportunities. Browsing is open; participation and eligibility requirements vary by campaign.</p>
+          <div class="actions"><a class="btn primary" href="#opportunities">Explore opportunities ↘</a><a class="btn secondary" href="#how-it-works">How it works ↗</a></div>
+          <div class="proof"><strong>Browse freely</strong><span>Explore opportunities without an account. Some campaigns require participant registration.</span></div>
+        </div>
+        <div class="feature-shell">
+          <img id="featureImage" class="feature-image" src="PumpFiat%20Opportunities%20Hero%20Visual.png" alt="Creators collaborating on global content and promotional opportunities">
+          <article class="feature">
+            <div class="feature-head">
+              <div><div class="mono" style="color:#647276">Opportunity spotlight</div><div class="feature-brand"><img id="featureLogo" src="osof%20no%20code%20logo.webp" alt="Osof No Code logo"><span id="featureClient">Osof No Code</span></div></div>
+              <span class="open" id="featureStatus">● Open</span>
+            </div>
+            <p class="mono" id="featureCategory" style="color:#647276;margin:18px 0 0">Content creation · Worldwide</p>
+            <h2 id="featureTitle">Get Paid to Create Content About AI</h2>
+            <p class="feature-desc" id="featureDescription"></p>
+            <div class="feature-bottom"><div><div class="mono" style="color:#647276">Featured earning</div><div class="feature-amount" id="featureReward">$15 / 1,000</div><div class="sub" id="featureRewardDetail">$150 at 10,000 qualified views</div></div><a class="feature-link" id="featureLink" href="./osof-no-code-content-campaign/">View opportunity ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Opportunity types">
+      <div class="wrap ticker-inner"><span id="tickerContentRate">✳ $15 / 1,000 qualified views</span><span id="tickerContentMilestone">✳ $150 at 10,000 views</span><span id="tickerReferralReward">✳ $50 per approved direct referral</span><span>✳ Competition entries</span><span>✳ Browse without an account</span></div>
+    </div>
+
+    <section class="pad" id="how-it-works">
+      <div class="wrap">
+        <div class="head"><div><p class="label mono">Simple by design</p><h2 class="title">From opportunity<br>to approved reward.</h2></div><p class="note">Browsing is open to everyone. Registration, evidence and payment requirements are specific to each opportunity.</p></div>
+        <div class="steps">
+          <article class="step"><b>01 / BROWSE</b><h3>Browse opportunities</h3><p>Explore current earning methods and campaigns.</p></article>
+          <article class="step"><b>02 / CHOOSE</b><h3>Choose an opportunity</h3><p>Check its eligibility, requirements and terms.</p></article>
+          <article class="step"><b>03 / COMPLETE</b><h3>Complete the requirements</h3><p>Create eligible content or refer a prospective affiliate, depending on the campaign.</p></article>
+          <article class="step"><b>04 / SUBMIT</b><h3>Submit your evidence</h3><p>Share links and supporting details as requested.</p></article>
+          <article class="step"><b>05 / REVIEW</b><h3>PumpFiat reviews</h3><p>Submissions and qualifying activity are reviewed.</p></article>
+          <article class="step"><b>06 / PAYMENT</b><h3>Receive approved payment</h3><p>Eligible rewards follow campaign terms.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pad board" id="opportunities">
+      <div class="wrap">
+        <div class="head"><div><p class="label mono">The opportunity board</p><h2 class="title">There’s more than<br>one way to earn.</h2></div><p class="note">Browse current campaigns from participating businesses. Read each opportunity’s requirements before you begin.</p></div>
+        <div class="toolbar">
+          <div class="filters" id="filters" role="group" aria-label="Filter opportunities">
+            <button class="filter" data-filter="all" aria-pressed="true" type="button">All</button>
+            <button class="filter" data-filter="content" aria-pressed="false" type="button">Content</button>
+            <button class="filter" data-filter="ugc" aria-pressed="false" type="button">UGC</button>
+            <button class="filter" data-filter="affiliate" aria-pressed="false" type="button">Affiliate</button>
+            <button class="filter" data-filter="referral" aria-pressed="false" type="button">Referrals</button>
+            <button class="filter" data-filter="sales" aria-pressed="false" type="button">Sales</button>
+          </div>
+          <label class="search"><span hidden>Search opportunities</span><input id="campaignSearch" type="search" placeholder="Search opportunities…" aria-label="Search opportunities"></label>
+        </div>
+        <p class="count" id="resultCount" aria-live="polite"></p>
+        <div class="cards" id="opportunityGrid"><div class="empty">Loading opportunities…</div></div>
+      </div>
+    </section>
+
+    <section class="earn">
+      <div class="wrap earn-inner">
+        <div><p class="mono" style="color:#006275">Choose how you participate</p><h2>More than one<br>way to earn.</h2></div>
+        <div>
+          <p class="earn-copy"><strong>Explore different ways to participate.</strong> Create content and build qualified views, refer people who become approved affiliates, or explore other campaigns. Each opportunity has its own eligibility and terms.</p>
+          <div class="earn-options">
+            <div>Content creation<small id="earnContentReward">$15 per 1,000 qualified views; $150 at 10,000</small></div>
+            <div>Referrals<small id="earnReferralReward">$50 per eligible approved direct referral + one entry</small></div>
+            <div>Affiliate opportunities<small>Commission terms vary by campaign</small></div>
+            <div>Campaign-specific requirements<small>Some opportunities require participant registration</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="wrap">
+        <div class="head"><div><p class="label mono">Across markets</p><h2 class="title">Built through<br>partnerships.</h2></div><p class="note">A selection of businesses and projects associated with PumpFiat. Client logos are shown using supplied assets.</p></div>
+        <div class="partner-grid">
+          <div class="partner"><img src="Eucalyptus%20logo.jpeg" alt="Eucalyptus logo"><small>Australia</small></div>
+          <div class="partner"><img src="Ask%20Maeve%20logo.png" alt="Ask Maeve logo"><small>Germany</small></div>
+          <div class="partner"><img src="Creliora%20logo.avif" alt="Creliora logo"><small>Austria</small></div>
+          <div class="partner"><img src="Noovid%20logo.png" alt="Noovid logo"><small>Austria</small></div>
+          <div class="partner"><img src="Preface%20logo.png" alt="Preface logo"><small>Hong Kong</small></div>
+          <div class="partner"><img src="osof%20no%20code%20logo.webp" alt="Osof No Code logo"><small>Singapore</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <footer class="pf-standard-footer" id="contact">
+    <div class="pf-footer-wrap">
+      <div class="pf-footer-grid">
+        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="PumpFiat logo"><div><strong>PUMPFIAT</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
+        <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
+        <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
+      </div>
+      <div class="pf-footer-badges" aria-label="PumpFiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
+      <div class="pf-footer-legal">&copy; <span id="year">2026</span> PumpFiat - All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="campaigns.js"></script>
+  <script>
+    (() => {
+      "use strict";
+      const campaigns = Array.isArray(window.PUMPFIAT_CAMPAIGNS) ? window.PUMPFIAT_CAMPAIGNS : [];
+      const grid = document.getElementById("opportunityGrid");
+      const count = document.getElementById("resultCount");
+      const search = document.getElementById("campaignSearch");
+      let filter = "all";
+      const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[char]));
+      const safeAsset = value => {
+        if (typeof value !== "string" || !value || value.startsWith("/") || value.includes("..") || /^[a-z][a-z\d+.-]*:/i.test(value)) return "";
+        return value;
+      };
+      const number = value => Number(value).toLocaleString();
+      const currency = value => `$${Number(value).toLocaleString()}`;
+      const rewardLabel = campaign => {
+        if (campaign.rewardType === "per-qualified-views") {
+          return `${currency(campaign.rewardRate)} / ${number(campaign.rewardRateViews)} qualified views`;
+        }
+        if (campaign.rewardType === "per-approved-referral") return `${currency(campaign.rewardAmount)} per approved referral`;
+        if (campaign.rewardType === "percentage") return `${esc(campaign.rewardAmount)} commission`;
+        return esc(campaign.rewardAmount || "See terms");
+      };
+      const rewardDetail = campaign => {
+        if (campaign.rewardType === "per-qualified-views") {
+          return `${currency(campaign.milestoneReward)} at ${number(campaign.milestoneViews)} qualified views`;
+        }
+        if (campaign.rewardType === "per-approved-referral") return "One-time reward for a unique, direct affiliate approval";
+        if (campaign.rewardType === "percentage") return "Subject to affiliate programme terms";
+        return "Subject to review and approval";
+      };
+
+      function feature() {
+        const campaign = campaigns.find(item => String(item.status).toLowerCase() === "open") || campaigns[0];
+        if (!campaign) return;
+        const logo = safeAsset(campaign.clientLogo);
+        const image = safeAsset(campaign.campaignImage);
+        document.getElementById("featureClient").textContent = campaign.clientName || "Featured partner";
+        document.getElementById("featureCategory").textContent = `${campaign.category || "Opportunity"} · ${(campaign.eligibleCountries || []).join(", ") || "See eligibility"}`;
+        document.getElementById("featureTitle").textContent = campaign.title || "Explore this opportunity";
+        document.getElementById("featureDescription").textContent = campaign.description || "";
+        document.getElementById("featureReward").textContent = rewardLabel(campaign);
+        document.getElementById("featureRewardDetail").textContent = rewardDetail(campaign);
+        document.getElementById("featureLink").href = `./${encodeURIComponent(campaign.id)}/`;
+        document.getElementById("featureStatus").textContent = `● ${campaign.status || "Check details"}`;
+        if (logo) document.getElementById("featureLogo").src = logo;
+        if (image) document.getElementById("featureImage").src = image;
+      }
+
+      function card(campaign) {
+        const accent = /^#[0-9a-f]{6}$/i.test(campaign.campaignAccentColor || "") ? campaign.campaignAccentColor : "#00778C";
+        const logo = safeAsset(campaign.clientLogo);
+        const brand = logo
+          ? `<img src="${esc(logo)}" alt="${esc(campaign.clientName || "Partner")} logo">`
+          : esc(campaign.clientName || "Partner");
+        const status = String(campaign.status || "Check details").toLowerCase().replace(/[^a-z-]/g, "");
+        const viewCampaign = campaign.rewardType === "per-qualified-views";
+        const referralCampaign = campaign.rewardType === "per-approved-referral";
+        const firstLabel = viewCampaign ? "Earning rate" : referralCampaign ? "Referral reward" : campaign.rewardType === "percentage" ? "Commission" : "Reward";
+        const secondLabel = viewCampaign ? "10,000-view milestone" : referralCampaign ? "Competition entry" : "Eligibility";
+        const secondValue = viewCampaign ? `${currency(campaign.milestoneReward)} at ${number(campaign.milestoneViews)} qualified views` : referralCampaign ? `${number(campaign.competitionEntriesPerReferral)} entry per approved referral` : "See terms";
+        const secondDetail = viewCampaign ? "Qualified views across eligible videos may be combined" : referralCampaign ? "More eligible referrals earn more entries; sales are not required" : "Review full campaign requirements";
+        return `<article class="campaign" style="--accent:${accent}">
+          <div class="ctop"><div><div class="client">${brand}</div><div class="location">${esc(campaign.clientName || "Partner")} · ${esc(campaign.clientLocation || "Global")}</div></div><span class="status ${status}">${esc(campaign.status || "Check details")}</span></div>
+          <p class="category">${esc(campaign.category || "Opportunity")}</p><h3>${esc(campaign.title || "Opportunity")}</h3><p class="desc">${esc(campaign.description || "")}</p>
+          <div class="metrics">
+            <div class="metric"><div class="mlabel">${firstLabel}</div><div class="mvalue">${rewardLabel(campaign)}</div><div class="sub">${rewardDetail(campaign)}</div></div>
+            <div class="metric"><div class="mlabel">${secondLabel}</div><div class="mvalue" style="font-size:17px">${secondValue}</div><div class="sub">${secondDetail}</div></div>
+          </div>
+          <div class="cfoot"><span class="eligibility">${esc((campaign.eligibleCountries || []).join(", ") || "Check eligibility")}</span><a class="details" href="./${encodeURIComponent(campaign.id)}/">View Opportunity ↗</a></div>
+        </article>`;
+      }
+
+      function render() {
+        const query = search.value.trim().toLowerCase();
+        const list = campaigns.filter(campaign =>
+          (filter === "all" || campaign.categoryKey === filter) &&
+          (!query || [campaign.clientName, campaign.title, campaign.category, campaign.description, campaign.clientLocation, ...(campaign.eligibleCountries || [])].join(" ").toLowerCase().includes(query))
+        );
+        count.textContent = `${list.length} ${list.length === 1 ? "OPPORTUNITY" : "OPPORTUNITIES"} FOUND`;
+        grid.innerHTML = list.length ? list.map(card).join("") : '<div class="empty">No opportunities match your search. Try another category or keyword.</div>';
+      }
+
+      const activeKeys = new Set(campaigns.map(campaign => campaign.categoryKey));
+      document.querySelectorAll(".filter[data-filter]").forEach(button => {
+        if (button.dataset.filter !== "all" && !activeKeys.has(button.dataset.filter)) button.hidden = true;
+      });
+      document.getElementById("filters").addEventListener("click", event => {
+        const button = event.target.closest("button[data-filter]");
+        if (!button) return;
+        filter = button.dataset.filter;
+        document.querySelectorAll(".filter").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+        render();
+      });
+      search.addEventListener("input", render);
+
+      const toggle = document.getElementById("menuToggle");
+      const mobile = document.getElementById("mobileNav");
+      toggle.addEventListener("click", () => {
+        const open = mobile.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(open));
+        mobile.setAttribute("aria-hidden", String(!open));
+        toggle.textContent = open ? "×" : "☰";
+      });
+      mobile.addEventListener("click", event => {
+        if (event.target.closest("a")) {
+          mobile.classList.remove("open");
+          mobile.setAttribute("aria-hidden", "true");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "☰";
+        }
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+      const contentCampaign = campaigns.find(item => item.rewardType === "per-qualified-views");
+      const referralCampaign = campaigns.find(item => item.rewardType === "per-approved-referral");
+      if (contentCampaign) {
+        document.getElementById("earnContentReward").textContent =
+          `${currency(contentCampaign.rewardRate)} per ${number(contentCampaign.rewardRateViews)} qualified views; ${currency(contentCampaign.milestoneReward)} at ${number(contentCampaign.milestoneViews)}`;
+        document.getElementById("tickerContentRate").textContent =
+          `✳ ${currency(contentCampaign.rewardRate)} / ${number(contentCampaign.rewardRateViews)} qualified views`;
+        document.getElementById("tickerContentMilestone").textContent =
+          `✳ ${currency(contentCampaign.milestoneReward)} at ${number(contentCampaign.milestoneViews)} qualified views`;
+      }
+      if (referralCampaign) {
+        document.getElementById("earnReferralReward").textContent =
+          `${currency(referralCampaign.rewardAmount)} once per unique direct referral approved as an affiliate`;
+        document.getElementById("tickerReferralReward").textContent =
+          `✳ ${currency(referralCampaign.rewardAmount)} per approved direct referral · ${number(referralCampaign.competitionEntriesPerReferral)} competition entry`;
+      }
+      feature();
+      render();
+    })();
+  </script>
+</body>
+</html>

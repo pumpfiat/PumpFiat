@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Operational Compliance for Distributed Teams: A F | Pumpfiat</title>
+  <link rel="canonical" href="https://pumpfiat.com/distributed-team-compliance.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --color-primary: #1A1A1A;
+      --color-secondary: #F7F7F7;
+      --color-accent: #00778C;
+    }
+    body { font-family: 'Inter', sans-serif; background: #fffef8; }
+    .hero-card { transition: .3s ease; }
+    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,.08); }
+    .resource-img { height: 480px; background-size: cover; background-position: center; }
+    .sticky-nav { position: sticky; top: 5rem; z-index: 30; }
+    .toc-link.active { color: var(--color-accent); font-weight: 600; }
+    .btn-primary { background: var(--color-accent); color: white; }
+    .btn-primary:hover { background: #00606f; }
+    .logo-bridge { width: 44px; height: 44px; }
+    .table-auto th { background: #f9fafb; }
+    .inline-img { @apply rounded-xl shadow-md border; }
+    .checklist li::before { content: "Check"; color: #10b981; font-weight: 600; margin-right: 0.5rem; }
+    .cross li::before { content: "Cross"; color: #ef4444; font-weight: 600; margin-right: 0.5rem; }
+    .timeline { @apply p-6 rounded-xl border shadow-sm bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200; }
+  </style>
+
+
+
+<style id="pf-standard-footer-styles">
+.pf-standard-footer{background:#1A1A1A;color:#fff;font-family:Inter,Manrope,Arial,sans-serif;padding:56px 20px 24px}.pf-standard-footer a{color:inherit;text-decoration:none}.pf-standard-footer a:focus-visible{outline:3px solid #78CDD5;outline-offset:3px}.pf-footer-wrap{width:min(1120px,100%);margin:auto}.pf-footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;align-items:start}.pf-footer-brand{display:flex;align-items:center;gap:12px}.pf-footer-brand img{display:block!important;width:42px!important;height:42px!important;max-width:none!important;object-fit:contain!important}.pf-footer-brand strong{display:block;font-size:20px;letter-spacing:-.04em}.pf-footer-brand span{display:block;margin-top:5px;color:#AFC1C4;font-size:12px;line-height:1.5}.pf-footer-heading{margin:0 0 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}.pf-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:0;padding:0;list-style:none}.pf-footer-links a{color:#D1D9DA;font-size:13px;font-weight:700}.pf-footer-links a:hover{color:#78CDD5}.pf-footer-contact p{max-width:290px;margin:0 0 16px;color:#AFC1C4;font-size:13px;line-height:1.7}.pf-footer-contact a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #78CDD5;color:#78CDD5;font-size:13px;font-weight:800}.pf-footer-contact a:hover{background:#78CDD5;color:#1A1A1A}.pf-footer-badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 18px;width:fit-content;max-width:100%;margin:32px auto 0;padding:8px 12px;border-radius:10px;background:#fff}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}.pf-footer-legal{margin-top:22px;padding-top:18px;border-top:1px solid #FFFFFF20;color:#98A7A9;font-size:12px;text-align:center}@media(max-width:760px){.pf-standard-footer{padding:42px 18px 22px}.pf-footer-grid{grid-template-columns:1fr;gap:32px}.pf-footer-badges{gap:14px}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}}
+</style>
+  <meta name="description" content="In 2025, compliance is no longer a “corporate problem.” For distributed teams, it’s a growth accelerator or a silent revenue killer .">
+  <meta property="og:title" content="Operational Compliance for Distributed Teams: A F | Pumpfiat">
+  <meta property="og:description" content="In 2025, compliance is no longer a “corporate problem.” For distributed teams, it’s a growth accelerator or a silent revenue killer .">
+  <meta property="og:url" content="https://pumpfiat.com/distributed-team-compliance.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pumpfiat.com/assets/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Operational Compliance for Distributed Teams: A F | Pumpfiat">
+  <meta name="twitter:description" content="In 2025, compliance is no longer a “corporate problem.” For distributed teams, it’s a growth accelerator or a silent revenue killer .">
+  <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png">
+  <link rel="stylesheet" href="/assets/site-shell.css">
+</head>
+
+<body class="antialiased text-[color:var(--color-primary)]">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="/" aria-label="Pumpfiat home">
+      <img src="/assets/logo.png" alt="">
+      <span class="site-wordmark">Pumpfiat</span>
+    </a>
+    <nav class="site-primary-nav" aria-label="Primary navigation">
+      <a href="/" data-site-nav="solutions">Solutions</a>
+      <a href="/compliance.html" data-site-nav="trust" aria-current="page">Trust</a>
+      <a href="/about.html" data-site-nav="about">About</a>
+      <a href="/resources.html" data-site-nav="resources">Resources</a>
+      <a href="/career/" data-site-nav="careers">Careers</a>
+    </nav>
+    <a class="site-cta" href="/onboarding.html">Request an audit</a>
+    <details class="site-mobile-nav">
+      <summary aria-label="Open navigation menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </summary>
+      <nav aria-label="Mobile navigation">
+        <a href="/" data-site-nav="solutions">Solutions</a>
+        <a href="/compliance.html" data-site-nav="trust" aria-current="page">Trust</a>
+        <a href="/about.html" data-site-nav="about">About</a>
+        <a href="/resources.html" data-site-nav="resources">Resources</a>
+        <a href="/career/" data-site-nav="careers">Careers</a>
+        <a class="site-cta" href="/onboarding.html">Request an audit</a>
+      </nav>
+    </details>
+  </div>
+</header><main id="main-content">
+
+<!-- NAVBAR (from index.html) -->
+<header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100" hidden>
+  <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="assets/logo.png" alt="Pumpfiat Logo" class="logo-bridge object-contain">
+      <div class="text-xl md:text-2xl font-extrabold tracking-tight">Pumpfiat</div>
+      <div class="ml-3 hidden lg:inline-flex text-xs px-2 py-1 rounded-full bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)] font-bold">1M Reach</div>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+      <a href="index.html#solutions" class="hover:text-[color:var(--color-primary)] transition">Solutions</a>
+      <a href="index.html#offer" class="hover:text-[color:var(--color-primary)] transition">Offer</a>
+      <a href="dataanalysis.html" class="hover:text-[color:var(--color-primary)] transition">Data</a>
+      <a href="about.html" class="hover:text-[color:var(--color-primary)] transition">About</a>
+      <a href="resources.html" class="text-[color:var(--color-accent)] font-bold">Resources</a>
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="onboarding.html" class="btn-primary px-5 py-2.5 rounded-xl font-bold shadow-md">Lock In 45% Off</a>
+    </div>
+
+    <button id="mobileMenuBtn" class="lg:hidden p-2 text-2xl text-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBoxjb="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO IMAGE + TITLE -->
+<section class="pt-16 pb-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="resource-img rounded-2xl mb-10" style="background-image:url('images/distributed-team-compliance-thumbnail.jpg')"></div>
+    
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-xs text-gray-500 uppercase font-semibold tracking-widest mb-4">Nov 5, 2025 · Operations</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        Operational Compliance for Distributed Teams: A Founder’s Guide to Staying Audit-Ready
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        In 2025, compliance is no longer a “corporate problem.”<br>
+        For distributed teams, it’s a <strong>growth accelerator or a silent revenue killer</strong>.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4 text-sm text-gray-600">
+        <span>By <strong>Niel Harper</strong></span>
+        <span>•</span>
+        <span>8 min read</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT + TOC -->
+<section class="pb-20">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
+    
+    <!-- TOC (Sticky on Desktop) -->
+    <aside class="hidden lg:block sticky-nav">
+      <div class="bg-white p-6 rounded-xl border">
+        <h3 class="font-bold text-lg mb-4">On this page</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#intro" class="toc-link block hover:text-[color:var(--color-accent)] transition">Introduction</a></li>
+          <li><a href="#why" class="toc-link block hover:text-[color:var(--color-accent)] transition">Why It Matters</a></li>
+          <li><a href="#1" class="toc-link block hover:text-[color:var(--color-accent)] transition">#1 Single Source of Truth</a></li>
+          <li><a href="#2" class="toc-link block hover:text-[color:var(--color-accent)] transition">#2 Automate Evidence</a></li>
+          <li><a href="#3" class="toc-link block hover:text-[color:var(--color-accent)] transition">#3 Onboarding & Offboarding</a></li>
+          <li><a href="#4" class="toc-link block hover:text-[color:var(--color-accent)] transition">#4 Access Controls</a></li>
+          <li><a href="#5" class="toc-link block hover:text-[color:var(--color-accent)] transition">#5 Device Security</a></li>
+          <li><a href="#6" class="toc-link block hover:text-[color:var(--color-accent)] transition">#6 Document Workflows</a></li>
+          <li><a href="#7" class="toc-link block hover:text-[color:var(--color-accent)] transition">#7 Continuous Compliance</a></li>
+          <li><a href="#8" class="toc-link block hover:text-[color:var(--color-accent)] transition">#8 Prepare for Audits</a></li>
+          <li><a href="#9" class="toc-link block hover:text-[color:var(--color-accent)] transition">#9 90-Day Plan</a></li>
+          <li><a href="#conclusion" class="toc-link block hover:text-[color:var(--color-accent)] transition">Conclusion</a></li>
+          <li><a href="#related" class="toc-link block hover:text-[color:var(--color-accent)] transition">Related Articles</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="lg:col-span-3 prose prose-lg max-w-none">
+      
+      <div id="intro" class="mb-16">
+        <p class="lead text-xl text-gray-700">
+          In 2025, compliance is no longer a “corporate problem.”
+        </p>
+        <p class="mt-4">
+          If you run a <strong>distributed team</strong> — especially one serving enterprise clients, handling customer data, or scaling rapidly — compliance becomes a <strong>growth accelerator or a silent revenue killer</strong> depending on how you manage it.
+        </p>
+        <p class="mt-6">
+          Remote work has unlocked global talent pools, but it has also created:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>new operational gaps</li>
+          <li>new audit risks</li>
+          <li>new expectations from customers</li>
+        </ul>
+        <p class="mt-6 font-semibold">
+          Modern buyers assume you can <strong>prove security, privacy, and process integrity at any moment</strong> — not once a year.
+        </p>
+        <p class="mt-4">
+          This guide breaks down the <strong>exact compliance foundations</strong> every founder should implement to keep their distributed teams <strong>audit-ready 24/7</strong>.
+        </p>
+      </div>
+
+      <!-- WHY IT MATTERS -->
+      <div id="why" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6">
+          Why Compliance Matters More for Distributed Teams
+        </h2>
+        <p>
+          Founders often underestimate how fast compliance issues can <strong>snowball in remote organizations</strong>:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>Different countries = different data laws</li>
+          <li>Inconsistent processes lead to audit gaps</li>
+          <li>Unsecured devices become attack vectors</li>
+          <li>Unrecorded workflows make quality unprovable</li>
+          <li>Manual documentation collapses at scale</li>
+        </ul>
+        <p class="mt-6 font-bold italic">
+          In distributed environments, <strong>compliance isn’t a binder — it’s an operating system</strong>.
+        </p>
+      </div>
+
+      <!-- 1. SSOT -->
+      <div id="1" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">1</span>
+          Build the “Single Source of Truth” (SSOT) for Your Company
+        </h2>
+        <p>
+          Distributed teams break down when people save files everywhere:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>Desktop</li>
+          <li>Personal drive</li>
+          <li>WhatsApp</li>
+          <li>Slack DMs</li>
+          <li>Email threads</li>
+        </ul>
+        <p class="mt-4 italic">
+          Auditors call this <strong>“shadow documentation.”</strong>
+        </p>
+        <p class="mt-6">
+          <strong>What your SSOT must contain:</strong>
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>Policies (security, HR, data handling, customer communication)</li>
+          <li>Procedures (step-by-step workflows)</li>
+          <li>Controls (how you ensure consistency)</li>
+          <li>Evidence logs (proof of execution)</li>
+        </ul>
+        <p class="mt-6">
+          <strong>Tooling:</strong>
+        </p>
+        <ul class="checklist mt-2 space-y-1">
+          <li>Cloud documentation workspace</li>
+          <li>Version control</li>
+          <li>Permission-based access</li>
+          <li>Audit trails</li>
+          <li>Automated expiry dates</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          <em>If it isn’t documented, it doesn’t exist.</em>
+        </p>
+      </div>
+
+      <!-- 2. AUTOMATE EVIDENCE -->
+      <div id="2" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">2</span>
+          Automate Your Evidence Collection
+        </h2>
+        <p>
+          The biggest mistake founders make?
+        </p>
+        <p class="mt-4 italic">
+          <em>They wait until audit season to gather screenshots, logs, access controls, device standards, onboarding/offboarding proof, etc.</em>
+        </p>
+        <p class="mt-6">
+          By then, things are already missing.
+        </p>
+        <p class="mt-4">
+          <strong>Automate evidence capture wherever possible:</strong>
+        </p>
+        <ul class="checklist mt-2 space-y-1">
+          <li>Device compliance logs</li>
+          <li>Access permission changes</li>
+          <li>Customer data request logs</li>
+          <li>Security training completion</li>
+          <li>Workflow execution timestamps</li>
+          <li>Ticketing system quality checks</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          <strong>Rule of thumb:</strong><br>
+          <em>If an employee has to “remember” to capture it, it’s already unreliable.</em>
+        </p>
+      </div>
+
+      <!-- 3. ONBOARDING & OFFBOARDING -->
+      <div id="3" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">3</span>
+          Streamline Onboarding & Offboarding (Your Weakest Points)
+        </h2>
+        <p>
+          Your <strong>biggest compliance leaks</strong> happen when employees are entering or leaving your system.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-lg mb-3 text-teal-800">Onboarding must include:</h3>
+            <ul class="checklist space-y-1 text-sm">
+              <li>Device security check</li>
+              <li>Password manager setup</li>
+              <li>Access provisioning based on role</li>
+              <li>Required compliance training</li>
+              <li>NDA signing and identity validation</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-gradient-to-br from-red-50 to-rose-50 rounded-xl border border-red-200">
+            <h3 class="font-bold text-lg mb-3 text-red-800">Offboarding must include:</h3>
+            <ul class="checklist space-y-1 text-sm">
+              <li>Automatic removal from all systems</li>
+              <li>Retrieval or wipe of company devices</li>
+              <li>Transfer of responsibilities</li>
+              <li>Documentation of access revocation</li>
+              <li>Final compliance declarations</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8 font-bold">
+          <em>One missed offboarding step = a major audit flag.</em>
+        </p>
+      </div>
+
+      <!-- 4. ACCESS CONTROLS -->
+      <div id="4" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">4</span>
+          Strengthen Access Controls for Remote Teams
+        </h2>
+        <p>
+          Distributed workers use different machines, networks, and environments — some secure, some not.
+        </p>
+        <p class="mt-4">
+          <strong>Access must follow these rules:</strong>
+        </p>
+        <ul class="checklist mt-2 space-y-2">
+          <li><strong>Least privilege</strong><br>No employee should have access to more than they need.</li>
+          <li><strong>Role-based control (RBAC)</strong><br>Access granted based on job titles and responsibilities.</li>
+          <li><strong>Multi-factor authentication everywhere</strong><br>Even for internal tools.</li>
+          <li><strong>Quarterly access reviews</strong><br>A required audit control that most startups fail.</li>
+        </ul>
+      </div>
+
+      <!-- 5. DEVICE SECURITY -->
+      <div id="5" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">5</span>
+          Enforce Device & Environment Security
+        </h2>
+        <p>
+          A remote employee’s laptop is your <strong>new office</strong>.
+        </p>
+        <p class="mt-4">
+          <strong>Minimum requirements:</strong>
+        </p>
+        <ul class="checklist mt-2 space-y-1">
+          <li>Disk encryption</li>
+          <li>Updated OS</li>
+          <li>Secure VPN or zero-trust access</li>
+          <li>Logged activity</li>
+          <li>Firewall enabled</li>
+          <li>No shared devices</li>
+        </ul>
+        <p class="mt-6">
+          If you allow <strong>“bring your own device” (BYOD)</strong>, you must have:
+        </p>
+        <ul class="checklist mt-2 space-y-1">
+          <li>Remote wipe capability</li>
+          <li>Compliance monitoring agent</li>
+          <li>Policy acceptance</li>
+        </ul>
+      </div>
+
+      <!-- 6. DOCUMENT WORKFLOWS -->
+      <div id="6" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">6</span>
+          Document Every Workflow That Touches Customer Data
+        </h2>
+        <p>
+          Distributed teams often <strong>improvise</strong>.<br>
+          Auditors don’t care how productive the improvisation is — only that it’s <strong>documented</strong>.
+        </p>
+        <p class="mt-4">
+          You need a documented workflow for:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>Lead handling</li>
+          <li>Data processing</li>
+          <li>Customer onboarding</li>
+          <li>Escalations</li>
+          <li>Incident response</li>
+          <li>Quality control</li>
+        </ul>
+        <p class="mt-6">
+          For each workflow include:
+        </p>
+        <ul class="mt-2 space-y-1">
+          <li>Steps</li>
+          <li>Tools</li>
+          <li>Owner</li>
+          <li>Expected output</li>
+          <li>Where proof is stored</li>
+        </ul>
+        <p class="mt-6 font-bold">
+          <em>This turns chaos into compliance.</em>
+        </p>
+      </div>
+
+      <!-- 7. CONTINUOUS COMPLIANCE -->
+      <div id="7" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">7</span>
+          Build a Culture of Continuous Compliance
+        </h2>
+        <p>
+          Compliance collapses when it’s seen as <strong>“extra work.”</strong>
+        </p>
+        <p class="mt-4">
+          Remote teams must treat it as <strong>part of execution</strong> — not a separate function.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="p-6 bg-teal-50 rounded-xl border border-teal-200">
+            <h3 class="font-bold text-teal-800">What works:</h3>
+            <ul class="checklist mt-2 space-y-1 text-sm">
+              <li>Quarterly micro-trainings</li>
+              <li>Monthly “compliance pulse” reviews</li>
+              <li>Team leads responsible for documentation quality</li>
+              <li>Public dashboards tracking completion</li>
+              <li>Rewarding compliance-positive behavior</li>
+            </ul>
+          </div>
+          <div class="p-6 bg-red-50 rounded-xl border border-red-200">
+            <h3 class="font-bold text-red-800">What doesn’t work:</h3>
+            <ul class="cross mt-2 space-y-1 text-sm">
+              <li>Yearly long training sessions</li>
+              <li>Relying on memory</li>
+              <li>Leaving compliance to one person</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8 font-bold">
+          <em>Distributed teams only stay compliant if <strong>everyone owns a piece</strong>.</em>
+        </p>
+      </div>
+
+      <!-- 8. PREPARE FOR AUDITS -->
+      <div id="8" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">8</span>
+          Prepare for Audits Before You Need Them
+        </h2>
+        <p>
+          Enterprise sales, major partnerships, and security frameworks (SOC 2, ISO, GDPR, HIPAA) all require:
+        </p>
+        <ul class="mt-4 space-y-1">
+          <li>Policies</li>
+          <li>Controls</li>
+          <li>Evidence</li>
+          <li>Proof of consistent execution</li>
+          <li>Incident logs</li>
+          <li>Vendor risk assessments</li>
+          <li>Penetration test results</li>
+        </ul>
+        <p class="mt-6 italic">
+          <em>If you start preparing after the auditor shows up, you’re already behind.</em>
+        </p>
+        <p class="mt-4 font-bold text-xl">
+          Your mindset should be:<br>
+          <strong>Audit-ready, every day.</strong>
+        </p>
+      </div>
+
+      <!-- 9. 90-DAY PLAN -->
+      <div id="9" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-extrabold mb-6 flex items-center gap-3">
+          <span class="bg-[color:var(--color-accent)] text-white w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold">9</span>
+          Build the Founder’s 90-Day Audit Readiness Plan
+        </h2>
+
+        <div class="space-y-6">
+          <div class="timeline">
+            <h3 class="font-bold text-xl mb-2 text-teal-800">Day 1–30: Documentation Foundation</h3>
+            <ul class="checklist space-y-1 text-sm">
+              <li>Create SSOT</li>
+              <li>Finalize policies</li>
+              <li>Map all workflows</li>
+              <li>Set up permission controls</li>
+              <li>Identify compliance gaps</li>
+            </ul>
+          </div>
+
+          <div class="timeline">
+            <h3 class="font-bold text-xl mb-2 text-teal-800">Day 31–60: Automate</h3>
+            <ul class="checklist space-y-1 text-sm">
+              <li>Automate evidence collection</li>
+              <li>Implement device security</li>
+              <li>Complete access control system</li>
+              <li>Roll out compliance training</li>
+            </ul>
+          </div>
+
+          <div class="timeline">
+            <h3 class="font-bold text-xl mb-2 text-teal-800">Day 61–90: Validate & Stress-Test</h3>
+            <ul class="checklist space-y-1 text-sm">
+              <li>Conduct internal audit</li>
+              <li>Fix gaps</li>
+              <li>Run mock evidence reviews</li>
+              <li>Prepare audit-ready folder</li>
+              <li>Train team leads on compliance ownership</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="mt-8 font-bold">
+          <em>This is the same blueprint enterprise companies use — just simplified for startups.</em>
+        </p>
+      </div>
+
+      <!-- CONCLUSION -->
+      <div id="conclusion" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-4">Conclusion: Remote Work Requires a New Compliance Model</h2>
+        <p class="text-lg mb-6">
+          Distributed teams can <strong>scale faster, hire better, and work more efficiently</strong> — but only when compliance is built into their <strong>operating DNA</strong>.
+        </p>
+        <p class="mb-6">
+          Audit readiness is not about passing an annual check. It’s about proving:
+        </p>
+        <ul class="checklist mb-6 space-y-1 text-lg">
+          <li>Your processes are real</li>
+          <li>Your team follows them</li>
+          <li>Your data is safe</li>
+          <li>Your operations are reliable</li>
+          <li>Your company is trustworthy</li>
+        </ul>
+        <p class="mb-6">
+          When compliance becomes part of your <strong>daily execution</strong>, you unlock:
+        </p>
+        <ul class="checklist mb-6 space-y-1 text-lg">
+          <li>Enterprise deals</li>
+          <li>Higher customer trust</li>
+          <li>Lower operational risk</li>
+          <li>Stronger team consistency</li>
+          <li>Faster scaling</li>
+        </ul>
+        <p class="mb-6 font-bold text-xl">
+          This is the new standard.<br>
+          And founders who embrace it will <strong>outgrow those who don’t</strong>.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="onboarding.html" class="btn-primary px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition">
+            Start Your 90-Day Audit Plan
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition">
+            View Compliance Standards →
+          </a>
+        </div>
+      </div>
+
+      <!-- RELATED ARTICLES -->
+      <div id="related" class="mt-20 p-8 bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] rounded-2xl text-white">
+        <h2 class="text-3xl font-extrabold mb-6">Keep Learning</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="/sdr-kpis-and-metrics" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Sales Performance</div>
+            <h3 class="font-bold text-lg">SDR KPIs and Metrics</h3>
+            <p class="text-sm mt-2 text-white/80">Connect activity to conversion and pipeline outcomes.</p>
+          </a>
+          <a href="/in-house-sdrs-vs-outsourced-sales-development" class="bg-white/10 backdrop-blur p-5 rounded-xl hover:bg-white/20 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Sales Development</div>
+            <h3 class="font-bold text-lg">In-House SDRs vs Outsourced Sales Development</h3>
+            <p class="text-sm mt-2 text-white/80">Compare control, costs, and operational trade-offs.</p>
+          </a>
+          <a href="compliance.html" class="bg-white/20 backdrop-blur p-5 rounded-xl hover:bg-white/30 transition">
+            <div class="text-xs uppercase text-white/80 mb-2">Trust Center</div>
+            <h3 class="font-bold text-lg">Pumpfiat Compliance Center</h3>
+            <p class="text-sm mt-2 text-white/80">Full transparency on data, security, and ethics.</p>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="py-16 bg-white border-t">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-extrabold mb-4">Stay Audit-Ready. Scale Confidently.</h3>
+    <p class="text-lg text-gray-600 mb-8">
+      Get weekly insights on compliance, remote operations, and audit readiness — straight to your inbox.
+    </p>
+    <form action="https://formsubmit.co/your-email@pumpfiat.com" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="email" name="email" placeholder="Work email" required class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-[color:var(--color-accent)] outline-none">
+      <button type="submit" class="bg-[color:var(--color-accent)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00606f] transition">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+    <footer class="pf-standard-footer" id="contact" hidden>
+    <div class="pf-footer-wrap">
+      <div class="pf-footer-grid">
+        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="Pumpfiat logo"><div><strong>Pumpfiat</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
+        <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
+        <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
+      </div>
+      <div class="pf-footer-badges" aria-label="Pumpfiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
+      <div class="pf-footer-legal">&copy; 2026 Pumpfiat - All Rights Reserved.</div>
+    </div>
+  </footer>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+  <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+    <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">X</button>
+    <nav class="space-y-5">
+      <a href="index.html#solutions" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Solutions</a>
+      <a href="index.html#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+      <a href="dataanalysis.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Data</a>
+      <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+      <a href="resources.html" class="block text-lg font-semibold text-[color:var(--color-accent)]">Resources</a>
+    </nav>
+    <div class="mt-10">
+      <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">
+        Lock In 45% Off
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+  menu?.addEventListener('click', (e) => { if (e.target === menu) closeMenu(); });
+
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = [...tocLinks].map(link => document.querySelector(link.getAttribute('href')));
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+    tocLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+    });
+  });
+</script>
+</main>
+<aside class="cookie-notice" id="cookieNotice" aria-label="Cookie choices" hidden>
+  <p>
+    Pumpfiat uses necessary session cookies for secure administration. With your permission, a 30-day referral cookie remembers which partner referred you. You can still enter a referral code if you continue without it.
+    <a href="/cookie-policy.html">Cookie Notice</a>
+  </p>
+  <div class="cookie-actions">
+    <button type="button" data-cookie-choice="accept">Allow referral cookie</button>
+    <button type="button" data-cookie-choice="reject">Continue without</button>
+  </div>
+  <p class="cookie-status" id="cookieStatus" role="status" aria-live="polite"></p>
+</aside>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a class="site-brand" href="/" aria-label="Pumpfiat home">
+      <img src="/assets/logo.png" alt="">
+      <span class="site-wordmark">Pumpfiat</span>
+    </a>
+    <nav class="site-footer-nav" aria-label="Explore">
+      <a href="/">Solutions</a>
+      <a href="/compliance.html">Trust</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/career/">Careers</a>
+      <a href="/opportunities/">Opportunities</a>
+    </nav>
+    <nav class="site-footer-nav site-legal-nav" aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/cookie-policy.html">Cookie Notice</a>
+    </nav>
+    <div class="site-legal-contact">
+      <strong>Pumpfiat LLC</strong>
+      <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a>
+    </div>
+    <div class="site-certifications" aria-label="Pumpfiat certifications">
+      <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy">
+    </div>
+    <p class="site-copyright">© <span data-current-year>2026</span> Pumpfiat LLC. All rights reserved.</p>
+  </div>
+</footer>
+<script src="/assets/site-shell.js" defer></script>
+</body>
+</html>

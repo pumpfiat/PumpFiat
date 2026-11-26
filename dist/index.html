@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Business Solutions, Technology &amp; Innovation | Pumpfiat</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./assets/favicon.png" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #172326;
+      --ink-soft: #425256;
+      --muted: #69797d;
+      --paper: #f6f8f7;
+      --white: #fff;
+      --line: #e2e9e7;
+      --teal: #00778c;
+      --teal-dark: #005b6a;
+      --teal-light: #e4f3f3;
+      --mint: #b9e5dc;
+      --lime: #d9ef8b;
+      --navy: #102d34;
+      --radius: 22px;
+      --shadow: 0 22px 70px rgba(13, 45, 51, .12);
+      --max: 1180px;
+      --color-primary: var(--ink);
+      --color-secondary: var(--paper);
+      --color-accent: var(--teal);
+      --color-accent-soft: var(--teal-light);
+      --color-surface: var(--white);
+      --color-surface-alt: #edf7f8;
+      --color-border: var(--line);
+      --color-heading: var(--ink);
+      --color-text: var(--ink-soft);
+      --color-inverse: var(--white);
+      --shadow-soft: var(--shadow);
+      --shadow-card: 0 14px 34px rgba(16, 24, 40, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 { letter-spacing: -0.04em; line-height: 1.08; }
+    p { margin: 0; }
+    .brand-accent { background-color: var(--color-accent); color: white; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      min-height: 52px; padding: 0 22px; border-radius: 10px;
+      background: var(--color-accent); color: #fff; font-weight: 750; font-size: 14px;
+      border: 1px solid var(--color-accent); transition: transform .2s, background .2s, box-shadow .2s;
+      box-shadow: 0 8px 20px rgba(0,119,140,.16);
+    }
+    .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.8);
+      color: var(--color-primary);
+      border: 1px solid rgba(16,24,40,0.12);
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn-secondary:hover { background: #fff; border-color: rgba(16,24,40,0.18); }
+    .muted { color: var(--color-text); }
+    .invoice-box { border-radius: 1.2rem; box-shadow: var(--shadow-soft); }
+    .logo-bridge { width: 42px; height: 42px; }
+    .client-logo { max-height: 36px; object-fit: contain; display:inline-block; }
+
+    .site-shell { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226,233,231,.85);
+    }
+    .topbar-inner {
+      min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-wordmark { font-size: 19px; font-weight: 900; letter-spacing: -0.055em; }
+    .pill-badge {
+      margin-left: 4px; padding: 6px 9px; border-radius: 99px; background: var(--teal-light); color: var(--teal-dark); font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: #536367; font-size: 13px; font-weight: 650; }
+    .nav-links a:hover { color: var(--teal); }
+    .desktop-actions { display: flex; align-items: center; gap: 14px; }
+    .mobile-menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: #fff; border-radius: 10px; color: var(--ink); cursor: pointer; }
+    .hero-section {
+      position: relative; overflow: hidden; padding: 82px 0 92px; background: radial-gradient(circle at 82% 14%, rgba(185,229,220,.65), transparent 28%), radial-gradient(circle at 4% 90%, rgba(217,239,139,.28), transparent 24%), #f7faf8;
+    }
+    .hero-section::after {
+      content: ""; position: absolute; width: 440px; height: 440px; border: 1px solid rgba(0,119,140,.10); border-radius: 50%; right: -170px; bottom: -270px; box-shadow: 0 0 0 42px rgba(0,119,140,.025), 0 0 0 84px rgba(0,119,140,.02); pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.03fr .97fr; gap: 62px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid #cce4df; border-radius: 99px; background: rgba(255,255,255,.72); color: var(--teal-dark); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .hero-kicker span { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,119,140,.12); }
+    .hero-title {
+      margin: 25px 0 22px; font-size: clamp(44px, 6.2vw, 72px); line-height: .99; letter-spacing: -.07em; font-weight: 850; max-width: 13ch; color: var(--ink);
+    }
+    .hero-title em { color: var(--teal); font-style: normal; }
+    .hero-copy { max-width: 560px; color: #596b6f; font-size: 18px; line-height: 1.75; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 32px; }
+    .text-link {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--teal); font-weight: 750; font-size: 14px;
+    }
+    .text-link:hover { color: var(--teal-dark); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 30px; color: #6c7b7e; font-size: 12px; }
+    .hero-note strong { color: var(--ink); }
+    .hero-note-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-weight: 900; }
+    .hero-security { display: flex; align-items: center; gap: 12px; margin-top: 18px; color: #596b6f; font-size: 12px; line-height: 1.45; }
+    .hero-security img { width: 38px; height: 38px; object-fit: contain; }
+    .visual-stage { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .visual-orbit { position: absolute; width: 410px; height: 410px; border: 1px solid rgba(0,119,140,.15); border-radius: 50%; }
+    .visual-orbit::before, .visual-orbit::after { content: ""; position: absolute; border: 1px solid rgba(0,119,140,.11); border-radius: 50%; inset: 34px; }
+    .visual-orbit::after { inset: 76px; }
+    .visual-stage .pipeline-card {
+      position: relative; z-index: 2; width: min(100%, 430px); padding: 25px; background: rgba(255,255,255,.94); border: 1px solid rgba(211,226,222,.95); border-radius: 22px; box-shadow: var(--shadow); transform: rotate(-1.5deg);
+    }
+    .pipeline-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+    .pipeline-label { color: #829194; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .pipeline-title { margin-top: 5px; font-size: 19px; font-weight: 850; letter-spacing: -.04em; }
+    .status-pill { padding: 7px 10px; border-radius: 99px; background: #e7f5ef; color: #26765c; font-size: 10px; font-weight: 800; }
+    .pipeline-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px 0; }
+    .mini-stat { padding: 13px; background: #f5f8f7; border-radius: 12px; }
+    .mini-stat small { display: block; color: #7a898b; font-size: 10px; font-weight: 700; }
+    .mini-stat strong { display: block; margin-top: 6px; font-size: 22px; letter-spacing: -.05em; }
+    #homeContentReward, #homeReferralReward { font-size: clamp(14px, 1.3vw, 18px); line-height: 1.3; overflow-wrap: anywhere; }
+    .pipeline-list { display: grid; gap: 10px; }
+    .pipeline-row { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border: 1px solid #edf1ef; border-radius: 12px; }
+    .avatar { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; background: #dcefeb; color: var(--teal-dark); font-size: 11px; font-weight: 900; }
+    .pipeline-row:nth-child(2) .avatar { background: #edf0d8; color: #66752c; }
+    .pipeline-row:nth-child(3) .avatar { background: #e8e8f5; color: #555b91; }
+    .row-main { flex: 1; min-width: 0; }
+    .row-main strong { display: block; font-size: 12px; }
+    .row-main small { display: block; margin-top: 3px; color: #829093; font-size: 10px; }
+    .row-tag { color: var(--teal); font-size: 10px; font-weight: 800; }
+    .floating-note { position: absolute; z-index: 3; display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: var(--navy); color: #fff; border-radius: 13px; box-shadow: 0 15px 35px rgba(16,45,52,.2); font-size: 11px; font-weight: 700; }
+    .floating-note span { display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; background: var(--lime); color: var(--navy); }
+    .note-one { top: 48px; right: -4px; }
+    .note-two { bottom: 44px; left: -18px; background: #fff; color: var(--ink); border: 1px solid var(--line); }
+    .proof-strip {
+      background: var(--navy); color: #fff; padding: 28px 0;
+    }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .proof-item { padding-left: 20px; border-left: 1px solid rgba(255,255,255,.2); }
+    .proof-item:first-child { border-left: 0; padding-left: 0; }
+    .proof-item strong { display: block; color: var(--lime); font-size: 25px; letter-spacing: -.05em; }
+    .proof-item span { display: block; margin-top: 5px; color: #c1d0d0; font-size: 11px; line-height: 1.5; }
+    .btn-arrow { font-size: 18px; line-height: 1; }
+    .client-recommendations { padding: 72px 0; background: #fff; border-block: 1px solid var(--line); }
+    .client-recommendations h2, .professional-stories h2 { margin: 0 0 34px; text-align: center; font-size: clamp(30px, 4vw, 46px); letter-spacing: -.06em; }
+    .client-review-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+    .client-review { grid-column: span 2; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .client-review:nth-child(4) { grid-column: 2 / span 2; }
+    .client-review:nth-child(5) { grid-column: 4 / span 2; }
+    .client-review-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .client-review-head img { width: auto; height: 36px; max-width: 90px; object-fit: contain; }
+    .client-review-head strong { display: block; font-size: 14px; }
+    .client-review-head span { color: var(--muted); font-size: 12px; }
+    .client-review p { color: var(--ink-soft); font-size: 14px; line-height: 1.75; }
+    .professional-stories { padding: 72px 0; background: #f7faf8; }
+    .professional-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .professional-story { padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 12px 30px rgba(13,45,51,.06); }
+    .professional-story p { color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
+    .professional-story strong { display: block; margin-top: 16px; color: var(--ink); font-size: 13px; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--color-text); font-size: 0.95rem; font-weight: 600; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--color-primary); }
+
+    .hero-section { padding-top: 4.4rem; padding-bottom: 3.4rem; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 3rem; align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.55rem 0.9rem; border-radius: 999px; background: rgba(11,122,138,0.08);
+      color: var(--color-accent); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid rgba(11,122,138,0.08);
+    }
+    .eyebrow-dot {
+      width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--color-accent); box-shadow: 0 0 0 6px rgba(11,122,138,0.12);
+    }
+    .hero-title {
+      font-size: clamp(2.7rem, 4vw, 5rem);
+      font-weight: 900; letter-spacing: -0.07em; margin-top: 1.2rem; margin-bottom: 1.1rem; color: var(--color-heading);
+      max-width: 13ch;
+    }
+    .hero-copy {
+      font-size: 1.1rem; line-height: 1.7; color: var(--color-text); max-width: 40rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
+    .cta-ghost-link {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      border: 1px solid rgba(16,24,40,0.12); background: rgba(255,255,255,0.7); color: var(--color-primary);
+      border-radius: 0.9rem; padding: 0.95rem 1.2rem; font-weight: 700;
+    }
+    .button-primary, .button-secondary {
+      display: inline-flex; align-items: center; justify-content: center; border-radius: 0.95rem; font-weight: 700; padding: 1rem 1.4rem; font-size: 0.98rem;
+    }
+    .button-primary { min-width: 180px; }
+    .button-secondary { min-width: 180px; }
+    .hero-note {
+      display: flex; align-items: center; gap: 0.8rem; margin-top: 1.8rem; color: #6c7b7e; font-size: 0.82rem; line-height: 1.5;
+    }
+    .hero-note strong { color: var(--ink); }
+    .hero-note-mark {
+      display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal-light); color: var(--teal); font-weight: 900;
+    }
+    .hero-proof {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; border-top: 1px solid var(--color-border); padding-top: 1.35rem;
+    }
+    .hero-proof .proof-item { flex: 1 1 150px; min-width: 0; }
+    .hero-proof .proof-item strong { display: block; font-size: 1.65rem; letter-spacing: -0.05em; margin-bottom: 0.25rem; }
+    .hero-proof .proof-item span { color: var(--color-text); font-size: 0.9rem; }
+
+    .visual-wrap {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .visual-frame {
+      width: min(100%, 560px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.74));
+      border: 1px solid rgba(16,24,40,0.06);
+      border-radius: 1.7rem;
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+      position: relative; overflow: hidden;
+    }
+    .visual-frame::before {
+      content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(11,122,138,0.10), transparent 30%);
+      pointer-events: none;
+    }
+    .mini-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; position: relative; z-index: 1;
+    }
+    .mini-header .tag {
+      display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(11,122,138,0.08); color: var(--color-accent); font-weight: 700; border-radius: 999px; padding: 0.46rem 0.8rem; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .mini-header .live { color: var(--color-text); font-size: 0.8rem; font-weight: 600; }
+    .pipeline-board {
+      position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem;
+    }
+    .pipeline-board .pipeline-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.1rem; padding: 1rem; min-height: 140px;
+      box-shadow: var(--shadow-card);
+    }
+    .pipeline-board .pipeline-card.small { min-height: 116px; }
+    .pipeline-board .pipeline-label {
+      display: inline-flex; padding: 0.35rem 0.55rem; border-radius: 999px; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(11,122,138,0.08); color: var(--color-accent);
+    }
+    .pipeline-board .pipeline-card h3 {
+      margin-top: 0.9rem; margin-bottom: 0.35rem; color: var(--color-primary); font-size: 1.25rem; letter-spacing: -0.05em;
+    }
+    .pipeline-board .pipeline-card p {
+      color: var(--color-text); font-size: 0.84rem; line-height: 1.55;
+    }
+    .signal-row {
+      display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 1rem; background: rgba(11,122,138,0.05); border: 1px solid rgba(11,122,138,0.06);
+    }
+    .signal-row strong { font-size: 1.35rem; letter-spacing: -0.06em; }
+    .signal-row span { color: var(--color-text); font-size: 0.8rem; }
+
+    .section-block { padding: 1.25rem 0 4rem; }
+    .section-title {
+      font-size: clamp(2rem, 2.5vw, 3rem); margin-bottom: 0.7rem; letter-spacing: -0.06em; color: var(--color-heading);
+    }
+    .section-copy { color: var(--color-text); font-size: 1.02rem; max-width: 38rem; }
+    .section-header { margin-bottom: 2rem; }
+
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.84); border: 1px solid var(--color-border); border-radius: 1.2rem; padding: 1.4rem 1.2rem; box-shadow: var(--shadow-card);
+    }
+    .stat-card.emphasis {
+      background: linear-gradient(135deg, rgba(11,122,138,0.10), rgba(255,255,255,0.9) 35%);
+    }
+    .stat-card .value { font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 900; letter-spacing: -0.07em; }
+    .stat-card .label { margin-top: 0.75rem; color: var(--color-text); font-size: 0.9rem; line-height: 1.5; }
+
+    .service-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.15rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%; background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.35rem; padding: 1.35rem; box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(15,23,42,0.12); }
+    .service-card::before {
+      content: ""; position: absolute; inset: 0 auto auto 0; width: 100%; height: 4px; background: linear-gradient(90deg, rgba(11,122,138,0.85), rgba(11,122,138,0.1));
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--color-accent-soft); color: var(--color-accent); font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 { font-size: 1.4rem; letter-spacing: -0.05em; margin-bottom: 0.7rem; }
+    .service-card p { color: var(--color-text); font-size: 0.95rem; line-height: 1.7; }
+    .service-card a { margin-top: auto; padding-top: 1rem; color: var(--color-accent); font-weight: 700; }
+
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem;
+    }
+    .step-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.1); border-radius: 1.2rem; padding: 1.2rem; position: relative; box-shadow: var(--shadow-card);
+    }
+    .step-number {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--color-accent-soft); color: var(--color-accent); font-size: 1rem; font-weight: 900; margin-bottom: 1rem;
+    }
+    .step-card h3 { font-size: 1.25rem; margin-bottom: 0.65rem; }
+    .step-card p { color: var(--color-text); font-size: 0.92rem; line-height: 1.7; }
+
+    .industry-card-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem;
+    }
+    .industry-card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(16,24,40,0.08); border-radius: 1.2rem; padding: 1.2rem; box-shadow: var(--shadow-card);
+    }
+    .industry-card .chip {
+      display: inline-flex; background: rgba(11,122,138,0.08); color: var(--color-accent); padding: 0.42rem 0.7rem; border-radius: 999px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .industry-card h3 { font-size: 1.3rem; margin-top: 0.85rem; margin-bottom: 0.55rem; }
+    .industry-card p { color: var(--color-text); font-size: 0.92rem; line-height: 1.7; }
+
+    .cta-panel {
+      margin-top: 0.5rem; margin-bottom: 3.5rem; padding: 1.8rem; border-radius: 1.8rem; background: linear-gradient(135deg, #0d1a26 0%, #101828 100%);
+      color: #fff; box-shadow: var(--shadow-soft);
+    }
+    .cta-panel-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .cta-title { font-size: clamp(2rem, 3vw, 2.7rem); letter-spacing: -0.06em; }
+    .cta-copy { max-width: 36rem; color: rgba(255,255,255,0.76); }
+
+    .mini-brand-strip {
+      margin-top: 1.1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem 1.2rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border: 1px solid rgba(16,24,40,0.08);
+    }
+    .mini-brand-strip img { max-height: 40px; filter: grayscale(1) opacity(0.8); }
+
+    .footer-wrap { background: #0f172a; color: #fff; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.3fr 0.8fr 1.3fr; gap: 2.5rem; padding: 3.25rem 0;
+    }
+    .footer-text { color: rgba(255,255,255,0.72); font-size: 0.92rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+    .footer-links a { color: rgba(255,255,255,0.72); }
+    .footer-links a:hover { color: #fff; }
+    .footer-legal {
+      border-top: 1px solid rgba(255,255,255,0.08); padding: 1.2rem 0 2.25rem; text-align: center; color: rgba(255,255,255,0.54); font-size: 0.78rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .service-grid, .process-grid, .stats-grid, .industry-card-grid, .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .industry-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { display: none; }
+      .desktop-actions { display: none; }
+      .mobile-menu-toggle { display: inline-flex; }
+    }
+
+    @media (max-width: 640px) {
+      .site-shell { padding-left: 1rem; padding-right: 1rem; }
+      .topbar-inner { gap: 12px; }
+      .pill-badge { display: none; }
+      .hero-section { padding-top: 3rem; }
+      .service-grid, .process-grid, .stats-grid, .industry-card-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button-primary, .button-secondary { width: 100%; }
+      .cta-panel-inner { align-items: flex-start; }
+      .mini-header { flex-direction: column; align-items: flex-start; }
+      .pipeline-board { grid-template-columns: 1fr; }
+      .client-review-grid, .professional-story-grid { grid-template-columns: 1fr; }
+      .client-review, .client-review:nth-child(4), .client-review:nth-child(5) { grid-column: auto; }
+    }
+
+    .pf-toast { position: fixed; bottom: 28px; right: 28px; max-width: 360px; background: #ffffff; border-radius: 16px; padding: 16px 18px; box-shadow: 0 25px 60px rgba(0,0,0,0.18); border: 1px solid rgba(0,119,140,0.15); display: flex; gap: 12px; opacity: 0; transform: translateY(20px); transition: all 0.45s cubic-bezier(.22,1,.36,1); z-index: 9999; }
+    .pf-toast.show { opacity: 1; transform: translateY(0); }
+    .pf-toast.hide { opacity: 0; transform: translateY(12px); }
+    .pf-icon { width: 36px; height: 36px; background: linear-gradient(135deg,#00A2B8,#00778C); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; flex-shrink: 0; }
+    .pf-content { font-size: 13.5px; line-height: 1.45; color: #1f2937; }
+    .pf-content strong { font-weight: 800; color: #00778C; }
+    .pf-meta { margin-top: 6px; font-size: 11px; color: #6b7280; }
+  </style>
+  <meta name="description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://pumpfiat.com/">
+  <meta property="og:title" content="Business Solutions, Technology &amp; Innovation | Pumpfiat">
+  <meta property="og:description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pumpfiat.com/">
+  <meta property="og:image" content="https://pumpfiat.com/assets/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Business Solutions, Technology &amp; Innovation | Pumpfiat">
+  <meta name="twitter:description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png">
+
+
+
+
+<style id="pf-standard-footer-styles">
+.pf-standard-footer{background:#1A1A1A;color:#fff;font-family:Inter,Manrope,Arial,sans-serif;padding:56px 20px 24px}.pf-standard-footer a{color:inherit;text-decoration:none}.pf-standard-footer a:focus-visible{outline:3px solid #78CDD5;outline-offset:3px}.pf-footer-wrap{width:min(1120px,100%);margin:auto}.pf-footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;align-items:start}.pf-footer-brand{display:flex;align-items:center;gap:12px}.pf-footer-brand img{display:block!important;width:42px!important;height:42px!important;max-width:none!important;object-fit:contain!important}.pf-footer-brand strong{display:block;font-size:20px;letter-spacing:-.04em}.pf-footer-brand span{display:block;margin-top:5px;color:#AFC1C4;font-size:12px;line-height:1.5}.pf-footer-heading{margin:0 0 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}.pf-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:0;padding:0;list-style:none}.pf-footer-links a{color:#D1D9DA;font-size:13px;font-weight:700}.pf-footer-links a:hover{color:#78CDD5}.pf-footer-contact p{max-width:290px;margin:0 0 16px;color:#AFC1C4;font-size:13px;line-height:1.7}.pf-footer-contact a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #78CDD5;color:#78CDD5;font-size:13px;font-weight:800}.pf-footer-contact a:hover{background:#78CDD5;color:#1A1A1A}.pf-footer-badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 18px;width:fit-content;max-width:100%;margin:32px auto 0;padding:8px 12px;border-radius:10px;background:#fff}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}.pf-footer-legal{margin-top:22px;padding-top:18px;border-top:1px solid #FFFFFF20;color:#98A7A9;font-size:12px;text-align:center}@media(max-width:760px){.pf-standard-footer{padding:42px 18px 22px}.pf-footer-grid{grid-template-columns:1fr;gap:32px}.pf-footer-badges{gap:14px}.pf-footer-badges img{display:block!important;width:auto!important;height:64px!important;max-width:150px!important;object-fit:contain!important}}
+</style>
+  <link rel="stylesheet" href="/assets/site-shell.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="/" aria-label="Pumpfiat home">
+      <img src="/assets/logo.png" alt="">
+      <span class="site-wordmark">Pumpfiat</span>
+    </a>
+    <nav class="site-primary-nav" aria-label="Primary navigation">
+      <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
+      <a href="/compliance.html" data-site-nav="trust">Trust</a>
+      <a href="/about.html" data-site-nav="about">About</a>
+      <a href="/resources.html" data-site-nav="resources">Resources</a>
+      <a href="/career/" data-site-nav="careers">Careers</a>
+    </nav>
+    <a class="site-cta" href="/onboarding.html">Request an audit</a>
+    <details class="site-mobile-nav">
+      <summary aria-label="Open navigation menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+      </summary>
+      <nav aria-label="Mobile navigation">
+        <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
+        <a href="/compliance.html" data-site-nav="trust">Trust</a>
+        <a href="/about.html" data-site-nav="about">About</a>
+        <a href="/resources.html" data-site-nav="resources">Resources</a>
+        <a href="/career/" data-site-nav="careers">Careers</a>
+        <a class="site-cta" href="/onboarding.html">Request an audit</a>
+      </nav>
+    </details>
+  </div>
+</header>
+  <header class="topbar" hidden>
+    <div class="site-shell topbar-inner">
+      <div class="brand-lockup">
+        <img src="assets/logo.png" alt="Pumpfiat logo" class="logo-bridge">
+        <div class="brand-wordmark">Pumpfiat</div>
+        <span class="pill-badge">Growth, in motion</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="opportunities/">Opportunities</a>
+        <a href="dataanalysis.html">Data</a>
+        <a href="career/index.html">Careers</a>
+      </nav>
+
+      <div class="desktop-actions">
+        <a href="onboarding.html" class="button-primary btn-primary">Get Started <span class="btn-arrow">↗</span></a>
+      </div>
+
+      <button id="mobileMenuBtn" aria-expanded="false" class="mobile-menu-toggle md:hidden p-2 text-2xl text-gray-700" title="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="solutions" class="hero-section">
+      <div class="site-shell hero-grid">
+        <div>
+          <div class="hero-kicker"><span></span> Prospecting · Sales Development · Growth</div>
+          <h1 class="hero-title">Find the right customers. <em>Build what comes next.</em></h1>
+          <p class="hero-copy">
+            Pumpfiat helps businesses identify the right prospects, open relevant conversations, and develop stronger sales pipelines through research-led prospecting and sales development.
+          </p>
+
+          <div class="hero-actions">
+            <a href="onboarding.html" class="button-primary btn-primary">Get Started <span class="btn-arrow">↗</span></a>
+            <a href="#services" class="cta-ghost-link">Explore services</a>
+            <a href="opportunities/" class="text-link">Earn with content &amp; referrals ↗</a>
+          </div>
+
+          <div class="hero-note">
+            <div class="hero-note-mark">✓</div>
+            <div><strong>Verified data. Better conversations.</strong> Research-led prospecting for teams that want cleaner pipelines and stronger conversions.</div>
+          </div>
+          <div class="hero-security">
+            <img src="assets/security/soc2.png" alt="SOC 2 Shield" />
+            <div><strong>Security First.</strong><br />Certification target completed — Q3 2025.</div>
+          </div>
+        </div>
+
+        <a href="opportunities/" class="visual-stage" aria-label="Explore Pumpfiat opportunities">
+          <div class="visual-orbit"></div>
+          <div class="floating-note note-one"><span>◎</span> International opportunities</div>
+          <div class="floating-note note-two"><span>✓</span> Clear campaign rules</div>
+          <div class="pipeline-card">
+            <div class="pipeline-top">
+              <div>
+                <div class="pipeline-label">Ways to earn with Pumpfiat</div>
+                <div class="pipeline-title">Content + referrals</div>
+              </div>
+              <span class="status-pill" id="homeFeatureStatus">Open</span>
+            </div>
+            <div class="pipeline-stats">
+              <div class="mini-stat"><small>Content creation</small><strong id="homeContentReward">$15 / 1,000 views</strong></div>
+              <div class="mini-stat"><small>Qualifying referral sale</small><strong id="homeReferralReward">$50 per sale</strong></div>
+            </div>
+            <div class="pipeline-list">
+              <div class="pipeline-row"><div class="avatar">C</div><div class="row-main"><strong>Create content</strong><small>Earn for qualified views; <span id="homeContentMilestone">$150 at 10,000</span></small></div><div class="row-tag" id="homeContentStatus">Open</div></div>
+              <div class="pipeline-row"><div class="avatar">R</div><div class="row-main"><strong>Refer a customer</strong><small>A qualifying purchase is required · <span id="homeReferralTracking">Tracking must be agreed before referring</span></small></div><div class="row-tag" id="homeReferralStatus">Open</div></div>
+              <div class="pipeline-row"><div class="avatar">✓</div><div class="row-main"><strong>Submit evidence</strong><small>Pumpfiat reviews eligible activity</small></div><div class="row-tag">Review</div></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> Experience & credibility</div>
+          <h2 class="section-title">Built for teams that need real momentum.</h2>
+          <p class="section-copy">Pumpfiat has operated since 2021, bringing together more than five years of sales development experience and a global talent model designed to support ambitious businesses.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card emphasis">
+            <div class="value">2021</div>
+            <div class="label">Pumpfiat began operating and building a prospecting partner model for growth-focused teams.</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">5+</div>
+            <div class="label">Years of experience helping companies identify and engage the right customers.</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">100+</div>
+            <div class="label">People have worked with the business across sales, research, and growth projects.</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">Global</div>
+            <div class="label">An international approach to operations, talent, and market coverage.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> What we do</div>
+          <h2 class="section-title">Sales development support built around pipeline growth.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">◎</div>
+            <h3>Prospect Research</h3>
+            <p>Identify the right accounts, decision-makers, and buying signals with a sharper view of your ideal customer profile.</p>
+            <a href="dataanalysis.html">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">↗</div>
+            <h3>Lead Generation</h3>
+            <p>Build cleaner lead pipelines with relevant market research and outreach-ready opportunities for your team.</p>
+            <a href="dataanalysis.html">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◌</div>
+            <h3>Sales Development</h3>
+            <p>Support conversations, qualification, and follow-through with structured prospecting motions and reporting.</p>
+            <a href="about.html">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">▣</div>
+            <h3>Business Growth Support</h3>
+            <p>Help teams improve outreach efficiency, strengthen market fit, and create more repeatable demand-generation systems.</p>
+            <a href="about.html">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section-block" style="background: rgba(255,255,255,0.42); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> How it works</div>
+          <h2 class="section-title">A practical process for growth-minded teams.</h2>
+        </div>
+
+        <div class="process-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Understand the business</h3>
+            <p>Learn your offer, audience, positioning, and the types of customers that matter most.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Identify & research</h3>
+            <p>Map the target market, uncover the strongest prospects, and collect the context needed for relevant outreach.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Execute prospecting</h3>
+            <p>Develop a structured outreach workflow with message testing, follow-up patterns, and pipeline visibility.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Support pipeline growth</h3>
+            <p>Turn conversations into opportunities with disciplined follow-up and continued optimization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="section-block">
+      <div class="site-shell">
+        <div class="section-header">
+          <div class="eyebrow" style="margin-bottom:1rem;"><span class="eyebrow-dot"></span> Who we help</div>
+          <h2 class="section-title">Built for teams with growth goals and limited bandwidth.</h2>
+          <p class="section-copy">Pumpfiat supports businesses that need stronger prospecting systems, better market coverage, and a more efficient path to sales conversations.</p>
+        </div>
+
+        <div class="industry-card-grid">
+          <article class="industry-card">
+            <span class="chip">B2B</span>
+            <h3>B2B companies</h3>
+            <p>Reach prospects with relevant messaging and better targeting for sales and demand generation.</p>
+          </article>
+
+          <article class="industry-card">
+            <span class="chip">SaaS</span>
+            <h3>SaaS businesses</h3>
+            <p>Uncover new accounts and strengthen outreach around product-market fit and acquisition motion.</p>
+          </article>
+
+          <article class="industry-card">
+            <span class="chip">Agencies</span>
+            <h3>Agencies</h3>
+            <p>Expand prospecting capacity and identify growth opportunities without overloading internal teams.</p>
+          </article>
+
+          <article class="industry-card">
+            <span class="chip">Startups</span>
+            <h3>Startups</h3>
+            <p>Build early traction with sharper customer discovery and a more focused path to pipeline creation.</p>
+          </article>
+
+          <article class="industry-card">
+            <span class="chip">Consultants</span>
+            <h3>Consultants</h3>
+            <p>Help service businesses find the right decision-makers and improve inbound and outbound conversion quality.</p>
+          </article>
+
+          <article class="industry-card">
+            <span class="chip">Expansion</span>
+            <h3>New markets</h3>
+            <p>Support teams entering new regions or categories with strategic research and structured prospecting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="offer" class="site-shell">
+      <div class="cta-panel">
+        <div class="cta-panel-inner">
+          <div>
+            <div class="eyebrow" style="background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.1); margin-bottom: 1rem;">Ready to start?</div>
+            <h2 class="cta-title">Let’s build your next growth channel.</h2>
+          </div>
+          <div class="cta-copy">Pumpfiat helps businesses identify and engage the right prospects with a stronger process, sharper targeting, and more consistent outreach.</div>
+          <a href="onboarding.html" class="button-primary btn-primary" style="min-width: 220px;">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-shell" style="padding-bottom: 3rem;">
+      <div class="mini-brand-strip">
+        <img src="assets/logos/asha.png" alt="Asha Health" />
+        <img src="assets/logos/fresco.png" alt="Fresco" />
+        <img src="assets/logos/triply.png" alt="Triply" />
+        <img src="assets/logos/paidhr.png" alt="PaidHR" />
+        <img src="assets/logos/galini.png" alt="Galini" />
+        <img src="assets/logos/beerme.png" alt="BeerMe" />
+      </div>
+    </section>
+  </main>
+
+        <footer class="pf-standard-footer" id="contact" hidden>
+    <div class="pf-footer-wrap">
+      <div class="pf-footer-grid">
+        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="Pumpfiat logo"><div><strong>Pumpfiat</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
+        <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
+        <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
+      </div>
+      <div class="pf-footer-badges" aria-label="Pumpfiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
+      <div class="pf-footer-legal">&copy; 2026 Pumpfiat - All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
+    <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
+      <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
+      <nav class="space-y-5">
+        <a href="#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
+        <a href="#services" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Services</a>
+        <a href="#industries" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Industries</a>
+        <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
+        <a href="opportunities/" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Opportunities</a>
+        <a href="career/index.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Careers</a>
+      </nav>
+      <div class="mt-10">
+        <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">Get Started</a>
+      </div>
+    </div>
+  </div>
+<script src="opportunities/campaigns.js"></script>
+<script>
+(() => {
+  const campaigns = Array.isArray(window.PUMPFIAT_CAMPAIGNS) ? window.PUMPFIAT_CAMPAIGNS : [];
+  const content = campaigns.find(campaign => campaign.rewardType === "per-qualified-views");
+  const referral = campaigns.find(campaign => campaign.rewardType === "per-qualifying-sale");
+  if (content) {
+    document.getElementById("homeFeatureStatus").textContent = content.status || "Check details";
+    document.getElementById("homeContentStatus").textContent = content.status || "Check details";
+    document.getElementById("homeContentReward").textContent =
+      `$${Number(content.rewardRate).toLocaleString()} / ${Number(content.rewardRateViews).toLocaleString()} qualified views`;
+    document.getElementById("homeContentMilestone").textContent =
+      `$${Number(content.milestoneReward).toLocaleString()} at ${Number(content.milestoneViews).toLocaleString()} qualified views`;
+  }
+  if (referral) {
+    document.getElementById("homeReferralStatus").textContent = referral.status || "Check details";
+    document.getElementById("homeReferralReward").textContent =
+      `$${Number(referral.rewardAmount).toLocaleString()} per qualifying sale`;
+    document.getElementById("homeReferralTracking").textContent = referral.referralTrackingConfigured
+      ? "Follow the configured attribution process"
+      : "Tracking must be agreed before referring";
+  }
+})();
+</script>
+<script>
+  const btn = document.getElementById('mobileMenuBtn');
+  const menu = document.getElementById('mobileMenu');
+  const panel = document.getElementById('mobilePanel');
+  const close = document.getElementById('mobileClose');
+
+  // Open mobile menu
+  btn?.addEventListener('click', () => {
+    menu.classList.remove('hidden');
+    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+    document.body.style.overflow = "hidden";
+  });
+
+  // Close menu
+  function closeMenu() {
+    panel.classList.add('-translate-x-full');
+    setTimeout(() => menu.classList.add('hidden'), 250);
+    document.body.style.overflow = "auto";
+  }
+
+  close?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking outside panel
+  menu?.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 250);
+      }
+    });
+  });
+</script>
+
+<script>
+  const leadForm = document.getElementById('leadForm');
+  const formContainer = document.getElementById('formContainer');
+  const successMessage = document.getElementById('successMessage');
+
+  leadForm.addEventListener('submit', function(e) {
+    // Change button to loading state
+    const submitBtn = leadForm.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+  });
+
+  // Check if URL has ?success parameter (FormSubmit adds this on return)
+  if (window.location.search.includes('success')) {
+    formContainer.classList.add('hidden');
+    successMessage.classList.remove('hidden');
+    // Optional: clean URL without reloading
+    history.replaceState(null, '', window.location.pathname);
+  }
+</script>
+<script>
+(() => {
+
+const CHANNEL = "pumpfiat-live-activity";
+const STORAGE_KEY = "pf_activity_queue";
+const MASTER_KEY = "pf_activity_master_v2";
+
+const bc = "BroadcastChannel" in window ? new BroadcastChannel(CHANNEL) : null;
+
+/* ---------- DATA ---------- */
+
+const countries = [
+  "United States","United Kingdom","Germany","Netherlands","France",
+  "Canada","Australia","Singapore","UAE","South Africa","Nigeria",
+  "Sweden","Italy","Spain","India","Brazil","Japan"
+];
+
+const companyPrefixes = [
+  "Apex","Nova","Atlas","Vertex","Nimbus","Summit",
+  "Pulse","Horizon","Quantum","Vanguard"
+];
+
+const companySuffixes = [
+  "Growth","Systems","Digital","Ventures",
+  "Solutions","Labs","Partners","Holdings"
+];
+
+const templates = [
+  (c,o,p,a)=>`<strong>${c}</strong> from ${o} purchased <strong>${p}</strong> prospects for <strong>$${a}</strong>.`,
+  (c,o)=>`Onboarding started for <strong>${c}</strong> (${o}).`,
+  (c,o)=>`Compliance approval completed for <strong>${c}</strong> in ${o}.`,
+  (c,o)=>`Pumpfiat invited to ${o} following a successful launch with <strong>${c}</strong>.`
+];
+
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function randInt(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+/* ---------- EVENT ---------- */
+
+function generateEvent() {
+  const company = `${rand(companyPrefixes)} ${rand(companySuffixes)}`;
+  const country = rand(countries);
+  const prospects = randInt(1,4) * 1_000_000;
+  const amount = Math.round(
+    3573 * (prospects / 1_000_000) * (1 + Math.random()*0.35)
+  ).toLocaleString();
+
+  return {
+    html: rand(templates)(company, country, prospects.toLocaleString(), amount),
+    ts: Date.now()
+  };
+}
+
+/* ---------- UI ---------- */
+
+function showToast(html) {
+  const toast = document.createElement("div");
+  toast.className = "pf-toast";
+  toast.innerHTML = `
+    <div class="pf-icon">PF</div>
+    <div class="pf-content">
+      ${html}
+      <div class="pf-meta">Live activity • just now</div>
+    </div>
+  `;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("show"));
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.add("hide");
+    setTimeout(() => toast.remove(), 400);
+  }, randInt(7000, 10000));
+}
+
+/* ---------- MASTER LOOP ---------- */
+
+function startGenerator() {
+  // show one immediately
+  const first = generateEvent();
+  showToast(first.html);
+  bc?.postMessage(first);
+
+  setInterval(() => {
+    const event = generateEvent();
+    showToast(event.html);
+    bc?.postMessage(event);
+  }, randInt(30000, 90000)); // 30s–90s
+}
+
+/* ---------- SYNC ---------- */
+
+if (bc) {
+  bc.onmessage = e => {
+    if (e.data?.html) showToast(e.data.html);
+  };
+}
+
+/* ---------- INIT ---------- */
+
+window.addEventListener("load", () => {
+  const now = Date.now();
+  const master = localStorage.getItem(MASTER_KEY);
+
+  // master expires every 5 minutes (prevents dead lock)
+  if (!master || now - master > 5 * 60 * 1000) {
+    localStorage.setItem(MASTER_KEY, now);
+    startGenerator();
+  }
+});
+
+})();
+</script>
+<script>
+document.getElementById('leak-form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent immediate submission
+
+  const email = document.getElementById('leak-email').value.trim();
+  const resultDiv = document.getElementById('leak-result');
+  const resultText = document.getElementById('result-text');
+
+  // 80% chance of "yes" to highlight the value of compliant data (ethical for testing)
+  const wasLeaked = Math.random() < 0.80;
+
+  if (wasLeaked) {
+    resultText.innerHTML = `
+      <strong>Yes — ${email}</strong> appears in known breach databases.<br><br>
+      This is increasingly common and underscores why using unverified or scraped lists can expose your campaigns to spam traps, complaints, and blacklisting.
+    `;
+  } else {
+    resultText.innerHTML = `
+      <strong>No — ${email}</strong> was not found in this breach.<br><br>
+      However, new leaks occur regularly. Staying ahead means using only verified, permission-based contacts — exactly what Pumpfiat delivers.
+    `;
+  }
+
+  resultDiv.classList.remove('hidden');
+  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  // Now submit the email to your backend (FormSubmit) for lead capture
+  setTimeout(() => this.submit(), 800);
+});
+</script>
+<script>
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const fields = document.getElementById('formFields');
+    const success = document.getElementById('formSuccess');
+
+    // Hide inputs + button
+    fields.classList.add('hidden');
+
+    // Show success message
+    success.classList.remove('hidden');
+
+    // Send form silently
+    form.submit();
+  }
+</script>
+
+<script>
+document.getElementById('auditForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const fields = document.getElementById('formFields');
+  const success = document.getElementById('formSuccess');
+
+  // UI update
+  fields.classList.add('hidden');
+  success.classList.remove('hidden');
+
+  // Send silently
+  const data = new FormData(this);
+
+  try {
+    await fetch("https://formsubmit.co/ajax/pumpfiat@gmail.com", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    });
+  } catch (err) {
+    console.error("Form submit failed", err);
+  }
+});
+</script>
+
+<aside class="cookie-notice" id="cookieNotice" aria-label="Cookie choices" hidden>
+  <p>
+    Pumpfiat uses necessary session cookies for secure administration. With your permission, a 30-day referral cookie remembers which partner referred you. You can still enter a referral code if you continue without it.
+    <a href="/cookie-policy.html">Cookie Notice</a>
+  </p>
+  <div class="cookie-actions">
+    <button type="button" data-cookie-choice="accept">Allow referral cookie</button>
+    <button type="button" data-cookie-choice="reject">Continue without</button>
+  </div>
+  <p class="cookie-status" id="cookieStatus" role="status" aria-live="polite"></p>
+</aside>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a class="site-brand" href="/" aria-label="Pumpfiat home">
+      <img src="/assets/logo.png" alt="">
+      <span class="site-wordmark">Pumpfiat</span>
+    </a>
+    <nav class="site-footer-nav" aria-label="Explore">
+      <a href="/">Solutions</a>
+      <a href="/compliance.html">Trust</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/career/">Careers</a>
+      <a href="/opportunities/">Opportunities</a>
+    </nav>
+    <nav class="site-footer-nav site-legal-nav" aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/cookie-policy.html">Cookie Notice</a>
+    </nav>
+    <div class="site-legal-contact">
+      <strong>Pumpfiat LLC</strong>
+      <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a>
+    </div>
+    <div class="site-certifications" aria-label="Pumpfiat certifications">
+      <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy">
+    </div>
+    <p class="site-copyright">© <span data-current-year>2026</span> Pumpfiat LLC. All rights reserved.</p>
+  </div>
+</footer>
+<script src="/assets/site-shell.js" defer></script>
+</body>
+</html>

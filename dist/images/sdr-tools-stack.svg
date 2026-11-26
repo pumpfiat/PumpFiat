@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+  <title id="title">Core components of an SDR technology stack</title>
+  <desc id="desc">An SDR workflow connects CRM and records, prospect research, approved outreach, scheduling and collaboration, and outcome reporting.</desc>
+  <rect width="1200" height="440" rx="28" fill="#f3faf9"/>
+  <text x="60" y="70" fill="#17212b" font-family="Arial,sans-serif" font-size="30" font-weight="700">Build an SDR stack around the workflow</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <path d="M255 220h90m160 0h90m160 0h90m160 0h90" stroke="#9bcbd0" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(170 220)"><rect x="-85" y="-62" width="170" height="124" rx="18" fill="#00778c"/><text y="-8" fill="#fff" font-size="18" font-weight="700">CRM &amp;</text><text y="20" fill="#fff" font-size="18">records</text></g>
+    <g transform="translate(420 220)"><rect x="-85" y="-62" width="170" height="124" rx="18" fill="#00778c"/><text y="-8" fill="#fff" font-size="18" font-weight="700">Research &amp;</text><text y="20" fill="#fff" font-size="18">prospecting</text></g>
+    <g transform="translate(670 220)"><rect x="-85" y="-62" width="170" height="124" rx="18" fill="#00778c"/><text y="-8" fill="#fff" font-size="18" font-weight="700">Approved</text><text y="20" fill="#fff" font-size="18">outreach</text></g>
+    <g transform="translate(920 220)"><rect x="-85" y="-62" width="170" height="124" rx="18" fill="#00778c"/><text y="-8" fill="#fff" font-size="18" font-weight="700">Meetings &amp;</text><text y="20" fill="#fff" font-size="18">collaboration</text></g>
+    <g transform="translate(1120 220)"><rect x="-65" y="-62" width="130" height="124" rx="18" fill="#00778c"/><text y="-8" fill="#fff" font-size="17" font-weight="700">Reporting</text><text y="20" fill="#fff" font-size="16">&amp; learning</text></g>
+  </g>
+  <text x="600" y="360" fill="#40515c" font-family="Arial,sans-serif" font-size="18" text-anchor="middle">Choose only what supports your actual sales process, data practices, and team size.</text>
+</svg>
