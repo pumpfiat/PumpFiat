@@ -45,7 +45,8 @@ When adding or replacing PNG/JPEG photos, run `npm run images` to create native-
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `PUMPFIAT_PORT` | HTTP listener port | `4174` |
+| `PORT` | Port supplied by the hosting platform | Used when set |
+| `PUMPFIAT_PORT` | Fallback HTTP listener port when `PORT` is unset | `4174` |
 | `PUMPFIAT_ADMIN_PASSWORD` | Required password for administrator login | unset (admin login is unavailable) |
 | `PUMPFIAT_SESSION_SECRET` | HMAC secret for referral/edit tokens | Persisted random secret in the database |
 | `PUMPFIAT_PUBLIC_URL` | Public origin used when generating links and canonical URLs | `https://pumpfiat.com` for the build; relative referral links at runtime |
@@ -60,7 +61,19 @@ The optional referral cookie is set only after consent. Declining does not preve
 
 ## Deployment and URL handling
 
-For the complete site, deploy the Node service and its generated `dist/` output, configure the environment variables above, enable HTTPS, and attach persistent storage for the SQLite database. A static-only deployment serves the marketing pages but cannot operate the referral API or admin actions.
+### Netlify + Render
+
+The production configuration uses Netlify for the static site and Render for the referral API:
+
+1. Deploy the repository to Netlify. `netlify.toml` builds and publishes `dist/` and proxies `/api/*` requests to `https://pumpfiat-api.onrender.com`, keeping browser requests same-origin.
+2. In Render, create a Blueprint from this repository and its `render.yaml`. Keep the service name `pumpfiat-api` unless you also change the proxy target in `netlify.toml`.
+3. On the first Blueprint setup, provide a strong `PUMPFIAT_ADMIN_PASSWORD` in Render. The Blueprint generates `PUMPFIAT_SESSION_SECRET`; neither secret belongs in the repository.
+4. The Render service uses a persistent disk mounted at `/var/data` for SQLite. This requires a paid Render service plan; do not switch to ephemeral storage or the referral records can be lost.
+5. Wait for `https://pumpfiat-api.onrender.com/api/config` to return JSON, then verify registration and admin login through the production site.
+
+The Blueprint sets `PUMPFIAT_PUBLIC_URL` to `https://pumpfiat.com`. Change it in `render.yaml` if the canonical production domain differs. The API server honors Render's `PORT` environment variable; `PUMPFIAT_PORT` remains available for local use.
+
+A static-only deployment serves the marketing pages but cannot operate the referral API or admin actions.
 
 The server serves `/` from `index.html`, directory URLs from their `index.html`, and `404.html` with an HTTP 404 status for missing paths. It does not implement legacy URL redirects. The retired meta-refresh pages have been removed; configure explicit redirects in the hosting platform if old URLs must continue to resolve. `sitemap.xml` lists generated public pages; `robots.txt` excludes admin/API paths from crawling, but crawler directives do not provide access control.
 

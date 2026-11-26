@@ -486,7 +486,7 @@ export async function createServer() {
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
-  const port=Number(process.env.PUMPFIAT_PORT||4174);
+  const port=Number(process.env.PORT||process.env.PUMPFIAT_PORT||4174);
   await buildSite();
   createServer().then(server=>server.listen(port,"0.0.0.0",()=>console.log(`Pumpfiat server listening on http://0.0.0.0:${port}`)));
 }

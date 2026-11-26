@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: pumpfiat-api
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/config
+    disk:
+      name: pumpfiat-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUMPFIAT_DATA_DIR
+        value: /var/data
+      - key: PUMPFIAT_PUBLIC_URL
+        value: https://pumpfiat.com
+      - key: PUMPFIAT_SESSION_SECRET
+        generateValue: true
+      - key: PUMPFIAT_ADMIN_PASSWORD
+        sync: false
