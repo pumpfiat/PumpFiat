@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /career/
-Allow: /onboarding.html
-Disallow: /private
 Disallow: /admin
-Disallow: /dashboard
+Disallow: /api/
 Sitemap: https://pumpfiat.com/sitemap.xml

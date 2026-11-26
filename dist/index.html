@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Business Solutions, Technology &amp; Innovation | Pumpfiat</title>
+  <title>Permission-Based B2B Outreach | Pumpfiat</title>
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="./assets/favicon.png" />
 <link rel="apple-touch-icon" href="./assets/favicon.png" />
@@ -356,7 +356,10 @@
     .mini-brand-strip {
       margin-top: 1.1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; padding: 1rem 1.2rem; border-radius: 1rem; background: rgba(255,255,255,0.8); border: 1px solid rgba(16,24,40,0.08);
     }
-    .mini-brand-strip img { max-height: 40px; filter: grayscale(1) opacity(0.8); }
+    .mini-brand-strip img {
+      flex: 0 1 8rem; width: 8rem; max-width: 100%; height: 2.5rem; max-height: 40px;
+      object-fit: contain; object-position: center; filter: grayscale(1) opacity(0.8);
+    }
 
     .footer-wrap { background: #0f172a; color: #fff; }
     .footer-grid {
@@ -393,6 +396,9 @@
       .cta-panel-inner { align-items: flex-start; }
       .mini-header { flex-direction: column; align-items: flex-start; }
       .pipeline-board { grid-template-columns: 1fr; }
+      .mini-brand-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; padding: 0.75rem; }
+      .mini-brand-strip picture { display: flex; justify-content: center; }
+      .mini-brand-strip img { width: 100%; max-width: 8rem; justify-self: center; }
       .client-review-grid, .professional-story-grid { grid-template-columns: 1fr; }
       .client-review, .client-review:nth-child(4), .client-review:nth-child(5) { grid-column: auto; }
     }
@@ -405,17 +411,17 @@
     .pf-content strong { font-weight: 800; color: #00778C; }
     .pf-meta { margin-top: 6px; font-size: 11px; color: #6b7280; }
   </style>
-  <meta name="description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta name="description" content="Pumpfiat helps B2B teams find relevant prospects and run compliant outreach with research-led data and audit-ready workflows.">
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://pumpfiat.com/">
-  <meta property="og:title" content="Business Solutions, Technology &amp; Innovation | Pumpfiat">
-  <meta property="og:description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta property="og:title" content="Permission-Based B2B Outreach | Pumpfiat">
+  <meta property="og:description" content="Pumpfiat helps B2B teams find relevant prospects and run compliant outreach with research-led data and audit-ready workflows.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pumpfiat.com/">
   <meta property="og:image" content="https://pumpfiat.com/assets/logo.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Business Solutions, Technology &amp; Innovation | Pumpfiat">
-  <meta name="twitter:description" content="Pumpfiat helps growth teams access compliant, permission-based prospect data and conversion-ready outreach tools.">
+  <meta name="twitter:title" content="Permission-Based B2B Outreach | Pumpfiat">
+  <meta name="twitter:description" content="Pumpfiat helps B2B teams find relevant prospects and run compliant outreach with research-led data and audit-ready workflows.">
   <meta name="twitter:image" content="https://pumpfiat.com/assets/logo.png">
 
 
@@ -431,59 +437,33 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="eager"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-primary-nav" aria-label="Primary navigation">
-      <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
       <a href="/compliance.html" data-site-nav="trust">Trust</a>
       <a href="/about.html" data-site-nav="about">About</a>
       <a href="/resources.html" data-site-nav="resources">Resources</a>
       <a href="/career/" data-site-nav="careers">Careers</a>
+      <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
     </nav>
     <a class="site-cta" href="/onboarding.html">Request an audit</a>
     <details class="site-mobile-nav">
-      <summary aria-label="Open navigation menu" aria-expanded="false">
+      <summary aria-label="Open navigation menu" aria-controls="mobile-primary-navigation" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
       </summary>
-      <nav aria-label="Mobile navigation">
-        <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
+      <nav id="mobile-primary-navigation" aria-label="Mobile navigation">
         <a href="/compliance.html" data-site-nav="trust">Trust</a>
         <a href="/about.html" data-site-nav="about">About</a>
         <a href="/resources.html" data-site-nav="resources">Resources</a>
         <a href="/career/" data-site-nav="careers">Careers</a>
+        <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
         <a class="site-cta" href="/onboarding.html">Request an audit</a>
       </nav>
     </details>
   </div>
 </header>
-  <header class="topbar" hidden>
-    <div class="site-shell topbar-inner">
-      <div class="brand-lockup">
-        <img src="assets/logo.png" alt="Pumpfiat logo" class="logo-bridge">
-        <div class="brand-wordmark">Pumpfiat</div>
-        <span class="pill-badge">Growth, in motion</span>
-      </div>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="about.html">About</a>
-        <a href="opportunities/">Opportunities</a>
-        <a href="dataanalysis.html">Data</a>
-        <a href="career/index.html">Careers</a>
-      </nav>
-
-      <div class="desktop-actions">
-        <a href="onboarding.html" class="button-primary btn-primary">Get Started <span class="btn-arrow">↗</span></a>
-      </div>
-
-      <button id="mobileMenuBtn" aria-expanded="false" class="mobile-menu-toggle md:hidden p-2 text-2xl text-gray-700" title="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-  </header>
+  
 
   <main id="main-content">
     <section id="solutions" class="hero-section">
@@ -506,7 +486,7 @@
             <div><strong>Verified data. Better conversations.</strong> Research-led prospecting for teams that want cleaner pipelines and stronger conversions.</div>
           </div>
           <div class="hero-security">
-            <img src="assets/security/soc2.png" alt="SOC 2 Shield" />
+            <picture><source type="image/webp" srcset="/assets/security/soc2.480.webp 480w, /assets/security/soc2.webp 800w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/security/soc2.png" alt="SOC 2 Shield" / width="800" height="800" loading="eager" fetchpriority="high"></picture>
             <div><strong>Security First.</strong><br />Certification target completed — Q3 2025.</div>
           </div>
         </div>
@@ -703,44 +683,19 @@
 
     <section class="site-shell" style="padding-bottom: 3rem;">
       <div class="mini-brand-strip">
-        <img src="assets/logos/asha.png" alt="Asha Health" />
-        <img src="assets/logos/fresco.png" alt="Fresco" />
-        <img src="assets/logos/triply.png" alt="Triply" />
-        <img src="assets/logos/paidhr.png" alt="PaidHR" />
-        <img src="assets/logos/galini.png" alt="Galini" />
-        <img src="assets/logos/beerme.png" alt="BeerMe" />
+        <picture><source type="image/webp" srcset="/assets/logos/asha.webp 200w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/asha.png" alt="Asha Health" / width="200" height="200" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="/assets/logos/fresco.webp 200w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/fresco.png" alt="Fresco" / width="200" height="200" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="/assets/logos/triply.webp 225w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/triply.png" alt="Triply" / width="225" height="225" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="/assets/logos/paidhr.480.webp 480w, /assets/logos/paidhr.960.webp 960w, /assets/logos/paidhr.webp 1051w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/paidhr.png" alt="PaidHR" / width="1051" height="1097" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="/assets/logos/galini.480.webp 480w, /assets/logos/galini.960.webp 960w, /assets/logos/galini.1440.webp 1440w, /assets/logos/galini.webp 1536w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/galini.png" alt="Galini" / width="1536" height="1024" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="/assets/logos/beerme.webp 200w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="assets/logos/beerme.png" alt="BeerMe" / width="200" height="200" loading="lazy"></picture>
       </div>
     </section>
   </main>
 
-        <footer class="pf-standard-footer" id="contact" hidden>
-    <div class="pf-footer-wrap">
-      <div class="pf-footer-grid">
-        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="Pumpfiat logo"><div><strong>Pumpfiat</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
-        <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
-        <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
-      </div>
-      <div class="pf-footer-badges" aria-label="Pumpfiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
-      <div class="pf-footer-legal">&copy; 2026 Pumpfiat - All Rights Reserved.</div>
-    </div>
-  </footer>
+        
 
-  <div id="mobileMenu" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden">
-    <div id="mobilePanel" class="bg-white w-4/5 max-w-xs h-full p-6 transform -translate-x-full transition-transform duration-300">
-      <button id="mobileClose" class="mb-6 text-3xl text-gray-800 font-light">✕</button>
-      <nav class="space-y-5">
-        <a href="#offer" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Offer</a>
-        <a href="#services" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Services</a>
-        <a href="#industries" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Industries</a>
-        <a href="about.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">About</a>
-        <a href="opportunities/" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Opportunities</a>
-        <a href="career/index.html" class="block text-lg font-semibold text-gray-800 hover:text-[color:var(--color-accent)]">Careers</a>
-      </nav>
-      <div class="mt-10">
-        <a href="onboarding.html" class="block text-center btn-primary px-4 py-3 rounded-xl font-bold shadow-md">Get Started</a>
-      </div>
-    </div>
-  </div>
+  
 <script src="opportunities/campaigns.js"></script>
 <script>
 (() => {
@@ -765,56 +720,14 @@
   }
 })();
 </script>
-<script>
-  const btn = document.getElementById('mobileMenuBtn');
-  const menu = document.getElementById('mobileMenu');
-  const panel = document.getElementById('mobilePanel');
-  const close = document.getElementById('mobileClose');
 
-  // Open mobile menu
-  btn?.addEventListener('click', () => {
-    menu.classList.remove('hidden');
-    setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
-    document.body.style.overflow = "hidden";
-  });
-
-  // Close menu
-  function closeMenu() {
-    panel.classList.add('-translate-x-full');
-    setTimeout(() => menu.classList.add('hidden'), 250);
-    document.body.style.overflow = "auto";
-  }
-
-  close?.addEventListener('click', closeMenu);
-
-  // Close menu when clicking outside panel
-  menu?.addEventListener('click', (e) => {
-    if (e.target === menu) closeMenu();
-  });
-
-  // Smooth scroll for anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (!href || href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        closeMenu();
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 250);
-      }
-    });
-  });
-</script>
 
 <script>
   const leadForm = document.getElementById('leadForm');
   const formContainer = document.getElementById('formContainer');
   const successMessage = document.getElementById('successMessage');
 
-  leadForm.addEventListener('submit', function(e) {
+  leadForm?.addEventListener('submit', function(e) {
     // Change button to loading state
     const submitBtn = leadForm.querySelector('button[type="submit"]');
     submitBtn.textContent = 'Sending...';
@@ -822,7 +735,7 @@
   });
 
   // Check if URL has ?success parameter (FormSubmit adds this on return)
-  if (window.location.search.includes('success')) {
+  if (window.location.search.includes('success') && formContainer && successMessage) {
     formContainer.classList.add('hidden');
     successMessage.classList.remove('hidden');
     // Optional: clean URL without reloading
@@ -944,7 +857,7 @@ window.addEventListener("load", () => {
 })();
 </script>
 <script>
-document.getElementById('leak-form').addEventListener('submit', function(e) {
+document.getElementById('leak-form')?.addEventListener('submit', function(e) {
   e.preventDefault(); // Prevent immediate submission
 
   const email = document.getElementById('leak-email').value.trim();
@@ -993,7 +906,7 @@ document.getElementById('leak-form').addEventListener('submit', function(e) {
 </script>
 
 <script>
-document.getElementById('auditForm').addEventListener('submit', async function (e) {
+document.getElementById('auditForm')?.addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const fields = document.getElementById('formFields');
@@ -1007,7 +920,7 @@ document.getElementById('auditForm').addEventListener('submit', async function (
   const data = new FormData(this);
 
   try {
-    await fetch("https://formsubmit.co/ajax/pumpfiat@gmail.com", {
+    await fetch("https://formsubmit.co/ajax/sales@pumpfiat.com", {
       method: "POST",
       body: data,
       headers: { "Accept": "application/json" }
@@ -1032,7 +945,7 @@ document.getElementById('auditForm').addEventListener('submit', async function (
 <footer class="site-footer">
   <div class="site-footer-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="lazy"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-footer-nav" aria-label="Explore">
@@ -1054,9 +967,9 @@ document.getElementById('auditForm').addEventListener('submit', async function (
     </div>
     <div class="site-certifications" aria-label="Pumpfiat certifications">
       <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/mbe-certificate.svg" alt="Minority Business Enterprise certification" width="124" height="64" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/certs/hipaa_1@0.5x.480.webp 480w, /assets/certs/hipaa_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="/assets/certs/soc_1@0.5x.480.webp 480w, /assets/certs/soc_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy"></picture>
     </div>
     <p class="site-copyright">© <span data-current-year>2026</span> Pumpfiat LLC. All rights reserved.</p>
   </div>

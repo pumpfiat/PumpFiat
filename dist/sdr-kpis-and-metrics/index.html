@@ -74,63 +74,39 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="eager"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-primary-nav" aria-label="Primary navigation">
-      <a href="/" data-site-nav="solutions">Solutions</a>
       <a href="/compliance.html" data-site-nav="trust">Trust</a>
       <a href="/about.html" data-site-nav="about">About</a>
-      <a href="/resources.html" data-site-nav="resources" aria-current="page">Resources</a>
+      <a href="/resources.html" data-site-nav="resources" aria-current="location">Resources</a>
       <a href="/career/" data-site-nav="careers">Careers</a>
+      <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
     </nav>
     <a class="site-cta" href="/onboarding.html">Request an audit</a>
     <details class="site-mobile-nav">
-      <summary aria-label="Open navigation menu" aria-expanded="false">
+      <summary aria-label="Open navigation menu" aria-controls="mobile-primary-navigation" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
       </summary>
-      <nav aria-label="Mobile navigation">
-        <a href="/" data-site-nav="solutions">Solutions</a>
+      <nav id="mobile-primary-navigation" aria-label="Mobile navigation">
         <a href="/compliance.html" data-site-nav="trust">Trust</a>
         <a href="/about.html" data-site-nav="about">About</a>
-        <a href="/resources.html" data-site-nav="resources" aria-current="page">Resources</a>
+        <a href="/resources.html" data-site-nav="resources" aria-current="location">Resources</a>
         <a href="/career/" data-site-nav="careers">Careers</a>
+        <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
         <a class="site-cta" href="/onboarding.html">Request an audit</a>
       </nav>
     </details>
   </div>
 </header>
-  <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100" hidden>
-    <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3" aria-label="Pumpfiat homepage">
-        <img src="/assets/logo.png" alt="Pumpfiat logo" class="logo-bridge object-contain">
-        <span class="text-xl md:text-2xl font-extrabold tracking-tight">Pumpfiat</span>
-      </a>
-      <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="/#solutions">Solutions</a><a href="/about.html">About</a><a href="/resources.html" class="text-[#00778C] font-bold">Resources</a>
-      </nav>
-      <a href="/onboarding.html" class="hidden lg:block btn-primary px-4 py-2.5 rounded-xl font-bold shadow-md text-sm">Talk to Pumpfiat</a>
-      <details class="relative lg:hidden">
-        <summary aria-label="Open navigation menu" class="list-none cursor-pointer rounded-lg p-2 text-gray-700">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </summary>
-        <nav aria-label="Mobile navigation" class="absolute right-0 top-full mt-2 w-64 rounded-xl border bg-white p-4 shadow-lg">
-          <a href="/#solutions" class="block py-2 text-sm font-medium text-gray-700">Solutions</a>
-          <a href="/about.html" class="block py-2 text-sm font-medium text-gray-700">About</a>
-          <a href="/resources.html" class="block py-2 text-sm font-medium text-gray-700">Resources</a>
-          <a href="/onboarding.html" class="mt-3 block rounded-lg bg-[#00778C] px-4 py-3 text-center text-sm font-semibold text-white">Talk to Pumpfiat</a>
-        </nav>
-      </details>
-    </div>
-  </header>
+  
 
   <main id="main-content">
     <section class="pt-14 pb-10">
       <div class="max-w-6xl mx-auto px-6">
         <div class="rounded-2xl overflow-hidden border border-teal-100 bg-white mb-10">
-          <img src="/images/sdrkpiandmetrics.jpeg" alt="Illustrated cover for the SDR KPIs and metrics guide, showing activity, conversion, and pipeline measures." class="w-full h-auto">
+          <picture><source type="image/webp" srcset="/images/sdrkpiandmetrics.480.webp 480w, /images/sdrkpiandmetrics.960.webp 960w, /images/sdrkpiandmetrics.webp 1408w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/images/sdrkpiandmetrics.jpeg" alt="Illustrated cover for the SDR KPIs and metrics guide, showing activity, conversion, and pipeline measures." class="w-full h-auto" width="1408" height="768" loading="eager" fetchpriority="high"></picture>
         </div>
         <div class="max-w-4xl mx-auto text-center">
           <p class="text-xs text-gray-500 uppercase font-semibold tracking-widest mb-4">Sales Performance · Metrics Guide · November 11, 2026</p>
@@ -279,15 +255,7 @@
             <h3>Can you measure SDR performance without a CRM?</h3><p>A spreadsheet may work for a very small starting pipeline, but a CRM helps maintain accurate records and consistent reporting as activity grows.</p>
           </section>
 
-          <section id="related">
-            <h2>Build your SDR hiring and management system</h2>
-            <ul class="list-disc pl-6 space-y-2 mt-3">
-              <li><a href="/hire-sales-development-representatives-globally">Hire sales development representatives globally</a>.</li>
-              <li><a href="/best-countries-to-hire-remote-sales-representatives">Compare countries for remote sales hiring</a>.</li>
-              <li><a href="/how-much-does-it-cost-to-hire-an-sdr">Estimate the cost of hiring an SDR</a>.</li>
-              <li><a href="/how-to-hire-a-remote-sdr">Hire and evaluate a remote SDR</a>.</li>
-            </ul>
-          </section>
+          
           <section class="mt-8 p-6 rounded-xl bg-white border" aria-label="Benchmark source">
             <h2 class="mt-0 text-2xl font-extrabold">Benchmark source</h2>
             <p class="mt-2 text-base">Bertuzzi, M. (2025). <em>SDR Models, Motions &amp; Metrics: 2025 Research Report</em> (10th ed.), The Bridge Group. <a href="https://blog.bridgegroupinc.com/sales-development-metrics" target="_blank" rel="noopener noreferrer">Read the research summary and methodology</a>.</p>
@@ -295,7 +263,7 @@
 
           <section class="mt-12 p-6 rounded-xl bg-white border" aria-label="About the author">
             <div class="flex flex-col sm:flex-row gap-5 items-start">
-              <img src="/images/yusuf-passport.png" alt="Yusuf Taiwo, founder of Pumpfiat" class="w-24 h-24 rounded-2xl object-cover">
+              <picture><source type="image/webp" srcset="/images/yusuf-passport.480.webp 480w, /images/yusuf-passport.webp 864w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/images/yusuf-passport.png" alt="Yusuf Taiwo, founder of Pumpfiat" class="w-24 h-24 rounded-2xl object-cover" width="864" height="943" loading="lazy"></picture>
               <div><h2 class="mt-0 text-2xl font-extrabold">About the author</h2>
                 <p class="mt-2 text-base">Yusuf Taiwo is the founder of Pumpfiat, a Notion Partner, automation expert, and AI systems builder. <a href="/about.html">Read Yusuf's full profile and experience</a>.</p>
               </div>
@@ -309,21 +277,36 @@
               <a href="/onboarding.html" class="bg-white/15 border border-white/40 px-5 py-3 rounded-xl font-bold">Talk to our team</a>
             </div>
           </section>
-        </article>
+        
+      <section id="related" data-keep-learning class="not-prose mt-20 rounded-2xl bg-gradient-to-r from-[color:var(--color-accent)] to-[#00606b] p-8 text-white">
+        <h2 class="mb-6 text-3xl font-extrabold">Keep Learning</h2>
+        <div class="grid gap-6 md:grid-cols-3">
+          <a data-keep-learning-card href="/how-much-does-it-cost-to-hire-an-sdr/" class="rounded-xl bg-white/10 p-5 text-white no-underline backdrop-blur transition hover:bg-white/20">
+            <div class="mb-2 text-xs uppercase text-white/80">Sales Hiring</div>
+            <h3 class="text-lg font-bold">How Much Does It Cost to Hire an SDR?</h3>
+            <p class="mt-2 text-sm text-white/80">Discover how much it costs to hire an SDR, compare salary and commission structures, understand recruitment expenses and explore global remote sales hiring.</p>
+          </a>
+          <a data-keep-learning-card href="/in-house-sdrs-vs-outsourced-sales-development/" class="rounded-xl bg-white/10 p-5 text-white no-underline backdrop-blur transition hover:bg-white/20">
+            <div class="mb-2 text-xs uppercase text-white/80">Sales Development</div>
+            <h3 class="text-lg font-bold">In-House SDRs vs Outsourced Sales Development: Which Is Better?</h3>
+            <p class="mt-2 text-sm text-white/80">Should you hire an in-house SDR team or outsource sales development? Compare costs, control, scalability, recruitment, and performance to choose the right mo...</p>
+          </a>
+          <a data-keep-learning-card href="/sales-development-vs-business-development/" class="rounded-xl bg-white/10 p-5 text-white no-underline backdrop-blur transition hover:bg-white/20">
+            <div class="mb-2 text-xs uppercase text-white/80">Sales Development</div>
+            <h3 class="text-lg font-bold">Sales Development vs Business Development: What’s the Difference?</h3>
+            <p class="mt-2 text-sm text-white/80">Understand the difference between sales development and business development, their responsibilities, skills, KPIs, and how businesses should structure both...</p>
+          </a>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="/resources.html" class="inline-block rounded-xl border border-white/40 bg-[#004652] px-6 py-3 font-bold text-white no-underline transition hover:bg-[#003943]">Browse all resources</a>
+        </div>
+      </section>
+  
+</article>
       </div>
     </section>
   </main>
-      <footer class="pf-standard-footer" id="contact" hidden>
-    <div class="pf-footer-wrap">
-      <div class="pf-footer-grid">
-        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="Pumpfiat logo"><div><strong>Pumpfiat</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
-        <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
-        <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
-      </div>
-      <div class="pf-footer-badges" aria-label="Pumpfiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
-      <div class="pf-footer-legal">&copy; 2026 Pumpfiat - All Rights Reserved.</div>
-    </div>
-  </footer>
+      
 
 <aside class="cookie-notice" id="cookieNotice" aria-label="Cookie choices" hidden>
   <p>
@@ -339,7 +322,7 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="lazy"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-footer-nav" aria-label="Explore">
@@ -361,9 +344,9 @@
     </div>
     <div class="site-certifications" aria-label="Pumpfiat certifications">
       <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/mbe-certificate.svg" alt="Minority Business Enterprise certification" width="124" height="64" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/certs/hipaa_1@0.5x.480.webp 480w, /assets/certs/hipaa_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="/assets/certs/soc_1@0.5x.480.webp 480w, /assets/certs/soc_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy"></picture>
     </div>
     <p class="site-copyright">© <span data-current-year>2026</span> Pumpfiat LLC. All rights reserved.</p>
   </div>

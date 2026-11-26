@@ -280,7 +280,7 @@ async function handleApi(req,res,url) {
       if(code){referrer=db.prepare("SELECT * FROM participants WHERE referral_code=?").get(code);if(!referrer)return json(res,400,{error:"Invalid or expired referral code"});}
       if(referrer&&referrer.normalized_registration_email===email)return json(res,400,{error:"You cannot use your own referral link to register"});
       const existing=db.prepare("SELECT * FROM participants WHERE normalized_registration_email=?").get(email);
-      if(existing)return json(res,409,{error:"An account with this email already exists. Contact PumpFiat if you need help accessing your referral details."});
+      if(existing)return json(res,409,{error:"An account with this email already exists. Contact Pumpfiat if you need help accessing your referral details."});
       const referralCode=generateReferralCode(firstName),editToken=randomToken(24);
       db.exec("BEGIN");
       let result;

@@ -115,6 +115,11 @@ function checkLinks(file, relativePath, html) {
   for (const match of visibleHtml.matchAll(/url\(\s*(["']?)([^"')]+)\1\s*\)/gi)) {
     references.push({ attribute: "url()", value: decodeHtml(match[2].trim()) });
   }
+  for (const style of visibleHtml.matchAll(/\bstyle\s*=\s*(["'])(.*?)\1/gi)) {
+    if (/background-image\s*:[^;]*\s+background-image\s*:/i.test(style[2])) {
+      errors.push(`${relativePath}: malformed duplicate background-image declaration`);
+    }
+  }
 
   for (const reference of references) {
     const value = reference.value.trim();
@@ -148,13 +153,29 @@ function checkLinks(file, relativePath, html) {
 
 function checkAccessibilityAndSeo(relativePath, html) {
   if (relativePath.startsWith(`admin${path.sep}`)) return;
-  for (const [tag, className] of [["header", "site-header"], ["main", "main-content"], ["footer", "site-footer"]]) {
-    const count = [...html.matchAll(new RegExp(`<${tag}\\b([^>]*)>`, "gi"))]
-      .filter((match) => !/(?:^|\s)hidden(?:\s|=|$)/i.test(match[1]))
-      .filter((match) => match[1].includes(className) || (tag === "main" && /\bid\s*=\s*(["'])main-content\1/i.test(match[1]))).length;
-    if (count !== 1) errors.push(`${relativePath}: expected one shared ${tag} landmark`);
+  for (const tag of ["header", "main", "footer"]) {
+    const count = [...html.matchAll(new RegExp(`<${tag}\\b`, "gi"))].length;
+    if (count !== 1) errors.push(`${relativePath}: expected exactly one ${tag} landmark, found ${count}`);
   }
   if (/<img\b(?![^>]*\balt\s*=)[^>]*>/i.test(html)) errors.push(`${relativePath}: image is missing alt text`);
+  for (const image of html.matchAll(/<img\b([^>]*)>/gi)) {
+    if (!/\bwidth\s*=\s*(["'])\d+\1/i.test(image[1]) || !/\bheight\s*=\s*(["'])\d+\1/i.test(image[1])) {
+      errors.push(`${relativePath}: image is missing intrinsic width/height`);
+    }
+  }
+  for (const anchor of html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi)) {
+    const attributes = anchor[1];
+    const content = anchor[2]
+      .replace(/<img\b[^>]*\balt\s*=\s*(["'])(.*?)\1[^>]*>/gi, "$2")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&nbsp;/gi, " ")
+      .replace(/&amp;/gi, "&")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!content && !/\b(?:aria-label|title)\s*=/i.test(attributes)) {
+      errors.push(`${relativePath}: link has no accessible name`);
+    }
+  }
   if (/<a\b[^>]*\btarget\s*=\s*(["'])_blank\1(?![^>]*\brel\s*=\s*(["'])[^"']*(?:noopener|noreferrer)[^"']*\2)[^>]*>/i.test(html)) {
     errors.push(`${relativePath}: external target=_blank link lacks rel=noopener noreferrer`);
   }
@@ -170,9 +191,17 @@ function checkAccessibilityAndSeo(relativePath, html) {
   }
   if (!/<link\b[^>]*\brel\s*=\s*(["'])canonical\1/i.test(html)) errors.push(`${relativePath}: missing canonical URL`);
   if (!html.includes('id="cookieNotice"')) errors.push(`${relativePath}: missing cookie notice`);
+  if (!/<a\b[^>]*class\s*=\s*(["'])[^"']*\bskip-link\b[^"']*\1[^>]*href\s*=\s*(["'])#[^"']+\2/i.test(html)) {
+    errors.push(`${relativePath}: missing a working skip link`);
+  }
 }
 
 if (!fs.existsSync(DIST)) throw new Error("Run npm run build before checking the generated site.");
+const uniqueValues = new Map([
+  ["title", new Map()],
+  ["description", new Map()],
+  ["canonical", new Map()],
+]);
 for (const file of walk(DIST)) {
   const html = fs.readFileSync(file.absolutePath, "utf8");
   htmlFiles.push({ ...file, html });
@@ -184,10 +213,58 @@ for (const file of walk(DIST)) {
     errors.push(`${label}: missing html/head/body document structure`);
   }
   if (!/^<!doctype html>/i.test(html.trimStart())) errors.push(`${label}: missing HTML5 doctype`);
+  if (!file.relativePath.startsWith(`admin${path.sep}`)) {
+    const values = {
+      title: html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim(),
+      description: html.match(/<meta\b(?=[^>]*\bname\s*=\s*(["'])description\1)[^>]*\bcontent\s*=\s*(["'])(.*?)\2[^>]*>/i)?.[3],
+      canonical: html.match(/<link\b(?=[^>]*\brel\s*=\s*(["'])canonical\1)[^>]*\bhref\s*=\s*(["'])(.*?)\2[^>]*>/i)?.[3],
+    };
+    for (const [kind, value] of Object.entries(values)) {
+      if (!value) continue;
+      const previous = uniqueValues.get(kind).get(value);
+      if (previous) errors.push(`${label}: duplicate ${kind} also used by ${previous}`);
+      else uniqueValues.get(kind).set(value, label);
+    }
+  }
 }
 
 const sitemap = fs.readFileSync(path.join(DIST, "sitemap.xml"), "utf8");
 if (/resource\d+\.html|resources\d+\.html|\/admin(?:\/|<)/i.test(sitemap)) errors.push("Sitemap contains a redirect stub or admin URL.");
+const opportunitiesIndex = htmlFiles.find(({ relativePath }) => relativePath.split(path.sep).join("/") === "opportunities/index.html");
+if (opportunitiesIndex && /Loading opportunities/i.test(opportunitiesIndex.html)) {
+  errors.push("opportunities/index.html: opportunity cards must not use a loading placeholder.");
+}
+const resourcesPage = htmlFiles.find(({ relativePath }) => relativePath.split(path.sep).join("/") === "resources.html");
+if (resourcesPage) {
+  const resourceCardCount = [...resourcesPage.html.matchAll(/<a\b[^>]*\bclass\s*=\s*["'][^"']*\bresource-card\b[^"']*["']/gi)].length;
+  const learningPages = htmlFiles.filter(({ html }) => html.includes("data-keep-learning"));
+  if (learningPages.length !== resourceCardCount) {
+    errors.push(`Resources: expected Keep Learning on ${resourceCardCount} resource articles, found ${learningPages.length}.`);
+  }
+  for (const page of learningPages) {
+    const section = page.html.match(/<section\b(?=[^>]*\bdata-keep-learning\b)[^>]*>[\s\S]*?<\/section\s*>/i)?.[0];
+    if (!section) {
+      errors.push(`${page.relativePath}: Keep Learning section is not well-formed.`);
+      continue;
+    }
+    const cards = [...section.matchAll(/<a\b([^>]*)>/gi)]
+      .filter(([, attributes]) => /\bdata-keep-learning-card\b/i.test(attributes));
+    if (cards.length !== 3) errors.push(`${page.relativePath}: Keep Learning must contain exactly three resource cards.`);
+    const relatedIdCount = [...page.html.matchAll(/\bid\s*=\s*(["'])related\1/gi)].length;
+    if (relatedIdCount !== 1) errors.push(`${page.relativePath}: expected one Keep Learning target for article navigation.`);
+    const currentPath = pageUrl(page.relativePath).replace(/\/+$/, "") || "/";
+    for (const [, attributes] of cards) {
+      const href = attributes.match(/\bhref\s*=\s*(["'])(.*?)\1/i)?.[2];
+      if (!href) continue;
+      const targetPath = new URL(decodeHtml(href), `https://pumpfiat.local${currentPath}`).pathname.replace(/\/+$/, "") || "/";
+      if (targetPath === currentPath) errors.push(`${page.relativePath}: Keep Learning links to the current article.`);
+    }
+  }
+  const globalHiringGuide = htmlFiles.find(({ relativePath }) => relativePath.split(path.sep).join("/") === "best-countries-to-hire-remote-sales-representatives/index.html");
+  if (globalHiringGuide && /Build a thoughtful global hiring plan|aria-label=["']About the author["']/i.test(globalHiringGuide.html)) {
+    errors.push("best-countries-to-hire-remote-sales-representatives: outdated ending blocks remain before Keep Learning.");
+  }
+}
 if (errors.length) {
   console.error(`${errors.length} site check(s) failed:`);
   console.error(errors.slice(0, 100).map((error) => `- ${error}`).join("\n"));

@@ -23,38 +23,34 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="eager"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-primary-nav" aria-label="Primary navigation">
-      <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
       <a href="/compliance.html" data-site-nav="trust">Trust</a>
       <a href="/about.html" data-site-nav="about">About</a>
       <a href="/resources.html" data-site-nav="resources">Resources</a>
       <a href="/career/" data-site-nav="careers">Careers</a>
+      <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
     </nav>
     <a class="site-cta" href="/onboarding.html">Request an audit</a>
     <details class="site-mobile-nav">
-      <summary aria-label="Open navigation menu" aria-expanded="false">
+      <summary aria-label="Open navigation menu" aria-controls="mobile-primary-navigation" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
       </summary>
-      <nav aria-label="Mobile navigation">
-        <a href="/" data-site-nav="solutions" aria-current="page">Solutions</a>
+      <nav id="mobile-primary-navigation" aria-label="Mobile navigation">
         <a href="/compliance.html" data-site-nav="trust">Trust</a>
         <a href="/about.html" data-site-nav="about">About</a>
         <a href="/resources.html" data-site-nav="resources">Resources</a>
         <a href="/career/" data-site-nav="careers">Careers</a>
+        <a href="/opportunities/" data-site-nav="opportunities">Opportunities</a>
         <a class="site-cta" href="/onboarding.html">Request an audit</a>
       </nav>
     </details>
   </div>
 </header>
   
-  <header class="site-header" hidden>
-    <a class="site-brand" href="/" aria-label="Pumpfiat home"><img src="/assets/logo.png" alt=""><span>Pumpfiat</span></a>
-    <nav aria-label="Main navigation"><a href="/">Solutions</a><a href="/compliance.html">Trust</a><a href="/about.html">About</a><a href="/resources.html">Resources</a><a href="/career/">Careers</a></nav>
-    <a class="site-cta" href="/onboarding.html">Request an audit</a>
-  </header>
+  
   <main id="main-content" class="legal-content">
     <h1>Cookie Notice</h1>
     <p><strong>Effective date: November 26, 2026</strong></p>
@@ -64,12 +60,12 @@
     <p>If you accept referral tracking, we store a signed first-touch referral code in an HttpOnly, SameSite=Lax cookie for up to 30 days. It helps connect a later registration to the person who referred you. We do not use this cookie for advertising or analytics. You may continue without it; referral attribution may then be limited to a registration completed while the referral code is still available on the page.</p>
 
     <h2>Essential cookies</h2>
-    <p>A small preference cookie records whether you accepted or declined referral tracking so we can remember your choice. If you sign in to the administrator area, an HttpOnly session cookie is set after login and expires after up to eight hours. These cookies support a requested preference or authenticated session.</p>
+    <p>A preference cookie records whether you accepted or declined referral tracking for up to six months. If you sign in to the administrator area, an HttpOnly session cookie is set after login and expires after up to eight hours. These cookies support a requested preference or authenticated session.</p>
 
     <h2>Third-party services</h2>
     <p>Links to Gumroad and form delivery through FormSubmit take you to or use third-party services that may apply their own cookies and privacy practices. This notice does not control cookies set by those services.</p>
   </main>
-  <footer class="site-footer" hidden><p><strong>Pumpfiat LLC</strong> · <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a></p><nav aria-label="Legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookie-policy.html">Cookie Notice</a></nav></footer>
+  
 
 <aside class="cookie-notice" id="cookieNotice" aria-label="Cookie choices" hidden>
   <p>
@@ -85,7 +81,7 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <picture><source type="image/webp" srcset="/assets/logo.webp 400w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/logo.png" alt="" width="40" height="40" loading="lazy"></picture>
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-footer-nav" aria-label="Explore">
@@ -106,10 +102,10 @@
       <a href="mailto:sales@pumpfiat.com">sales@pumpfiat.com</a>
     </div>
     <div class="site-certifications" aria-label="Pumpfiat certifications">
-      <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy">
-      <img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy">
+      <img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified" width="124" height="64" loading="lazy" fetchpriority="high">
+      <img src="/assets/certs/mbe-certificate.svg" alt="Minority Business Enterprise certification" width="124" height="64" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/certs/hipaa_1@0.5x.480.webp 480w, /assets/certs/hipaa_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant" width="124" height="64" loading="lazy"></picture>
+      <picture><source type="image/webp" srcset="/assets/certs/soc_1@0.5x.480.webp 480w, /assets/certs/soc_1@0.5x.webp 874w" sizes="(max-width: 48rem) 100vw, 48rem"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification" width="124" height="64" loading="lazy"></picture>
     </div>
     <p class="site-copyright">© <span data-current-year>2026</span> Pumpfiat LLC. All rights reserved.</p>
   </div>

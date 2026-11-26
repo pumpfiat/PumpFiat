@@ -63,6 +63,29 @@
       opacity: 1;
       transform: scale(1.05);
     }
+    .about-client-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem 2rem;
+    }
+    @media (max-width: 640px) {
+      .about-client-logos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+      .about-client-logos picture {
+        display: flex;
+        justify-content: center;
+      }
+      .about-client-logos img {
+        width: 100%;
+        max-width: 8rem;
+        height: 2.5rem;
+      }
+    }
     .elevated-card {
       border-radius: 22px;
       background: white;
@@ -98,7 +121,7 @@
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-4 rounded-lg" aria-label="Pumpfiat home">
         <img src="assets/logo.png" alt="Pumpfiat logo" class="w-10 h-10 object-contain">
-        <span class="text-2xl font-extrabold tracking-tight">PUMPFIAT</span>
+        <span class="text-2xl font-extrabold tracking-tight">Pumpfiat</span>
         <span class="hidden lg:inline-flex ml-1 text-xs px-2 py-1 rounded-full bg-[#00778C]/10 text-[#00778C] font-bold">
           1M Reach
         </span>
@@ -196,7 +219,7 @@
 
           <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sm:p-8 text-center flex flex-col justify-center">
             <p class="text-sm font-semibold text-slate-700">Trusted by founders &amp; growth teams worldwide</p>
-            <div class="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
+            <div class="about-client-logos mt-6">
               <img src="assets/logos/asha.png" alt="Asha company logo" class="client-logo">
               <img src="assets/logos/fresco.png" alt="Fresco company logo" class="client-logo">
               <img src="assets/logos/triply.png" alt="Triply company logo" class="client-logo">
@@ -322,7 +345,7 @@
           </article>
 
           <article class="group text-center rounded-2xl p-4 sm:p-5 transition duration-200 hover:-translate-y-1 hover:bg-white hover:shadow-lg">
-            <img src="images/niel harper.png" alt="Niel Harper, Chief Security and Compliance Advisor" class="w-40 h-40 mx-auto rounded-2xl object-cover shadow-xl mb-6">
+            <img src="images/niel-harper.png" alt="Niel Harper, Chief Security and Compliance Advisor" class="w-40 h-40 mx-auto rounded-2xl object-cover shadow-xl mb-6">
             <h3 class="text-2xl font-bold mb-2">Niel Harper</h3>
             <p class="inline-flex rounded-full bg-[#00778C]/10 px-3 py-1.5 text-xs font-semibold text-[#00778C] mb-4">Chief Security &amp; Compliance Advisor</p>
             <p class="text-sm text-slate-600 leading-relaxed">
@@ -426,12 +449,12 @@
       <footer class="pf-standard-footer" id="contact">
     <div class="pf-footer-wrap">
       <div class="pf-footer-grid">
-        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="PumpFiat logo"><div><strong>PUMPFIAT</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
+        <div><div class="pf-footer-brand"><img src="/assets/logo.png" alt="Pumpfiat logo"><div><strong>Pumpfiat</strong><span>Permission-based outreach for measurable growth</span></div></div></div>
         <nav aria-label="Footer navigation"><h2 class="pf-footer-heading">Explore</h2><ul class="pf-footer-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/opportunities/">Opportunities</a></li><li><a href="/career/">Careers</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/dataanalysis.html">Data</a></li><li><a href="/compliance.html">Compliance</a></li><li><a href="/ethical-use.html">Ethical Use</a></li></ul></nav>
         <div class="pf-footer-contact"><h2 class="pf-footer-heading">Start a conversation</h2><p>Request a compliance and data audit or speak with our team about your growth needs.</p><a href="/onboarding.html">Request an audit</a></div>
       </div>
-      <div class="pf-footer-badges" aria-label="PumpFiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe%20cert.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
-      <div class="pf-footer-legal">&copy; 2026 PumpFiat - All Rights Reserved.</div>
+      <div class="pf-footer-badges" aria-label="Pumpfiat certifications"><img src="/assets/certs/iso27001.svg" alt="ISO 27001 Certified"><img src="/assets/certs/mbe-certificate.svg" alt="Minority Business Enterprise Certified"><img src="/assets/certs/hipaa_1@0.5x.png" alt="HIPAA Compliant"><img src="/assets/certs/soc_1@0.5x.png" alt="SOC 2 Certification"></div>
+      <div class="pf-footer-legal">&copy; 2026 Pumpfiat - All Rights Reserved.</div>
     </div>
   </footer>
 
@@ -501,7 +524,7 @@
     const formData = new FormData(footerForm);
 
     try {
-      await fetch("https://formsubmit.co/ajax/pumpfiat@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/sales@pumpfiat.com", {
         method: "POST",
         body: formData,
         headers: { "Accept": "application/json" }

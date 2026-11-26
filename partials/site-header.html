@@ -1,27 +1,27 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="Pumpfiat home">
-      <img src="/assets/logo.png" alt="">
+      <img src="/assets/logo.png" alt="" width="40" height="40">
       <span class="site-wordmark">Pumpfiat</span>
     </a>
     <nav class="site-primary-nav" aria-label="Primary navigation">
-      <a href="/" data-site-nav="solutions"{{ACTIVE_SOLUTIONS}}>Solutions</a>
       <a href="/compliance.html" data-site-nav="trust"{{ACTIVE_TRUST}}>Trust</a>
       <a href="/about.html" data-site-nav="about"{{ACTIVE_ABOUT}}>About</a>
       <a href="/resources.html" data-site-nav="resources"{{ACTIVE_RESOURCES}}>Resources</a>
       <a href="/career/" data-site-nav="careers"{{ACTIVE_CAREERS}}>Careers</a>
+      <a href="/opportunities/" data-site-nav="opportunities"{{ACTIVE_OPPORTUNITIES}}>Opportunities</a>
     </nav>
     <a class="site-cta" href="{{CTA_HREF}}">{{CTA_TEXT}}</a>
     <details class="site-mobile-nav">
-      <summary aria-label="Open navigation menu" aria-expanded="false">
+      <summary aria-label="Open navigation menu" aria-controls="mobile-primary-navigation" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
       </summary>
-      <nav aria-label="Mobile navigation">
-        <a href="/" data-site-nav="solutions"{{ACTIVE_SOLUTIONS}}>Solutions</a>
+      <nav id="mobile-primary-navigation" aria-label="Mobile navigation">
         <a href="/compliance.html" data-site-nav="trust"{{ACTIVE_TRUST}}>Trust</a>
         <a href="/about.html" data-site-nav="about"{{ACTIVE_ABOUT}}>About</a>
         <a href="/resources.html" data-site-nav="resources"{{ACTIVE_RESOURCES}}>Resources</a>
         <a href="/career/" data-site-nav="careers"{{ACTIVE_CAREERS}}>Careers</a>
+        <a href="/opportunities/" data-site-nav="opportunities"{{ACTIVE_OPPORTUNITIES}}>Opportunities</a>
         <a class="site-cta" href="{{CTA_HREF}}">{{CTA_TEXT}}</a>
       </nav>
     </details>
